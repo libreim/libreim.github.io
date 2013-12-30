@@ -45,7 +45,7 @@
 
       /** Traducciones **/
       .m-nav-feed span, .m-nav-all span {
-         display: none;
+         display: none !important;
       }
       .m-cat, .m-forums-title, .m-users-title {
          font-size: 0 !important;
@@ -79,11 +79,21 @@
          font-size: 18px !important;
          content: "Conectados" !important;
       }
+      .m-mobile .m-nav-feed:after, .m-mobile .m-nav-all:after {
+         display: block;
+      }
       .m-nav-feed:after {
          content: "Novedades";
       }
       .m-nav-all:after {
          content: "Todos los posts";
+      }
+      .m-expandable.m-opened .m-show-all {
+         font-size: 0 !important;
+      }
+      .m-expandable.m-opened .m-show-all:before {
+         font-size: 13px !important;
+         content: "menos… ";
       }
 
 
