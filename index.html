@@ -130,6 +130,20 @@
       .m-logo {
          display: none;
       }
+
+
+      .m-links p a:not(.m-selected):hover {
+         text-decoration: underline;
+         background: transparent;
+      }
+      .m-h3 p {
+         display: inline-block;
+         font-size: inherit;
+         font-weight: 300;
+      }
+      .m-h3 p a {
+         font-weight: inherit;
+      }
       </style>
 
       <!-- (1) Moot depends on jQuery v1.7 or greater -->
@@ -180,11 +194,11 @@
             Foro DGIIM
          </a>
        
-         <div class="m-h3">General</div>
-         <a>UGR</a>
-         <a>Off topic</a>
+         <div class="m-h3"><a href="#!/general">General</a></div>
+            <a href="#!/general/ugr">UGR</a>
+            <a href="#!/general/offtopic">Off topic</a>
        
-         <a href="#!/matematicas"><div class="m-h3">Matemáticas</div></a>
+         <div class="m-h3"><a href="#!/matematicas">Matemáticas</a></div>
             <a href="#!/matematicas/analisis">Análisis</a>
             <a href="#!/matematicas/geometria">Geometría</a>
             <a href="#!/matematicas/topologia">Topología</a>
