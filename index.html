@@ -90,7 +90,7 @@
          content: "Novedades";
       }
       .m-nav-all:after {
-         content: "Todos los posts";
+         content: "Todos los temas";
       }
       .m-expandable.m-opened .m-show-all {
          font-size: 0 !important;
@@ -151,6 +151,37 @@
 
       <!-- (1) Moot client application -->
       <script src="https://cdn.moot.it/1/moot.es.min.js"></script>
+      <script>
+      var translations = {
+         start: "Crear un tema nuevo",
+         error: "Ha ocurrido un error. Por favor, recarga la página.",
+         settings: "Preferencias",
+         monospaced: "monoespaciada",
+         givebody: "Introduce texto en el cuerpo",
+         show_old: "Mostrar respuestas antiguas",
+         show_more: "Mostrar más respuestas",
+         show_new: "Mostrar respuestas nuevas",
+         writing: "está escribiendo...",
+         manage: "Administrar",
+         feeds: "Novedades",
+         all: "Todos los temas",
+         anon: "anónimos",
+         anon_1: "anónimo",
+         nametip: "Un nombre por el que te reconozcan",
+         notify: "Notificarme novedades sobre Moot.it",
+         removecat: "Eliminar (los temas no se eliminan)",
+         removepost: "Eliminar tema",
+         title: "Título",
+         learn: "Saber más",
+         no_title: "El tema debe tener título",
+         likepost: "Me gusta",
+         help5: "código, lenguaje automático",
+         help3: "cita"
+      };
+      
+      for (t in translations)
+         moot.language[t] = translations[t];
+      </script>
 
 
       <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
