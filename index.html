@@ -24,7 +24,7 @@
       }
 
       .moot {
-         afont-size: 18px;
+         font-size: 15px;
       }
 
       header {
@@ -100,9 +100,22 @@
          content: "menos… ";
       }
 
-      /** Italics tip **/
-      .m-help-italics {
-         display: none;
+      /** Bold/italics tip **/
+      .m-help-italics, .m-help-bolded {
+         font-size: 0 !important;
+      }
+      .m-help-italics span, .m-help-bolded span {
+         font-size: 14px;
+      }
+      .m-help-italics span:before, .m-help-italics span:after {
+         content: "*";
+         font-weight: normal;
+         font-style: normal;
+      }
+      .m-help-bolded span:before, .m-help-bolded span:after {
+         content: "**";
+         font-weight: normal;
+         font-style: normal;
       }
 
       /** Latex tip **/
@@ -154,7 +167,7 @@
       <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 
       <!-- (1) Moot client application -->
-      <script src="https://cdn.moot.it/1/moot.es.min.js"></script>
+      <script src="custom_moot.js"></script>
       <script>
       var translations = {
          start: "Crear un tema nuevo",
@@ -217,10 +230,6 @@
              }
          })();
          observeDOM(document, function() {
-            var a = document.querySelectorAll(".m-body em");
-            for (e in a) {
-               if (a[e].parentNode) a[e].parentNode.innerHTML = a[e].parentNode.innerHTML.replace(/(<em>|<\/em>)/g, "_");
-            }
             MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
          });
 

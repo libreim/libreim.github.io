@@ -24,7 +24,7 @@
       }
 
       .moot {
-         afont-size: 18px;
+         font-size: 15px;
       }
 
       header {
@@ -100,9 +100,22 @@
          content: "menos… ";
       }
 
-      /** Italics tip **/
-      .m-help-italics {
-         display: none;
+      /** Bold/italics tip **/
+      .m-help-italics, .m-help-bolded {
+         font-size: 0 !important;
+      }
+      .m-help-italics span, .m-help-bolded span {
+         font-size: 14px;
+      }
+      .m-help-italics span:before, .m-help-italics span:after {
+         content: "*";
+         font-weight: normal;
+         font-style: normal;
+      }
+      .m-help-bolded span:before, .m-help-bolded span:after {
+         content: "**";
+         font-weight: normal;
+         font-style: normal;
       }
 
       /** Latex tip **/
