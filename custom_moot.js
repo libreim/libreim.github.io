@@ -15,7 +15,7 @@ m.fixBody=function(e,t){if(e=m.fixTitle(e).replace(/\n{2,}/g,"\n\n"),!t)return[e
 function o(e){return e&&e.replace(I,function(e,t,o){return"8)"==o&&"\n"==t?t+o:"<i>"+t+L[o]+"</i>"})}
 function n(e,t){return e&&(e=e.replace(O,"&lt;$1$2$3"),t&&(e=e.replace(D,"<mark>$1</mark>"))),e}
 function a(e){return e?e.replace(/[\<\>]/g,""):""}
-function i(e){return e?e.replace(H,"&hellip;").replace(E,"&#8220;$1&#8221;").replace(U," &#8216;$1&#8217;").replace(W,"&mdash;").replace(P," &ndash; "):""}
+function i(e){return e?e.replace(H,"&hellip;").replace(E,"&#8220;$1&#8221;").replace(U," &#8216;$1&#8217;").replace(P," &ndash; "):""}
 /*****
 	La llamada .replace(R,"<em>$1</em>") detecta la cursiva, con la regex R (más abajo)
 	Es importante que el orden de los replace sea negrita-cursiva, para que la cursiva no actúe
