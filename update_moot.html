@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+		textarea {
+			position: absolute;
+			left: 0;
+			right: 0;
+			width: 100%;
+			top: 0;
+			bottom: 0;
+			height: 100%;
+			display: block;
+			margin: 0;
+			padding: 0;
+			border-width: 0;
+		}
+		</style>
+		<script type="text/javascript">
+		/*** Prototipo para llamada Ajax ***/
+		function AjaxRequest(url, callback) {
+			this.url = url;
+
+			this.Send = function() {
+				if (window.XMLHttpRequest) {
+					var xmlhttp = new XMLHttpRequest();
+				} else {
+					xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						if (xmlhttp.responseXML) {
+							callback(xmlhttp.responseXML);
+						} else {
+							callback(xmlhttp.responseText);
+						}
+					}
+				};
+				xmlhttp.open("GET", this.url, true);
+				xmlhttp.send();
+			}
+		}
+		var fixes = {
+			'.replace(R,"<em>$1</em>").replace(U,function(e,t){return/\\s/.test(t)?"<em>"+t+"</em>":"<strong>"+t+"</strong>"})': '.replace(U,"<strong>$1</strong>").replace(R,"<em>$1</em>")',
+			'.replace(/<\\/?em>/g,"_")': '.replace(/<\\/?em>/g,"*").replace(/<\\/?strong>/g,"**")',
+			'U=/\\*([^\\*]+)\\*/g,N=/`([^`]+)`/g,R=/_([^_\\]]+)_/g': 'U=/\\*\\*(.*?)\\*\\*/g,N=/`([^`]+)`/g,R=/\\*([^\\*]+)\\*/g'
+		}
+
+		var update = function(origscr) {
+			var newscr = origscr;
+
+			for (f in fixes) {
+				newscr = newscr.replace(f, "\n/******  Cambios  ******/\n" + fixes[f]);
+			}
+
+			return newscr;
+		};
+
+		window.onload = function() {
+			var getscr = new AjaxRequest("http://cdn.moot.it/1/moot.es.min.js", function(scr) {
+				document.querySelector("#result").value = update(scr);
+				document.querySelector("#result").select();
+			});
+
+			getscr.Send();
+		};
+		</script>
+	</head>
+	<body>
+		<textarea id="result"></textarea>
+	</body>
+</html>
