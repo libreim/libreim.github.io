@@ -5,13 +5,13 @@ Github es un servicio de almacenamiento de código con control de versiones Git.
 La gran ventaja de Github/Git respecto de otros sistemas de sincronización de archivos es que Git no almacena cada archivo completo generado tras cada cambio, sino únicamente los cambios que se han hecho desde la primera versión de cada archivo. Esto permite recuperar un código antiguo sin necesidad de hacer varias copias, y que varios colaboradores editen el mismo archivo sin crear conflictos de versiones, ya que los cambios se mezclan en un único archivo resultante.
 
 ### Terminología
-*repository/repo* - Lugar en Github para almacenar todo el código de un proyecto e ir registrando los cambios.
-*clone* - Descargar el código de un repositorio y activar git sobre él.
-*commit* - Crear un paquete de cambios a partir de los cambios realizados la versión local del repo.
-*merge* - Mezcla de cambios de varios desarrolladores o cuando se envian commits realizados sobre versiones antiguas de los archivos.
-*pull* - Estando en la versión local del repo, descargar los cambios hasta la versión más actual.
-*push* - Enviar los cambios de la versión local del repo a Github (para que los demás colaboradores puedan descargarlos).
-*fork* - Copiar el código de un repositorio (en el que no tenemos permiso de edición) a otro propio para poder editar (y mejorar o arreglar fallos).
+ - *repository/repo* - Lugar en Github para almacenar todo el código de un proyecto e ir registrando los cambios.
+ - *clone* - Descargar el código de un repositorio y activar git sobre él.
+ - *commit* - Crear un paquete de cambios a partir de los cambios realizados la versión local del repo.
+ - *merge* - Mezcla de cambios de varios desarrolladores o cuando se envian commits realizados sobre versiones antiguas de los archivos.
+ - *pull* - Estando en la versión local del repo, descargar los cambios hasta la versión más actual.
+ - *push* - Enviar los cambios de la versión local del repo a Github (para que los demás colaboradores puedan descargarlos).
+ - *fork* - Copiar el código de un repositorio (en el que no tenemos permiso de edición) a otro propio para poder editar (y mejorar o arreglar fallos).
 
 ### Creación del repo
 Asumiendo que usamos Linux para utilizar Github, hemos de instalar primero el sistema de control de versiones (en Ubuntu, `sudo apt-get install git` bastará). En Windows existe una [fantástica aplicación](http://windows.github.com) que hace todo el trabajo por nosotros, sin necesidad de línea de comandos.
