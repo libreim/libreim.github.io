@@ -19,6 +19,7 @@ Puede consultarse el estado del repositorio usando `git status`. Simplificando, 
  - Registrados (*tracked*) - Archivos y modificaciones añadidos, que serán parte del próximo commit.
  - Formando parte del commit (*committed*) - Tras realizar un `git commit`, archivos y modificaciones que ya forman parte de un commit, aunque todavía no se haya enviado el commit al repositorio.
  - Enviados (*pushed*) - Tras enviar el commit con `git push`, los archivos ya forman parte del repositorio de GitHub.
+
 Además, se pueden especificar archivos a ignorar completamente por git en el archivo `.gitignore`. En este archivo podemos añadir nombres de archivo y directorios (separados por saltos de línea) de forma que el registro de cambios no se realice nunca sobre ellos y ni siquiera aparecerán como *untracked*.
 
 ### Creación del repo
