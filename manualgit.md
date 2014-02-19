@@ -15,8 +15,8 @@ La gran ventaja de Github/Git respecto de otros sistemas de sincronización de a
 
 ### Estado de los archivos
 Puede consultarse el estado del repositorio usando `git status`. Simplificando, podemos tener los archivos en los siguientes estados:
- - *No añadidos (Untracked)* - Archivos y modificaciones no añadidas al repositorio. No se enviarán con el próximo commit. No se tienen en cuenta en el repositorio. Pueden añadirse con `git add`.
- - *Añadidos (tracked)* - Archivos y modificaciones añadidos, que serán parte del próximo commit.
+ - *No registrados(Untracked)* - Archivos y modificaciones no añadidas al repositorio. No se enviarán con el próximo commit. No se tienen en cuenta en el repositorio. Pueden añadirse con `git add`.
+ - *Registrados (tracked)* - Archivos y modificaciones añadidos, que serán parte del próximo commit.
  - *Formando parte del commit (committed)* - Tras realizar un `git commit`, archivos y modificaciones que ya forman parte de un commit, aunque todavía no se haya enviado el commit al repositorio público.
  - *Enviados (pushed)* - Tras enviar el commit con `git push`, los archivos ya forman parte del repositorio de GitHub.
 
