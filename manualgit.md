@@ -9,16 +9,17 @@ La gran ventaja de Github/Git respecto de otros sistemas de sincronización de a
  - *clone* - Descargar el código de un repositorio y activar git sobre él.
  - *commit* - Crear un paquete de cambios a partir de los cambios realizados en la versión local del repo.
  - *pull* - Estando en la versión local del repo, descargar los cambios hasta la versión más actual.
- - *push* - Enviar los cambios de la versión local del repo a Github (para que los demás colaboradores puedan descargarlos).
+ - *push* - Enviar los cambios (empaquetados en commits) de la versión local del repo a Github (para que los demás colaboradores puedan descargarlos).
  - *merge* - Mezcla de cambios de varios desarrolladores o cuando se envian commits realizados sobre versiones antiguas de los archivos.
  - *fork* - Copiar el código de un repositorio (en el que no tenemos permiso de edición) a otro propio para poder editar (y mejorar o arreglar fallos).
 
 ### Estado de los archivos
 Puede consultarse el estado del repositorio usando `git status`. Simplificando, podemos tener los archivos en los siguientes estados:
- - *No registrados(Untracked)* - Archivos y modificaciones no añadidas al repositorio. No se enviarán con el próximo commit. No se tienen en cuenta en el repositorio. Pueden añadirse con `git add`.
- - *Registrados (tracked)* - Archivos y modificaciones añadidos, que serán parte del próximo commit.
- - *Formando parte del commit (committed)* - Tras realizar un `git commit`, archivos y modificaciones que ya forman parte de un commit, aunque todavía no se haya enviado el commit al repositorio público.
- - *Enviados (pushed)* - Tras enviar el commit con `git push`, los archivos ya forman parte del repositorio de GitHub.
+ - No registrados (*untracked*) - Archivos y modificaciones no añadidas al repositorio. No se enviarán con el próximo commit. No se tienen en cuenta en el repositorio. Pueden añadirse con `git add`, y pasarán a estar registrados.
+ - Registrados (*tracked*) - Archivos y modificaciones añadidos, que serán parte del próximo commit.
+ - Formando parte del commit (*committed*) - Tras realizar un `git commit`, archivos y modificaciones que ya forman parte de un commit, aunque todavía no se haya enviado el commit al repositorio.
+ - Enviados (*pushed*) - Tras enviar el commit con `git push`, los archivos ya forman parte del repositorio de GitHub.
+Además, se pueden especificar archivos a ignorar completamente por git en el archivo `.gitignore`. En este archivo podemos añadir nombres de archivo y directorios (separados por saltos de línea) de forma que el registro de cambios no se realice nunca sobre ellos y ni siquiera aparecerán como *untracked*.
 
 ### Creación del repo
 Asumiendo que usamos Linux para utilizar Github, hemos de instalar primero el sistema de control de versiones (en Ubuntu, `sudo apt-get install git` bastará). En Windows existe una [fantástica aplicación](http://windows.github.com) que hace todo el trabajo por nosotros, sin necesidad de línea de comandos (OS X también tiene [la suya](http://mac.github.com/)).
@@ -42,6 +43,7 @@ En resumen, el orden de comandos necesarios es:
 
 	echo "alias gitsync='git commit -a && git pull && git push origin master'" >> ~/.bashrc
 
+*Nota:* `git push origin master` envía los cambios locales (*origin*) a la rama *master* (la principal) del repositorio en Github. Al trabajar con varias ramas podríamos ejecutar variaciones del tipo `git push origin rama_pruebas`.
 
 ### Conflictos
 Si dos colaboradores trabajan simultáneamente sobre el mismo archivo es posible que se produzcan conflictos, es decir, que uno de ellos no tuviera actualizados los cambios del otro y envíe unos cambios que los sobreescribirían. En ese caso el merge automático falla y git deja que el usuario termine de mezclar los cambios manualmente (para ello separará en los archivos los cambios propios de los otros mediante marcas como `HEAD>>>>`). Tras terminar de mezclarlos, es suficiente con ejecutar de nuevo `git commit -a`, `git pull` y `git push`.
