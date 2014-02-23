@@ -7,7 +7,9 @@ Instala git. Crea un repositorio desde la página de Github. Descárgalo con `gi
 
 Github es un servicio de almacenamiento de código con control de versiones Git. Git permite a los desarrolladores llevar un registro de todos los cambios realizados a lo largo del tiempo. Con una cuenta en Github puedes crear tantos repositorios (públicos) como quieras, y 5 privados si registras tu correo de la Universidad en [Github Edu](http://edu.github.com). Cada repositorio puede estar compartido por el creador para varios colaboradores, de forma que todos pueden editarlo.
 
-La gran ventaja de Github/Git respecto de otros sistemas de sincronización de archivos es que Git no almacena cada archivo completo generado tras cada cambio, sino únicamente los cambios que se han hecho desde la primera versión de cada archivo. Esto permite recuperar un código antiguo sin necesidad de hacer varias copias, y que varios colaboradores editen el mismo archivo sin crear conflictos de versiones, ya que los cambios se mezclan en un único archivo resultante.
+La gran ventaja de Github/Git respecto de los sistemas de sincronización de archivos (como Dropbox o OneDrive) es que Git no almacena cada archivo completo generado tras cada cambio, sino únicamente los cambios que se han hecho desde la primera versión de cada archivo. Esto permite recuperar un código antiguo sin necesidad de hacer varias copias, y que varios colaboradores editen el mismo archivo sin crear conflictos de versiones, ya que los cambios se mezclan en un único archivo resultante.
+
+Existen más sistemas de control de versiones aparte de Git, pero son en su mayoría centralizados (solo el servidor almacena el código completo), mientras que Git es un sistema distribuido, es decir, en el que todos los colaboradores obtienen una copia completa del repo y hacen sus propios cambios, estando en el servidor la combinación de los códigos de todos.
 
 ### Terminología
  - *repository/repo* - Lugar en Github para almacenar todo el código de un proyecto e ir registrando los cambios.
