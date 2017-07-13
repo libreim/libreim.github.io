@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <script>
+        if (location.href.indexOf("tux.ugr.es") > -1 && location.href.indexOf("/libreim") < 0)
+          location.href = location.href.replace("dgiim", "libreim");
+      </script>
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+      <!--link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/menus-min.css" /-->
+      <link rel="stylesheet" type="text/css" href="/libreim/assets/css/default.css" />
+      <link rel="stylesheet" type="text/css" href="/libreim/assets/css/pygments-friendly.css" />
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="/libreim/assets/feed.xml" />
+
+      <!-- Favicon -->
+      <link rel="shortcut icon" type="image/x-icon" href="/libreim/assets/images/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="160x160" href="/libreim/assets/images/favicon-160.png">
+    	<meta name="msapplication-TileColor" content="#FFFFFF">
+    	<meta name="msapplication-TileImage" content="/libreim/assets/images/favicon-160.png">
+      <meta name="theme-color" content="#6789ab">
+
+      <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      <script type="text/javascript">
+         WebFont.load({
+            google: {
+               families: ["Lato:400,300,700,400italic:latin", "Source+Code+Pro:400,700:latin"]
+            }
+         });
+      </script>
+      <script type="text/javascript">
+            MathJax.Hub.Config({
+               tex2jax: {
+                  inlineMath: [],
+                  displayMath: [],
+               }
+            });
+      </script>
+      <title>Blog - LibreIM</title>
+   </head>
+   <body>
+      <header>
+  <div class="pure-menu pure-menu-horizontal pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+      <input type="checkbox" id="show-menu">
+      <label class="hamburger" for="show-menu"></label>
+      <div class="sites">
+        <a href="/libreim/" class="pure-menu-link" title="Inicio">Inicio</a>
+        <a href="/libreim/blog/" class="pure-menu-link" title="Inicio">Blog</a>
+        <a href="/libreim/overflow/" class="pure-menu-link" title="Foro">Overflow</a>
+        <a href="/libreim/awesome/apuntes" class="pure-menu-link" title="Apuntes">Apuntes</a>
+        <a href="/libreim/awesome/" class="pure-menu-link" title="Awesome">Awesome</a>
+        <a href="/libreim/contributing/" class="pure-menu-link" title="Participa">Participa</a>
+      </div>
+      <a href="/libreim/" class="site-title pure-menu-heading">&nbsp;</a>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+  </div>
+</header>
+
+      
+  
+  
+  <article lang="es">
+  <div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-2-5">
+      <div class="category">
+        Estructuras de Datos
+      </div>
+
+      <h1>
+        <a href="/libreim/blog/2015/07/17/segment-tree/">
+            Segment trees y Range minimum query
+        </a>
+      </h1>
+
+      <div class="post-data">
+        
+        
+          
+            
+             
+            <a class="author" href="http://github.com/andreshp">
+              Andrés Herrera Poyatos
+            </a>
+          
+        
+
+        <a class="date" href="/libreim/blog/2015/07/17/segment-tree/">
+          17-07-2015
+        </a>
+        <a class="dsq-comment-count comments" href="/libreim/blog/2015/07/17/segment-tree/#disqus_thread" data-disqus-identifier="/2015/07/17/segment-tree">
+
+        </a>
+        <!--
+        
+        -->
+      </div>
+
+    <div class="post-content">
+
+        <p>En los cursos de estructuras de datos y algoritmos el número de estructuras de datos que se suelen estudiar es bastante reducido. Generalmente se introducen heaps, árboles binarios de búsqueda balanceados (AVL), tablas Hash y algunos algoritmos sobre grafos. Sin embargo, el mundo de las estructuras de datos es mucho más amplio  <sup id="fnref:list"><a href="#fn:list" class="footnote">1</a></sup> y probablemente requeriría una asignatura de estructuras de datos avanzadas como sucede en algunas universidades. El MIT, por ejemplo, proporciona <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-851-advanced-data-structures-spring-2012/lecture-videos/">vídeos</a> con el contenido de esta asignatura. Por ello, intentaré escribir entradas en el blog que profundicen en esta temática.</p>
+
+<p>En este caso trataremos los <strong>segment trees</strong> o árboles de segmentos. Introduciremos en primer lugar un problema importante de la teoría de algoritmos, <strong>range minimum query problem</strong>, que servirá como motivación para los segment trees. Posteriormente se explicará el funcionamiento de estos, proporcionando para cada operación su correspondiente código en Python. Por último, se proponen como ejercicio algunos problemas resolubles mediante segment trees.</p>
+
+<p><a href="/libreim/blog/2015/07/17/segment-tree/">Seguir leyendo...</a></p>
+
+        
+
+      
+
+        <!--<div class="share">
+          <a class="dsq-comment-count" href="/libreim/blog/2015/07/17/segment-tree/#disqus_thread" data-disqus-identifier="/2015/07/17/segment-tree"></a>
+          <a href="https://twitter.com/intent/tweet?url=http://tux.ugr.es/libreim/blog/2015/07/17/segment-tree/&text=Segment trees y Range minimum query" class="share-twt" target="_blank"><img alt="Twitter" title="Compartir en Twitter" src="/libreim/blog/assets/sq_twitter.png" /></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://tux.ugr.es/libreim/blog/2015/07/17/segment-tree/" class="share-fb" target="_blank"><img alt="Facebook" title="Compartir en Facebook" src="/libreim/blog/assets/sq_facebook.png" /></a>
+          <a href="http://sharetodiaspora.github.io/?url=http://tux.ugr.es/libreim/blog/2015/07/17/segment-tree/&title=Segment trees y Range minimum query" class="share-di" target="_blank"><img alt="Diaspora" title="Compartir en Diaspora*" src="/libreim/blog/assets/sq_diaspora.png" /></a>
+          <a href="http://www.feedly.com/home#subscription/feed/http://tux.ugr.es/libreim/blogfeed.xml" class="share-fd" target="_blank"><img alt="Feedly" title="Suscribirse con Feedly" src="/libreim/blog/assets/sq_feedly.png" /></a>
+        </div>-->
+
+        
+      </div>
+    </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-2-5"></div>
+  </div>
+</article>
+
+
+  
+  
+  <article lang="es">
+  <div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-2-5">
+      <div class="category">
+        Análisis
+      </div>
+
+      <h1>
+        <a href="/libreim/blog/2015/04/20/teorema-dini/">
+            Teorema de Dini
+        </a>
+      </h1>
+
+      <div class="post-data">
+        
+        
+          
+            
+             
+            <a class="author" href="http://github.com/andreshp">
+              Andrés Herrera Poyatos
+            </a>
+          
+        
+
+        <a class="date" href="/libreim/blog/2015/04/20/teorema-dini/">
+          20-04-2015
+        </a>
+        <a class="dsq-comment-count comments" href="/libreim/blog/2015/04/20/teorema-dini/#disqus_thread" data-disqus-identifier="/2015/04/20/teorema-dini">
+
+        </a>
+        <!--
+        
+        -->
+      </div>
+
+    <div class="post-content">
+
+        <h2 id="convergencia-puntual-y-convergencia-uniforme">Convergencia Puntual y Convergencia Uniforme</h2>
+
+<p>En el Análisis Matemático es frecuente que la función solución a determinado problema sea desconocida o no la podamos expresar en términos de las funciones elementales que conocemos. Incluso en las funciones más simples, como la exponencial o el logaritmo, nos encontramos esta situación. Conocemos su existencia y propiedades características pero tenemos ciertas dificultades a la hora de evaluarlas en un punto. Es frecuente para ello utilizar los famosos polinomios de Taylor, en cuyo caso estamos aproximando la función por polinomios.</p>
+
+<p>En más situaciones es habitual disponer de funciones que se aproximan cada vez más a la solucion del problema. Para formalizar este hecho surge el concepto de convergencia para sucesiones de funciones. Podemos distinguir dos tipos de convergencia: convergencia puntual y convergencia uniforme.</p>
+
+<dl>
+  <dt>Definición 1</dt>
+  <dd>Sea <script type="math/tex">A \subseteq \mathbb{R}</script> y <script type="math/tex">\{f_n\}</script> una sucesión de funciones con <script type="math/tex">\ f_n : A \rightarrow \mathbb{R}</script>. Se dice que <script type="math/tex">\{f_n\}</script> <strong>converge puntualmente</strong> en <script type="math/tex">x \in A</script> si la sucesión <script type="math/tex">\{f_n(x)\}</script> converge. Podemos considerar el conjunto <script type="math/tex">C</script> de los elementos <script type="math/tex">x \in A</script> en los que hay convergencia puntual y definir la <strong>función límite</strong>:</dd>
+  <dd>
+    <script type="math/tex; mode=display">f : C \rightarrow \mathbb{R}, \ f(x) = \lim f_n(x) \ \forall x \in C</script>
+  </dd>
+</dl>
+
+<p><a href="/libreim/blog/2015/04/20/teorema-dini/">Seguir leyendo...</a></p>
+
+        
+
+      
+
+        <!--<div class="share">
+          <a class="dsq-comment-count" href="/libreim/blog/2015/04/20/teorema-dini/#disqus_thread" data-disqus-identifier="/2015/04/20/teorema-dini"></a>
+          <a href="https://twitter.com/intent/tweet?url=http://tux.ugr.es/libreim/blog/2015/04/20/teorema-dini/&text=Teorema de Dini" class="share-twt" target="_blank"><img alt="Twitter" title="Compartir en Twitter" src="/libreim/blog/assets/sq_twitter.png" /></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://tux.ugr.es/libreim/blog/2015/04/20/teorema-dini/" class="share-fb" target="_blank"><img alt="Facebook" title="Compartir en Facebook" src="/libreim/blog/assets/sq_facebook.png" /></a>
+          <a href="http://sharetodiaspora.github.io/?url=http://tux.ugr.es/libreim/blog/2015/04/20/teorema-dini/&title=Teorema de Dini" class="share-di" target="_blank"><img alt="Diaspora" title="Compartir en Diaspora*" src="/libreim/blog/assets/sq_diaspora.png" /></a>
+          <a href="http://www.feedly.com/home#subscription/feed/http://tux.ugr.es/libreim/blogfeed.xml" class="share-fd" target="_blank"><img alt="Feedly" title="Suscribirse con Feedly" src="/libreim/blog/assets/sq_feedly.png" /></a>
+        </div>-->
+
+        
+      </div>
+    </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-2-5"></div>
+  </div>
+</article>
+
+
+  
+  
+  <article lang="es">
+  <div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-2-5">
+      <div class="category">
+        Álgebra
+      </div>
+
+      <h1>
+        <a href="/libreim/blog/2015/03/24/algebra-tipos/">
+            Álgebra de tipos
+        </a>
+      </h1>
+
+      <div class="post-data">
+        
+        
+          
+            
+             
+            <a class="author" href="http://github.com/M42">
+              Mario Román
+            </a>
+          
+        
+
+        <a class="date" href="/libreim/blog/2015/03/24/algebra-tipos/">
+          24-03-2015
+        </a>
+        <a class="dsq-comment-count comments" href="/libreim/blog/2015/03/24/algebra-tipos/#disqus_thread" data-disqus-identifier="/2015/03/24/algebra-tipos">
+
+        </a>
+        <!--
+        
+        -->
+      </div>
+
+    <div class="post-content">
+
+        <p>En este post formularemos un álgebra para los tipos de los lenguajes de
+programación. Veremos operaciones que se aplican sobre ellos para obtener nuevos
+tipos y qué leyes siguen estas operaciones. Usaremos como base el sistema de
+tipos de Haskell, pero estos mismos conceptos podrían aplicarse a cualquier
+lenguaje con un sistema algebraico de tipos. Para iniciarse en el sistema de
+tipos de Haskell sugiero leer antes la <a href="http://tux.ugr.es/dgiim/blog/2014/10/01/intro-haskell/">Introducción a Haskell</a>.</p>
+
+<h2 id="notando-tipos-en-haskell">Notando tipos en Haskell</h2>
+
+<p>En Haskell, los <strong>tipos</strong> se escriben como un conjunto de constructores, que
+actúan como funciones teniendo como codominio el tipo definido. Por ejemplo,</p>
+
+<pre><code class="language-Haskell">data Colour = RGB Int Int Int
+            | HSV Int Int Int
+</code></pre>
+
+<p>este código define un tipo <code class="highlighter-rouge">Colour</code> con dos formas de construirlo, como <code class="highlighter-rouge">RGB</code> y
+como <code class="highlighter-rouge">HSV</code>. Ambos constructores usan como argumento tres enteros. Con tres
+enteros podremos construir un color de dos formas distintas.</p>
+
+<p><a href="/libreim/blog/2015/03/24/algebra-tipos/">Seguir leyendo...</a></p>
+
+        
+
+      
+
+        <!--<div class="share">
+          <a class="dsq-comment-count" href="/libreim/blog/2015/03/24/algebra-tipos/#disqus_thread" data-disqus-identifier="/2015/03/24/algebra-tipos"></a>
+          <a href="https://twitter.com/intent/tweet?url=http://tux.ugr.es/libreim/blog/2015/03/24/algebra-tipos/&text=Álgebra de tipos" class="share-twt" target="_blank"><img alt="Twitter" title="Compartir en Twitter" src="/libreim/blog/assets/sq_twitter.png" /></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://tux.ugr.es/libreim/blog/2015/03/24/algebra-tipos/" class="share-fb" target="_blank"><img alt="Facebook" title="Compartir en Facebook" src="/libreim/blog/assets/sq_facebook.png" /></a>
+          <a href="http://sharetodiaspora.github.io/?url=http://tux.ugr.es/libreim/blog/2015/03/24/algebra-tipos/&title=Álgebra de tipos" class="share-di" target="_blank"><img alt="Diaspora" title="Compartir en Diaspora*" src="/libreim/blog/assets/sq_diaspora.png" /></a>
+          <a href="http://www.feedly.com/home#subscription/feed/http://tux.ugr.es/libreim/blogfeed.xml" class="share-fd" target="_blank"><img alt="Feedly" title="Suscribirse con Feedly" src="/libreim/blog/assets/sq_feedly.png" /></a>
+        </div>-->
+
+        
+      </div>
+    </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-2-5"></div>
+  </div>
+</article>
+
+
+  
+  
+  <article lang="en">
+  <div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-2-5">
+      <div class="category">
+        Linux
+      </div>
+
+      <h1>
+        <a href="/libreim/blog/2015/03/15/arch/">
+            Learning from Arch Linux
+        </a>
+      </h1>
+
+      <div class="post-data">
+        
+        
+          
+            
+             
+            <a class="author" href="http://github.com/NCordon">
+              Ignacio Cordón
+            </a>
+          
+        
+
+        <a class="date" href="/libreim/blog/2015/03/15/arch/">
+          15-03-2015
+        </a>
+        <a class="dsq-comment-count comments" href="/libreim/blog/2015/03/15/arch/#disqus_thread" data-disqus-identifier="/2015/03/15/arch">
+
+        </a>
+        <!--
+        
+        -->
+      </div>
+
+    <div class="post-content">
+
+        <p>Arch is an open source, <em>rolling release</em> distribution. It’s a Linux distribution well-known for its extremely complete wiki. Almost certainly, you should have reached an Arch’s wiki entry searching for troubleshooting about other  distributions.</p>
+
+<p>If you’re wiling to enlarge your knowledge about Linux, it’s highly recommended trying to install Arch or another terminal-installation based distro at least once, because GUI Linux installers made that task easier. On the contrary, Arch installation is completely based on terminal commands.</p>
+
+<p>You can download Arch from <a href="https://www.archlinux.org/download/">here</a>.</p>
+
+<p><a href="https://wiki.archlinux.org/index.php/Beginners%27_guide">This</a> has been the guide followed to install Arch to a partition in my hard drive. You could also try it in a virtual machine!</p>
+
+<p>Beforehand you must know you’re gonna need an Internet Connection to install Arch. The main goal of installing Arch is learning, so if you follow my steps strictly to the letter, you aren’t gonna learn as much as if you found your own path. This would be handy in case you got stuck in a step.</p>
+
+<p><a href="/libreim/blog/2015/03/15/arch/">Seguir leyendo...</a></p>
+
+        
+
+      
+
+        <!--<div class="share">
+          <a class="dsq-comment-count" href="/libreim/blog/2015/03/15/arch/#disqus_thread" data-disqus-identifier="/2015/03/15/arch"></a>
+          <a href="https://twitter.com/intent/tweet?url=http://tux.ugr.es/libreim/blog/2015/03/15/arch/&text=Learning from Arch Linux" class="share-twt" target="_blank"><img alt="Twitter" title="Compartir en Twitter" src="/libreim/blog/assets/sq_twitter.png" /></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://tux.ugr.es/libreim/blog/2015/03/15/arch/" class="share-fb" target="_blank"><img alt="Facebook" title="Compartir en Facebook" src="/libreim/blog/assets/sq_facebook.png" /></a>
+          <a href="http://sharetodiaspora.github.io/?url=http://tux.ugr.es/libreim/blog/2015/03/15/arch/&title=Learning from Arch Linux" class="share-di" target="_blank"><img alt="Diaspora" title="Compartir en Diaspora*" src="/libreim/blog/assets/sq_diaspora.png" /></a>
+          <a href="http://www.feedly.com/home#subscription/feed/http://tux.ugr.es/libreim/blogfeed.xml" class="share-fd" target="_blank"><img alt="Feedly" title="Suscribirse con Feedly" src="/libreim/blog/assets/sq_feedly.png" /></a>
+        </div>-->
+
+        
+      </div>
+    </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-2-5"></div>
+  </div>
+</article>
+
+
+  
+  
+  <article lang="es">
+  <div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-2-5">
+      <div class="category">
+        Programación
+      </div>
+
+      <h1>
+        <a href="/libreim/blog/2015/03/14/latex/">
+            ¿Cómo aprender LaTeX?
+        </a>
+      </h1>
+
+      <div class="post-data">
+        
+        
+          
+            
+             
+            <a class="author" href="http://github.com/mx-psi">
+              Pablo Baeyens
+            </a>
+          
+        
+
+        <a class="date" href="/libreim/blog/2015/03/14/latex/">
+          14-03-2015
+        </a>
+        <a class="dsq-comment-count comments" href="/libreim/blog/2015/03/14/latex/#disqus_thread" data-disqus-identifier="/2015/03/14/latex">
+
+        </a>
+        <!--
+        
+        -->
+      </div>
+
+    <div class="post-content">
+
+        <p><a href="http://www.latex-project.org"><script type="math/tex">\LaTeX</script></a> es un lenguaje de marcado y composición de textos para crear documentos técnicos, crear gráficos, escribir matemáticas… Actualmente <script type="math/tex">\LaTeX</script> se utiliza junto con otros paquetes que añaden funcionalidades adicionales, por lo que dar una visión completa de sus capacidades es complejo. A continuación tienes una lista de recursos para aprender e utilizar <script type="math/tex">\LaTeX</script> y algunos de sus paquetes.</p>
+
+<p><a href="/libreim/blog/2015/03/14/latex/">Seguir leyendo...</a></p>
+
+        
+
+      
+
+        <!--<div class="share">
+          <a class="dsq-comment-count" href="/libreim/blog/2015/03/14/latex/#disqus_thread" data-disqus-identifier="/2015/03/14/latex"></a>
+          <a href="https://twitter.com/intent/tweet?url=http://tux.ugr.es/libreim/blog/2015/03/14/latex/&text=¿Cómo aprender LaTeX?" class="share-twt" target="_blank"><img alt="Twitter" title="Compartir en Twitter" src="/libreim/blog/assets/sq_twitter.png" /></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://tux.ugr.es/libreim/blog/2015/03/14/latex/" class="share-fb" target="_blank"><img alt="Facebook" title="Compartir en Facebook" src="/libreim/blog/assets/sq_facebook.png" /></a>
+          <a href="http://sharetodiaspora.github.io/?url=http://tux.ugr.es/libreim/blog/2015/03/14/latex/&title=¿Cómo aprender LaTeX?" class="share-di" target="_blank"><img alt="Diaspora" title="Compartir en Diaspora*" src="/libreim/blog/assets/sq_diaspora.png" /></a>
+          <a href="http://www.feedly.com/home#subscription/feed/http://tux.ugr.es/libreim/blogfeed.xml" class="share-fd" target="_blank"><img alt="Feedly" title="Suscribirse con Feedly" src="/libreim/blog/assets/sq_feedly.png" /></a>
+        </div>-->
+
+        
+      </div>
+    </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-2-5"></div>
+  </div>
+</article>
+
+
+
+
+<nav class="pagination pure-g">
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+
+  <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-2-5">
+    <div class="pure-g">
+      <div class="paginator pure-u-1-3 pure-u-md-1-3 pure-u-lg-2-5">
+        
+          
+            <a href="/libreim/blog/page/2/" class="next arrow" >&larr;</a>
+          
+        
+      </div>
+      <div class="paginator pure-u-1-3 pure-u-md-1-3 pure-u-lg-1-5">
+        <span class="page-number">Página 3 de 6</span>
+        <span class="archive-link"><a href="/libreim/blog/archive">Todos los posts</a></span>
+      </div>
+      <div class="paginator pure-u-1-3 pure-u-md-1-3 pure-u-lg-2-5">
+        
+          <a href="/libreim/blog/page/4/" class="next arrow">&rarr;</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-2-5"></div>
+</nav>
+
+
+      <footer class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+      <div class="pure-g">
+		<div class="pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
+			<h3>Colaboradores</h3>
+	        <ul>
+				
+					
+					<li><a href="http://github.com/">David Charte</a></li>
+				
+					
+					<li><a href="http://github.com/M42">Mario Román</a></li>
+				
+					
+					<li><a href="http://github.com/mx-psi">Pablo Baeyens</a></li>
+				
+					
+					<li><a href="http://github.com/NCordon">Ignacio Cordón</a></li>
+				
+					
+					<li><a href="http://github.com/andreshp">Andrés Herrera Poyatos</a></li>
+				
+					
+					<li><a href="http://github.com/oxcar103">Óscar Bermúdez</a></li>
+				
+					
+					<li><a href="http://github.com/JJ">Juan Julián Merelo</a></li>
+				
+					
+					<li><a href="http://github.com/makixun">Miguel Anguita</a></li>
+				
+					
+					<li><a href="http://github.com/JCEntrena">José Carlos Entrena</a></li>
+				
+					
+					<li><a href="http://github.com/martaandres">Marta Andrés</a></li>
+				
+					
+					<li><a href="http://github.com/robertohueso">Roberto Hueso</a></li>
+				
+					
+					<li><a href="http://github.com/fjsaezm">Javier Sáez</a></li>
+				
+					
+					<li><a href="http://github.com/jmml97">José María Martín</a></li>
+				
+					
+					<li><a href="http://github.com/danipozodg">Daniel Pozo</a></li>
+				
+					
+					<li><a href="http://github.com/antcc">Antonio Coín</a></li>
+				
+					
+					<li><a href="http://github.com/ludvins">Luis Ortega</a></li>
+				
+					
+					<li><a href="http://github.com/pedrobn23">Pedro Bonilla</a></li>
+				
+					
+					<li><a href="http://github.com/guillegalor">Guillermo Galindo</a></li>
+				
+					
+					<li><a href="http://github.com/rjraya">Rodrigo Raya</a></li>
+				
+					
+					<li><a href="http://github.com/DiegoAsterio">Diego Asterio</a></li>
+				
+	        </ul>
+		</div>
+        <div class="pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
+			<h3>Categorías</h3>
+	        <ul>
+		    	
+		            <li><a href="/libreim/blog/categories/#Utilidades">Utilidades</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Análisis">Análisis</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Programación">Programación</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Álgebra">Álgebra</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Ciencia de datos">Ciencia de datos</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Heurísticas">Heurísticas</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Problemas">Problemas</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Lógica">Lógica</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Linux">Linux</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Estructuras de Datos">Estructuras de datos</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#General">General</a></li>
+		    	
+	        </ul>
+		</div>
+        <div class="pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
+        <br></br>
+             <a href="http://osl.ugr.es"><img src="http://osl.ugr.es/logo-osl.png" alt="Logo Oficina de Software Libre de la Universidad de Granada" style="width:200px" /></a>
+             <br></br>
+             Puedes ver este sitio gracias a la ayuda de la OSL-UGR
+         <br></br>
+			<h3>Licencia</h3>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/80x15.png" /></a><br />
+			El contenido de este blog, salvo que se explicite lo contrario, está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</a>.
+		</div>
+      </div>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+</footer>
+
+
+      <script id="dsq-count-scr" src="//dgiim.disqus.com/count.js" async></script>
+   </body>
+</html>

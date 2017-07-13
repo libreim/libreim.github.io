@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="stylesheet" href="//yandex.st/highlightjs/8.0/styles/github.min.css">
+      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+      <!--link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/menus-min.css" /-->
+
+      <link rel="stylesheet" type="text/css" href="/libreim/assets/css/default.css" />
+
+      <!-- Favicon -->
+      <link rel="shortcut icon" type="image/x-icon" href="/libreim/assets/images/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="160x160" href="/libreim/assets/images/favicon-160.png">
+    	<meta name="msapplication-TileColor" content="#FFFFFF">
+    	<meta name="msapplication-TileImage" content="/libreim/assets/images/favicon-160.png">
+      <meta name="theme-color" content="#6789ab">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta charset="utf-8">
+      <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+      <script type="text/javascript">
+         WebFont.load({
+            google: {
+               families: ["Lato:400,300,700,400italic:latin", "Source+Code+Pro:400,700:latin"]
+            }
+         });
+      </script>
+
+      
+      <link rel="stylesheet" href="https://cdn.muut.com/1/moot.css">
+      <link href="/libreim/foro/css/custom_muut.css" rel="stylesheet" />
+      <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+      <script src="/libreim/foro/js/custom_muut.js"></script>
+      
+
+      
+      <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript">
+
+         // Shamelessly stolen from StackOverflow (http://stackoverflow.com/a/14570614)
+         var observeDOM = (function(){
+             var MutationObserver = window.MutationObserver || window.WebKitMutationObserver,
+                 eventListenerSupported = window.addEventListener;
+
+             return function(obj, callback){
+                 if( MutationObserver ){
+                     // define a new observer
+                     var obs = new MutationObserver(function(mutations, observer){
+                         if( mutations[0].addedNodes.length || mutations[0].removedNodes.length )
+                             callback();
+                     });
+                     // have the observer observe foo for changes in children
+                     obs.observe( obj, { childList:true, subtree:true });
+                 }
+                 else if( eventListenerSupported ){
+                     obj.addEventListener('DOMNodeInserted', callback, false);
+                     obj.addEventListener('DOMNodeRemoved', callback, false);
+                 }
+             }
+         })();
+         observeDOM(document, function() {
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+         });
+      </script>
+      
+
+      <title>Foro DGIIM</title>
+   </head>
+   <body>
+      <header>
+  <div class="pure-menu pure-menu-horizontal pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+      <input type="checkbox" id="show-menu">
+      <label class="hamburger" for="show-menu"></label>
+      <div class="sites">
+        <a href="/libreim/" class="pure-menu-link" title="Inicio">Inicio</a>
+        <a href="/libreim/blog/" class="pure-menu-link" title="Inicio">Blog</a>
+        <a href="/libreim/overflow/" class="pure-menu-link" title="Foro">Overflow</a>
+        <a href="/libreim/awesome/" class="pure-menu-link" title="Awesome">Awesome</a>
+        <a href="/libreim/contributing/" class="pure-menu-link" title="Participa">Participa</a>
+      </div>
+      <a href="/libreim/foro/" class="site-title pure-menu-heading">&nbsp;</a>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+  </div>
+</header>
+
+      <article>
+        
+        <div class="pure-g">
+  <div class="pure-u-1">
+    <div class="post-data pure-g">
+      <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+      <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+        <div class="pure-g">
+          <div class="author pure-u-1">
+            <a href="/libreim/foro/" class="selected">Foro</a>
+            ·
+            <a href="/libreim/calendar/">Calendario</a>
+          </div>
+        </div>
+      </div>
+      <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    </div>
+  </div>
+</div>
+
+<div class="post-content pure-g">
+  <div class="pure-u-1">
+
+    <style type="text/css">header .l-foro { color: #c0c0c0; }</style>
+
+<!-- (2) Placeholder for the forum. The forum will be rendered inside this element -->
+<div class="muut">
+
+   <a class="muut-url" href="https://muut.com/i/dgiim">
+      Foro DGIIM
+   </a>
+
+   <div class="m-h3"><a href="#!/general">General</a></div>
+      <a href="#!/general/ugr">UGR</a>
+      <a href="#!/general/offtopic">Off topic</a>
+
+   <div class="m-h3"><a href="#!/matematicas">Matemáticas</a></div>
+      <a href="#!/matematicas/analisis">Análisis</a>
+      <a href="#!/matematicas/geometria">Geometría</a>
+      <a href="#!/matematicas/topologia">Topología</a>
+      <a href="#!/matematicas/algebra">Álgebra</a>
+      <a href="#!/matematicas/estadistica">Estadística y Probabilidad</a>
+      <a href="#!/matematicas/aplicada">Matemática Aplicada</a>
+      <a href="#!/matematicas/recursos">Recursos matemáticos</a>
+
+   <div class="m-h3"><a href="#!/informatica">Informática</a></div>
+      <a href="#!/informatica/computacion">Computación</a>
+      <a href="#!/informatica/programacion">Programación</a>
+      <a href="#!/informatica/sistemas">Sistemas</a>
+      <a href="#!/informatica/datos">Datos</a>
+      <a href="#!/informatica/arquitectura">Arquitectura</a>
+      <a href="#!/informatica/recursos">Recursos informáticos</a>
+
+</div>
+
+
+  </div>
+</div>
+
+      </article>
+      <footer class="pure-g">
+</footer>
+
+   </body>
+</html>

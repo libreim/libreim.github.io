@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <script>
+        if (location.href.indexOf("tux.ugr.es") > -1 && location.href.indexOf("/libreim") < 0)
+          location.href = location.href.replace("dgiim", "libreim");
+      </script>
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+      <!--link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/menus-min.css" /-->
+      <link rel="stylesheet" type="text/css" href="/libreim/assets/css/default.css" />
+      <link rel="stylesheet" type="text/css" href="/libreim/assets/css/pygments-friendly.css" />
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="/libreim/assets/feed.xml" />
+
+      <!-- Favicon -->
+      <link rel="shortcut icon" type="image/x-icon" href="/libreim/assets/images/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="160x160" href="/libreim/assets/images/favicon-160.png">
+    	<meta name="msapplication-TileColor" content="#FFFFFF">
+    	<meta name="msapplication-TileImage" content="/libreim/assets/images/favicon-160.png">
+      <meta name="theme-color" content="#6789ab">
+
+      <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      <script type="text/javascript">
+         WebFont.load({
+            google: {
+               families: ["Lato:400,300,700,400italic:latin", "Source+Code+Pro:400,700:latin"]
+            }
+         });
+      </script>
+      <script type="text/javascript">
+            MathJax.Hub.Config({
+               tex2jax: {
+                  inlineMath: [],
+                  displayMath: [],
+               }
+            });
+      </script>
+      <title>Blog - LibreIM</title>
+   </head>
+   <body>
+      <header>
+  <div class="pure-menu pure-menu-horizontal pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+      <input type="checkbox" id="show-menu">
+      <label class="hamburger" for="show-menu"></label>
+      <div class="sites">
+        <a href="/libreim/" class="pure-menu-link" title="Inicio">Inicio</a>
+        <a href="/libreim/blog/" class="pure-menu-link" title="Inicio">Blog</a>
+        <a href="/libreim/overflow/" class="pure-menu-link" title="Foro">Overflow</a>
+        <a href="/libreim/awesome/apuntes" class="pure-menu-link" title="Apuntes">Apuntes</a>
+        <a href="/libreim/awesome/" class="pure-menu-link" title="Awesome">Awesome</a>
+        <a href="/libreim/contributing/" class="pure-menu-link" title="Participa">Participa</a>
+      </div>
+      <a href="/libreim/" class="site-title pure-menu-heading">&nbsp;</a>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+  </div>
+</header>
+
+      
+  
+  
+  <article lang="es">
+  <div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-2-5">
+      <div class="category">
+        Heurísticas
+      </div>
+
+      <h1>
+        <a href="/libreim/blog/2014/11/08/algoritmos-geneticos/">
+            Algoritmos Genéticos
+        </a>
+      </h1>
+
+      <div class="post-data">
+        
+        
+          
+            
+             
+            <a class="author" href="http://github.com/andreshp">
+              Andrés Herrera Poyatos
+            </a>
+          
+        
+
+        <a class="date" href="/libreim/blog/2014/11/08/algoritmos-geneticos/">
+          08-11-2014
+        </a>
+        <a class="dsq-comment-count comments" href="/libreim/blog/2014/11/08/algoritmos-geneticos/#disqus_thread" data-disqus-identifier="/2014/11/08/algoritmos-geneticos">
+
+        </a>
+        <!--
+        
+        -->
+      </div>
+
+    <div class="post-content">
+
+        <p>El objetivo de un matemático e informático consiste en resolver problemas. Los problemas de optimización son un claro ejemplo de cuestiones resolubles mediante la aplicación conjunta de la informática y las matemáticas. Sin embargo, existen algunos problemas de optimización (como el <em>problema del viajante de comercio</em> y todos aquellos que sean NP Hard) para los que no se conoce ningún algoritmo polinomial que los resuelva. En estos casos la aplicación de algoritmos exactos que recorran de forma óptima todo el conjunto de soluciones no es viable por el tiempo necesario. Tenemos que recurrir a otras herramientas: las <strong>heurísticas</strong>.</p>
+
+<p><a href="/libreim/blog/2014/11/08/algoritmos-geneticos/">Seguir leyendo...</a></p>
+
+        
+
+      
+
+        <!--<div class="share">
+          <a class="dsq-comment-count" href="/libreim/blog/2014/11/08/algoritmos-geneticos/#disqus_thread" data-disqus-identifier="/2014/11/08/algoritmos-geneticos"></a>
+          <a href="https://twitter.com/intent/tweet?url=http://tux.ugr.es/libreim/blog/2014/11/08/algoritmos-geneticos/&text=Algoritmos Genéticos" class="share-twt" target="_blank"><img alt="Twitter" title="Compartir en Twitter" src="/libreim/blog/assets/sq_twitter.png" /></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://tux.ugr.es/libreim/blog/2014/11/08/algoritmos-geneticos/" class="share-fb" target="_blank"><img alt="Facebook" title="Compartir en Facebook" src="/libreim/blog/assets/sq_facebook.png" /></a>
+          <a href="http://sharetodiaspora.github.io/?url=http://tux.ugr.es/libreim/blog/2014/11/08/algoritmos-geneticos/&title=Algoritmos Genéticos" class="share-di" target="_blank"><img alt="Diaspora" title="Compartir en Diaspora*" src="/libreim/blog/assets/sq_diaspora.png" /></a>
+          <a href="http://www.feedly.com/home#subscription/feed/http://tux.ugr.es/libreim/blogfeed.xml" class="share-fd" target="_blank"><img alt="Feedly" title="Suscribirse con Feedly" src="/libreim/blog/assets/sq_feedly.png" /></a>
+        </div>-->
+
+        
+      </div>
+    </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-2-5"></div>
+  </div>
+</article>
+
+
+  
+  
+  <article lang="es">
+  <div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-2-5">
+      <div class="category">
+        Ciencia de datos
+      </div>
+
+      <h1>
+        <a href="/libreim/blog/2014/10/19/data-mining/">
+            Algoritmos de clasificación en Minería de datos
+        </a>
+      </h1>
+
+      <div class="post-data">
+        
+        
+          
+            
+             
+            <span class="author">
+              David Charte
+            </span>
+          
+        
+
+        <a class="date" href="/libreim/blog/2014/10/19/data-mining/">
+          19-10-2014
+        </a>
+        <a class="dsq-comment-count comments" href="/libreim/blog/2014/10/19/data-mining/#disqus_thread" data-disqus-identifier="/2014/10/19/data-mining">
+
+        </a>
+        <!--
+        
+        -->
+      </div>
+
+    <div class="post-content">
+
+        <p>La Minería de datos es el análisis de datos para tratar de encontrar
+patrones no triviales que aporten información útil. En concreto, el
+Problema de clasificación implica aprender las relaciones entre los
+datos que se poseen para predecir características de datos futuros.</p>
+
+<p>Se han redactado unos apuntes sobre clasificación y los algoritmos
+más utilizados para tratar el problema, disponibles en el <a href="http://github.com/libreim/data-mining-classification/">repositorio
+correspondiente de la organización del Doble Grado</a>
+en GitHub. En ellos se dan las definiciones pertinentes, se distinguen
+modalidades del problema y se explican técnicas y algoritmos para
+generar clasificadores. Se comparten bajo la licencia <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+
+
+        
+
+      
+
+        <!--<div class="share">
+          <a class="dsq-comment-count" href="/libreim/blog/2014/10/19/data-mining/#disqus_thread" data-disqus-identifier="/2014/10/19/data-mining"></a>
+          <a href="https://twitter.com/intent/tweet?url=http://tux.ugr.es/libreim/blog/2014/10/19/data-mining/&text=Algoritmos de clasificación en Minería de datos" class="share-twt" target="_blank"><img alt="Twitter" title="Compartir en Twitter" src="/libreim/blog/assets/sq_twitter.png" /></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://tux.ugr.es/libreim/blog/2014/10/19/data-mining/" class="share-fb" target="_blank"><img alt="Facebook" title="Compartir en Facebook" src="/libreim/blog/assets/sq_facebook.png" /></a>
+          <a href="http://sharetodiaspora.github.io/?url=http://tux.ugr.es/libreim/blog/2014/10/19/data-mining/&title=Algoritmos de clasificación en Minería de datos" class="share-di" target="_blank"><img alt="Diaspora" title="Compartir en Diaspora*" src="/libreim/blog/assets/sq_diaspora.png" /></a>
+          <a href="http://www.feedly.com/home#subscription/feed/http://tux.ugr.es/libreim/blogfeed.xml" class="share-fd" target="_blank"><img alt="Feedly" title="Suscribirse con Feedly" src="/libreim/blog/assets/sq_feedly.png" /></a>
+        </div>-->
+
+        
+      </div>
+    </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-2-5"></div>
+  </div>
+</article>
+
+
+  
+  
+  <article lang="es">
+  <div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-2-5">
+      <div class="category">
+        Álgebra
+      </div>
+
+      <h1>
+        <a href="/libreim/blog/2014/10/04/intro-categorias/">
+            Introducción a la teoría de categorías
+        </a>
+      </h1>
+
+      <div class="post-data">
+        
+        
+          
+            
+             
+            <a class="author" href="http://github.com/M42">
+              Mario Román
+            </a>
+          
+        
+
+        <a class="date" href="/libreim/blog/2014/10/04/intro-categorias/">
+          04-10-2014
+        </a>
+        <a class="dsq-comment-count comments" href="/libreim/blog/2014/10/04/intro-categorias/#disqus_thread" data-disqus-identifier="/2014/10/04/intro-categorias">
+
+        </a>
+        <!--
+        
+        -->
+      </div>
+
+    <div class="post-content">
+
+        <p>Los primeros desarrollos de la teoría de categorías vinieron impulsados en los
+años 40 para cubrir necesidades del álgebra homológica. La posterior teoría
+general de categorías fue una actualización del álgebra universal, que estudiaba
+las características comunes de diversas estructuras algebraicas. <sup id="fnref:categoriaswikipedia"><a href="#fn:categoriaswikipedia" class="footnote">1</a></sup></p>
+
+<p>En los repositorios del doble grado hay unos apuntes de introducción
+a la Teoría de Categorías con su código fuente bajo licencia CC BY-NC-SA 3.0. En
+ellos se explican tipos de morfismos y propiedades universales. Se
+hace especial hincapié en productos y coproductos y se pasan a explicar
+los functores y las transformaciones naturales. El objetivo no es aportar
+otra explicación formal de la teoría de categorias, sino dar una idea
+general de los conceptos básicos:<br />
+<a href="https://github.com/libreim/introCategorias">Introducción a la Teoría de Categorías</a></p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:categoriaswikipedia">
+      <p><a href="http://es.wikipedia.org/wiki/Teor%C3%ADa_de_categor%C3%ADas">Teoría de Categorías - Wikipedia, the free encyclopedia</a>&nbsp;<a href="#fnref:categoriaswikipedia" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+        
+
+      
+
+        <!--<div class="share">
+          <a class="dsq-comment-count" href="/libreim/blog/2014/10/04/intro-categorias/#disqus_thread" data-disqus-identifier="/2014/10/04/intro-categorias"></a>
+          <a href="https://twitter.com/intent/tweet?url=http://tux.ugr.es/libreim/blog/2014/10/04/intro-categorias/&text=Introducción a la teoría de categorías" class="share-twt" target="_blank"><img alt="Twitter" title="Compartir en Twitter" src="/libreim/blog/assets/sq_twitter.png" /></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://tux.ugr.es/libreim/blog/2014/10/04/intro-categorias/" class="share-fb" target="_blank"><img alt="Facebook" title="Compartir en Facebook" src="/libreim/blog/assets/sq_facebook.png" /></a>
+          <a href="http://sharetodiaspora.github.io/?url=http://tux.ugr.es/libreim/blog/2014/10/04/intro-categorias/&title=Introducción a la teoría de categorías" class="share-di" target="_blank"><img alt="Diaspora" title="Compartir en Diaspora*" src="/libreim/blog/assets/sq_diaspora.png" /></a>
+          <a href="http://www.feedly.com/home#subscription/feed/http://tux.ugr.es/libreim/blogfeed.xml" class="share-fd" target="_blank"><img alt="Feedly" title="Suscribirse con Feedly" src="/libreim/blog/assets/sq_feedly.png" /></a>
+        </div>-->
+
+        
+      </div>
+    </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-2-5"></div>
+  </div>
+</article>
+
+
+  
+  
+  <article lang="es">
+  <div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-2-5">
+      <div class="category">
+        Programación
+      </div>
+
+      <h1>
+        <a href="/libreim/blog/2014/10/01/intro-haskell/">
+            Introducción a Haskell
+        </a>
+      </h1>
+
+      <div class="post-data">
+        
+        
+          
+            
+             
+            <a class="author" href="http://github.com/M42">
+              Mario Román
+            </a>
+          
+            
+             y 
+            <a class="author" href="http://github.com/mx-psi">
+              Pablo Baeyens
+            </a>
+          
+        
+
+        <a class="date" href="/libreim/blog/2014/10/01/intro-haskell/">
+          01-10-2014
+        </a>
+        <a class="dsq-comment-count comments" href="/libreim/blog/2014/10/01/intro-haskell/#disqus_thread" data-disqus-identifier="/2014/10/01/intro-haskell">
+
+        </a>
+        <!--
+        
+        -->
+      </div>
+
+    <div class="post-content">
+
+        <p>El lenguaje de programación Haskell es uno de los lenguajes puramente
+funcionales más utilizados. <sup id="fnref:rankingtiobe"><a href="#fn:rankingtiobe" class="footnote">1</a></sup> Se creó en los años 1980 para reunir las
+características de los múltiples lenguajes funcionales en un sólo lenguaje. <sup id="fnref:haskellwikipedia"><a href="#fn:haskellwikipedia" class="footnote">2</a></sup></p>
+
+<p>Es un lenguaje basado en funciones puras y permitiendo el paso de
+funciones como argumentos a funciones de orden superior. Y es un lenguaje
+fuertemente tipificado, que comprueba todos los tipos en tiempo de compilación.</p>
+
+<p>A los repositorios del doble grado hemos subido unos apuntes de introducción
+a Haskell con su código fuente bajo licencia CC BY-NC-SA 3.0:
+<a href="https://github.com/libreim/haskell#Íntroducción-a-haskell">Introducción a Haskell</a></p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:rankingtiobe">
+      <p><a href="http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html">TIOBE - Programming Community Index</a>&nbsp;<a href="#fnref:rankingtiobe" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:haskellwikipedia">
+      <p><a href="http://en.wikipedia.org/wiki/Haskell_%28programming_language%29">Haskell - Wikipedia, the free encyclopedia</a>&nbsp;<a href="#fnref:haskellwikipedia" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+        
+
+      
+
+        <!--<div class="share">
+          <a class="dsq-comment-count" href="/libreim/blog/2014/10/01/intro-haskell/#disqus_thread" data-disqus-identifier="/2014/10/01/intro-haskell"></a>
+          <a href="https://twitter.com/intent/tweet?url=http://tux.ugr.es/libreim/blog/2014/10/01/intro-haskell/&text=Introducción a Haskell" class="share-twt" target="_blank"><img alt="Twitter" title="Compartir en Twitter" src="/libreim/blog/assets/sq_twitter.png" /></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://tux.ugr.es/libreim/blog/2014/10/01/intro-haskell/" class="share-fb" target="_blank"><img alt="Facebook" title="Compartir en Facebook" src="/libreim/blog/assets/sq_facebook.png" /></a>
+          <a href="http://sharetodiaspora.github.io/?url=http://tux.ugr.es/libreim/blog/2014/10/01/intro-haskell/&title=Introducción a Haskell" class="share-di" target="_blank"><img alt="Diaspora" title="Compartir en Diaspora*" src="/libreim/blog/assets/sq_diaspora.png" /></a>
+          <a href="http://www.feedly.com/home#subscription/feed/http://tux.ugr.es/libreim/blogfeed.xml" class="share-fd" target="_blank"><img alt="Feedly" title="Suscribirse con Feedly" src="/libreim/blog/assets/sq_feedly.png" /></a>
+        </div>-->
+
+        
+      </div>
+    </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-2-5"></div>
+  </div>
+</article>
+
+
+  
+  
+  <article lang="es">
+  <div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-2-5">
+      <div class="category">
+        Programación
+      </div>
+
+      <h1>
+        <a href="/libreim/blog/2014/06/24/introduccion-javascript/">
+            Introducción a JavaScript. Programación con prototipos
+        </a>
+      </h1>
+
+      <div class="post-data">
+        
+        
+          
+            
+             
+            <span class="author">
+              David Charte
+            </span>
+          
+        
+
+        <a class="date" href="/libreim/blog/2014/06/24/introduccion-javascript/">
+          24-06-2014
+        </a>
+        <a class="dsq-comment-count comments" href="/libreim/blog/2014/06/24/introduccion-javascript/#disqus_thread" data-disqus-identifier="/2014/06/24/introduccion-javascript">
+
+        </a>
+        <!--
+        
+        -->
+      </div>
+
+    <div class="post-content">
+
+        <div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Hello World!!"</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>JavaScript (JS) es el lenguaje de programación desarrollado por Netscape para
+la web<sup id="fnref:jsannouncement"><a href="#fn:jsannouncement" class="footnote">1</a></sup>. Se trata de un lenguaje de script,
+generalmente interpretado por el navegador del usuario, esto es, se ejecuta en
+el <em>cliente</em><sup id="fnref:mdnjs"><a href="#fn:mdnjs" class="footnote">2</a></sup>. Hablamos del cliente refiriéndonos a la máquina del usuario final
+que visitará el sitio web, y del servidor para referirnos a la máquina o el
+conjunto de ellas que lo almacenan y proporcionan. Sin embargo, también se
+puede utilizar JavaScript como lenguaje de servidor gracias a
+<a href="http://nodejs.org/">Node.js</a>.</p>
+
+<p><a href="/libreim/blog/2014/06/24/introduccion-javascript/">Seguir leyendo...</a></p>
+
+        
+
+      
+
+        <!--<div class="share">
+          <a class="dsq-comment-count" href="/libreim/blog/2014/06/24/introduccion-javascript/#disqus_thread" data-disqus-identifier="/2014/06/24/introduccion-javascript"></a>
+          <a href="https://twitter.com/intent/tweet?url=http://tux.ugr.es/libreim/blog/2014/06/24/introduccion-javascript/&text=Introducción a JavaScript. Programación con prototipos" class="share-twt" target="_blank"><img alt="Twitter" title="Compartir en Twitter" src="/libreim/blog/assets/sq_twitter.png" /></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://tux.ugr.es/libreim/blog/2014/06/24/introduccion-javascript/" class="share-fb" target="_blank"><img alt="Facebook" title="Compartir en Facebook" src="/libreim/blog/assets/sq_facebook.png" /></a>
+          <a href="http://sharetodiaspora.github.io/?url=http://tux.ugr.es/libreim/blog/2014/06/24/introduccion-javascript/&title=Introducción a JavaScript. Programación con prototipos" class="share-di" target="_blank"><img alt="Diaspora" title="Compartir en Diaspora*" src="/libreim/blog/assets/sq_diaspora.png" /></a>
+          <a href="http://www.feedly.com/home#subscription/feed/http://tux.ugr.es/libreim/blogfeed.xml" class="share-fd" target="_blank"><img alt="Feedly" title="Suscribirse con Feedly" src="/libreim/blog/assets/sq_feedly.png" /></a>
+        </div>-->
+
+        
+      </div>
+    </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-2-5"></div>
+  </div>
+</article>
+
+
+
+
+<nav class="pagination pure-g">
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+
+  <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-2-5">
+    <div class="pure-g">
+      <div class="paginator pure-u-1-3 pure-u-md-1-3 pure-u-lg-2-5">
+        
+          
+            <a href="/libreim/blog/page/4/" class="next arrow" >&larr;</a>
+          
+        
+      </div>
+      <div class="paginator pure-u-1-3 pure-u-md-1-3 pure-u-lg-1-5">
+        <span class="page-number">Página 5 de 6</span>
+        <span class="archive-link"><a href="/libreim/blog/archive">Todos los posts</a></span>
+      </div>
+      <div class="paginator pure-u-1-3 pure-u-md-1-3 pure-u-lg-2-5">
+        
+          <a href="/libreim/blog/page/6/" class="next arrow">&rarr;</a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-2-5"></div>
+</nav>
+
+
+      <footer class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+      <div class="pure-g">
+		<div class="pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
+			<h3>Colaboradores</h3>
+	        <ul>
+				
+					
+					<li><a href="http://github.com/">David Charte</a></li>
+				
+					
+					<li><a href="http://github.com/M42">Mario Román</a></li>
+				
+					
+					<li><a href="http://github.com/mx-psi">Pablo Baeyens</a></li>
+				
+					
+					<li><a href="http://github.com/NCordon">Ignacio Cordón</a></li>
+				
+					
+					<li><a href="http://github.com/andreshp">Andrés Herrera Poyatos</a></li>
+				
+					
+					<li><a href="http://github.com/oxcar103">Óscar Bermúdez</a></li>
+				
+					
+					<li><a href="http://github.com/JJ">Juan Julián Merelo</a></li>
+				
+					
+					<li><a href="http://github.com/makixun">Miguel Anguita</a></li>
+				
+					
+					<li><a href="http://github.com/JCEntrena">José Carlos Entrena</a></li>
+				
+					
+					<li><a href="http://github.com/martaandres">Marta Andrés</a></li>
+				
+					
+					<li><a href="http://github.com/robertohueso">Roberto Hueso</a></li>
+				
+					
+					<li><a href="http://github.com/fjsaezm">Javier Sáez</a></li>
+				
+					
+					<li><a href="http://github.com/jmml97">José María Martín</a></li>
+				
+					
+					<li><a href="http://github.com/danipozodg">Daniel Pozo</a></li>
+				
+					
+					<li><a href="http://github.com/antcc">Antonio Coín</a></li>
+				
+					
+					<li><a href="http://github.com/ludvins">Luis Ortega</a></li>
+				
+					
+					<li><a href="http://github.com/pedrobn23">Pedro Bonilla</a></li>
+				
+					
+					<li><a href="http://github.com/guillegalor">Guillermo Galindo</a></li>
+				
+					
+					<li><a href="http://github.com/rjraya">Rodrigo Raya</a></li>
+				
+					
+					<li><a href="http://github.com/DiegoAsterio">Diego Asterio</a></li>
+				
+	        </ul>
+		</div>
+        <div class="pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
+			<h3>Categorías</h3>
+	        <ul>
+		    	
+		            <li><a href="/libreim/blog/categories/#Utilidades">Utilidades</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Análisis">Análisis</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Programación">Programación</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Álgebra">Álgebra</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Ciencia de datos">Ciencia de datos</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Heurísticas">Heurísticas</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Problemas">Problemas</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Lógica">Lógica</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Linux">Linux</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Estructuras de Datos">Estructuras de datos</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#General">General</a></li>
+		    	
+	        </ul>
+		</div>
+        <div class="pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
+        <br></br>
+             <a href="http://osl.ugr.es"><img src="http://osl.ugr.es/logo-osl.png" alt="Logo Oficina de Software Libre de la Universidad de Granada" style="width:200px" /></a>
+             <br></br>
+             Puedes ver este sitio gracias a la ayuda de la OSL-UGR
+         <br></br>
+			<h3>Licencia</h3>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/80x15.png" /></a><br />
+			El contenido de este blog, salvo que se explicite lo contrario, está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</a>.
+		</div>
+      </div>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+</footer>
+
+
+      <script id="dsq-count-scr" src="//dgiim.disqus.com/count.js" async></script>
+   </body>
+</html>

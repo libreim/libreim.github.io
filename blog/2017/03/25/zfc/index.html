@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <script>
+        if (location.href.indexOf("tux.ugr.es") > -1 && location.href.indexOf("/libreim") < 0)
+          location.href = location.href.replace("dgiim", "libreim");
+      </script>
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+      <!--link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/menus-min.css" /-->
+      <link rel="stylesheet" type="text/css" href="/libreim/assets/css/default.css" />
+      <link rel="stylesheet" type="text/css" href="/libreim/assets/css/pygments-friendly.css" />
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="/libreim/assets/feed.xml" />
+
+      <!-- Favicon -->
+      <link rel="shortcut icon" type="image/x-icon" href="/libreim/assets/images/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="160x160" href="/libreim/assets/images/favicon-160.png">
+    	<meta name="msapplication-TileColor" content="#FFFFFF">
+    	<meta name="msapplication-TileImage" content="/libreim/assets/images/favicon-160.png">
+      <meta name="theme-color" content="#6789ab">
+
+      <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      <script type="text/javascript">
+         WebFont.load({
+            google: {
+               families: ["Lato:400,300,700,400italic:latin", "Source+Code+Pro:400,700:latin"]
+            }
+         });
+      </script>
+      <script type="text/javascript">
+            MathJax.Hub.Config({
+               tex2jax: {
+                  inlineMath: [],
+                  displayMath: [],
+               }
+            });
+      </script>
+      <title>Introducción a ZFC - LibreIM</title>
+   </head>
+   <body>
+      <header>
+  <div class="pure-menu pure-menu-horizontal pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+      <input type="checkbox" id="show-menu">
+      <label class="hamburger" for="show-menu"></label>
+      <div class="sites">
+        <a href="/libreim/" class="pure-menu-link" title="Inicio">Inicio</a>
+        <a href="/libreim/blog/" class="pure-menu-link" title="Inicio">Blog</a>
+        <a href="/libreim/overflow/" class="pure-menu-link" title="Foro">Overflow</a>
+        <a href="/libreim/awesome/apuntes" class="pure-menu-link" title="Apuntes">Apuntes</a>
+        <a href="/libreim/awesome/" class="pure-menu-link" title="Awesome">Awesome</a>
+        <a href="/libreim/contributing/" class="pure-menu-link" title="Participa">Participa</a>
+      </div>
+      <a href="/libreim/" class="site-title pure-menu-heading">&nbsp;</a>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+  </div>
+</header>
+
+      
+
+
+<article lang="es">
+  <div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-2-5">
+      <div class="category">
+        Lógica
+      </div>
+
+      <h1>
+        <a href="/libreim/blog/2017/03/25/zfc/">
+            Introducción a ZFC
+        </a>
+      </h1>
+
+      <div class="post-data">
+        
+        
+          
+            
+             
+            <a class="author" href="http://github.com/mx-psi">
+              Pablo Baeyens
+            </a>
+          
+        
+
+        <a class="date" href="/libreim/blog/2017/03/25/zfc/">
+          25-03-2017
+        </a>
+        <a class="dsq-comment-count comments" href="/libreim/blog/2017/03/25/zfc/#disqus_thread" data-disqus-identifier="/2017/03/25/zfc">
+
+        </a>
+        <!--
+        
+          <a class="edit" href="https://github.com/libreim/blog/blob/gh-pages/_posts/2017-03-25-zfc.md">
+            Ver y editar en GitHub
+          </a>
+        
+        -->
+      </div>
+
+    <div class="post-content">
+
+        <p>A principios del siglo XX las matemáticas sufrieron una crisis
+fundacional: los principios que se consideraban básicos para la
+deducción de las teorías matemáticas daban lugar a paradojas y los
+matemáticos de la época se embarcaron en la creación de un sistema
+axiomático que pudiera formalizar todos los teoremas de la época sin dar
+lugar a estas paradojas.</p>
+
+<p>Una de las posibles soluciones son las teorías axiomáticas de conjuntos,
+de entre las cuales la más utilizada actualmente es ZFC (la teoría de
+Zermelo-Fraenkel junto con el axioma de elección)<sup id="fnref:zfc-alternativas"><a href="#fn:zfc-alternativas" class="footnote">1</a></sup>.</p>
+
+<p>En este artículo exponemos los axiomas de esta teoría y la comparamos
+con otras teorías de conjuntos (y de clases). Se incluyen también
+algunos ejercicios.</p>
+
+<!--more-->
+
+<h2 id="el-lenguaje">El lenguaje</h2>
+
+<blockquote>
+  <p>Second order logic is just set theory in disguise - <a href="https://en.wikipedia.org/wiki/Willard_Van_Orman_Quine">W.V.O.
+Quine</a></p>
+</blockquote>
+
+<p>Para formalizar una teoría axiomática de cualquier tipo necesitamos un
+lenguaje en el cual expresar los axiomas, pero el lenguaje natural
+<a href="https://en.wikipedia.org/wiki/Berry_paradox">produce paradojas</a>. Para
+solucionar este problema utilizaremos un lenguaje lógico.</p>
+
+<p>Hay muchas otras posibles elecciones con respecto a qué lógica utilizar:
+por ejemplo <a href="https://en.wikipedia.org/wiki/Constructive_set_theory">algunas
+teorías</a>
+axiomáticas de conjuntos utilizan <a href="https://en.wikipedia.org/wiki/Non-classical_logic">lógicas no
+clásicas</a>. Podríamos
+también considerar las <a href="https://plato.stanford.edu/entries/logic-higher-order/">lógicas de orden
+superior</a> pero
+por <a href="http://philosophy.stackexchange.com/a/2618">razones históricas y
+filosóficas</a> y por sus
+propiedades metalógicas formularemos la teoría en lógica de primer
+orden.</p>
+
+<h3 id="la-lógica-de-primer-orden">La lógica de primer orden</h3>
+
+<p>La lógica de primer orden consta de dos tipos de símbolos: los símbolos
+lógicos y los no-lógicos, que forman fórmulas a partir de una <a href="https://en.wikipedia.org/wiki/First-order_logic#Syntax">serie de
+reglas</a>. No es
+el objetivo de este post explicar en detalle la lógica de primer orden y
+basta con que seas capaz de leer fórmulas como
+<script type="math/tex">\forall x \operatorname{Cuervo}(x) \implies \operatorname{Negro}(x)</script>
+(<em>todos los cuervos son negros</em>) <sup id="fnref:zfc-cuervos"><a href="#fn:zfc-cuervos" class="footnote">2</a></sup>.</p>
+
+<p>Los símbolos <strong>lógicos</strong> de nuestra teoría pueden reducirse a una
+colección de conectivas lógicas <a href="https://en.m.wikipedia.org/wiki/Functional_completeness">funcionalmente
+completas</a>
+(cómo mínimo <a href="https://en.wikipedia.org/wiki/Sheffer_stroke">la operación
+NAND</a> o más comúnmente la
+conjunción, disyunción, negación, implicación y bicondicional) así como
+al menos un cuantificador (para todo <script type="math/tex">\forall</script> o existe <script type="math/tex">\exists</script>).
+Contamos además con una cantidad infinita de variables (basta con una
+cantidad numerable) para escribir nuestras fórmulas.</p>
+
+<p>Contaremos además como único símbolo <strong>no-lógico</strong> a la relación de
+pertenencia <script type="math/tex">\in(\cdot,\cdot)</script> que escribiremos <script type="math/tex">A \in B</script> y leemos <em>A
+pertenece a B</em>.</p>
+
+<p>Nuestra lógica también incluye el símbolo de igualdad <script type="math/tex">=</script> y <a href="https://en.wikipedia.org/wiki/First-order_logic#Equality_and_its_axioms">sus
+axiomas</a>,
+que incluimos a continuación por completitud. Los 3 primeros axiomas nos
+indican que la igualdad es una <a href="https://en.wikipedia.org/wiki/Equivalence_relation">relación de
+equivalencia</a>. El
+último es un esquema de axioma (una colección infinita de axiomas que
+depende de una fórmula) que caracteriza la igualdad (conocido como
+<a href="https://en.wikipedia.org/wiki/Identity_of_indiscernibles"><em>identidad de los
+indiscernibles</em></a>).</p>
+
+<ol>
+  <li><strong>Reflexividad</strong> <script type="math/tex">\forall x \; x = x</script></li>
+  <li><strong>Simetría</strong> <script type="math/tex">\forall x \forall y \;  x = y \implies y = x</script></li>
+  <li><strong>Transitividad</strong>
+<script type="math/tex">\forall x \forall y \forall z \; x = y \wedge y = z \implies x = z</script></li>
+  <li><strong>Sustitución</strong> Si <script type="math/tex">\varphi</script> es una fórmula y <script type="math/tex">\varphi'</script> es la
+fórmula que resulta de sustituir todas las ocurrencias libres de <script type="math/tex">x</script>
+por <script type="math/tex">y</script> se verifica:
+<script type="math/tex">\forall x \forall y  \; x = y \implies (\varphi \implies \varphi')</script></li>
+</ol>
+
+<h4 id="una-nota-sobre-los-cuantificadores">Una nota sobre los cuantificadores</h4>
+
+<p>Cuando se escriben fórmulas matemáticas habitualmente omitimos los cuantificadores o utilizamos
+<a href="https://en.wikipedia.org/wiki/Bounded_quantifier"><em>cuantificadores
+delimitados</em></a>:</p>
+
+<script type="math/tex; mode=display">\forall x \in A \; \varphi(x)</script>
+
+<script type="math/tex; mode=display">\exists x \in A \; \varphi(x)</script>
+
+<p>que leemos <em>para todo</em> <script type="math/tex">x</script> <em>en</em> <script type="math/tex">A</script> <em>se verifica</em> <script type="math/tex">\varphi(x)</script> y <em>existe
+un</em> <script type="math/tex">x</script> <em>en</em> <script type="math/tex">A</script> <em>tal que</em> <script type="math/tex">\varphi(x)</script> respectivamente.</p>
+
+<p>En los axiomas de la teoría de conjuntos sin embargo los cuantificadores
+no están delimitados, por lo que debemos expresarlo con una fórmula
+equivalente:</p>
+
+<script type="math/tex; mode=display">\forall x \; x \in A \implies \varphi(x)</script>
+
+<script type="math/tex; mode=display">\exists x \; x \in A \wedge \varphi(x)</script>
+
+<p>es decir <em>para todo <script type="math/tex">x</script>, si <script type="math/tex">x</script> pertenece a <script type="math/tex">A</script> entonces <script type="math/tex">\varphi(x)</script></em> y
+<em>existe un <script type="math/tex">x</script> tal que <script type="math/tex">x</script> pertenece a <script type="math/tex">A</script> y <script type="math/tex">\varphi(x)</script></em>. En este caso
+<script type="math/tex">x</script> es ahora cualquier conjunto.<sup id="fnref:zfc-dominio"><a href="#fn:zfc-dominio" class="footnote">3</a></sup></p>
+
+<h2 id="el-dominio-de-discurso">El dominio de discurso</h2>
+
+<blockquote>
+  <p>In every discourse, whether of the mind conversing with its own
+thoughts, or of the individual in his intercourse with others, there
+is an assumed or expressed limit within which the subjects of its
+operation are confined. - Boole, 1854</p>
+</blockquote>
+
+<p>Las matemáticas tratan de objetos muy dispares como pueden ser los
+números, las funciones, los espacios topológicos, las máquinas de Turing
+o las categorías. Una teoría fundacional debería ser capaz de expresar
+todos estos objetos utilizando las mismas piezas. En algunos casos la
+transformación a conjuntos es clara (los espacios topológicos o las
+máquinas de Turing suelen definirse de forma explícita como conjuntos)
+pero en otros casos (los números o las funciones) esa transformación no
+suele realizarse de forma explícita cuando trabajamos con estos. ¿Es
+posible expresar cualquier objeto matemático en forma de conjuntos o
+necesitamos además otros tipos de objetos?</p>
+
+<p>En esta sección realizamos construcciones explícitas de estos objetos
+matemáticos y discutimos los límites de ZFC para describir todas las
+matemáticas.</p>
+
+<h3 id="los-números-son-conjuntos">Los números son conjuntos</h3>
+
+<p>Algunas teorías como
+<a href="https://en.wikipedia.org/wiki/New_Foundations">NFU</a> o
+<a href="https://en.wikipedia.org/wiki/Kripke%E2%80%93Platek_set_theory_with_urelements">KPU</a>
+admiten <em>urelementos</em>: elementos que <strong>no</strong> son conjuntos pero
+pueden ser elementos de conjuntos (esto es, sólo pueden aparecer en el
+lado izquierdo de <script type="math/tex">\in</script>) y así lo hacía la <a href="https://en.wikipedia.org/wiki/Zermelo_set_theory">teoría de
+Zermelo</a> de 1908 en la
+que se basa ZFC. Esta podría ser una opción para incluir los números en
+nuestra teoría, sin embargo las matemáticas pueden basarse
+exclusivamente en <em>conjuntos hereditarios</em><sup id="fnref:zfc-casi"><a href="#fn:zfc-casi" class="footnote">4</a></sup>.</p>
+
+<p>Un conjunto se dice
+<a href="https://en.wikipedia.org/wiki/Hereditary_set"><strong>hereditario</strong></a> si todos
+sus elementos son conjuntos hereditarios. Como <a href="https://en.wikipedia.org/wiki/Vacuous_truth">verdad
+vacua</a> podemos demostrar
+que el <strong>conjunto vacío</strong> <script type="math/tex">\varnothing</script> es un conjunto hereditario y por
+tanto (como veremos a continuación) también lo serán
+<script type="math/tex">\{\varnothing\}, \{\varnothing, \{\varnothing\}\},\{\{\varnothing\}\}, \dots</script>.
+Combinando conjuntos hereditarios a partir de los axiomas podemos crear
+una cantidad arbitrariamente grande de conjuntos y por tanto nos basta
+nombrar de forma especial algunos de estos conjuntos para obtener
+nuestra teoría.</p>
+
+<p>La forma habitual de proceder es definir primero los números naturales
+siguiendo los <a href="https://en.wikipedia.org/wiki/Ordinal_number#Von_Neumann_definition_of_ordinals">ordinales de Von
+Neumann</a>:</p>
+
+<script type="math/tex; mode=display">0 = \varnothing, 1 = \{0\} = \{\varnothing\}, 2 = \{0,1\} = \{\varnothing,\{\varnothing\}\}, \dots</script>
+
+<p>De esta forma obtenemos los números naturales<sup id="fnref:zfc-nats"><a href="#fn:zfc-nats" class="footnote">5</a></sup>. A continuación para
+obtener los enteros, racionales, reales y complejos podemos definirlos
+mediante relaciones de equivalencia adecuadas. Puedes encontrar una
+posible construcción explícita en <a href="http://math.stackexchange.com/a/62868/135164">esta pregunta de Stack
+Exchange</a>.</p>
+
+<h3 id="las-funciones-son-conjuntos">Las funciones son conjuntos</h3>
+
+<p>Una función es una operación que relaciona un elemento o tupla de
+elementos de su dominio con un único elemento de su codominio. Para
+formalizar este concepto podemos identificar (casi) todas las funciones
+como un conjunto: su grafo.</p>
+
+<p>De esta forma una aplicación <script type="math/tex">f: A \to B</script> puede verse como una 3-upla
+<script type="math/tex">(A,B,G)</script> con <script type="math/tex">G = \{(a,b) \in A \times B \;:\; b = f(a) \}</script> <sup id="fnref:zfc-funcion"><a href="#fn:zfc-funcion" class="footnote">6</a></sup>.</p>
+
+<p>No todas las funciones pueden expresarse como conjuntos: las operaciones
+clásicas sobre conjuntos (unión, intersección, conjunto potencia) así
+como la aplicación que devuelve la cardinalidad de un conjunto son
+aplicaciones que tienen como dominio todos los conjuntos, pero en ZFC no
+existe el conjunto de todos los conjuntos. Podemos ver a estas
+“funciones” simplemente como notación.</p>
+
+<h3 id="algunas-cosas-que-no-son-conjuntos">Algunas cosas que no son conjuntos</h3>
+
+<p>En algunas partes de las matemáticas como la <a href="http://tux.ugr.es/libreim/blog/2014/10/04/intro-categorias/">teoría de
+categorías</a>
+resulta útil con frecuencia hablar de todos los conjuntos a la vez (por
+ejemplo cuando queremos hablar de los objetos de la categoría
+<script type="math/tex">\texttt{Set}</script>) pero se nos presenta el problema de que (en ZFC) no
+existe el <a href="https://en.wikipedia.org/wiki/Universal_set"><em>conjunto
+universal</em></a> (el conjunto de
+todos los conjuntos). Para resolver este problema existen 3 opciones.</p>
+
+<p>En primer lugar podríamos utilizar una <strong>teoría axiomática distinta</strong> que
+incluyera la clase de todos los conjuntos como NBG. Esta teoría nos
+permite utilizar todo lo que conocemos de ZFC añadiendo además nuevos
+objetos que nos permiten hablar de colecciones más grandes sin inducir
+paradojas.</p>
+
+<p>Otra opción es utilizar una teoría como la <a href="http://math.stackexchange.com/a/234208/135164"><strong>teoría de
+Tarski-Grothendieck</strong></a> que
+incluye conjuntos que, si bien no son <em>el conjunto de todos los
+conjuntos</em> sí que comparten muchas de sus propiedades.</p>
+
+<p>Por último si queremos mantenernos en ZFC podemos introducir una <strong>nueva
+notación</strong> para hablar de clases: si <script type="math/tex">C</script> es una clase definida por una
+propiedad <script type="math/tex">P</script> introducimos el símbolo <script type="math/tex">\in C</script> como un predicado que
+indica <em>… tiene la propiedad P</em>. De esta forma podemos utilizar una
+notación parecida a la de los conjuntos para hablar de una cantidad
+reducida de clases (aquellas definibles mediante una propiedad).</p>
+
+<h2 id="los-axiomas">Los axiomas</h2>
+
+<p>La teoría axiomática de conjuntos de ZFC es una extensión de la teoría
+de conjuntos de Zermelo, descrita a principios del siglo XX como
+respuesta a las paradojas de la teoría de conjuntos informal. Aunque
+existen <a href="https://en.wikipedia.org/wiki/Paraconsistent_logic">corrientes filosóficas y
+lógicas</a> que
+permiten la existencia de contradicciones, las reglas de inferencia de
+la lógica clásica hacen que si un sistema axiomático no es consistente
+(tiene contradicciones) entonces podamos <a href="https://en.wikipedia.org/wiki/Principle_of_explosion">demostrar cualquier
+cosa</a>. Por tanto
+necesitamos establecer una teoría que no tenga esas contradicciones.</p>
+
+<p>La más famosa de las paradojas de la teoría de conjuntos informal es la
+<a href="https://en.wikipedia.org/wiki/Russell%2527s_paradox">paradoja de
+Russell</a>: <em>Si un
+barbero afeita a todos los que no se afeitan a sí mismos, ¿se afeita a
+sí mismo?</em>. En términos de la teoría de conjuntos informal se traduce
+en:</p>
+
+<blockquote>
+  <p>Sea <script type="math/tex">R = \{x \;:\; x \notin x\}</script>. Entonces <script type="math/tex">R \in R</script> si y sólo si
+<script type="math/tex">R \notin R</script></p>
+</blockquote>
+
+<p>Otras paradojas que impulsaron la creación de esta teoría son la
+<a href="https://en.wikipedia.org/wiki/Cantor%2527s_paradox">paradoja de Cantor</a>
+(no existe el conjunto de todos los cardinales) y la <a href="https://en.wikipedia.org/wiki/Burali-Forti_paradox">paradoja de
+Burali-Fort</a> (no
+existe el conjunto de todos los ordinales).</p>
+
+<p>Para resolver estas paradojas necesitamos especificar las reglas de
+formación de los conjuntos de tal manera que sean suficientemente
+fuertes para describir todas las matemáticas pero no lleven a
+contradicción. En el caso de ZFC estas reglas son iterativas:
+construiremos conjuntos más complejos a partir del conjunto vacío
+formando el <a href="https://en.wikipedia.org/wiki/Von_Neumann_universe">universo de von
+Neumann</a>. A
+continuación presentamos estas reglas (los axiomas) siguiendo la
+descripción de <em>Kunen (1980)</em>.</p>
+
+<h3 id="existencia">Existencia</h3>
+
+<script type="math/tex; mode=display">\exists x (x = x)</script>
+
+<p>En la mayor parte de las definiciones de la lógica de primer orden se
+asume que <a href="https://en.wikipedia.org/wiki/Empty_domain">el dominio de discurso no es
+vacío</a>: si lo fuera muchas
+de las reglas de inferencia y teoremas lógicos que se utilizan
+normalmente no serían válidos en general. Por completitud añadimos este
+axioma que nos indica que <strong>existe un conjunto</strong> <sup id="fnref:zfc-vacio"><a href="#fn:zfc-vacio" class="footnote">7</a></sup>.</p>
+
+<h3 id="extensionalidad">Extensionalidad</h3>
+
+<script type="math/tex; mode=display">\forall x \forall y (\forall z (z \in x \iff z \in y) \implies x = y)</script>
+
+<p>El axioma de extensionalidad nos indica que <strong>dos conjuntos son iguales
+si tienen los mismos elementos</strong>. Es decir, al definir un conjunto sólo
+importan sus elementos, pero no el orden o el número de repeticiones de
+cada elemento: <script type="math/tex">\{2,2,3,1\} = \{1,2,3\}</script></p>
+
+<details class="ejercicio">
+  <summary>
+    <p><em>Definir <script type="math/tex">\subseteq</script> y probar que es una relación de orden</em></p>
+  </summary>
+
+  <p>Definimos</p>
+
+  <script type="math/tex; mode=display">a \subseteq b \iff \forall x (x \in a \implies x \in b)</script>
+
+  <ul>
+    <li>Es <strong>reflexiva</strong> porque <script type="math/tex">\implies</script> es reflexiva</li>
+    <li>Es <strong>transitiva</strong> porque <script type="math/tex">\implies</script> es transitiva</li>
+    <li>Es <strong>antisimétrica</strong>  por el axioma de extensionalidad</li>
+  </ul>
+
+</details>
+
+<h3 id="comprensión">Comprensión</h3>
+
+<p><em>Si <script type="math/tex">\varphi(x)</script> es una fórmula en la que <script type="math/tex">y</script> no es una variable libre
+se verifica</em></p>
+
+<script type="math/tex; mode=display">\forall z \exists y \forall x (x \in y \iff x \in z \wedge \varphi(x))</script>
+
+<p>Como vimos en la primera sección la lógica empleada para describir ZFC
+es la lógica de primer orden, que sólo permite utilizar cuantificadores
+sobre nuestro dominio de discurso: <em>los conjuntos</em>. Por esta razón
+cuando queremos hablar de algo que se cumple para todas las fórmulas
+necesitamos incluir <em>esquemas de axioma</em>: un conjunto de axiomas
+parametrizados por las fórmulas<sup id="fnref:zfc-segundo"><a href="#fn:zfc-segundo" class="footnote">8</a></sup>.</p>
+
+<p>Obtenemos así una cantidad infinita (pero computable) de axiomas<sup id="fnref:zfc-enumerable"><a href="#fn:zfc-enumerable" class="footnote">9</a></sup>.
+Estos axiomas nos indican que para cada <script type="math/tex">z</script> y cada propiedad <script type="math/tex">\varphi</script>
+los elementos de <script type="math/tex">z</script> que cumplen <script type="math/tex">\varphi</script> forman un conjunto. Esto
+justifica la notación <script type="math/tex">\{x \in z \;:\; \varphi(x)\}</script>. Tienen sentido
+entonces definiciones como
+<script type="math/tex">\mathbb{R}^+ = \{x \in \mathbb{R} \;:\; x > 0\}</script>, pero no
+<script type="math/tex">\{x : x = x\}</script> (no hay <script type="math/tex">z</script>) o conjuntos autorreferentes como
+<script type="math/tex">Y = \{x : x \notin Y\}</script> (<script type="math/tex">y</script> es una variable libre en <script type="math/tex">\varphi</script>).</p>
+
+<details class="ejercicio">
+  <summary>
+    <p><em>Probar que existe el conjunto vacío:</em>
+<script type="math/tex">\exists \varnothing \forall x (x \notin \varnothing)</script></p>
+  </summary>
+
+  <p>Por el axioma de existencia existe un conjunto <script type="math/tex">A</script>.</p>
+
+  <p>Definimos entonces <script type="math/tex">\varnothing = \{x \in A \;:\; x \neq x\}</script>. Por el
+axioma de reflexividad de la igualdad, ningún elemento pertenece a
+<script type="math/tex">\varnothing</script>.</p>
+</details>
+
+<details class="ejercicio">
+  <summary>
+    <p><em>Probar que no existe el conjunto
+universal:</em> <script type="math/tex">\nexists U \forall x (x \in U)</script></p>
+  </summary>
+
+  <p>Supongamos que existe <script type="math/tex">U</script>.</p>
+
+  <p>Definimos entonces <script type="math/tex">R = \{x \in U \;:\; x \notin x\}</script>. En tal caso
+podemos aplicar la paradoja de Russell (<script type="math/tex">R \in R \iff R \notin R</script>) y
+tenemos una contradicción.</p>
+</details>
+
+<p>Diferentes teorías axiomáticas de conjuntos han tenido históricamente
+esquemas de axioma de comprensión con distintas restricciones: el
+primero de ellos, propuesto por Frege, es el <a href="https://en.wikipedia.org/wiki/Axiom_schema_of_specification#Unrestricted_comprehension"><em>esquema de axioma de
+comprensión no
+restringido</em></a>:
+Para cualquier fórmula <script type="math/tex">\varphi</script>:</p>
+
+<script type="math/tex; mode=display">\exists z (\forall x (x \in z \iff \varphi(x)))</script>
+
+<p>Este axioma lleva a la paradoja de Russell y por esta razón se restringe
+el esquema de axioma para definir sólo subconjuntos. Otra opción es
+restringir la forma de la fórmula <script type="math/tex">\varphi</script> de manera que esté
+<a href="https://en.wikipedia.org/wiki/Stratification_(mathematics)#In_set_theory">estratificada</a>.
+Esta es la opción que adopta NF y que permite la construcción del
+conjunto universal (pero NF tiene otras propiedades poco deseables: es
+incompatible con el axioma de elección). Puedes leer más sobre otras
+posibles formas del esquema de axioma de comprensión (como la de la
+teoría de conjuntos constructiva, que sólo utiliza cuantificadores
+delimitados) <a href="https://ncatlab.org/nlab/show/axiom%2Bof%2Bseparation">en
+nLab</a>.</p>
+
+<details class="ejercicio">
+  <summary>
+    <p><em>Prueba que este esquema genera un número de axiomas numerable.</em></p>
+  </summary>
+
+  <p>El conjunto de axiomas que genera el esquema de axioma de comprensión es
+equipotente al conjunto de fórmulas.</p>
+
+  <p>Sea <script type="math/tex">A = \{\forall,\exists,\in,=,(,),\implies,\neg,x_1,x_2,\dots\}</script>. Es
+claro que <script type="math/tex">A</script> es numerable. El conjunto de fórmulas es un subconjunto
+de:</p>
+
+  <script type="math/tex; mode=display">\bigcup_{n \in \mathbb{N}} A^n</script>
+
+  <p>Este conjunto es una unión numerable de conjuntos numerables (el
+producto finito de numerables es numerable), por lo que es numerable.</p>
+</details>
+
+<details class="ejercicio">
+  <summary>
+    <p><em>Define la intersección y la diferencia. ¿Puedes definir la unión?</em></p>
+  </summary>
+
+  <ul>
+    <li>Si <script type="math/tex">\mathcal{F}</script> es un conjunto de conjuntos a los que queremos
+  hacer la intersección y <script type="math/tex">A \in \mathcal{F}</script>:</li>
+  </ul>
+
+  <p><script type="math/tex">\bigcap \mathcal{F} = \{x \in A \;:\; \forall y (y \in \mathcal{F} \implies x \in y)\}</script></p>
+  <ul>
+    <li>
+      <script type="math/tex; mode=display">A-B = \{x \in A \;:\; x \notin B\}</script>
+    </li>
+    <li>Aunque el predicado <script type="math/tex">\exists y (y \in \mathcal{F} \wedge x \in y)</script> es válido no podemos    definir la unión porque no conocemos un conjunto más grande que los conjuntos que queremos unir.</li>
+  </ul>
+</details>
+
+<h3 id="par">Par</h3>
+
+<script type="math/tex; mode=display">\forall a \forall b \exists z (a \in z \wedge b \in z)</script>
+
+<p>Este axioma justifica la expresión de conjuntos por enumeración: si <script type="math/tex">a</script>
+y <script type="math/tex">b</script> son dos conjuntos también lo será <script type="math/tex">\{a,b\}</script> (y el axioma de
+extensionalidad nos asegura además que esta expresión se refiere a un
+único conjunto). Además, tomando <script type="math/tex">a = b</script> tenemos que si <script type="math/tex">a</script> es un
+conjunto también lo será <script type="math/tex">\{a,a\} = \{a\}</script> (donde la igualdad se da por
+el axioma de extensionalidad). Podemos además construir pares definiendo
+<script type="math/tex">(a,b) = \{\{a\},\{a,b\}\}</script>.</p>
+
+<p>El conjunto vacío es el único conjunto cuya existencia podíamos probar
+hasta el momento: los axiomas de existencia, extensionalidad y
+comprensión son consistentes con <script type="math/tex">\forall y (y = \varnothing)</script>. Con el
+axioma del par podemos formar una cantidad infinita de conjuntos:
+<script type="math/tex">\varnothing,\{\varnothing\}, \{\{\varnothing\}\},\dots</script> aunque no
+podemos justificar aún la existencia de ningún conjunto infinito (no
+sabemos por ejemplo si
+<script type="math/tex">\{\varnothing,\{\varnothing\}, \{\{\varnothing\}\},\dots\}</script> es un
+conjunto).</p>
+
+<details class="ejercicio">
+  <summary>
+    <p><em>Probar que</em> <script type="math/tex">(a,b) = (c,d) \iff a = c \wedge b = d</script></p>
+  </summary>
+  <p>Puedes leer la solución en <a href="https://en.wikipedia.org/wiki/Ordered_pair#Proving_that_definitions_satisfy_the_characteristic_property">Wikipedia</a>.</p>
+
+  <p>Con el axioma de unión podemos generalizar esta definición para definir
+<script type="math/tex">(a_1,\dots,a_n)</script> para cualquier <script type="math/tex">n \in \mathbb{N}</script>.</p>
+
+  <p><strong>Extra</strong>: ¿Cómo puedes generalizarla para tuplas con una cantidad
+infinita arbitraria de posiciones?</p>
+</details>
+
+<h3 id="unión">Unión</h3>
+
+<script type="math/tex; mode=display">\forall \mathcal{F} \exists A \forall Y \forall x (x \in Y \wedge Y \in \mathcal{F} \implies x \in A)</script>
+
+<p>Como vimos en la sección del esquema de axioma de comprensión no podemos
+definir la unión a partir de un predicado ya que necesitaríamos de la
+existencia del conjunto universal.</p>
+
+<p>Para solucionarlo introducimos entonces el <strong>axioma de unión</strong>: dada
+cualquier colección de conjuntos <script type="math/tex">\mathcal{F} = \{A_{\lambda}\}\_{\Lambda}</script> existe un conjunto <script type="math/tex">A</script>, que tiene todos los elementos de los <script type="math/tex">A\_\lambda</script> (es decir, si
+<script type="math/tex">x \in A\_\lambda</script>, entonces <script type="math/tex">x \in A</script>). Definimos a partir de este
+conjunto la unión de una cantidad arbitaria de estos:</p>
+
+<script type="math/tex; mode=display">\bigcup_{\lambda \in \Lambda} A_\lambda = \{ x \in A \;:\; \exists Y (x \in Y \wedge Y \in \mathcal{F})\}</script>
+
+<p>Obteniendo así justificación para las expresiones de la forma <script type="math/tex">A \cup B</script>
+(basta tomar <script type="math/tex">\mathcal{F} = \{A,B\}</script>)y uniones de una cantidad
+arbitraria de conjuntos en general.</p>
+
+<p>Utilizando el axioma de par y el axioma de unión podemos formar
+conjuntos de cardinalidad finita arbitraria, pero no de cardinalidad
+infinita.</p>
+
+<h3 id="infinito">Infinito</h3>
+
+<p>Para este axioma introducimos notación adicional para facilitar su
+expresión: definimos <script type="math/tex">S(x) = x \cup \{x\}</script> (la función sucesor)<sup id="fnref:zfc-sucesor"><a href="#fn:zfc-sucesor" class="footnote">10</a></sup>.
+Con esta notación el axioma queda:</p>
+
+<script type="math/tex; mode=display">\exists X (\varnothing \in X \wedge \forall y (y \in X \implies S(y) \in X))</script>
+
+<p>Con lo que tenemos nuestro primer conjunto infinito. Podemos demostrar
+que <script type="math/tex">X</script> <a href="https://en.wikipedia.org/wiki/Axiom_of_infinity#Extracting_the_natural_numbers_from_the_infinite_set">tiene un
+subconjunto</a>
+<script type="math/tex">\mathbb{N} \subseteq X</script> que verifica los axiomas de Peano, tomando
+<script type="math/tex">0 = \varnothing</script> y <script type="math/tex">S</script> la función sucesor.</p>
+
+<p>En sus orígenes este axioma fue
+<a href="https://en.wikipedia.org/wiki/Controversy_over_Cantor%2527s_theory">controvertido</a>
+ya que no era considerado una verdad evidente. Aceptar los axiomas de
+<a href="http://cantorsattic.info/Cantor%2527s_Attic">grandes cardinales</a> para
+nosotros es como aceptar el axioma de infinito para los
+<a href="https://ncatlab.org/nlab/show/finite%2Bmathematics%20">finitistas</a>.</p>
+
+<h3 id="potencia">Potencia</h3>
+
+<p>Como hemos hecho en anteriores axiomas definimos nueva notación para
+simplificar la expresión de los axiomas. En este caso definimos
+<script type="math/tex">x \subseteq y := \forall z (z \in x \implies z \in y)</script>. El axioma
+queda:</p>
+
+<script type="math/tex; mode=display">\forall x \exists y \forall z (z \subseteq x \implies z \in y)</script>
+
+<p>Este axioma afirma la existencia, para cada conjunto <script type="math/tex">x</script> de un conjunto
+<script type="math/tex">y</script> que habitualmente llamamos <em>conjunto potencia</em> notado
+<script type="math/tex">\mathcal{P}(x)</script> que es el <strong>conjunto de todos los subconjuntos</strong> de
+<script type="math/tex">x</script>. Este axioma nos permite crear conjuntos de cardinalidad
+arbitrariamente grande (ya que por el teorema de Cantor,
+<script type="math/tex">% <![CDATA[
+|A| < |\mathcal{P}(A)| %]]></script>) <sup id="fnref:zfc-pst"><a href="#fn:zfc-pst" class="footnote">11</a></sup>.</p>
+
+<details class="ejercicio">
+  <summary>
+    <p><em>Define <script type="math/tex">A \times B</script></em></p>
+  </summary>
+
+  <p>Queremos un conjunto que tenga todas las parejas <script type="math/tex">(a,b) = \{\{a\},\{a,b\}\}</script>
+con <script type="math/tex">a \in A</script>, <script type="math/tex">b \in B</script>.</p>
+
+  <p>Es claro que
+<script type="math/tex">\{a\}, \{a,b\} \in \mathcal{P}(A \cup B)</script>. Por tanto:</p>
+
+  <script type="math/tex; mode=display">A \times B = \{x \in \mathcal{P}(\mathcal{P}(A \cup B)) \;:\; x = (a,b), a \in A, b \in B\}</script>
+
+  <p>También podemos hacerlo con el esquema de axioma de reemplazamiento y el
+axioma del par.</p>
+
+  <p><strong>Extra:</strong> ¿Cómo podemos definir un producto cartesiano de una cantidad
+arbitaria de conjuntos?</p>
+</details>
+
+<h3 id="reemplazamiento">Reemplazamiento</h3>
+
+<p><em>Si</em> <script type="math/tex">\varphi(x,y)</script> <em>es una fórmula en la que</em> <script type="math/tex">w</script> <em>no es una variable
+libre,</em> <script type="math/tex">z</script> <em>es un conjunto y se tiene</em>
+<script type="math/tex">\forall x \; x \in z \implies \exists ! y \; \varphi(x,y)</script> <em>se
+verifica</em>:</p>
+
+<script type="math/tex; mode=display">\exists w \; \forall x (x \in z \implies \exists y (y \in w \wedge \varphi(x,y)))</script>
+
+<p>La teoría original de Zermelo no incluía este esquema de axioma, que fue
+incluido por Fraenkel para justificar la existencia de conjuntos como
+<script type="math/tex">\{\mathbb{N}, \mathcal{P}(\mathbb{N}), \mathcal{P}(\mathcal{P}(\mathbb{N})),\dots\}</script>,
+útiles en la teoría de los ordinales<sup id="fnref:zfc-borel"><a href="#fn:zfc-borel" class="footnote">12</a></sup>. Este esquema de axioma
+implica el esquema de axioma de comprensión y el axioma del par. Es poco
+utilizado: la mayor parte de las matemáticas pueden construirse sin
+utilizar este axioma. La idea del axioma es que la única cualidad que
+define si una colección es o no un conjunto es su tamaño.</p>
+
+<p>Este axioma necesita el concepto de <strong>predicado funcional</strong>: una fórmula
+<script type="math/tex">\varphi(x,y)</script> que asocia a cada <script type="math/tex">x</script> un único <script type="math/tex">y</script>. De esta forma el
+axioma nos permite <em>reemplazar</em> los <script type="math/tex">x</script> por su correspondiente <script type="math/tex">y</script>. Esto
+justifica la notación ocasionalmente utilizada
+<script type="math/tex">\{F(x) \; : \; x \in A\}</script></p>
+
+<p>Cabe destacar que las funciones <strong>no</strong> son predicados funcionales: los
+predicados son numerables mientras que las funciones no lo son. De la
+misma forma los predicados funcionales <strong>no</strong> son funciones:
+<script type="math/tex">\varphi(x,y) := y = \mathcal{P}(x)</script> no puede expresarse como función en
+ZFC.</p>
+
+<details class="ejercicio">
+  <summary>
+    <p><em>Prueba que reemplazamiento implica comprensión</em></p>
+  </summary>
+
+  <p>Puedes encontrar la respuesta en <a href="https://math.stackexchange.com/questions/32483">Math
+  StackExchange</a>.</p>
+
+</details>
+
+<details class="ejercicio">
+  <summary>
+    <p><em>¿Existe el conjunto de todos los espacios topológicos?</em></p>
+  </summary>
+
+  <p>Supongamos que exista el
+conjunto de todos los espacios topológicos. Definimos el predicado
+funcional <script type="math/tex">F((X,\tau_T)) = X</script>.</p>
+
+  <p>Como todo conjunto es un espacio topológico con la topología trivial
+tenemos que: <script type="math/tex">\{X \;:\; (X,\tau) \in T\} = U</script>, el conjunto universal,
+que como ya probamos no existe. Por tanto <strong>no</strong>, no existe el conjunto
+de todos los espacios topológicos.</p>
+
+  <p>Demostraciones similares pueden utilizarse para probar que no existe el
+conjunto de todos lo grupos o el conjunto de todas las categorías.</p>
+</details>
+
+<h3 id="elección">Elección</h3>
+
+<p>La introducción del axioma de infinito presenta un problema ya que no
+todas las propiedades que podríamos deducir del resto de axiomas sobre
+cualquier conjunto finito pueden generalizarse a los conjuntos
+infinitos. Es el caso del <strong>axioma de elección</strong>. Para simplificar su
+exposición asumimos bien definido el concepto de función.</p>
+
+<script type="math/tex; mode=display">\forall \mathcal{F} \left[ \emptyset \notin \mathcal{F} \implies \exists f : \mathcal{F} \to \bigcup \mathcal{F} \quad \forall A (A \in \mathcal{F} \implies f(A) \in A)\right]</script>
+
+<p>Es decir: Dada una familia de conjuntos no vacios <script type="math/tex">\mathcal{F}</script> podemos
+elegir un conjunto de cada uno de ellos. Equivalentemente, el producto
+cartesiano de una familia de conjuntos no vacíos es no vacío.</p>
+
+<p>El axioma de elección es controvertido para los matemáticos
+<a href="https://en.wikipedia.org/wiki/Constructivism_(mathematics)">constructivistas</a>
+porque permite demostrar la existencia de ciertos objetos sin dar una
+construcción explícita de los mismos. Además permite demostrar
+resultados chocantes como la <a href="https://en.wikipedia.org/wiki/Banach%25E2%2580%2593Tarski_paradox">paradoja de
+Banach-Tarski</a>.
+No obstante es un axioma esencial para la justificación de muchas
+propiedades matemáticas básicas. <a href="https://en.wikipedia.org/wiki/Axiom_of_choice#Equivalents">Son
+equivalentes</a>
+al axioma de elección:</p>
+
+<ul>
+  <li>Toda función sobreyectiva tiene inversa por la derecha</li>
+  <li>Todo espacio vectorial tiene una base</li>
+  <li>El producto de espacios topológicos compactos es compacto</li>
+</ul>
+
+<p>También <a href="https://en.wikipedia.org/wiki/Axiom_of_choice#Results_requiring_AC_.28or_weaker_forms.29_but_weaker_than_it">es
+necesario</a>
+para la demostración de algunos teoremas básicos (aunque no es
+equivalente a estos):</p>
+
+<ul>
+  <li>La unión de una cantidad numerable de conjuntos numerables es
+numerable</li>
+  <li>Existe un conjunto que no es medible Lebesgue</li>
+  <li>Si <script type="math/tex">A</script> es infinito existe una aplicación inyectiva
+<script type="math/tex">f:\mathbb{N} \to A</script></li>
+</ul>
+
+<h3 id="fundación">Fundación</h3>
+
+<script type="math/tex; mode=display">\forall x [x \neq \varnothing \implies \exists y (y \in x \wedge x \cap y = \varnothing)]</script>
+
+<blockquote>
+  <p>The Axiom of Foundation is, as always in mathematics, totally
+irrelevant - Kunen (1980)</p>
+</blockquote>
+
+<p>El axioma de fundación es un axioma poco utilizado que elimina conjuntos
+de la forma <script type="math/tex">x = \{x\}</script> o secuencias infinitas de la forma
+<script type="math/tex">\dots \in x_3 \in x_2 \in x_1</script>. La mayor parte de las matemáticas
+pueden construirse sin utilizar este axioma, que nos sirve para excluir
+estos casos patológicos. Es el segundo de los axiomas introducidos por
+Fraenkel.</p>
+
+<h2 id="lecturas-adicionales">Lecturas adicionales</h2>
+
+<p>Algunos textos clásicos sobre el tema y páginas en las que puedes leer
+más sobre el tema son:</p>
+
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/Set_Theory:_An_Introduction_to_Independence_Proofs">Set Theory: An Introduction to Independence
+Proofs</a> -
+Kenneth Kunen</li>
+  <li><a href="https://www.math.wisc.edu/~miller/old/m771-10/kunen770.pdf">Foundations of
+Mathematics</a> -
+Kenneth Kunen</li>
+  <li><a href="https://en.wikipedia.org/wiki/Zermelo%25E2%2580%2593Fraenkel_set_theory">Zermelo-Fraenkel set
+theory</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Von_Neumann%25E2%2580%2593Bernays%25E2%2580%2593G%25C3%25B6del_set_theory">Von Neumann–Bernays–Gödel set
+theory</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">Naive Set
+Theory</a> -
+Halmos</li>
+</ul>
+<div class="footnotes">
+  <ol>
+    <li id="fn:zfc-alternativas">
+      <p>Algunos ejemplos de teorías fundacionales alternativas son las
+<a href="https://ncatlab.org/nlab/show/structural+set+theory">teorías de conjuntos
+estructurales</a>,
+las <a href="https://en.wikipedia.org/wiki/Homotopy_type_theory">teorías de
+tipos</a> o la
+<a href="https://ncatlab.org/nlab/show/ETCC">teoría de categorías</a>. La
+equivalencia entre estas tres teorías fundacionales se expone en
+<strong><a href="https://www.andrew.cmu.edu/user/awodey/preprints/stcsFinal.pdf">From Sets to Types to Categories to
+Sets</a></strong>&nbsp;<a href="#fnref:zfc-alternativas" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:zfc-cuervos">
+      <p>Un <a href="https://en.wikipedia.org/wiki/Raven_paradox">ejemplo clásico de paradoja</a> en la filosofía de la ciencia.&nbsp;<a href="#fnref:zfc-cuervos" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:zfc-dominio">
+      <p>Uno puede preguntarse a qué se refieren las <script type="math/tex">x</script> en <script type="math/tex">\forall x</script>.
+Después de todo, como veremos en la sección de los axiomas ¡el
+dominio de discurso estándar de la teoría de conjuntos no puede
+verse como un conjunto! Existen diferentes formas de tratar con este
+problema: podemos adoptar una <a href="http://math.stackexchange.com/a/121131/135164">postura
+formalista</a> y ver la
+lógica como unas <em>reglas de manipulación de símbolos</em> o utilizar
+<a href="https://plato.stanford.edu/entries/plural-quant/#SetThe">cuantificación
+plural</a>
+(ver también <a href="http://math.stackexchange.com/a/1087050/135164">esta pregunta de
+SE</a>). Nótese que (si
+expresamos ZFC en lógica de primer orden) <a href="https://en.wikipedia.org/wiki/L%25C3%25B6wenheim%25E2%2580%2593Skolem_theorem">sí existen modelos de
+ZFC</a>
+    que pueden expresarse en ZFC, pero estos no son el modelo estándar.&nbsp;<a href="#fnref:zfc-dominio" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:zfc-casi">
+      <p>Bueno, <em>casi</em> exclusivamente, también necesitamos clases y
+conglomerados como veremos a continuación.&nbsp;<a href="#fnref:zfc-casi" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:zfc-nats">
+      <p>No son la única definición posible: podríamos utilizar
+<script type="math/tex">\varnothing,\{\varnothing\},\{\{\varnothing\}\},\dots</script> (esta es la definición que adoptó Zermelo). Sin embargo
+con la definición dada en este post tenemos algunas propiedades
+interesantes: por ejemplo <script type="math/tex">% <![CDATA[
+a < b \iff a \in b %]]></script> lo que nos permite un tratamiento
+más sencillo de la teoría de los ordinales. La <a href="https://ncatlab.org/nlab/show/structural+set+theory">teoría estructural de conjuntos</a> no distingue entre las distintas posibles construcciones de los números naturales u otros objetos sino que los define según sus propiedades.&nbsp;<a href="#fnref:zfc-nats" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:zfc-funcion">
+      <p>Nótese que si cualquier gráfica es una función estamos considerando la <a href="https://en.wikipedia.org/wiki/Empty_function">función vacía</a>, que algunos autores excluyen.&nbsp;<a href="#fnref:zfc-funcion" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:zfc-vacio">
+      <p>Incluso no asumiendo un dominio de discurso no vacío el axioma de
+infinito también nos indica que existe un conjunto pero para reducir
+la complejidad de la exposición de ZFC es interesante añadir este
+axioma.&nbsp;<a href="#fnref:zfc-vacio" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:zfc-segundo">
+      <p>Si expresáramos ZFC en lógica de segundo orden los esquemas de
+axioma incluidos podrían simplemente expresarse como axiomas
+añadiendo un cuantificador sobre el predicado correspondiente.
+La demostración de que ZF(C) no es finitamente axiomatizable puede
+encontrarse en <em>Kunen (1980) página 138</em>. Sin embargo <a href="https://en.m.wikipedia.org/wiki/Von_Neumann%25E2%2580%2593Bernays%25E2%2580%2593G%25C3%25B6del_set_theory">NBG</a>
+<strong>sí</strong> es finitamente axiomatizable y es una extensión conservativa
+de ZFC (es decir, todo teorema en ZFC es teorema en NBG).&nbsp;<a href="#fnref:zfc-segundo" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:zfc-enumerable">
+      <p>Es decir, el lenguaje de los axiomas debe ser <a href="https://en.wikipedia.org/wiki/Recursively_enumerable_language">recursivamente
+enumerable</a>.
+Esto nos permite verificar que una prueba es correcta en una
+cantidad finita de tiempo y nos impide tener como axiomas todos los
+teoremas.&nbsp;<a href="#fnref:zfc-enumerable" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:zfc-sucesor">
+      <p><script type="math/tex">S</script> no es una función si no la restringimos a algún dominio, sino
+simplemente notación: su dominio y codominio deberían ser el
+conjunto universal que no existe.&nbsp;<a href="#fnref:zfc-sucesor" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:zfc-pst">
+      <p>Algunos autores defienden que no necesitamos conjuntos de
+cardinalidad arbitrariamente grande ya que la mayor parte de las
+matemáticas suceden en conjuntos numerables o equipotentes a los
+números reales. La <a href="https://en.wikipedia.org/wiki/Pocket_set_theory"><em>teoría de conjuntos de
+bolsillo</em></a> propone
+una alternativa en la que sólo existen conjuntos infinitos de estas
+dos cardinalidades.&nbsp;<a href="#fnref:zfc-pst" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:zfc-borel">
+      <p>Además es necesario para demostrar el <a href="https://en.wikipedia.org/wiki/Borel_determinacy_theorem">teorema de determinación
+de Borel</a>.&nbsp;<a href="#fnref:zfc-borel" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+        
+
+      
+
+        <!--<div class="share">
+          <a class="dsq-comment-count" href="/libreim/blog/2017/03/25/zfc/#disqus_thread" data-disqus-identifier="/2017/03/25/zfc"></a>
+          <a href="https://twitter.com/intent/tweet?url=http://tux.ugr.es/libreim/blog/2017/03/25/zfc/&text=Introducción a ZFC" class="share-twt" target="_blank"><img alt="Twitter" title="Compartir en Twitter" src="/libreim/blog/assets/sq_twitter.png" /></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://tux.ugr.es/libreim/blog/2017/03/25/zfc/" class="share-fb" target="_blank"><img alt="Facebook" title="Compartir en Facebook" src="/libreim/blog/assets/sq_facebook.png" /></a>
+          <a href="http://sharetodiaspora.github.io/?url=http://tux.ugr.es/libreim/blog/2017/03/25/zfc/&title=Introducción a ZFC" class="share-di" target="_blank"><img alt="Diaspora" title="Compartir en Diaspora*" src="/libreim/blog/assets/sq_diaspora.png" /></a>
+          <a href="http://www.feedly.com/home#subscription/feed/http://tux.ugr.es/libreim/blogfeed.xml" class="share-fd" target="_blank"><img alt="Feedly" title="Suscribirse con Feedly" src="/libreim/blog/assets/sq_feedly.png" /></a>
+        </div>-->
+
+        
+          <div id="disqus_thread"></div>
+          <script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function () {
+        this.page.url = "http://tux.ugr.es/libreim/blog/2017/03/25/zfc/";
+        this.page.identifier = "/2017/03/25/zfc";
+    };
+
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//dgiim.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+          <noscript>Es necesario activar JavaScript para visualizar los <a href="https://disqus.com/?ref_noscript" rel="nofollow">comentarios de Disqus.</a></noscript>
+        
+      </div>
+    </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-2-5"></div>
+  </div>
+</article>
+
+
+      <footer class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+      <div class="pure-g">
+		<div class="pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
+			<h3>Colaboradores</h3>
+	        <ul>
+				
+					
+					<li><a href="http://github.com/">David Charte</a></li>
+				
+					
+					<li><a href="http://github.com/M42">Mario Román</a></li>
+				
+					
+					<li><a href="http://github.com/mx-psi">Pablo Baeyens</a></li>
+				
+					
+					<li><a href="http://github.com/NCordon">Ignacio Cordón</a></li>
+				
+					
+					<li><a href="http://github.com/andreshp">Andrés Herrera Poyatos</a></li>
+				
+					
+					<li><a href="http://github.com/oxcar103">Óscar Bermúdez</a></li>
+				
+					
+					<li><a href="http://github.com/JJ">Juan Julián Merelo</a></li>
+				
+					
+					<li><a href="http://github.com/makixun">Miguel Anguita</a></li>
+				
+					
+					<li><a href="http://github.com/JCEntrena">José Carlos Entrena</a></li>
+				
+					
+					<li><a href="http://github.com/martaandres">Marta Andrés</a></li>
+				
+					
+					<li><a href="http://github.com/robertohueso">Roberto Hueso</a></li>
+				
+					
+					<li><a href="http://github.com/fjsaezm">Javier Sáez</a></li>
+				
+					
+					<li><a href="http://github.com/jmml97">José María Martín</a></li>
+				
+					
+					<li><a href="http://github.com/danipozodg">Daniel Pozo</a></li>
+				
+					
+					<li><a href="http://github.com/antcc">Antonio Coín</a></li>
+				
+					
+					<li><a href="http://github.com/ludvins">Luis Ortega</a></li>
+				
+					
+					<li><a href="http://github.com/pedrobn23">Pedro Bonilla</a></li>
+				
+					
+					<li><a href="http://github.com/guillegalor">Guillermo Galindo</a></li>
+				
+					
+					<li><a href="http://github.com/rjraya">Rodrigo Raya</a></li>
+				
+					
+					<li><a href="http://github.com/DiegoAsterio">Diego Asterio</a></li>
+				
+	        </ul>
+		</div>
+        <div class="pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
+			<h3>Categorías</h3>
+	        <ul>
+		    	
+		            <li><a href="/libreim/blog/categories/#Utilidades">Utilidades</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Análisis">Análisis</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Programación">Programación</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Álgebra">Álgebra</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Ciencia de datos">Ciencia de datos</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Heurísticas">Heurísticas</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Problemas">Problemas</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Lógica">Lógica</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Linux">Linux</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#Estructuras de Datos">Estructuras de datos</a></li>
+		    	
+		            <li><a href="/libreim/blog/categories/#General">General</a></li>
+		    	
+	        </ul>
+		</div>
+        <div class="pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
+        <br></br>
+             <a href="http://osl.ugr.es"><img src="http://osl.ugr.es/logo-osl.png" alt="Logo Oficina de Software Libre de la Universidad de Granada" style="width:200px" /></a>
+             <br></br>
+             Puedes ver este sitio gracias a la ayuda de la OSL-UGR
+         <br></br>
+			<h3>Licencia</h3>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/80x15.png" /></a><br />
+			El contenido de este blog, salvo que se explicite lo contrario, está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</a>.
+		</div>
+      </div>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+</footer>
+
+
+      <script id="dsq-count-scr" src="//dgiim.disqus.com/count.js" async></script>
+   </body>
+</html>
