@@ -74,7 +74,7 @@
       </div>
 
       <h1>
-        <a href="/libreim/blog/2015/07/17/segment-tree/">
+        <a href="/blog/2015/07/17/segment-tree/">
             Segment trees y Range minimum query
         </a>
       </h1>
@@ -91,10 +91,10 @@
           
         
 
-        <a class="date" href="/libreim/blog/2015/07/17/segment-tree/">
+        <a class="date" href="/blog/2015/07/17/segment-tree/">
           17-07-2015
         </a>
-        <a class="dsq-comment-count comments" href="/libreim/blog/2015/07/17/segment-tree/#disqus_thread" data-disqus-identifier="/2015/07/17/segment-tree">
+        <a class="dsq-comment-count comments" href="/blog/2015/07/17/segment-tree/#disqus_thread" data-disqus-identifier="/2015/07/17/segment-tree">
 
         </a>
         <!--
@@ -154,7 +154,7 @@ i < j %]]></script> tiene dos hijos, izquierda y derecha, que se obtienen a divi
 
 <p>La Imagen 1 muestra el árbol binario a generar si se tuviese <script type="math/tex">n = 8</script>. Nótese que las hojas del árbol son los subintervalos con una sola componente.</p>
 
-<p class="fig"><img src="/libreim/blog/images/segment_trees/segment_trees_visualizacion.png" alt="" />
+<p class="fig"><img src="/blog/images/segment_trees/segment_trees_visualizacion.png" alt="" />
 <strong>Imagen 1.</strong> Segment tree asociado a un vector <script type="math/tex">V</script> de longitud 8 representado como un árbol binario.</p>
 
 <p>Tras generar el árbol binario podemos expresar un subintervalo <script type="math/tex">V[i, j]</script> como la unión del menor número de subintervalos como los preprocesados previamente. Tiene sentido hablar de esta unión pues siempre existe (basta expresar <script type="math/tex">V[i, j]</script> como unión de sus componentes).  Por ejemplo, para <script type="math/tex">n=8</script> se tiene:</p>
@@ -226,7 +226,7 @@ i < j %]]></script> tiene dos hijos, izquierda y derecha, que se obtienen a divi
 
 <p>Estas relaciones nos permiten acceder a los hijos de forma constante. Además, la longitud del vector que representa al segment tree es <script type="math/tex">2n-1</script> donde <script type="math/tex">n</script> es la longitud de <script type="math/tex">V</script>.</p>
 
-<p class="fig"><img src="/libreim/blog/images/segment_trees/segment_trees_heap.png" alt="" />
+<p class="fig"><img src="/blog/images/segment_trees/segment_trees_heap.png" alt="" />
 <strong>Imagen 2.</strong> Segment tree asociado a un vector <script type="math/tex">V</script> de longitud 8 representado como un heap.</p>
 
 <p>Nótese que el subintervalo correspondiente a cada nodo se deduce de su índice, por lo que no es necesario almacenar esta información. Se puede construir el árbol recursivamente. Si el nodo actual es una hoja se obtiene su información mediante el método <code class="highlighter-rouge">assignLeaf</code>. Si no se da este caso, se construyen recursivamente los dos hijos y se obtiene la información para el nodo actual aplicando el método <code class="highlighter-rouge">merge</code> a ambos hijos.</p>
@@ -497,11 +497,11 @@ i < j %]]></script> (los nodos tienen subintervalos disjuntos). Cada uno de los 
       
 
         <!--<div class="share">
-          <a class="dsq-comment-count" href="/libreim/blog/2015/07/17/segment-tree/#disqus_thread" data-disqus-identifier="/2015/07/17/segment-tree"></a>
-          <a href="https://twitter.com/intent/tweet?url=http://tux.ugr.es/libreim/blog/2015/07/17/segment-tree/&text=Segment trees y Range minimum query" class="share-twt" target="_blank"><img alt="Twitter" title="Compartir en Twitter" src="/libreim/blog/assets/sq_twitter.png" /></a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=http://tux.ugr.es/libreim/blog/2015/07/17/segment-tree/" class="share-fb" target="_blank"><img alt="Facebook" title="Compartir en Facebook" src="/libreim/blog/assets/sq_facebook.png" /></a>
-          <a href="http://sharetodiaspora.github.io/?url=http://tux.ugr.es/libreim/blog/2015/07/17/segment-tree/&title=Segment trees y Range minimum query" class="share-di" target="_blank"><img alt="Diaspora" title="Compartir en Diaspora*" src="/libreim/blog/assets/sq_diaspora.png" /></a>
-          <a href="http://www.feedly.com/home#subscription/feed/http://tux.ugr.es/libreim/blogfeed.xml" class="share-fd" target="_blank"><img alt="Feedly" title="Suscribirse con Feedly" src="/libreim/blog/assets/sq_feedly.png" /></a>
+          <a class="dsq-comment-count" href="/blog/2015/07/17/segment-tree/#disqus_thread" data-disqus-identifier="/2015/07/17/segment-tree"></a>
+          <a href="https://twitter.com/intent/tweet?url=http://libreim.github.io/blog/2015/07/17/segment-tree/&text=Segment trees y Range minimum query" class="share-twt" target="_blank"><img alt="Twitter" title="Compartir en Twitter" src="/blog/assets/sq_twitter.png" /></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://libreim.github.io/blog/2015/07/17/segment-tree/" class="share-fb" target="_blank"><img alt="Facebook" title="Compartir en Facebook" src="/blog/assets/sq_facebook.png" /></a>
+          <a href="http://sharetodiaspora.github.io/?url=http://libreim.github.io/blog/2015/07/17/segment-tree/&title=Segment trees y Range minimum query" class="share-di" target="_blank"><img alt="Diaspora" title="Compartir en Diaspora*" src="/blog/assets/sq_diaspora.png" /></a>
+          <a href="http://www.feedly.com/home#subscription/feed/http://libreim.github.io/blogfeed.xml" class="share-fd" target="_blank"><img alt="Feedly" title="Suscribirse con Feedly" src="/blog/assets/sq_feedly.png" /></a>
         </div>-->
 
         
@@ -513,7 +513,7 @@ i < j %]]></script> (los nodos tienen subintervalos disjuntos). Cada uno de los 
      */
 
     var disqus_config = function () {
-        this.page.url = "http://tux.ugr.es/libreim/blog/2015/07/17/segment-tree/";
+        this.page.url = "http://libreim.github.io/blog/2015/07/17/segment-tree/";
         this.page.identifier = "/2015/07/17/segment-tree";
     };
 
@@ -610,27 +610,27 @@ i < j %]]></script> (los nodos tienen subintervalos disjuntos). Cada uno de los 
 			<h3>Categorías</h3>
 	        <ul>
 		    	
-		            <li><a href="/libreim/blog/categories/#Utilidades">Utilidades</a></li>
+		            <li><a href="/blog/categories/#Utilidades">Utilidades</a></li>
 		    	
-		            <li><a href="/libreim/blog/categories/#Análisis">Análisis</a></li>
+		            <li><a href="/blog/categories/#Análisis">Análisis</a></li>
 		    	
-		            <li><a href="/libreim/blog/categories/#Programación">Programación</a></li>
+		            <li><a href="/blog/categories/#Programación">Programación</a></li>
 		    	
-		            <li><a href="/libreim/blog/categories/#Álgebra">Álgebra</a></li>
+		            <li><a href="/blog/categories/#Álgebra">Álgebra</a></li>
 		    	
-		            <li><a href="/libreim/blog/categories/#Ciencia de datos">Ciencia de datos</a></li>
+		            <li><a href="/blog/categories/#Ciencia de datos">Ciencia de datos</a></li>
 		    	
-		            <li><a href="/libreim/blog/categories/#Heurísticas">Heurísticas</a></li>
+		            <li><a href="/blog/categories/#Heurísticas">Heurísticas</a></li>
 		    	
-		            <li><a href="/libreim/blog/categories/#Problemas">Problemas</a></li>
+		            <li><a href="/blog/categories/#Problemas">Problemas</a></li>
 		    	
-		            <li><a href="/libreim/blog/categories/#Lógica">Lógica</a></li>
+		            <li><a href="/blog/categories/#Lógica">Lógica</a></li>
 		    	
-		            <li><a href="/libreim/blog/categories/#Linux">Linux</a></li>
+		            <li><a href="/blog/categories/#Linux">Linux</a></li>
 		    	
-		            <li><a href="/libreim/blog/categories/#Estructuras de Datos">Estructuras de datos</a></li>
+		            <li><a href="/blog/categories/#Estructuras de Datos">Estructuras de datos</a></li>
 		    	
-		            <li><a href="/libreim/blog/categories/#General">General</a></li>
+		            <li><a href="/blog/categories/#General">General</a></li>
 		    	
 	        </ul>
 		</div>

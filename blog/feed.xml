@@ -3,8 +3,8 @@
     <channel>
         <title>libreim</title>
         <description>Blog de la comunidad LibreIM</description>
-        <link>http://tux.ugr.es/libreim/blog</link>
-        <atom:link href="http://tux.ugr.es/libreim/blog/feed.xml" rel="self" type="application/rss+xml" />
+        <link>http://libreim.github.io/blog</link>
+        <atom:link href="http://libreim.github.io/blog/feed.xml" rel="self" type="application/rss+xml" />
         
         <item>
             <title>Emacs for lazy people</title>
@@ -74,7 +74,7 @@ a custom command becomes
 
 &lt;h2 id=&quot;which-key&quot;&gt;Which-key&lt;/h2&gt;
 
-&lt;p class=&quot;fig med&quot;&gt;&lt;img src=&quot;/libreim/blog/images/emacs-which-key.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p class=&quot;fig med&quot;&gt;&lt;img src=&quot;/blog/images/emacs-which-key.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/justbur/emacs-which-key&quot;&gt;Which-key&lt;/a&gt; displays the key
 bindings following your currently entered incomplete command. That way,
@@ -110,8 +110,8 @@ for the remark!).&lt;/p&gt;
 &lt;p&gt;These are the main tools that have eased my way into Emacs. You can check out the rest of my configuration in &lt;a href=&quot;https://github.com/fdavidcl/dotfiles/tree/master/emacs&quot;&gt;my dotfiles repository&lt;/a&gt;.&lt;/p&gt;
 </description>
             <pubDate>Fri, 05 May 2017 00:00:00 +0000</pubDate>
-            <link>http://tux.ugr.es/libreim/blog/2017/05/05/emacs-lazy/</link>
-            <guid isPermaLink="true">http://tux.ugr.es/libreim/blog/2017/05/05/emacs-lazy/</guid>
+            <link>http://libreim.github.io/blog/2017/05/05/emacs-lazy/</link>
+            <guid isPermaLink="true">http://libreim.github.io/blog/2017/05/05/emacs-lazy/</guid>
         </item>
         
         <item>
@@ -864,8 +864,8 @@ de Borel&lt;/a&gt;.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-borel&quot; class=&quot
 &lt;/div&gt;
 </description>
             <pubDate>Sat, 25 Mar 2017 00:00:00 +0000</pubDate>
-            <link>http://tux.ugr.es/libreim/blog/2017/03/25/zfc/</link>
-            <guid isPermaLink="true">http://tux.ugr.es/libreim/blog/2017/03/25/zfc/</guid>
+            <link>http://libreim.github.io/blog/2017/03/25/zfc/</link>
+            <guid isPermaLink="true">http://libreim.github.io/blog/2017/03/25/zfc/</guid>
         </item>
         
         <item>
@@ -877,8 +877,8 @@ de Borel&lt;/a&gt;.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-borel&quot; class=&quot
 &lt;p&gt;&lt;a href=&quot;https://github.com/libreim/apuntesalgebraii/tree/master/apuntesalgebraii&quot;&gt;Enlace al repositorio&lt;/a&gt;&lt;/p&gt;
 </description>
             <pubDate>Tue, 07 Feb 2017 00:00:00 +0000</pubDate>
-            <link>http://tux.ugr.es/libreim/blog/2017/02/07/apuntes-de-lgebra-ii-en/</link>
-            <guid isPermaLink="true">http://tux.ugr.es/libreim/blog/2017/02/07/apuntes-de-lgebra-ii-en/</guid>
+            <link>http://libreim.github.io/blog/2017/02/07/apuntes-de-lgebra-ii-en/</link>
+            <guid isPermaLink="true">http://libreim.github.io/blog/2017/02/07/apuntes-de-lgebra-ii-en/</guid>
         </item>
         
         <item>
@@ -1484,8 +1484,8 @@ como en teoría de categorías:&lt;/p&gt;
 &lt;/div&gt;
 </description>
             <pubDate>Wed, 21 Dec 2016 00:00:00 +0000</pubDate>
-            <link>http://tux.ugr.es/libreim/blog/2016/12/21/monadas/</link>
-            <guid isPermaLink="true">http://tux.ugr.es/libreim/blog/2016/12/21/monadas/</guid>
+            <link>http://libreim.github.io/blog/2016/12/21/monadas/</link>
+            <guid isPermaLink="true">http://libreim.github.io/blog/2016/12/21/monadas/</guid>
         </item>
         
         <item>
@@ -1504,8 +1504,8 @@ apuntes colectivo sobre las asignaturas del doble grado:&lt;/p&gt;
 &lt;a href=&quot;http://tux.ugr.es/dgiim/awesome/&quot;&gt;Awesome&lt;/a&gt;.&lt;/p&gt;
 </description>
             <pubDate>Sun, 16 Oct 2016 00:00:00 +0000</pubDate>
-            <link>http://tux.ugr.es/libreim/blog/2016/10/16/apuntes/</link>
-            <guid isPermaLink="true">http://tux.ugr.es/libreim/blog/2016/10/16/apuntes/</guid>
+            <link>http://libreim.github.io/blog/2016/10/16/apuntes/</link>
+            <guid isPermaLink="true">http://libreim.github.io/blog/2016/10/16/apuntes/</guid>
         </item>
         
         <item>
@@ -1816,8 +1816,8 @@ básico sobre Elisp es &lt;a href=&quot;http://emacs-doctor.com/learn-emacs-lisp
 &lt;/div&gt;
 </description>
             <pubDate>Mon, 19 Sep 2016 00:00:00 +0000</pubDate>
-            <link>http://tux.ugr.es/libreim/blog/2016/09/19/aprendiendo-emacs/</link>
-            <guid isPermaLink="true">http://tux.ugr.es/libreim/blog/2016/09/19/aprendiendo-emacs/</guid>
+            <link>http://libreim.github.io/blog/2016/09/19/aprendiendo-emacs/</link>
+            <guid isPermaLink="true">http://libreim.github.io/blog/2016/09/19/aprendiendo-emacs/</guid>
         </item>
         
         <item>
@@ -1836,8 +1836,8 @@ Fourier, variable compleja o análisis en &lt;script type=&quot;math/tex&quot;&g
 &lt;p&gt;Está disponible &lt;a href=&quot;https://github.com/libreim/calculo/releases/download/apuntes/calculo.pdf&quot;&gt;el libro completo en formato PDF&lt;/a&gt; y el código fuente lo alojamos en &lt;a href=&quot;https://github.com/libreim/calculo&quot;&gt;este repositorio en GitHub&lt;/a&gt;.&lt;/p&gt;
 </description>
             <pubDate>Fri, 22 Jul 2016 00:00:00 +0000</pubDate>
-            <link>http://tux.ugr.es/libreim/blog/2016/07/22/apuntes-de-introduccion-al-calculo/</link>
-            <guid isPermaLink="true">http://tux.ugr.es/libreim/blog/2016/07/22/apuntes-de-introduccion-al-calculo/</guid>
+            <link>http://libreim.github.io/blog/2016/07/22/apuntes-de-introduccion-al-calculo/</link>
+            <guid isPermaLink="true">http://libreim.github.io/blog/2016/07/22/apuntes-de-introduccion-al-calculo/</guid>
         </item>
         
         <item>
@@ -1992,8 +1992,8 @@ al &lt;em&gt;cálculo lambda tipado&lt;/em&gt; y al &lt;em&gt;Sistema &lt;script
 &lt;/ul&gt;
 </description>
             <pubDate>Fri, 08 Jan 2016 00:00:00 +0000</pubDate>
-            <link>http://tux.ugr.es/libreim/blog/2016/01/08/teoria-de-tipos/</link>
-            <guid isPermaLink="true">http://tux.ugr.es/libreim/blog/2016/01/08/teoria-de-tipos/</guid>
+            <link>http://libreim.github.io/blog/2016/01/08/teoria-de-tipos/</link>
+            <guid isPermaLink="true">http://libreim.github.io/blog/2016/01/08/teoria-de-tipos/</guid>
         </item>
         
         <item>
@@ -2162,7 +2162,7 @@ foros similares. Entre los útiles para nosotros están:&lt;/p&gt;
   &lt;li&gt;&lt;a href=&quot;http://tex.stackexchange.com/&quot;&gt;&lt;strong&gt;TexStackExchange&lt;/strong&gt;&lt;/a&gt;, sobre LaTeX.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p class=&quot;fig&quot;&gt;&lt;img src=&quot;http://imgs.xkcd.com/comics/wisdom_of_the_ancients.png&quot; alt=&quot;&quot; longdesc=&quot;/libreim/blog/images/guia-primero/wisdom_of_the_ancients.html&quot; /&gt;
+&lt;p class=&quot;fig&quot;&gt;&lt;img src=&quot;http://imgs.xkcd.com/comics/wisdom_of_the_ancients.png&quot; alt=&quot;&quot; longdesc=&quot;/blog/images/guia-primero/wisdom_of_the_ancients.html&quot; /&gt;
 Imagen de &lt;a href=&quot;https://xkcd.com/979/&quot;&gt;xkcd: Wisdom of the Ancients&lt;/a&gt; (&lt;abbr title=&quot;Creative Commons&quot;&gt;CC&lt;/abbr&gt; BY-NC)&lt;/p&gt;
 
 &lt;p&gt;Si la duda es más específica a nuestra carrera, prueba en nuestro
@@ -2328,7 +2328,7 @@ pensando en Sublime Text? Estos últimos son alternativas libres, pruébalos).
 Algunos editores se pueden utilizar desde la propia terminal, uno de los más
 sencillos en este ámbito es Nano.&lt;/p&gt;
 
-&lt;p class=&quot;fig&quot;&gt;&lt;img src=&quot;http://imgs.xkcd.com/comics/real_programmers.png&quot; alt=&quot;&quot; longdesc=&quot;/libreim/blog/images/guia-primero/real_programmers.html&quot; /&gt;
+&lt;p class=&quot;fig&quot;&gt;&lt;img src=&quot;http://imgs.xkcd.com/comics/real_programmers.png&quot; alt=&quot;&quot; longdesc=&quot;/blog/images/guia-primero/real_programmers.html&quot; /&gt;
 Imagen de &lt;a href=&quot;https://xkcd.com/378/&quot;&gt;xkcd: Real Programmers&lt;/a&gt; (&lt;abbr title=&quot;Creative Commons&quot;&gt;CC&lt;/abbr&gt; BY-NC)&lt;/p&gt;
 
 &lt;h2 id=&quot;estas-matemáticas-no-se-parecen-a-las-del-instituto-cómo-demuestro-las-cosas&quot;&gt;Estas matemáticas no se parecen a las del instituto, ¿cómo demuestro las cosas?&lt;/h2&gt;
@@ -2518,8 +2518,8 @@ introducción a la investigación para el doble grado: &lt;a href=&quot;https://
 
 </description>
             <pubDate>Thu, 10 Sep 2015 00:00:00 +0000</pubDate>
-            <link>http://tux.ugr.es/libreim/blog/2015/09/10/primero/</link>
-            <guid isPermaLink="true">http://tux.ugr.es/libreim/blog/2015/09/10/primero/</guid>
+            <link>http://libreim.github.io/blog/2015/09/10/primero/</link>
+            <guid isPermaLink="true">http://libreim.github.io/blog/2015/09/10/primero/</guid>
         </item>
         
         <item>
@@ -3124,8 +3124,8 @@ give them a try, be creative and find new ways to use them.&lt;/p&gt;
 &lt;/div&gt;
 </description>
             <pubDate>Mon, 24 Aug 2015 00:00:00 +0000</pubDate>
-            <link>http://tux.ugr.es/libreim/blog/2015/08/24/ruby-enumerators/</link>
-            <guid isPermaLink="true">http://tux.ugr.es/libreim/blog/2015/08/24/ruby-enumerators/</guid>
+            <link>http://libreim.github.io/blog/2015/08/24/ruby-enumerators/</link>
+            <guid isPermaLink="true">http://libreim.github.io/blog/2015/08/24/ruby-enumerators/</guid>
         </item>
         
     </channel>
