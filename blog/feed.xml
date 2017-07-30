@@ -307,7 +307,7 @@ existe el conjunto de todos los conjuntos. Podemos ver a estas
 
 &lt;h3 id=&quot;algunas-cosas-que-no-son-conjuntos&quot;&gt;Algunas cosas que no son conjuntos&lt;/h3&gt;
 
-&lt;p&gt;En algunas partes de las matemáticas como la &lt;a href=&quot;http://tux.ugr.es/libreim/blog/2014/10/04/intro-categorias/&quot;&gt;teoría de
+&lt;p&gt;En algunas partes de las matemáticas como la &lt;a href=&quot;//libreim.github.io/blog/2014/10/04/intro-categorias/&quot;&gt;teoría de
 categorías&lt;/a&gt;
 resulta útil con frecuencia hablar de todos los conjuntos a la vez (por
 ejemplo cuando queremos hablar de los objetos de la categoría
@@ -886,15 +886,14 @@ de Borel&lt;/a&gt;.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-borel&quot; class=&quot
             <description>&lt;blockquote&gt;
   &lt;p&gt;A monad is just a monoid in the category of endofunctors, what’s the problem?&lt;/p&gt;
 
-  &lt;p&gt;– &lt;strong&gt;Philip Walder&lt;/strong&gt; (apócrifa) en &lt;em&gt;&lt;a href=&quot;http://james-iry.blogspot.com.es/2009/05/brief-incomplete-and-mostly-wrong.html&quot;&gt;A Brief, Incomplete, and Mostly Wrong 
-   History of programming languages&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+  &lt;p&gt;– &lt;strong&gt;Philip Walder&lt;/strong&gt; (apócrifa) en &lt;em&gt;&lt;a href=&quot;http://james-iry.blogspot.com.es/2009/05/brief-incomplete-and-mostly-wrong.html&quot;&gt;A Brief, Incomplete, and Mostly Wrong History of programming languages&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;prerrequisitos&quot;&gt;Prerrequisitos&lt;/h2&gt;
 
 &lt;p&gt;Este artículo requiere un conocimiento previo de Haskell, o al menos,
 de otro lenguaje de programación funcional. Puedes consultar
-nuestra &lt;a href=&quot;http://tux.ugr.es/dgiim/blog/2014/10/01/intro-haskell/&quot;&gt;introducción a Haskell&lt;/a&gt; 
+nuestra &lt;a href=&quot;//libreim.github.io/blog/2014/10/01/intro-haskell/&quot;&gt;introducción a Haskell&lt;/a&gt;
 con recursos para iniciarte en el lenguaje.&lt;/p&gt;
 
 &lt;p&gt;Por otro lado, para la segunda parte del artículo es recomendable
@@ -902,7 +901,7 @@ conocimiento previo sobre teoría de categorías. Aun así, no es
 necesaria para leer la primera parte del artículo, donde hablamos
 de mónadas sin hacer ninguna referencia explícita a la teoría de
 categorías. Si quieres leer sobre ese tema, puedes consultar nuestros apuntes
-de &lt;a href=&quot;http://tux.ugr.es/dgiim/blog/2014/10/04/intro-categorias/&quot;&gt;introducción a teoría de categorías&lt;/a&gt;.&lt;/p&gt;
+de &lt;a href=&quot;//libreim.github.io/blog/2014/10/04/intro-categorias/&quot;&gt;introducción a teoría de categorías&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;motivación-para-las-mónadas&quot;&gt;Motivación para las mónadas&lt;/h2&gt;
 
@@ -932,7 +931,7 @@ funcional.&lt;/p&gt;
 
 &lt;h3 id=&quot;calculando-raíces-cuadradas&quot;&gt;Calculando raíces cuadradas&lt;/h3&gt;
 &lt;p&gt;Por ejemplo, supongamos que intentamos sacar raíces cuadradas en los reales usando
-el &lt;a href=&quot;https://en.wikipedia.org/wiki/Integer_square_root#Algorithm&quot;&gt;método de Newton&lt;/a&gt;. 
+el &lt;a href=&quot;https://en.wikipedia.org/wiki/Integer_square_root#Algorithm&quot;&gt;método de Newton&lt;/a&gt;.
 Si intentamos calcular &lt;script type=&quot;math/tex&quot;&gt;\sqrt{n}&lt;/script&gt;, podemos tomar a cada paso la aproximación:&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;x_{k+1} = \frac{1}{2}\left( x_k+\frac{n}{x_k} \right)&lt;/script&gt;
@@ -1492,7 +1491,7 @@ como en teoría de categorías:&lt;/p&gt;
             <title>Apuntes para el doble grado</title>
             <description>&lt;h2 id=&quot;repositorio-de-apuntes&quot;&gt;Repositorio de apuntes&lt;/h2&gt;
 
-&lt;p&gt;A iniciativa de los alumnos de segundo, hemos dejado público un repositorio de 
+&lt;p&gt;A iniciativa de los alumnos de segundo, hemos dejado público un repositorio de
 apuntes colectivo sobre las asignaturas del doble grado:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1500,8 +1499,8 @@ apuntes colectivo sobre las asignaturas del doble grado:&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Puedes descargar los apuntes, todavía en construcción, y con licencia Creative Commons en su
-&lt;a href=&quot;https://libreim.github.io/apuntesDGIIM/&quot;&gt;página&lt;/a&gt;, que estará disponible desde 
-&lt;a href=&quot;http://tux.ugr.es/dgiim/awesome/&quot;&gt;Awesome&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&quot;https://libreim.github.io/apuntesDGIIM/&quot;&gt;página&lt;/a&gt;, que estará disponible desde
+&lt;a href=&quot;//libreim.github.io/awesome&quot;&gt;Awesome&lt;/a&gt;.&lt;/p&gt;
 </description>
             <pubDate>Sun, 16 Oct 2016 00:00:00 +0000</pubDate>
             <link>http://libreim.github.io/blog/2016/10/16/apuntes/</link>
@@ -1518,7 +1517,7 @@ construido sobre un intérprete del lenguaje
 del editor constituye un comando sobre el intérprete, por lo que podemos reescribir sus
 comandos o crear nuevos comandos simplemente programando sobre el intérprete.&lt;/p&gt;
 
-&lt;p class=&quot;fig med&quot;&gt;&lt;img src=&quot;https://github.com/libreim/blog/raw/gh-pages/images/emacs.png&quot; alt=&quot;&quot; /&gt;
+&lt;p class=&quot;fig med&quot;&gt;&lt;img src=&quot;https://github.com/libreim/blog/raw/site/images/emacs.png&quot; alt=&quot;&quot; /&gt;
 Emacs editando este mismo artículo&lt;/p&gt;
 
 &lt;p&gt;Emacs sirve como IDE para la mayoría de lenguajes de programación, como
@@ -1763,7 +1762,7 @@ la bibliografía y los enlaces tanto externos como entre archivos.&lt;/p&gt;
 y el poder incluir los paquetes de la &lt;a href=&quot;ftp://ftp.ams.org/pub/tex/doc/amsmath/amsldoc.pdf&quot;&gt;AMS&lt;/a&gt;
 para marcar teoremas o definiciones.&lt;/p&gt;
 
-&lt;p class=&quot;fig med&quot;&gt;&lt;img src=&quot;https://github.com/libreim/blog/raw/gh-pages/images/org-math.png&quot; alt=&quot;&quot; /&gt;
+&lt;p class=&quot;fig med&quot;&gt;&lt;img src=&quot;https://github.com/libreim/blog/raw/site/images/org-math.png&quot; alt=&quot;&quot; /&gt;
 Apuntes de matemáticas en org-mode&lt;/p&gt;
 
 &lt;h3 id=&quot;magit&quot;&gt;magit&lt;/h3&gt;
@@ -1857,7 +1856,7 @@ lenguaje funcional. Sobre la inducción estructural hemos escrito previamente en
 introducción:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://tux.ugr.es/dgiim/blog/2015/03/14/induccion-estructural/&quot;&gt;Inducción Estructural - Blog LibreIM&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;//libreim.github.io/blog/2015/03/14/induccion-estructural/&quot;&gt;Inducción Estructural - Blog LibreIM&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;En ese post se escriben ejemplos sobre los naturales y los
@@ -1885,7 +1884,7 @@ repositorio sobre &lt;a href=&quot;https://github.com/M42/recorridosArboles&quot
 post se basó sobre otros tres publicados en el blog de Chris Taylor:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://tux.ugr.es/dgiim/blog/2015/03/24/algebra-tipos/&quot;&gt;Álgebra de tipos - Blog LibreIM&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;//libreim.github.io/blog/2015/03/24/algebra-tipos/&quot;&gt;Álgebra de tipos - Blog LibreIM&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://chris-taylor.github.io/blog/2013/02/10/the-algebra-of-algebraic-data-types/&quot;&gt;The algebra of algebraic data types, Part I - Chris Taylor&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://chris-taylor.github.io/blog/2013/02/11/the-algebra-of-algebraic-data-types-part-ii/&quot;&gt;The algebra of algebraic data types, Part II - Chris Taylor&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://chris-taylor.github.io/blog/2013/02/13/the-algebra-of-algebraic-data-types-part-iii/&quot;&gt;The algebra of algebraic data types, Part III - Chris Taylor&lt;/a&gt;&lt;/li&gt;
@@ -2062,7 +2061,7 @@ con el que varias personas puedan trabajar directamente y para publicar el códi
 &lt;p&gt;Para empezar tienes:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Un &lt;a href=&quot;http://tux.ugr.es/dgiim/blog/2014/02/23/manualgit/&quot;&gt;manual rápido de Git/GitHub&lt;/a&gt;, escrito por David Charte en este mismo blog.&lt;/li&gt;
+  &lt;li&gt;Un &lt;a href=&quot;//libreim.github.io/blog/2014/02/23/manualgit/&quot;&gt;manual rápido de Git/GitHub&lt;/a&gt;, escrito por David Charte en este mismo blog.&lt;/li&gt;
   &lt;li&gt;Un &lt;a href=&quot;https://github.com/oslugr/curso-git&quot;&gt;curso completo de Git&lt;/a&gt;, con &lt;a href=&quot;https://github.com/oslugr/curso-git&quot;&gt;eBook descargable&lt;/a&gt; que también puedes adquirir en Amazon.&lt;/li&gt;
   &lt;li&gt;La propia &lt;a href=&quot;https://git-scm.com/documentation&quot;&gt;documentación de Git&lt;/a&gt;, desde su página oficial.&lt;/li&gt;
 &lt;/ul&gt;
@@ -2097,8 +2096,8 @@ presentaciones desde la web en &lt;a href=&quot;http://slides.com&quot;&gt;slide
 Pablo Baeyens:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://tux.ugr.es/dgiim/blog/2015/03/14/latex/&quot;&gt;¿Cómo aprender LaTeX?&lt;/a&gt;, un compendio de recursos.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://tux.ugr.es/dgiim/blog/2015/03/14/intro-beamer/&quot;&gt;Introducción a Beamer&lt;/a&gt;, una guía de beamer escrita en beamer.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;//libreim.github.io/blog/2015/03/14/latex/&quot;&gt;¿Cómo aprender LaTeX?&lt;/a&gt;, un compendio de recursos.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;//libreim.github.io/blog/2015/03/14/intro-beamer/&quot;&gt;Introducción a Beamer&lt;/a&gt;, una guía de beamer escrita en beamer.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Aprender LaTeX no es un proceso fácil, pero te acabará siendo rentable. Si
@@ -2114,7 +2113,7 @@ transformar a PDF documentos escritos en Markdown con fórmulas de LaTeX en su
 interior.&lt;/p&gt;
 
 &lt;p&gt;De hecho, este mismo post que estás leyendo está escrito en Markdown. Puedes
-verlo &lt;a href=&quot;https://raw.githubusercontent.com/libreim/blog/gh-pages/_posts/2015-09-10-primero.md&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
+verlo &lt;a href=&quot;https://raw.githubusercontent.com/libreim/blog/site/_posts/2015-09-10-primero.md&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Sin embargo, aun existiendo Markdown, las publicaciones grandes requerirán de un
 poder expresivo que Markdown no tiene. Aprende LaTeX siendo consciente de que
@@ -2166,7 +2165,7 @@ foros similares. Entre los útiles para nosotros están:&lt;/p&gt;
 Imagen de &lt;a href=&quot;https://xkcd.com/979/&quot;&gt;xkcd: Wisdom of the Ancients&lt;/a&gt; (&lt;abbr title=&quot;Creative Commons&quot;&gt;CC&lt;/abbr&gt; BY-NC)&lt;/p&gt;
 
 &lt;p&gt;Si la duda es más específica a nuestra carrera, prueba en nuestro
-&lt;a href=&quot;http://tux.ugr.es/dgiim/overflow/&quot;&gt;&lt;strong&gt;foro&lt;/strong&gt; de matemáticas e informática&lt;/a&gt;.
+&lt;a href=&quot;//libreim.github.io/overflow/&quot;&gt;&lt;strong&gt;foro&lt;/strong&gt; de matemáticas e informática&lt;/a&gt;.
 Hemos pasado por el mismo camino que tú y probablemente nos hayamos
 encontrado con los mismos problemas.&lt;/p&gt;
 
@@ -2414,7 +2413,7 @@ sean necesarios.&lt;/p&gt;
 &lt;p&gt;Por otro lado, es posible que tengas una beca de libros o te guste tener un
 libro de cada área para consultar dudas y ejercicios. En tal caso lo recomendable
 es que busques libros generales que cubran materias
-enteras de las matemáticas o la informática. En nuestra &lt;a href=&quot;/dgiim/awesome/&quot;&gt;página de recursos&lt;/a&gt; hay varias
+enteras de las matemáticas o la informática. En nuestra &lt;a href=&quot;/awesome/&quot;&gt;página de recursos&lt;/a&gt; hay varias
 recomendaciones. Si quieres algo general, como ya te advertimos, la respuesta está
 siempre en StackExchange:&lt;/p&gt;
 
@@ -2423,7 +2422,7 @@ siempre en StackExchange:&lt;/p&gt;
   &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/143760/what-books-should-i-read-to-have-an-undergraduate-education-in-computer-science&quot;&gt;StackOverflow. What books should I read to have an undergraduate education in computer science?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Y si quieres algo más concreto, pregunta en el &lt;a href=&quot;/dgiim/overflow/&quot;&gt;foro&lt;/a&gt;. Entre todos llevamos la cuenta
+&lt;p&gt;Y si quieres algo más concreto, pregunta en el &lt;a href=&quot;/overflow/&quot;&gt;foro&lt;/a&gt;. Entre todos llevamos la cuenta
 de qué libros son útiles para cada asignatura.&lt;/p&gt;
 
 &lt;p&gt;Otra opción para obtener bibliografía son los cursos online que ofrecen plataformas como
@@ -2444,7 +2443,7 @@ Especialmente en
 matemáticas, los libros suelen traer consigo una lista de ejercicios.
 Intenta resolverlos por ti mismo, escribiendo una demostración formal y con
 palabras en papel; incluso si no sale ninguno, servirán para comprender el tema.
-Entre los &lt;a href=&quot;/dgiim/awesome/&quot;&gt;recursos&lt;/a&gt; de esta página tienes libros y apuntes con sus correspondientes
+Entre los &lt;a href=&quot;/awesome/&quot;&gt;recursos&lt;/a&gt; de esta página tienes libros y apuntes con sus correspondientes
 ejercicios.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -2468,7 +2467,7 @@ varios es una de las habilidades con las que deberías salir de la carrera.&lt;/
 &lt;p&gt;Tendrás muchas oportunidades para trabajar en proyectos conjuntos con tus
 compañeros. En cualquier caso, en un intento por construir comunidad en torno
 a la carrera y ampliarla a todos los que quieran aprender sobre matemáticas e
-informática, empezamos este mismo &lt;a href=&quot;http://tux.ugr.es/dgiim/blog/&quot;&gt;blog&lt;/a&gt; que estás leyendo, un &lt;a href=&quot;http://tux.ugr.es/dgiim/overflow/&quot;&gt;foro&lt;/a&gt; donde
+informática, empezamos este mismo &lt;a href=&quot;//libreim.github.io/blog/&quot;&gt;blog&lt;/a&gt; que estás leyendo, un &lt;a href=&quot;//libreim.github.io/overflow/&quot;&gt;foro&lt;/a&gt; donde
 compartir dudas y una &lt;a href=&quot;https://github.com/libreim&quot;&gt;organización de GitHub&lt;/a&gt; con repositorios para proyectos
 comunes. El funcionamiento de todo esto depende de la colaboración.&lt;/p&gt;
 
@@ -2871,8 +2870,8 @@ on, another faster way to enumerate the Fibonacci sequence will be shown.&lt;/p&
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;dgiim&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;dgiim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;first&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;libreim&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;libreim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;first&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Mean inequalities&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;

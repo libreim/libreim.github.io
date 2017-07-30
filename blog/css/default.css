@@ -195,7 +195,7 @@ footer {
 **********/
 @media (min-width: 48em) {
   .site-title.pure-menu-heading:before {
-    content: "dgiim";
+    content: "libreim";
     color: #d5d5d5; }
 
   h1 {
