@@ -3,6 +3,10 @@
    <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta charset="utf-8">
+      <script>
+        if (location.href.indexOf("tux.ugr.es") > -1 && location.href.indexOf("/libreim") < 0)
+          location.href = location.href.replace("dgiim", "libreim");
+      </script>
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
       <!--link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/menus-min.css" /-->
@@ -18,7 +22,7 @@
       <meta name="theme-color" content="#6789ab">
 
       <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
-      <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
       <script type="text/javascript">
          WebFont.load({
@@ -95,7 +99,7 @@
         </a>
         <!--
         
-          <a class="edit" href="https://github.com/libreim/blog/blob/site/_posts/2016-09-19-aprendiendo-emacs.md">
+          <a class="edit" href="https://github.com/libreim/blog/blob/gh-pages/_posts/2016-09-19-aprendiendo-emacs.md">
             Ver y editar en GitHub
           </a>
         
@@ -112,7 +116,7 @@ construido sobre un intérprete del lenguaje
 del editor constituye un comando sobre el intérprete, por lo que podemos reescribir sus
 comandos o crear nuevos comandos simplemente programando sobre el intérprete.</p>
 
-<p class="fig med"><img src="https://github.com/libreim/blog/raw/site/images/emacs.png" alt="" />
+<p class="fig med"><img src="https://github.com/libreim/blog/raw/gh-pages/images/emacs.png" alt="" />
 Emacs editando este mismo artículo</p>
 
 <p>Emacs sirve como IDE para la mayoría de lenguajes de programación, como
@@ -357,7 +361,7 @@ la bibliografía y los enlaces tanto externos como entre archivos.</p>
 y el poder incluir los paquetes de la <a href="ftp://ftp.ams.org/pub/tex/doc/amsmath/amsldoc.pdf">AMS</a>
 para marcar teoremas o definiciones.</p>
 
-<p class="fig med"><img src="https://github.com/libreim/blog/raw/site/images/org-math.png" alt="" />
+<p class="fig med"><img src="https://github.com/libreim/blog/raw/gh-pages/images/org-math.png" alt="" />
 Apuntes de matemáticas en org-mode</p>
 
 <h3 id="magit">magit</h3>

@@ -150,16 +150,6 @@ blockquote {
   padding-left: .8rem;
   border-left: 0.4rem solid #eee; }
 
-.ejercicio {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  background-color: #efefef; }
-
-.ejercicio > details {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  background-color: #efefef; }
-
 /*** Pagination ***/
 nav.pagination {
   margin: 1.2rem 0; }
@@ -195,7 +185,7 @@ footer {
 **********/
 @media (min-width: 48em) {
   .site-title.pure-menu-heading:before {
-    content: "libreim";
+    content: "dgiim";
     color: #d5d5d5; }
 
   h1 {

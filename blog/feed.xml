@@ -7,868 +7,6 @@
         <atom:link href="http://libreim.github.io/blog/feed.xml" rel="self" type="application/rss+xml" />
         
         <item>
-            <title>Emacs for lazy people</title>
-            <description>&lt;p&gt;Emacs is one of the most powerful, extensible editors out there.
-However, learning to use it is not an easy task, and I’m just really
-lazy. The following are some packages that I hope will make your life
-way easier. And if you already use Emacs, I encourage you to try them
-and see if they help you get a more comfortable development environment.&lt;/p&gt;
-
-&lt;p&gt;To add any of these packages to your Emacs configuration, find your 
-initialization file (usually &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.emacs&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.emacs.d/init.el&lt;/code&gt;) and
-add the snippets there. You will also need to install and enable &lt;code class=&quot;highlighter-rouge&quot;&gt;use-package&lt;/code&gt; 
-beforehand (&lt;a href=&quot;http://www.lunaryorn.com/posts/my-emacs-configuration-with-use-package.html&quot;&gt;why?&lt;/a&gt;).&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 id=&quot;smex&quot;&gt;Smex&lt;/h2&gt;
-
-&lt;p&gt;In Emacs we use M-x
-(&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;X&lt;/kbd&gt;) to enter any
-command without the need for a dedicated keyboard shortcut or menu
-entry. By default Emacs doesn’t help much while writing a command, and
-it can be challenging to remember many of them, as well as tedious
-writing the long ones (&lt;code class=&quot;highlighter-rouge&quot;&gt;package-list-packages&lt;/code&gt; anyone?).
-&lt;a href=&quot;https://github.com/nonsequitur/smex/&quot;&gt;Smex&lt;/a&gt; is a M-x enhancement for
-Emacs, built on top of Ido, which means it will try to predict and
-autocomplete commands as you write them.&lt;/p&gt;
-
-&lt;p&gt;In order to install and enable Smex, add the following code to your
-initialization file:&lt;/p&gt;
-
-&lt;div class=&quot;language-common_lisp highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;use-package&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;smex&lt;/span&gt;
-&lt;span class=&quot;ss&quot;&gt;:config&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;smex-initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;ergoemacs&quot;&gt;Ergoemacs&lt;/h2&gt;
-
-&lt;p&gt;If you’re just starting to use emacs, you may find it difficult to learn
-all the new keybindings. If you’re a long-time user, you may have
-experienced repetitive strain injury (RSI), also known as &lt;a href=&quot;https://en.wikipedia.org/wiki/Emacs#Emacs_pinky&quot;&gt;Emacs
-pinky&lt;/a&gt;. Don’t worry,
-I’ve got just the solution for you:
-&lt;a href=&quot;https://ergoemacs.github.io/index.html&quot;&gt;ergoemacs-mode&lt;/a&gt; is a minor-mode
-that sets ergonomic and well-known keybindings for common editing
-functions, with the aim of reducing RSI as well as adding some
-familiarity to the use of emacs.&lt;/p&gt;
-
-&lt;p&gt;Just as before, add the following code to your initialization file and
-restart Emacs to use it:&lt;/p&gt;
-
-&lt;div class=&quot;language-common_lisp highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;use-package&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ergoemacs-mode&lt;/span&gt;
-&lt;span class=&quot;ss&quot;&gt;:init&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;setq&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ergoemacs-theme&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;setq&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;ergoemacs-keyboard-layout&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;es&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;ss&quot;&gt;:config&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ergoemacs-mode&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;You can check &lt;a href=&quot;https://ergoemacs.github.io/key-setup.html&quot;&gt;your new keybinding
-layout&lt;/a&gt;. Remember that,
-after enabling Ergoemacs, the keyboard shortcut that allows you to enter
-a custom command becomes
-&lt;kbd&gt;Alt&lt;/kbd&gt;+&lt;kbd&gt;A&lt;/kbd&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;which-key&quot;&gt;Which-key&lt;/h2&gt;
-
-&lt;p class=&quot;fig med&quot;&gt;&lt;img src=&quot;/blog/images/emacs-which-key.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/justbur/emacs-which-key&quot;&gt;Which-key&lt;/a&gt; displays the key
-bindings following your currently entered incomplete command. That way,
-when you can’t remember which key to press, you’ll have a cheat sheet in
-a couple of seconds.&lt;/p&gt;
-
-&lt;div class=&quot;language-common_lisp highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;use-package&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;which-key&lt;/span&gt;
-&lt;span class=&quot;ss&quot;&gt;:config&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;which-key-mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;auto-reload-stuff&quot;&gt;Auto-reload stuff&lt;/h2&gt;
-
-&lt;p&gt;When using version control, files generally change while having them
-open in the editor. If this happens, I expect my editor to refresh the
-files so that I don’t write on an old version. Emacs doesn’t enable this
-behavior by default, rather letting the user decide if they want to
-reload files. Instead, we can set it to automatically reload files from
-disk when changed via these configuration lines (source: &lt;a href=&quot;http://pragmaticemacs.com/emacs/automatically-revert-buffers/&quot;&gt;Pragmatic
-Emacs&lt;/a&gt;):&lt;/p&gt;
-
-&lt;div class=&quot;language-common_lisp highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;global-auto-revert-mode&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;add-hook&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;'dired-mode-hook&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;'auto-revert-mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p class=&quot;note&quot;&gt;The &lt;a href=&quot;https://magit.vc/&quot;&gt;magit&lt;/a&gt; plugin for version control with git does
-refresh the files without the need for this configuration (thanks &lt;a href=&quot;https://ncordon.github.io/&quot;&gt;Nacho&lt;/a&gt;
-for the remark!).&lt;/p&gt;
-
-&lt;h2 id=&quot;still-want-more&quot;&gt;Still want more?&lt;/h2&gt;
-
-&lt;p&gt;These are the main tools that have eased my way into Emacs. You can check out the rest of my configuration in &lt;a href=&quot;https://github.com/fdavidcl/dotfiles/tree/master/emacs&quot;&gt;my dotfiles repository&lt;/a&gt;.&lt;/p&gt;
-</description>
-            <pubDate>Fri, 05 May 2017 00:00:00 +0000</pubDate>
-            <link>http://libreim.github.io/blog/2017/05/05/emacs-lazy/</link>
-            <guid isPermaLink="true">http://libreim.github.io/blog/2017/05/05/emacs-lazy/</guid>
-        </item>
-        
-        <item>
-            <title>Introducción a ZFC</title>
-            <description>&lt;p&gt;A principios del siglo XX las matemáticas sufrieron una crisis
-fundacional: los principios que se consideraban básicos para la
-deducción de las teorías matemáticas daban lugar a paradojas y los
-matemáticos de la época se embarcaron en la creación de un sistema
-axiomático que pudiera formalizar todos los teoremas de la época sin dar
-lugar a estas paradojas.&lt;/p&gt;
-
-&lt;p&gt;Una de las posibles soluciones son las teorías axiomáticas de conjuntos,
-de entre las cuales la más utilizada actualmente es ZFC (la teoría de
-Zermelo-Fraenkel junto con el axioma de elección)&lt;sup id=&quot;fnref:zfc-alternativas&quot;&gt;&lt;a href=&quot;#fn:zfc-alternativas&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-
-&lt;p&gt;En este artículo exponemos los axiomas de esta teoría y la comparamos
-con otras teorías de conjuntos (y de clases). Se incluyen también
-algunos ejercicios.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 id=&quot;el-lenguaje&quot;&gt;El lenguaje&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Second order logic is just set theory in disguise - &lt;a href=&quot;https://en.wikipedia.org/wiki/Willard_Van_Orman_Quine&quot;&gt;W.V.O.
-Quine&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Para formalizar una teoría axiomática de cualquier tipo necesitamos un
-lenguaje en el cual expresar los axiomas, pero el lenguaje natural
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Berry_paradox&quot;&gt;produce paradojas&lt;/a&gt;. Para
-solucionar este problema utilizaremos un lenguaje lógico.&lt;/p&gt;
-
-&lt;p&gt;Hay muchas otras posibles elecciones con respecto a qué lógica utilizar:
-por ejemplo &lt;a href=&quot;https://en.wikipedia.org/wiki/Constructive_set_theory&quot;&gt;algunas
-teorías&lt;/a&gt;
-axiomáticas de conjuntos utilizan &lt;a href=&quot;https://en.wikipedia.org/wiki/Non-classical_logic&quot;&gt;lógicas no
-clásicas&lt;/a&gt;. Podríamos
-también considerar las &lt;a href=&quot;https://plato.stanford.edu/entries/logic-higher-order/&quot;&gt;lógicas de orden
-superior&lt;/a&gt; pero
-por &lt;a href=&quot;http://philosophy.stackexchange.com/a/2618&quot;&gt;razones históricas y
-filosóficas&lt;/a&gt; y por sus
-propiedades metalógicas formularemos la teoría en lógica de primer
-orden.&lt;/p&gt;
-
-&lt;h3 id=&quot;la-lógica-de-primer-orden&quot;&gt;La lógica de primer orden&lt;/h3&gt;
-
-&lt;p&gt;La lógica de primer orden consta de dos tipos de símbolos: los símbolos
-lógicos y los no-lógicos, que forman fórmulas a partir de una &lt;a href=&quot;https://en.wikipedia.org/wiki/First-order_logic#Syntax&quot;&gt;serie de
-reglas&lt;/a&gt;. No es
-el objetivo de este post explicar en detalle la lógica de primer orden y
-basta con que seas capaz de leer fórmulas como
-&lt;script type=&quot;math/tex&quot;&gt;\forall x \operatorname{Cuervo}(x) \implies \operatorname{Negro}(x)&lt;/script&gt;
-(&lt;em&gt;todos los cuervos son negros&lt;/em&gt;) &lt;sup id=&quot;fnref:zfc-cuervos&quot;&gt;&lt;a href=&quot;#fn:zfc-cuervos&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-
-&lt;p&gt;Los símbolos &lt;strong&gt;lógicos&lt;/strong&gt; de nuestra teoría pueden reducirse a una
-colección de conectivas lógicas &lt;a href=&quot;https://en.m.wikipedia.org/wiki/Functional_completeness&quot;&gt;funcionalmente
-completas&lt;/a&gt;
-(cómo mínimo &lt;a href=&quot;https://en.wikipedia.org/wiki/Sheffer_stroke&quot;&gt;la operación
-NAND&lt;/a&gt; o más comúnmente la
-conjunción, disyunción, negación, implicación y bicondicional) así como
-al menos un cuantificador (para todo &lt;script type=&quot;math/tex&quot;&gt;\forall&lt;/script&gt; o existe &lt;script type=&quot;math/tex&quot;&gt;\exists&lt;/script&gt;).
-Contamos además con una cantidad infinita de variables (basta con una
-cantidad numerable) para escribir nuestras fórmulas.&lt;/p&gt;
-
-&lt;p&gt;Contaremos además como único símbolo &lt;strong&gt;no-lógico&lt;/strong&gt; a la relación de
-pertenencia &lt;script type=&quot;math/tex&quot;&gt;\in(\cdot,\cdot)&lt;/script&gt; que escribiremos &lt;script type=&quot;math/tex&quot;&gt;A \in B&lt;/script&gt; y leemos &lt;em&gt;A
-pertenece a B&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Nuestra lógica también incluye el símbolo de igualdad &lt;script type=&quot;math/tex&quot;&gt;=&lt;/script&gt; y &lt;a href=&quot;https://en.wikipedia.org/wiki/First-order_logic#Equality_and_its_axioms&quot;&gt;sus
-axiomas&lt;/a&gt;,
-que incluimos a continuación por completitud. Los 3 primeros axiomas nos
-indican que la igualdad es una &lt;a href=&quot;https://en.wikipedia.org/wiki/Equivalence_relation&quot;&gt;relación de
-equivalencia&lt;/a&gt;. El
-último es un esquema de axioma (una colección infinita de axiomas que
-depende de una fórmula) que caracteriza la igualdad (conocido como
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Identity_of_indiscernibles&quot;&gt;&lt;em&gt;identidad de los
-indiscernibles&lt;/em&gt;&lt;/a&gt;).&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Reflexividad&lt;/strong&gt; &lt;script type=&quot;math/tex&quot;&gt;\forall x \; x = x&lt;/script&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Simetría&lt;/strong&gt; &lt;script type=&quot;math/tex&quot;&gt;\forall x \forall y \;  x = y \implies y = x&lt;/script&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Transitividad&lt;/strong&gt;
-&lt;script type=&quot;math/tex&quot;&gt;\forall x \forall y \forall z \; x = y \wedge y = z \implies x = z&lt;/script&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Sustitución&lt;/strong&gt; Si &lt;script type=&quot;math/tex&quot;&gt;\varphi&lt;/script&gt; es una fórmula y &lt;script type=&quot;math/tex&quot;&gt;\varphi'&lt;/script&gt; es la
-fórmula que resulta de sustituir todas las ocurrencias libres de &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;
-por &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; se verifica:
-&lt;script type=&quot;math/tex&quot;&gt;\forall x \forall y  \; x = y \implies (\varphi \implies \varphi')&lt;/script&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h4 id=&quot;una-nota-sobre-los-cuantificadores&quot;&gt;Una nota sobre los cuantificadores&lt;/h4&gt;
-
-&lt;p&gt;Cuando se escriben fórmulas matemáticas habitualmente omitimos los cuantificadores o utilizamos
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Bounded_quantifier&quot;&gt;&lt;em&gt;cuantificadores
-delimitados&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\forall x \in A \; \varphi(x)&lt;/script&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\exists x \in A \; \varphi(x)&lt;/script&gt;
-
-&lt;p&gt;que leemos &lt;em&gt;para todo&lt;/em&gt; &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; &lt;em&gt;en&lt;/em&gt; &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; &lt;em&gt;se verifica&lt;/em&gt; &lt;script type=&quot;math/tex&quot;&gt;\varphi(x)&lt;/script&gt; y &lt;em&gt;existe
-un&lt;/em&gt; &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; &lt;em&gt;en&lt;/em&gt; &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; &lt;em&gt;tal que&lt;/em&gt; &lt;script type=&quot;math/tex&quot;&gt;\varphi(x)&lt;/script&gt; respectivamente.&lt;/p&gt;
-
-&lt;p&gt;En los axiomas de la teoría de conjuntos sin embargo los cuantificadores
-no están delimitados, por lo que debemos expresarlo con una fórmula
-equivalente:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\forall x \; x \in A \implies \varphi(x)&lt;/script&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\exists x \; x \in A \wedge \varphi(x)&lt;/script&gt;
-
-&lt;p&gt;es decir &lt;em&gt;para todo &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;, si &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; pertenece a &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; entonces &lt;script type=&quot;math/tex&quot;&gt;\varphi(x)&lt;/script&gt;&lt;/em&gt; y
-&lt;em&gt;existe un &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; tal que &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; pertenece a &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;\varphi(x)&lt;/script&gt;&lt;/em&gt;. En este caso
-&lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; es ahora cualquier conjunto.&lt;sup id=&quot;fnref:zfc-dominio&quot;&gt;&lt;a href=&quot;#fn:zfc-dominio&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;el-dominio-de-discurso&quot;&gt;El dominio de discurso&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;In every discourse, whether of the mind conversing with its own
-thoughts, or of the individual in his intercourse with others, there
-is an assumed or expressed limit within which the subjects of its
-operation are confined. - Boole, 1854&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Las matemáticas tratan de objetos muy dispares como pueden ser los
-números, las funciones, los espacios topológicos, las máquinas de Turing
-o las categorías. Una teoría fundacional debería ser capaz de expresar
-todos estos objetos utilizando las mismas piezas. En algunos casos la
-transformación a conjuntos es clara (los espacios topológicos o las
-máquinas de Turing suelen definirse de forma explícita como conjuntos)
-pero en otros casos (los números o las funciones) esa transformación no
-suele realizarse de forma explícita cuando trabajamos con estos. ¿Es
-posible expresar cualquier objeto matemático en forma de conjuntos o
-necesitamos además otros tipos de objetos?&lt;/p&gt;
-
-&lt;p&gt;En esta sección realizamos construcciones explícitas de estos objetos
-matemáticos y discutimos los límites de ZFC para describir todas las
-matemáticas.&lt;/p&gt;
-
-&lt;h3 id=&quot;los-números-son-conjuntos&quot;&gt;Los números son conjuntos&lt;/h3&gt;
-
-&lt;p&gt;Algunas teorías como
-&lt;a href=&quot;https://en.wikipedia.org/wiki/New_Foundations&quot;&gt;NFU&lt;/a&gt; o
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Kripke%E2%80%93Platek_set_theory_with_urelements&quot;&gt;KPU&lt;/a&gt;
-admiten &lt;em&gt;urelementos&lt;/em&gt;: elementos que &lt;strong&gt;no&lt;/strong&gt; son conjuntos pero
-pueden ser elementos de conjuntos (esto es, sólo pueden aparecer en el
-lado izquierdo de &lt;script type=&quot;math/tex&quot;&gt;\in&lt;/script&gt;) y así lo hacía la &lt;a href=&quot;https://en.wikipedia.org/wiki/Zermelo_set_theory&quot;&gt;teoría de
-Zermelo&lt;/a&gt; de 1908 en la
-que se basa ZFC. Esta podría ser una opción para incluir los números en
-nuestra teoría, sin embargo las matemáticas pueden basarse
-exclusivamente en &lt;em&gt;conjuntos hereditarios&lt;/em&gt;&lt;sup id=&quot;fnref:zfc-casi&quot;&gt;&lt;a href=&quot;#fn:zfc-casi&quot; class=&quot;footnote&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-
-&lt;p&gt;Un conjunto se dice
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Hereditary_set&quot;&gt;&lt;strong&gt;hereditario&lt;/strong&gt;&lt;/a&gt; si todos
-sus elementos son conjuntos hereditarios. Como &lt;a href=&quot;https://en.wikipedia.org/wiki/Vacuous_truth&quot;&gt;verdad
-vacua&lt;/a&gt; podemos demostrar
-que el &lt;strong&gt;conjunto vacío&lt;/strong&gt; &lt;script type=&quot;math/tex&quot;&gt;\varnothing&lt;/script&gt; es un conjunto hereditario y por
-tanto (como veremos a continuación) también lo serán
-&lt;script type=&quot;math/tex&quot;&gt;\{\varnothing\}, \{\varnothing, \{\varnothing\}\},\{\{\varnothing\}\}, \dots&lt;/script&gt;.
-Combinando conjuntos hereditarios a partir de los axiomas podemos crear
-una cantidad arbitrariamente grande de conjuntos y por tanto nos basta
-nombrar de forma especial algunos de estos conjuntos para obtener
-nuestra teoría.&lt;/p&gt;
-
-&lt;p&gt;La forma habitual de proceder es definir primero los números naturales
-siguiendo los &lt;a href=&quot;https://en.wikipedia.org/wiki/Ordinal_number#Von_Neumann_definition_of_ordinals&quot;&gt;ordinales de Von
-Neumann&lt;/a&gt;:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;0 = \varnothing, 1 = \{0\} = \{\varnothing\}, 2 = \{0,1\} = \{\varnothing,\{\varnothing\}\}, \dots&lt;/script&gt;
-
-&lt;p&gt;De esta forma obtenemos los números naturales&lt;sup id=&quot;fnref:zfc-nats&quot;&gt;&lt;a href=&quot;#fn:zfc-nats&quot; class=&quot;footnote&quot;&gt;5&lt;/a&gt;&lt;/sup&gt;. A continuación para
-obtener los enteros, racionales, reales y complejos podemos definirlos
-mediante relaciones de equivalencia adecuadas. Puedes encontrar una
-posible construcción explícita en &lt;a href=&quot;http://math.stackexchange.com/a/62868/135164&quot;&gt;esta pregunta de Stack
-Exchange&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;las-funciones-son-conjuntos&quot;&gt;Las funciones son conjuntos&lt;/h3&gt;
-
-&lt;p&gt;Una función es una operación que relaciona un elemento o tupla de
-elementos de su dominio con un único elemento de su codominio. Para
-formalizar este concepto podemos identificar (casi) todas las funciones
-como un conjunto: su grafo.&lt;/p&gt;
-
-&lt;p&gt;De esta forma una aplicación &lt;script type=&quot;math/tex&quot;&gt;f: A \to B&lt;/script&gt; puede verse como una 3-upla
-&lt;script type=&quot;math/tex&quot;&gt;(A,B,G)&lt;/script&gt; con &lt;script type=&quot;math/tex&quot;&gt;G = \{(a,b) \in A \times B \;:\; b = f(a) \}&lt;/script&gt; &lt;sup id=&quot;fnref:zfc-funcion&quot;&gt;&lt;a href=&quot;#fn:zfc-funcion&quot; class=&quot;footnote&quot;&gt;6&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-
-&lt;p&gt;No todas las funciones pueden expresarse como conjuntos: las operaciones
-clásicas sobre conjuntos (unión, intersección, conjunto potencia) así
-como la aplicación que devuelve la cardinalidad de un conjunto son
-aplicaciones que tienen como dominio todos los conjuntos, pero en ZFC no
-existe el conjunto de todos los conjuntos. Podemos ver a estas
-“funciones” simplemente como notación.&lt;/p&gt;
-
-&lt;h3 id=&quot;algunas-cosas-que-no-son-conjuntos&quot;&gt;Algunas cosas que no son conjuntos&lt;/h3&gt;
-
-&lt;p&gt;En algunas partes de las matemáticas como la &lt;a href=&quot;//libreim.github.io/blog/2014/10/04/intro-categorias/&quot;&gt;teoría de
-categorías&lt;/a&gt;
-resulta útil con frecuencia hablar de todos los conjuntos a la vez (por
-ejemplo cuando queremos hablar de los objetos de la categoría
-&lt;script type=&quot;math/tex&quot;&gt;\texttt{Set}&lt;/script&gt;) pero se nos presenta el problema de que (en ZFC) no
-existe el &lt;a href=&quot;https://en.wikipedia.org/wiki/Universal_set&quot;&gt;&lt;em&gt;conjunto
-universal&lt;/em&gt;&lt;/a&gt; (el conjunto de
-todos los conjuntos). Para resolver este problema existen 3 opciones.&lt;/p&gt;
-
-&lt;p&gt;En primer lugar podríamos utilizar una &lt;strong&gt;teoría axiomática distinta&lt;/strong&gt; que
-incluyera la clase de todos los conjuntos como NBG. Esta teoría nos
-permite utilizar todo lo que conocemos de ZFC añadiendo además nuevos
-objetos que nos permiten hablar de colecciones más grandes sin inducir
-paradojas.&lt;/p&gt;
-
-&lt;p&gt;Otra opción es utilizar una teoría como la &lt;a href=&quot;http://math.stackexchange.com/a/234208/135164&quot;&gt;&lt;strong&gt;teoría de
-Tarski-Grothendieck&lt;/strong&gt;&lt;/a&gt; que
-incluye conjuntos que, si bien no son &lt;em&gt;el conjunto de todos los
-conjuntos&lt;/em&gt; sí que comparten muchas de sus propiedades.&lt;/p&gt;
-
-&lt;p&gt;Por último si queremos mantenernos en ZFC podemos introducir una &lt;strong&gt;nueva
-notación&lt;/strong&gt; para hablar de clases: si &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; es una clase definida por una
-propiedad &lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt; introducimos el símbolo &lt;script type=&quot;math/tex&quot;&gt;\in C&lt;/script&gt; como un predicado que
-indica &lt;em&gt;… tiene la propiedad P&lt;/em&gt;. De esta forma podemos utilizar una
-notación parecida a la de los conjuntos para hablar de una cantidad
-reducida de clases (aquellas definibles mediante una propiedad).&lt;/p&gt;
-
-&lt;h2 id=&quot;los-axiomas&quot;&gt;Los axiomas&lt;/h2&gt;
-
-&lt;p&gt;La teoría axiomática de conjuntos de ZFC es una extensión de la teoría
-de conjuntos de Zermelo, descrita a principios del siglo XX como
-respuesta a las paradojas de la teoría de conjuntos informal. Aunque
-existen &lt;a href=&quot;https://en.wikipedia.org/wiki/Paraconsistent_logic&quot;&gt;corrientes filosóficas y
-lógicas&lt;/a&gt; que
-permiten la existencia de contradicciones, las reglas de inferencia de
-la lógica clásica hacen que si un sistema axiomático no es consistente
-(tiene contradicciones) entonces podamos &lt;a href=&quot;https://en.wikipedia.org/wiki/Principle_of_explosion&quot;&gt;demostrar cualquier
-cosa&lt;/a&gt;. Por tanto
-necesitamos establecer una teoría que no tenga esas contradicciones.&lt;/p&gt;
-
-&lt;p&gt;La más famosa de las paradojas de la teoría de conjuntos informal es la
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Russell%2527s_paradox&quot;&gt;paradoja de
-Russell&lt;/a&gt;: &lt;em&gt;Si un
-barbero afeita a todos los que no se afeitan a sí mismos, ¿se afeita a
-sí mismo?&lt;/em&gt;. En términos de la teoría de conjuntos informal se traduce
-en:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Sea &lt;script type=&quot;math/tex&quot;&gt;R = \{x \;:\; x \notin x\}&lt;/script&gt;. Entonces &lt;script type=&quot;math/tex&quot;&gt;R \in R&lt;/script&gt; si y sólo si
-&lt;script type=&quot;math/tex&quot;&gt;R \notin R&lt;/script&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Otras paradojas que impulsaron la creación de esta teoría son la
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Cantor%2527s_paradox&quot;&gt;paradoja de Cantor&lt;/a&gt;
-(no existe el conjunto de todos los cardinales) y la &lt;a href=&quot;https://en.wikipedia.org/wiki/Burali-Forti_paradox&quot;&gt;paradoja de
-Burali-Fort&lt;/a&gt; (no
-existe el conjunto de todos los ordinales).&lt;/p&gt;
-
-&lt;p&gt;Para resolver estas paradojas necesitamos especificar las reglas de
-formación de los conjuntos de tal manera que sean suficientemente
-fuertes para describir todas las matemáticas pero no lleven a
-contradicción. En el caso de ZFC estas reglas son iterativas:
-construiremos conjuntos más complejos a partir del conjunto vacío
-formando el &lt;a href=&quot;https://en.wikipedia.org/wiki/Von_Neumann_universe&quot;&gt;universo de von
-Neumann&lt;/a&gt;. A
-continuación presentamos estas reglas (los axiomas) siguiendo la
-descripción de &lt;em&gt;Kunen (1980)&lt;/em&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;existencia&quot;&gt;Existencia&lt;/h3&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\exists x (x = x)&lt;/script&gt;
-
-&lt;p&gt;En la mayor parte de las definiciones de la lógica de primer orden se
-asume que &lt;a href=&quot;https://en.wikipedia.org/wiki/Empty_domain&quot;&gt;el dominio de discurso no es
-vacío&lt;/a&gt;: si lo fuera muchas
-de las reglas de inferencia y teoremas lógicos que se utilizan
-normalmente no serían válidos en general. Por completitud añadimos este
-axioma que nos indica que &lt;strong&gt;existe un conjunto&lt;/strong&gt; &lt;sup id=&quot;fnref:zfc-vacio&quot;&gt;&lt;a href=&quot;#fn:zfc-vacio&quot; class=&quot;footnote&quot;&gt;7&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;extensionalidad&quot;&gt;Extensionalidad&lt;/h3&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\forall x \forall y (\forall z (z \in x \iff z \in y) \implies x = y)&lt;/script&gt;
-
-&lt;p&gt;El axioma de extensionalidad nos indica que &lt;strong&gt;dos conjuntos son iguales
-si tienen los mismos elementos&lt;/strong&gt;. Es decir, al definir un conjunto sólo
-importan sus elementos, pero no el orden o el número de repeticiones de
-cada elemento: &lt;script type=&quot;math/tex&quot;&gt;\{2,2,3,1\} = \{1,2,3\}&lt;/script&gt;&lt;/p&gt;
-
-&lt;details class=&quot;ejercicio&quot;&gt;
-  &lt;summary&gt;
-    &lt;p&gt;&lt;em&gt;Definir &lt;script type=&quot;math/tex&quot;&gt;\subseteq&lt;/script&gt; y probar que es una relación de orden&lt;/em&gt;&lt;/p&gt;
-  &lt;/summary&gt;
-
-  &lt;p&gt;Definimos&lt;/p&gt;
-
-  &lt;script type=&quot;math/tex; mode=display&quot;&gt;a \subseteq b \iff \forall x (x \in a \implies x \in b)&lt;/script&gt;
-
-  &lt;ul&gt;
-    &lt;li&gt;Es &lt;strong&gt;reflexiva&lt;/strong&gt; porque &lt;script type=&quot;math/tex&quot;&gt;\implies&lt;/script&gt; es reflexiva&lt;/li&gt;
-    &lt;li&gt;Es &lt;strong&gt;transitiva&lt;/strong&gt; porque &lt;script type=&quot;math/tex&quot;&gt;\implies&lt;/script&gt; es transitiva&lt;/li&gt;
-    &lt;li&gt;Es &lt;strong&gt;antisimétrica&lt;/strong&gt;  por el axioma de extensionalidad&lt;/li&gt;
-  &lt;/ul&gt;
-
-&lt;/details&gt;
-
-&lt;h3 id=&quot;comprensión&quot;&gt;Comprensión&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;Si &lt;script type=&quot;math/tex&quot;&gt;\varphi(x)&lt;/script&gt; es una fórmula en la que &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; no es una variable libre
-se verifica&lt;/em&gt;&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\forall z \exists y \forall x (x \in y \iff x \in z \wedge \varphi(x))&lt;/script&gt;
-
-&lt;p&gt;Como vimos en la primera sección la lógica empleada para describir ZFC
-es la lógica de primer orden, que sólo permite utilizar cuantificadores
-sobre nuestro dominio de discurso: &lt;em&gt;los conjuntos&lt;/em&gt;. Por esta razón
-cuando queremos hablar de algo que se cumple para todas las fórmulas
-necesitamos incluir &lt;em&gt;esquemas de axioma&lt;/em&gt;: un conjunto de axiomas
-parametrizados por las fórmulas&lt;sup id=&quot;fnref:zfc-segundo&quot;&gt;&lt;a href=&quot;#fn:zfc-segundo&quot; class=&quot;footnote&quot;&gt;8&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-
-&lt;p&gt;Obtenemos así una cantidad infinita (pero computable) de axiomas&lt;sup id=&quot;fnref:zfc-enumerable&quot;&gt;&lt;a href=&quot;#fn:zfc-enumerable&quot; class=&quot;footnote&quot;&gt;9&lt;/a&gt;&lt;/sup&gt;.
-Estos axiomas nos indican que para cada &lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt; y cada propiedad &lt;script type=&quot;math/tex&quot;&gt;\varphi&lt;/script&gt;
-los elementos de &lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt; que cumplen &lt;script type=&quot;math/tex&quot;&gt;\varphi&lt;/script&gt; forman un conjunto. Esto
-justifica la notación &lt;script type=&quot;math/tex&quot;&gt;\{x \in z \;:\; \varphi(x)\}&lt;/script&gt;. Tienen sentido
-entonces definiciones como
-&lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^+ = \{x \in \mathbb{R} \;:\; x &gt; 0\}&lt;/script&gt;, pero no
-&lt;script type=&quot;math/tex&quot;&gt;\{x : x = x\}&lt;/script&gt; (no hay &lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt;) o conjuntos autorreferentes como
-&lt;script type=&quot;math/tex&quot;&gt;Y = \{x : x \notin Y\}&lt;/script&gt; (&lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; es una variable libre en &lt;script type=&quot;math/tex&quot;&gt;\varphi&lt;/script&gt;).&lt;/p&gt;
-
-&lt;details class=&quot;ejercicio&quot;&gt;
-  &lt;summary&gt;
-    &lt;p&gt;&lt;em&gt;Probar que existe el conjunto vacío:&lt;/em&gt;
-&lt;script type=&quot;math/tex&quot;&gt;\exists \varnothing \forall x (x \notin \varnothing)&lt;/script&gt;&lt;/p&gt;
-  &lt;/summary&gt;
-
-  &lt;p&gt;Por el axioma de existencia existe un conjunto &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt;.&lt;/p&gt;
-
-  &lt;p&gt;Definimos entonces &lt;script type=&quot;math/tex&quot;&gt;\varnothing = \{x \in A \;:\; x \neq x\}&lt;/script&gt;. Por el
-axioma de reflexividad de la igualdad, ningún elemento pertenece a
-&lt;script type=&quot;math/tex&quot;&gt;\varnothing&lt;/script&gt;.&lt;/p&gt;
-&lt;/details&gt;
-
-&lt;details class=&quot;ejercicio&quot;&gt;
-  &lt;summary&gt;
-    &lt;p&gt;&lt;em&gt;Probar que no existe el conjunto
-universal:&lt;/em&gt; &lt;script type=&quot;math/tex&quot;&gt;\nexists U \forall x (x \in U)&lt;/script&gt;&lt;/p&gt;
-  &lt;/summary&gt;
-
-  &lt;p&gt;Supongamos que existe &lt;script type=&quot;math/tex&quot;&gt;U&lt;/script&gt;.&lt;/p&gt;
-
-  &lt;p&gt;Definimos entonces &lt;script type=&quot;math/tex&quot;&gt;R = \{x \in U \;:\; x \notin x\}&lt;/script&gt;. En tal caso
-podemos aplicar la paradoja de Russell (&lt;script type=&quot;math/tex&quot;&gt;R \in R \iff R \notin R&lt;/script&gt;) y
-tenemos una contradicción.&lt;/p&gt;
-&lt;/details&gt;
-
-&lt;p&gt;Diferentes teorías axiomáticas de conjuntos han tenido históricamente
-esquemas de axioma de comprensión con distintas restricciones: el
-primero de ellos, propuesto por Frege, es el &lt;a href=&quot;https://en.wikipedia.org/wiki/Axiom_schema_of_specification#Unrestricted_comprehension&quot;&gt;&lt;em&gt;esquema de axioma de
-comprensión no
-restringido&lt;/em&gt;&lt;/a&gt;:
-Para cualquier fórmula &lt;script type=&quot;math/tex&quot;&gt;\varphi&lt;/script&gt;:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\exists z (\forall x (x \in z \iff \varphi(x)))&lt;/script&gt;
-
-&lt;p&gt;Este axioma lleva a la paradoja de Russell y por esta razón se restringe
-el esquema de axioma para definir sólo subconjuntos. Otra opción es
-restringir la forma de la fórmula &lt;script type=&quot;math/tex&quot;&gt;\varphi&lt;/script&gt; de manera que esté
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Stratification_(mathematics)#In_set_theory&quot;&gt;estratificada&lt;/a&gt;.
-Esta es la opción que adopta NF y que permite la construcción del
-conjunto universal (pero NF tiene otras propiedades poco deseables: es
-incompatible con el axioma de elección). Puedes leer más sobre otras
-posibles formas del esquema de axioma de comprensión (como la de la
-teoría de conjuntos constructiva, que sólo utiliza cuantificadores
-delimitados) &lt;a href=&quot;https://ncatlab.org/nlab/show/axiom%2Bof%2Bseparation&quot;&gt;en
-nLab&lt;/a&gt;.&lt;/p&gt;
-
-&lt;details class=&quot;ejercicio&quot;&gt;
-  &lt;summary&gt;
-    &lt;p&gt;&lt;em&gt;Prueba que este esquema genera un número de axiomas numerable.&lt;/em&gt;&lt;/p&gt;
-  &lt;/summary&gt;
-
-  &lt;p&gt;El conjunto de axiomas que genera el esquema de axioma de comprensión es
-equipotente al conjunto de fórmulas.&lt;/p&gt;
-
-  &lt;p&gt;Sea &lt;script type=&quot;math/tex&quot;&gt;A = \{\forall,\exists,\in,=,(,),\implies,\neg,x_1,x_2,\dots\}&lt;/script&gt;. Es
-claro que &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; es numerable. El conjunto de fórmulas es un subconjunto
-de:&lt;/p&gt;
-
-  &lt;script type=&quot;math/tex; mode=display&quot;&gt;\bigcup_{n \in \mathbb{N}} A^n&lt;/script&gt;
-
-  &lt;p&gt;Este conjunto es una unión numerable de conjuntos numerables (el
-producto finito de numerables es numerable), por lo que es numerable.&lt;/p&gt;
-&lt;/details&gt;
-
-&lt;details class=&quot;ejercicio&quot;&gt;
-  &lt;summary&gt;
-    &lt;p&gt;&lt;em&gt;Define la intersección y la diferencia. ¿Puedes definir la unión?&lt;/em&gt;&lt;/p&gt;
-  &lt;/summary&gt;
-
-  &lt;ul&gt;
-    &lt;li&gt;Si &lt;script type=&quot;math/tex&quot;&gt;\mathcal{F}&lt;/script&gt; es un conjunto de conjuntos a los que queremos
-  hacer la intersección y &lt;script type=&quot;math/tex&quot;&gt;A \in \mathcal{F}&lt;/script&gt;:&lt;/li&gt;
-  &lt;/ul&gt;
-
-  &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;\bigcap \mathcal{F} = \{x \in A \;:\; \forall y (y \in \mathcal{F} \implies x \in y)\}&lt;/script&gt;&lt;/p&gt;
-  &lt;ul&gt;
-    &lt;li&gt;
-      &lt;script type=&quot;math/tex; mode=display&quot;&gt;A-B = \{x \in A \;:\; x \notin B\}&lt;/script&gt;
-    &lt;/li&gt;
-    &lt;li&gt;Aunque el predicado &lt;script type=&quot;math/tex&quot;&gt;\exists y (y \in \mathcal{F} \wedge x \in y)&lt;/script&gt; es válido no podemos    definir la unión porque no conocemos un conjunto más grande que los conjuntos que queremos unir.&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/details&gt;
-
-&lt;h3 id=&quot;par&quot;&gt;Par&lt;/h3&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\forall a \forall b \exists z (a \in z \wedge b \in z)&lt;/script&gt;
-
-&lt;p&gt;Este axioma justifica la expresión de conjuntos por enumeración: si &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt;
-y &lt;script type=&quot;math/tex&quot;&gt;b&lt;/script&gt; son dos conjuntos también lo será &lt;script type=&quot;math/tex&quot;&gt;\{a,b\}&lt;/script&gt; (y el axioma de
-extensionalidad nos asegura además que esta expresión se refiere a un
-único conjunto). Además, tomando &lt;script type=&quot;math/tex&quot;&gt;a = b&lt;/script&gt; tenemos que si &lt;script type=&quot;math/tex&quot;&gt;a&lt;/script&gt; es un
-conjunto también lo será &lt;script type=&quot;math/tex&quot;&gt;\{a,a\} = \{a\}&lt;/script&gt; (donde la igualdad se da por
-el axioma de extensionalidad). Podemos además construir pares definiendo
-&lt;script type=&quot;math/tex&quot;&gt;(a,b) = \{\{a\},\{a,b\}\}&lt;/script&gt;.&lt;/p&gt;
-
-&lt;p&gt;El conjunto vacío es el único conjunto cuya existencia podíamos probar
-hasta el momento: los axiomas de existencia, extensionalidad y
-comprensión son consistentes con &lt;script type=&quot;math/tex&quot;&gt;\forall y (y = \varnothing)&lt;/script&gt;. Con el
-axioma del par podemos formar una cantidad infinita de conjuntos:
-&lt;script type=&quot;math/tex&quot;&gt;\varnothing,\{\varnothing\}, \{\{\varnothing\}\},\dots&lt;/script&gt; aunque no
-podemos justificar aún la existencia de ningún conjunto infinito (no
-sabemos por ejemplo si
-&lt;script type=&quot;math/tex&quot;&gt;\{\varnothing,\{\varnothing\}, \{\{\varnothing\}\},\dots\}&lt;/script&gt; es un
-conjunto).&lt;/p&gt;
-
-&lt;details class=&quot;ejercicio&quot;&gt;
-  &lt;summary&gt;
-    &lt;p&gt;&lt;em&gt;Probar que&lt;/em&gt; &lt;script type=&quot;math/tex&quot;&gt;(a,b) = (c,d) \iff a = c \wedge b = d&lt;/script&gt;&lt;/p&gt;
-  &lt;/summary&gt;
-  &lt;p&gt;Puedes leer la solución en &lt;a href=&quot;https://en.wikipedia.org/wiki/Ordered_pair#Proving_that_definitions_satisfy_the_characteristic_property&quot;&gt;Wikipedia&lt;/a&gt;.&lt;/p&gt;
-
-  &lt;p&gt;Con el axioma de unión podemos generalizar esta definición para definir
-&lt;script type=&quot;math/tex&quot;&gt;(a_1,\dots,a_n)&lt;/script&gt; para cualquier &lt;script type=&quot;math/tex&quot;&gt;n \in \mathbb{N}&lt;/script&gt;.&lt;/p&gt;
-
-  &lt;p&gt;&lt;strong&gt;Extra&lt;/strong&gt;: ¿Cómo puedes generalizarla para tuplas con una cantidad
-infinita arbitraria de posiciones?&lt;/p&gt;
-&lt;/details&gt;
-
-&lt;h3 id=&quot;unión&quot;&gt;Unión&lt;/h3&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\forall \mathcal{F} \exists A \forall Y \forall x (x \in Y \wedge Y \in \mathcal{F} \implies x \in A)&lt;/script&gt;
-
-&lt;p&gt;Como vimos en la sección del esquema de axioma de comprensión no podemos
-definir la unión a partir de un predicado ya que necesitaríamos de la
-existencia del conjunto universal.&lt;/p&gt;
-
-&lt;p&gt;Para solucionarlo introducimos entonces el &lt;strong&gt;axioma de unión&lt;/strong&gt;: dada
-cualquier colección de conjuntos &lt;script type=&quot;math/tex&quot;&gt;\mathcal{F} = \{A_{\lambda}\}\_{\Lambda}&lt;/script&gt; existe un conjunto &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt;, que tiene todos los elementos de los &lt;script type=&quot;math/tex&quot;&gt;A\_\lambda&lt;/script&gt; (es decir, si
-&lt;script type=&quot;math/tex&quot;&gt;x \in A\_\lambda&lt;/script&gt;, entonces &lt;script type=&quot;math/tex&quot;&gt;x \in A&lt;/script&gt;). Definimos a partir de este
-conjunto la unión de una cantidad arbitaria de estos:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\bigcup_{\lambda \in \Lambda} A_\lambda = \{ x \in A \;:\; \exists Y (x \in Y \wedge Y \in \mathcal{F})\}&lt;/script&gt;
-
-&lt;p&gt;Obteniendo así justificación para las expresiones de la forma &lt;script type=&quot;math/tex&quot;&gt;A \cup B&lt;/script&gt;
-(basta tomar &lt;script type=&quot;math/tex&quot;&gt;\mathcal{F} = \{A,B\}&lt;/script&gt;)y uniones de una cantidad
-arbitraria de conjuntos en general.&lt;/p&gt;
-
-&lt;p&gt;Utilizando el axioma de par y el axioma de unión podemos formar
-conjuntos de cardinalidad finita arbitraria, pero no de cardinalidad
-infinita.&lt;/p&gt;
-
-&lt;h3 id=&quot;infinito&quot;&gt;Infinito&lt;/h3&gt;
-
-&lt;p&gt;Para este axioma introducimos notación adicional para facilitar su
-expresión: definimos &lt;script type=&quot;math/tex&quot;&gt;S(x) = x \cup \{x\}&lt;/script&gt; (la función sucesor)&lt;sup id=&quot;fnref:zfc-sucesor&quot;&gt;&lt;a href=&quot;#fn:zfc-sucesor&quot; class=&quot;footnote&quot;&gt;10&lt;/a&gt;&lt;/sup&gt;.
-Con esta notación el axioma queda:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\exists X (\varnothing \in X \wedge \forall y (y \in X \implies S(y) \in X))&lt;/script&gt;
-
-&lt;p&gt;Con lo que tenemos nuestro primer conjunto infinito. Podemos demostrar
-que &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; &lt;a href=&quot;https://en.wikipedia.org/wiki/Axiom_of_infinity#Extracting_the_natural_numbers_from_the_infinite_set&quot;&gt;tiene un
-subconjunto&lt;/a&gt;
-&lt;script type=&quot;math/tex&quot;&gt;\mathbb{N} \subseteq X&lt;/script&gt; que verifica los axiomas de Peano, tomando
-&lt;script type=&quot;math/tex&quot;&gt;0 = \varnothing&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;S&lt;/script&gt; la función sucesor.&lt;/p&gt;
-
-&lt;p&gt;En sus orígenes este axioma fue
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Controversy_over_Cantor%2527s_theory&quot;&gt;controvertido&lt;/a&gt;
-ya que no era considerado una verdad evidente. Aceptar los axiomas de
-&lt;a href=&quot;http://cantorsattic.info/Cantor%2527s_Attic&quot;&gt;grandes cardinales&lt;/a&gt; para
-nosotros es como aceptar el axioma de infinito para los
-&lt;a href=&quot;https://ncatlab.org/nlab/show/finite%2Bmathematics%20&quot;&gt;finitistas&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;potencia&quot;&gt;Potencia&lt;/h3&gt;
-
-&lt;p&gt;Como hemos hecho en anteriores axiomas definimos nueva notación para
-simplificar la expresión de los axiomas. En este caso definimos
-&lt;script type=&quot;math/tex&quot;&gt;x \subseteq y := \forall z (z \in x \implies z \in y)&lt;/script&gt;. El axioma
-queda:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\forall x \exists y \forall z (z \subseteq x \implies z \in y)&lt;/script&gt;
-
-&lt;p&gt;Este axioma afirma la existencia, para cada conjunto &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; de un conjunto
-&lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; que habitualmente llamamos &lt;em&gt;conjunto potencia&lt;/em&gt; notado
-&lt;script type=&quot;math/tex&quot;&gt;\mathcal{P}(x)&lt;/script&gt; que es el &lt;strong&gt;conjunto de todos los subconjuntos&lt;/strong&gt; de
-&lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;. Este axioma nos permite crear conjuntos de cardinalidad
-arbitrariamente grande (ya que por el teorema de Cantor,
-&lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
-|A| &lt; |\mathcal{P}(A)| %]]&gt;&lt;/script&gt;) &lt;sup id=&quot;fnref:zfc-pst&quot;&gt;&lt;a href=&quot;#fn:zfc-pst&quot; class=&quot;footnote&quot;&gt;11&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
-
-&lt;details class=&quot;ejercicio&quot;&gt;
-  &lt;summary&gt;
-    &lt;p&gt;&lt;em&gt;Define &lt;script type=&quot;math/tex&quot;&gt;A \times B&lt;/script&gt;&lt;/em&gt;&lt;/p&gt;
-  &lt;/summary&gt;
-
-  &lt;p&gt;Queremos un conjunto que tenga todas las parejas &lt;script type=&quot;math/tex&quot;&gt;(a,b) = \{\{a\},\{a,b\}\}&lt;/script&gt;
-con &lt;script type=&quot;math/tex&quot;&gt;a \in A&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;b \in B&lt;/script&gt;.&lt;/p&gt;
-
-  &lt;p&gt;Es claro que
-&lt;script type=&quot;math/tex&quot;&gt;\{a\}, \{a,b\} \in \mathcal{P}(A \cup B)&lt;/script&gt;. Por tanto:&lt;/p&gt;
-
-  &lt;script type=&quot;math/tex; mode=display&quot;&gt;A \times B = \{x \in \mathcal{P}(\mathcal{P}(A \cup B)) \;:\; x = (a,b), a \in A, b \in B\}&lt;/script&gt;
-
-  &lt;p&gt;También podemos hacerlo con el esquema de axioma de reemplazamiento y el
-axioma del par.&lt;/p&gt;
-
-  &lt;p&gt;&lt;strong&gt;Extra:&lt;/strong&gt; ¿Cómo podemos definir un producto cartesiano de una cantidad
-arbitaria de conjuntos?&lt;/p&gt;
-&lt;/details&gt;
-
-&lt;h3 id=&quot;reemplazamiento&quot;&gt;Reemplazamiento&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;Si&lt;/em&gt; &lt;script type=&quot;math/tex&quot;&gt;\varphi(x,y)&lt;/script&gt; &lt;em&gt;es una fórmula en la que&lt;/em&gt; &lt;script type=&quot;math/tex&quot;&gt;w&lt;/script&gt; &lt;em&gt;no es una variable
-libre,&lt;/em&gt; &lt;script type=&quot;math/tex&quot;&gt;z&lt;/script&gt; &lt;em&gt;es un conjunto y se tiene&lt;/em&gt;
-&lt;script type=&quot;math/tex&quot;&gt;\forall x \; x \in z \implies \exists ! y \; \varphi(x,y)&lt;/script&gt; &lt;em&gt;se
-verifica&lt;/em&gt;:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\exists w \; \forall x (x \in z \implies \exists y (y \in w \wedge \varphi(x,y)))&lt;/script&gt;
-
-&lt;p&gt;La teoría original de Zermelo no incluía este esquema de axioma, que fue
-incluido por Fraenkel para justificar la existencia de conjuntos como
-&lt;script type=&quot;math/tex&quot;&gt;\{\mathbb{N}, \mathcal{P}(\mathbb{N}), \mathcal{P}(\mathcal{P}(\mathbb{N})),\dots\}&lt;/script&gt;,
-útiles en la teoría de los ordinales&lt;sup id=&quot;fnref:zfc-borel&quot;&gt;&lt;a href=&quot;#fn:zfc-borel&quot; class=&quot;footnote&quot;&gt;12&lt;/a&gt;&lt;/sup&gt;. Este esquema de axioma
-implica el esquema de axioma de comprensión y el axioma del par. Es poco
-utilizado: la mayor parte de las matemáticas pueden construirse sin
-utilizar este axioma. La idea del axioma es que la única cualidad que
-define si una colección es o no un conjunto es su tamaño.&lt;/p&gt;
-
-&lt;p&gt;Este axioma necesita el concepto de &lt;strong&gt;predicado funcional&lt;/strong&gt;: una fórmula
-&lt;script type=&quot;math/tex&quot;&gt;\varphi(x,y)&lt;/script&gt; que asocia a cada &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; un único &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;. De esta forma el
-axioma nos permite &lt;em&gt;reemplazar&lt;/em&gt; los &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; por su correspondiente &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt;. Esto
-justifica la notación ocasionalmente utilizada
-&lt;script type=&quot;math/tex&quot;&gt;\{F(x) \; : \; x \in A\}&lt;/script&gt;&lt;/p&gt;
-
-&lt;p&gt;Cabe destacar que las funciones &lt;strong&gt;no&lt;/strong&gt; son predicados funcionales: los
-predicados son numerables mientras que las funciones no lo son. De la
-misma forma los predicados funcionales &lt;strong&gt;no&lt;/strong&gt; son funciones:
-&lt;script type=&quot;math/tex&quot;&gt;\varphi(x,y) := y = \mathcal{P}(x)&lt;/script&gt; no puede expresarse como función en
-ZFC.&lt;/p&gt;
-
-&lt;details class=&quot;ejercicio&quot;&gt;
-  &lt;summary&gt;
-    &lt;p&gt;&lt;em&gt;Prueba que reemplazamiento implica comprensión&lt;/em&gt;&lt;/p&gt;
-  &lt;/summary&gt;
-
-  &lt;p&gt;Puedes encontrar la respuesta en &lt;a href=&quot;https://math.stackexchange.com/questions/32483&quot;&gt;Math
-  StackExchange&lt;/a&gt;.&lt;/p&gt;
-
-&lt;/details&gt;
-
-&lt;details class=&quot;ejercicio&quot;&gt;
-  &lt;summary&gt;
-    &lt;p&gt;&lt;em&gt;¿Existe el conjunto de todos los espacios topológicos?&lt;/em&gt;&lt;/p&gt;
-  &lt;/summary&gt;
-
-  &lt;p&gt;Supongamos que exista el
-conjunto de todos los espacios topológicos. Definimos el predicado
-funcional &lt;script type=&quot;math/tex&quot;&gt;F((X,\tau_T)) = X&lt;/script&gt;.&lt;/p&gt;
-
-  &lt;p&gt;Como todo conjunto es un espacio topológico con la topología trivial
-tenemos que: &lt;script type=&quot;math/tex&quot;&gt;\{X \;:\; (X,\tau) \in T\} = U&lt;/script&gt;, el conjunto universal,
-que como ya probamos no existe. Por tanto &lt;strong&gt;no&lt;/strong&gt;, no existe el conjunto
-de todos los espacios topológicos.&lt;/p&gt;
-
-  &lt;p&gt;Demostraciones similares pueden utilizarse para probar que no existe el
-conjunto de todos lo grupos o el conjunto de todas las categorías.&lt;/p&gt;
-&lt;/details&gt;
-
-&lt;h3 id=&quot;elección&quot;&gt;Elección&lt;/h3&gt;
-
-&lt;p&gt;La introducción del axioma de infinito presenta un problema ya que no
-todas las propiedades que podríamos deducir del resto de axiomas sobre
-cualquier conjunto finito pueden generalizarse a los conjuntos
-infinitos. Es el caso del &lt;strong&gt;axioma de elección&lt;/strong&gt;. Para simplificar su
-exposición asumimos bien definido el concepto de función.&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\forall \mathcal{F} \left[ \emptyset \notin \mathcal{F} \implies \exists f : \mathcal{F} \to \bigcup \mathcal{F} \quad \forall A (A \in \mathcal{F} \implies f(A) \in A)\right]&lt;/script&gt;
-
-&lt;p&gt;Es decir: Dada una familia de conjuntos no vacios &lt;script type=&quot;math/tex&quot;&gt;\mathcal{F}&lt;/script&gt; podemos
-elegir un conjunto de cada uno de ellos. Equivalentemente, el producto
-cartesiano de una familia de conjuntos no vacíos es no vacío.&lt;/p&gt;
-
-&lt;p&gt;El axioma de elección es controvertido para los matemáticos
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Constructivism_(mathematics)&quot;&gt;constructivistas&lt;/a&gt;
-porque permite demostrar la existencia de ciertos objetos sin dar una
-construcción explícita de los mismos. Además permite demostrar
-resultados chocantes como la &lt;a href=&quot;https://en.wikipedia.org/wiki/Banach%25E2%2580%2593Tarski_paradox&quot;&gt;paradoja de
-Banach-Tarski&lt;/a&gt;.
-No obstante es un axioma esencial para la justificación de muchas
-propiedades matemáticas básicas. &lt;a href=&quot;https://en.wikipedia.org/wiki/Axiom_of_choice#Equivalents&quot;&gt;Son
-equivalentes&lt;/a&gt;
-al axioma de elección:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Toda función sobreyectiva tiene inversa por la derecha&lt;/li&gt;
-  &lt;li&gt;Todo espacio vectorial tiene una base&lt;/li&gt;
-  &lt;li&gt;El producto de espacios topológicos compactos es compacto&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;También &lt;a href=&quot;https://en.wikipedia.org/wiki/Axiom_of_choice#Results_requiring_AC_.28or_weaker_forms.29_but_weaker_than_it&quot;&gt;es
-necesario&lt;/a&gt;
-para la demostración de algunos teoremas básicos (aunque no es
-equivalente a estos):&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;La unión de una cantidad numerable de conjuntos numerables es
-numerable&lt;/li&gt;
-  &lt;li&gt;Existe un conjunto que no es medible Lebesgue&lt;/li&gt;
-  &lt;li&gt;Si &lt;script type=&quot;math/tex&quot;&gt;A&lt;/script&gt; es infinito existe una aplicación inyectiva
-&lt;script type=&quot;math/tex&quot;&gt;f:\mathbb{N} \to A&lt;/script&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;fundación&quot;&gt;Fundación&lt;/h3&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\forall x [x \neq \varnothing \implies \exists y (y \in x \wedge x \cap y = \varnothing)]&lt;/script&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;The Axiom of Foundation is, as always in mathematics, totally
-irrelevant - Kunen (1980)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;El axioma de fundación es un axioma poco utilizado que elimina conjuntos
-de la forma &lt;script type=&quot;math/tex&quot;&gt;x = \{x\}&lt;/script&gt; o secuencias infinitas de la forma
-&lt;script type=&quot;math/tex&quot;&gt;\dots \in x_3 \in x_2 \in x_1&lt;/script&gt;. La mayor parte de las matemáticas
-pueden construirse sin utilizar este axioma, que nos sirve para excluir
-estos casos patológicos. Es el segundo de los axiomas introducidos por
-Fraenkel.&lt;/p&gt;
-
-&lt;h2 id=&quot;lecturas-adicionales&quot;&gt;Lecturas adicionales&lt;/h2&gt;
-
-&lt;p&gt;Algunos textos clásicos sobre el tema y páginas en las que puedes leer
-más sobre el tema son:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Set_Theory:_An_Introduction_to_Independence_Proofs&quot;&gt;Set Theory: An Introduction to Independence
-Proofs&lt;/a&gt; -
-Kenneth Kunen&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.math.wisc.edu/~miller/old/m771-10/kunen770.pdf&quot;&gt;Foundations of
-Mathematics&lt;/a&gt; -
-Kenneth Kunen&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Zermelo%25E2%2580%2593Fraenkel_set_theory&quot;&gt;Zermelo-Fraenkel set
-theory&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Von_Neumann%25E2%2580%2593Bernays%25E2%2580%2593G%25C3%25B6del_set_theory&quot;&gt;Von Neumann–Bernays–Gödel set
-theory&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)&quot;&gt;Naive Set
-Theory&lt;/a&gt; -
-Halmos&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:zfc-alternativas&quot;&gt;
-      &lt;p&gt;Algunos ejemplos de teorías fundacionales alternativas son las
-&lt;a href=&quot;https://ncatlab.org/nlab/show/structural+set+theory&quot;&gt;teorías de conjuntos
-estructurales&lt;/a&gt;,
-las &lt;a href=&quot;https://en.wikipedia.org/wiki/Homotopy_type_theory&quot;&gt;teorías de
-tipos&lt;/a&gt; o la
-&lt;a href=&quot;https://ncatlab.org/nlab/show/ETCC&quot;&gt;teoría de categorías&lt;/a&gt;. La
-equivalencia entre estas tres teorías fundacionales se expone en
-&lt;strong&gt;&lt;a href=&quot;https://www.andrew.cmu.edu/user/awodey/preprints/stcsFinal.pdf&quot;&gt;From Sets to Types to Categories to
-Sets&lt;/a&gt;&lt;/strong&gt;&amp;nbsp;&lt;a href=&quot;#fnref:zfc-alternativas&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:zfc-cuervos&quot;&gt;
-      &lt;p&gt;Un &lt;a href=&quot;https://en.wikipedia.org/wiki/Raven_paradox&quot;&gt;ejemplo clásico de paradoja&lt;/a&gt; en la filosofía de la ciencia.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-cuervos&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:zfc-dominio&quot;&gt;
-      &lt;p&gt;Uno puede preguntarse a qué se refieren las &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; en &lt;script type=&quot;math/tex&quot;&gt;\forall x&lt;/script&gt;.
-Después de todo, como veremos en la sección de los axiomas ¡el
-dominio de discurso estándar de la teoría de conjuntos no puede
-verse como un conjunto! Existen diferentes formas de tratar con este
-problema: podemos adoptar una &lt;a href=&quot;http://math.stackexchange.com/a/121131/135164&quot;&gt;postura
-formalista&lt;/a&gt; y ver la
-lógica como unas &lt;em&gt;reglas de manipulación de símbolos&lt;/em&gt; o utilizar
-&lt;a href=&quot;https://plato.stanford.edu/entries/plural-quant/#SetThe&quot;&gt;cuantificación
-plural&lt;/a&gt;
-(ver también &lt;a href=&quot;http://math.stackexchange.com/a/1087050/135164&quot;&gt;esta pregunta de
-SE&lt;/a&gt;). Nótese que (si
-expresamos ZFC en lógica de primer orden) &lt;a href=&quot;https://en.wikipedia.org/wiki/L%25C3%25B6wenheim%25E2%2580%2593Skolem_theorem&quot;&gt;sí existen modelos de
-ZFC&lt;/a&gt;
-    que pueden expresarse en ZFC, pero estos no son el modelo estándar.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-dominio&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:zfc-casi&quot;&gt;
-      &lt;p&gt;Bueno, &lt;em&gt;casi&lt;/em&gt; exclusivamente, también necesitamos clases y
-conglomerados como veremos a continuación.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-casi&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:zfc-nats&quot;&gt;
-      &lt;p&gt;No son la única definición posible: podríamos utilizar
-&lt;script type=&quot;math/tex&quot;&gt;\varnothing,\{\varnothing\},\{\{\varnothing\}\},\dots&lt;/script&gt; (esta es la definición que adoptó Zermelo). Sin embargo
-con la definición dada en este post tenemos algunas propiedades
-interesantes: por ejemplo &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
-a &lt; b \iff a \in b %]]&gt;&lt;/script&gt; lo que nos permite un tratamiento
-más sencillo de la teoría de los ordinales. La &lt;a href=&quot;https://ncatlab.org/nlab/show/structural+set+theory&quot;&gt;teoría estructural de conjuntos&lt;/a&gt; no distingue entre las distintas posibles construcciones de los números naturales u otros objetos sino que los define según sus propiedades.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-nats&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:zfc-funcion&quot;&gt;
-      &lt;p&gt;Nótese que si cualquier gráfica es una función estamos considerando la &lt;a href=&quot;https://en.wikipedia.org/wiki/Empty_function&quot;&gt;función vacía&lt;/a&gt;, que algunos autores excluyen.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-funcion&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:zfc-vacio&quot;&gt;
-      &lt;p&gt;Incluso no asumiendo un dominio de discurso no vacío el axioma de
-infinito también nos indica que existe un conjunto pero para reducir
-la complejidad de la exposición de ZFC es interesante añadir este
-axioma.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-vacio&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:zfc-segundo&quot;&gt;
-      &lt;p&gt;Si expresáramos ZFC en lógica de segundo orden los esquemas de
-axioma incluidos podrían simplemente expresarse como axiomas
-añadiendo un cuantificador sobre el predicado correspondiente.
-La demostración de que ZF(C) no es finitamente axiomatizable puede
-encontrarse en &lt;em&gt;Kunen (1980) página 138&lt;/em&gt;. Sin embargo &lt;a href=&quot;https://en.m.wikipedia.org/wiki/Von_Neumann%25E2%2580%2593Bernays%25E2%2580%2593G%25C3%25B6del_set_theory&quot;&gt;NBG&lt;/a&gt;
-&lt;strong&gt;sí&lt;/strong&gt; es finitamente axiomatizable y es una extensión conservativa
-de ZFC (es decir, todo teorema en ZFC es teorema en NBG).&amp;nbsp;&lt;a href=&quot;#fnref:zfc-segundo&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:zfc-enumerable&quot;&gt;
-      &lt;p&gt;Es decir, el lenguaje de los axiomas debe ser &lt;a href=&quot;https://en.wikipedia.org/wiki/Recursively_enumerable_language&quot;&gt;recursivamente
-enumerable&lt;/a&gt;.
-Esto nos permite verificar que una prueba es correcta en una
-cantidad finita de tiempo y nos impide tener como axiomas todos los
-teoremas.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-enumerable&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:zfc-sucesor&quot;&gt;
-      &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;S&lt;/script&gt; no es una función si no la restringimos a algún dominio, sino
-simplemente notación: su dominio y codominio deberían ser el
-conjunto universal que no existe.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-sucesor&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:zfc-pst&quot;&gt;
-      &lt;p&gt;Algunos autores defienden que no necesitamos conjuntos de
-cardinalidad arbitrariamente grande ya que la mayor parte de las
-matemáticas suceden en conjuntos numerables o equipotentes a los
-números reales. La &lt;a href=&quot;https://en.wikipedia.org/wiki/Pocket_set_theory&quot;&gt;&lt;em&gt;teoría de conjuntos de
-bolsillo&lt;/em&gt;&lt;/a&gt; propone
-una alternativa en la que sólo existen conjuntos infinitos de estas
-dos cardinalidades.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-pst&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-    &lt;li id=&quot;fn:zfc-borel&quot;&gt;
-      &lt;p&gt;Además es necesario para demostrar el &lt;a href=&quot;https://en.wikipedia.org/wiki/Borel_determinacy_theorem&quot;&gt;teorema de determinación
-de Borel&lt;/a&gt;.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-borel&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
-</description>
-            <pubDate>Sat, 25 Mar 2017 00:00:00 +0000</pubDate>
-            <link>http://libreim.github.io/blog/2017/03/25/zfc/</link>
-            <guid isPermaLink="true">http://libreim.github.io/blog/2017/03/25/zfc/</guid>
-        </item>
-        
-        <item>
             <title>Apuntes de Álgebra II</title>
             <description>&lt;p&gt;En los repositorios de LibreIM se han añadido unos &lt;a href=&quot;https://github.com/libreim/apuntesalgebraii/blob/master/apuntesalgebraii/algebra2.pdf&quot;&gt;apuntes que se corresponden con el temario de la asignatura Álgebra II&lt;/a&gt;.&lt;/p&gt;
 
@@ -886,14 +24,15 @@ de Borel&lt;/a&gt;.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-borel&quot; class=&quot
             <description>&lt;blockquote&gt;
   &lt;p&gt;A monad is just a monoid in the category of endofunctors, what’s the problem?&lt;/p&gt;
 
-  &lt;p&gt;– &lt;strong&gt;Philip Walder&lt;/strong&gt; (apócrifa) en &lt;em&gt;&lt;a href=&quot;http://james-iry.blogspot.com.es/2009/05/brief-incomplete-and-mostly-wrong.html&quot;&gt;A Brief, Incomplete, and Mostly Wrong History of programming languages&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+  &lt;p&gt;– &lt;strong&gt;Philip Walder&lt;/strong&gt; (apócrifa) en &lt;em&gt;&lt;a href=&quot;http://james-iry.blogspot.com.es/2009/05/brief-incomplete-and-mostly-wrong.html&quot;&gt;A Brief, Incomplete, and Mostly Wrong 
+   History of programming languages&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;h2 id=&quot;prerrequisitos&quot;&gt;Prerrequisitos&lt;/h2&gt;
 
 &lt;p&gt;Este artículo requiere un conocimiento previo de Haskell, o al menos,
 de otro lenguaje de programación funcional. Puedes consultar
-nuestra &lt;a href=&quot;//libreim.github.io/blog/2014/10/01/intro-haskell/&quot;&gt;introducción a Haskell&lt;/a&gt;
+nuestra &lt;a href=&quot;http://tux.ugr.es/dgiim/blog/2014/10/01/intro-haskell/&quot;&gt;introducción a Haskell&lt;/a&gt; 
 con recursos para iniciarte en el lenguaje.&lt;/p&gt;
 
 &lt;p&gt;Por otro lado, para la segunda parte del artículo es recomendable
@@ -901,7 +40,7 @@ conocimiento previo sobre teoría de categorías. Aun así, no es
 necesaria para leer la primera parte del artículo, donde hablamos
 de mónadas sin hacer ninguna referencia explícita a la teoría de
 categorías. Si quieres leer sobre ese tema, puedes consultar nuestros apuntes
-de &lt;a href=&quot;//libreim.github.io/blog/2014/10/04/intro-categorias/&quot;&gt;introducción a teoría de categorías&lt;/a&gt;.&lt;/p&gt;
+de &lt;a href=&quot;http://tux.ugr.es/dgiim/blog/2014/10/04/intro-categorias/&quot;&gt;introducción a teoría de categorías&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;motivación-para-las-mónadas&quot;&gt;Motivación para las mónadas&lt;/h2&gt;
 
@@ -931,7 +70,7 @@ funcional.&lt;/p&gt;
 
 &lt;h3 id=&quot;calculando-raíces-cuadradas&quot;&gt;Calculando raíces cuadradas&lt;/h3&gt;
 &lt;p&gt;Por ejemplo, supongamos que intentamos sacar raíces cuadradas en los reales usando
-el &lt;a href=&quot;https://en.wikipedia.org/wiki/Integer_square_root#Algorithm&quot;&gt;método de Newton&lt;/a&gt;.
+el &lt;a href=&quot;https://en.wikipedia.org/wiki/Integer_square_root#Algorithm&quot;&gt;método de Newton&lt;/a&gt;. 
 Si intentamos calcular &lt;script type=&quot;math/tex&quot;&gt;\sqrt{n}&lt;/script&gt;, podemos tomar a cada paso la aproximación:&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;x_{k+1} = \frac{1}{2}\left( x_k+\frac{n}{x_k} \right)&lt;/script&gt;
@@ -1491,7 +630,7 @@ como en teoría de categorías:&lt;/p&gt;
             <title>Apuntes para el doble grado</title>
             <description>&lt;h2 id=&quot;repositorio-de-apuntes&quot;&gt;Repositorio de apuntes&lt;/h2&gt;
 
-&lt;p&gt;A iniciativa de los alumnos de segundo, hemos dejado público un repositorio de
+&lt;p&gt;A iniciativa de los alumnos de segundo, hemos dejado público un repositorio de 
 apuntes colectivo sobre las asignaturas del doble grado:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1499,8 +638,8 @@ apuntes colectivo sobre las asignaturas del doble grado:&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Puedes descargar los apuntes, todavía en construcción, y con licencia Creative Commons en su
-&lt;a href=&quot;https://libreim.github.io/apuntesDGIIM/&quot;&gt;página&lt;/a&gt;, que estará disponible desde
-&lt;a href=&quot;//libreim.github.io/awesome&quot;&gt;Awesome&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&quot;https://libreim.github.io/apuntesDGIIM/&quot;&gt;página&lt;/a&gt;, que estará disponible desde 
+&lt;a href=&quot;http://tux.ugr.es/dgiim/awesome/&quot;&gt;Awesome&lt;/a&gt;.&lt;/p&gt;
 </description>
             <pubDate>Sun, 16 Oct 2016 00:00:00 +0000</pubDate>
             <link>http://libreim.github.io/blog/2016/10/16/apuntes/</link>
@@ -1517,7 +656,7 @@ construido sobre un intérprete del lenguaje
 del editor constituye un comando sobre el intérprete, por lo que podemos reescribir sus
 comandos o crear nuevos comandos simplemente programando sobre el intérprete.&lt;/p&gt;
 
-&lt;p class=&quot;fig med&quot;&gt;&lt;img src=&quot;https://github.com/libreim/blog/raw/site/images/emacs.png&quot; alt=&quot;&quot; /&gt;
+&lt;p class=&quot;fig med&quot;&gt;&lt;img src=&quot;https://github.com/libreim/blog/raw/gh-pages/images/emacs.png&quot; alt=&quot;&quot; /&gt;
 Emacs editando este mismo artículo&lt;/p&gt;
 
 &lt;p&gt;Emacs sirve como IDE para la mayoría de lenguajes de programación, como
@@ -1762,7 +901,7 @@ la bibliografía y los enlaces tanto externos como entre archivos.&lt;/p&gt;
 y el poder incluir los paquetes de la &lt;a href=&quot;ftp://ftp.ams.org/pub/tex/doc/amsmath/amsldoc.pdf&quot;&gt;AMS&lt;/a&gt;
 para marcar teoremas o definiciones.&lt;/p&gt;
 
-&lt;p class=&quot;fig med&quot;&gt;&lt;img src=&quot;https://github.com/libreim/blog/raw/site/images/org-math.png&quot; alt=&quot;&quot; /&gt;
+&lt;p class=&quot;fig med&quot;&gt;&lt;img src=&quot;https://github.com/libreim/blog/raw/gh-pages/images/org-math.png&quot; alt=&quot;&quot; /&gt;
 Apuntes de matemáticas en org-mode&lt;/p&gt;
 
 &lt;h3 id=&quot;magit&quot;&gt;magit&lt;/h3&gt;
@@ -1856,7 +995,7 @@ lenguaje funcional. Sobre la inducción estructural hemos escrito previamente en
 introducción:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;//libreim.github.io/blog/2015/03/14/induccion-estructural/&quot;&gt;Inducción Estructural - Blog LibreIM&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://tux.ugr.es/dgiim/blog/2015/03/14/induccion-estructural/&quot;&gt;Inducción Estructural - Blog LibreIM&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;En ese post se escriben ejemplos sobre los naturales y los
@@ -1884,7 +1023,7 @@ repositorio sobre &lt;a href=&quot;https://github.com/M42/recorridosArboles&quot
 post se basó sobre otros tres publicados en el blog de Chris Taylor:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;//libreim.github.io/blog/2015/03/24/algebra-tipos/&quot;&gt;Álgebra de tipos - Blog LibreIM&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://tux.ugr.es/dgiim/blog/2015/03/24/algebra-tipos/&quot;&gt;Álgebra de tipos - Blog LibreIM&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://chris-taylor.github.io/blog/2013/02/10/the-algebra-of-algebraic-data-types/&quot;&gt;The algebra of algebraic data types, Part I - Chris Taylor&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://chris-taylor.github.io/blog/2013/02/11/the-algebra-of-algebraic-data-types-part-ii/&quot;&gt;The algebra of algebraic data types, Part II - Chris Taylor&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;http://chris-taylor.github.io/blog/2013/02/13/the-algebra-of-algebraic-data-types-part-iii/&quot;&gt;The algebra of algebraic data types, Part III - Chris Taylor&lt;/a&gt;&lt;/li&gt;
@@ -2061,7 +1200,7 @@ con el que varias personas puedan trabajar directamente y para publicar el códi
 &lt;p&gt;Para empezar tienes:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Un &lt;a href=&quot;//libreim.github.io/blog/2014/02/23/manualgit/&quot;&gt;manual rápido de Git/GitHub&lt;/a&gt;, escrito por David Charte en este mismo blog.&lt;/li&gt;
+  &lt;li&gt;Un &lt;a href=&quot;http://tux.ugr.es/dgiim/blog/2014/02/23/manualgit/&quot;&gt;manual rápido de Git/GitHub&lt;/a&gt;, escrito por David Charte en este mismo blog.&lt;/li&gt;
   &lt;li&gt;Un &lt;a href=&quot;https://github.com/oslugr/curso-git&quot;&gt;curso completo de Git&lt;/a&gt;, con &lt;a href=&quot;https://github.com/oslugr/curso-git&quot;&gt;eBook descargable&lt;/a&gt; que también puedes adquirir en Amazon.&lt;/li&gt;
   &lt;li&gt;La propia &lt;a href=&quot;https://git-scm.com/documentation&quot;&gt;documentación de Git&lt;/a&gt;, desde su página oficial.&lt;/li&gt;
 &lt;/ul&gt;
@@ -2096,8 +1235,8 @@ presentaciones desde la web en &lt;a href=&quot;http://slides.com&quot;&gt;slide
 Pablo Baeyens:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;//libreim.github.io/blog/2015/03/14/latex/&quot;&gt;¿Cómo aprender LaTeX?&lt;/a&gt;, un compendio de recursos.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;//libreim.github.io/blog/2015/03/14/intro-beamer/&quot;&gt;Introducción a Beamer&lt;/a&gt;, una guía de beamer escrita en beamer.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://tux.ugr.es/dgiim/blog/2015/03/14/latex/&quot;&gt;¿Cómo aprender LaTeX?&lt;/a&gt;, un compendio de recursos.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://tux.ugr.es/dgiim/blog/2015/03/14/intro-beamer/&quot;&gt;Introducción a Beamer&lt;/a&gt;, una guía de beamer escrita en beamer.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Aprender LaTeX no es un proceso fácil, pero te acabará siendo rentable. Si
@@ -2113,7 +1252,7 @@ transformar a PDF documentos escritos en Markdown con fórmulas de LaTeX en su
 interior.&lt;/p&gt;
 
 &lt;p&gt;De hecho, este mismo post que estás leyendo está escrito en Markdown. Puedes
-verlo &lt;a href=&quot;https://raw.githubusercontent.com/libreim/blog/site/_posts/2015-09-10-primero.md&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
+verlo &lt;a href=&quot;https://raw.githubusercontent.com/libreim/blog/gh-pages/_posts/2015-09-10-primero.md&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Sin embargo, aun existiendo Markdown, las publicaciones grandes requerirán de un
 poder expresivo que Markdown no tiene. Aprende LaTeX siendo consciente de que
@@ -2165,7 +1304,7 @@ foros similares. Entre los útiles para nosotros están:&lt;/p&gt;
 Imagen de &lt;a href=&quot;https://xkcd.com/979/&quot;&gt;xkcd: Wisdom of the Ancients&lt;/a&gt; (&lt;abbr title=&quot;Creative Commons&quot;&gt;CC&lt;/abbr&gt; BY-NC)&lt;/p&gt;
 
 &lt;p&gt;Si la duda es más específica a nuestra carrera, prueba en nuestro
-&lt;a href=&quot;//libreim.github.io/overflow/&quot;&gt;&lt;strong&gt;foro&lt;/strong&gt; de matemáticas e informática&lt;/a&gt;.
+&lt;a href=&quot;http://tux.ugr.es/dgiim/overflow/&quot;&gt;&lt;strong&gt;foro&lt;/strong&gt; de matemáticas e informática&lt;/a&gt;.
 Hemos pasado por el mismo camino que tú y probablemente nos hayamos
 encontrado con los mismos problemas.&lt;/p&gt;
 
@@ -2413,7 +1552,7 @@ sean necesarios.&lt;/p&gt;
 &lt;p&gt;Por otro lado, es posible que tengas una beca de libros o te guste tener un
 libro de cada área para consultar dudas y ejercicios. En tal caso lo recomendable
 es que busques libros generales que cubran materias
-enteras de las matemáticas o la informática. En nuestra &lt;a href=&quot;/awesome/&quot;&gt;página de recursos&lt;/a&gt; hay varias
+enteras de las matemáticas o la informática. En nuestra &lt;a href=&quot;/dgiim/awesome/&quot;&gt;página de recursos&lt;/a&gt; hay varias
 recomendaciones. Si quieres algo general, como ya te advertimos, la respuesta está
 siempre en StackExchange:&lt;/p&gt;
 
@@ -2422,7 +1561,7 @@ siempre en StackExchange:&lt;/p&gt;
   &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/143760/what-books-should-i-read-to-have-an-undergraduate-education-in-computer-science&quot;&gt;StackOverflow. What books should I read to have an undergraduate education in computer science?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Y si quieres algo más concreto, pregunta en el &lt;a href=&quot;/overflow/&quot;&gt;foro&lt;/a&gt;. Entre todos llevamos la cuenta
+&lt;p&gt;Y si quieres algo más concreto, pregunta en el &lt;a href=&quot;/dgiim/overflow/&quot;&gt;foro&lt;/a&gt;. Entre todos llevamos la cuenta
 de qué libros son útiles para cada asignatura.&lt;/p&gt;
 
 &lt;p&gt;Otra opción para obtener bibliografía son los cursos online que ofrecen plataformas como
@@ -2443,7 +1582,7 @@ Especialmente en
 matemáticas, los libros suelen traer consigo una lista de ejercicios.
 Intenta resolverlos por ti mismo, escribiendo una demostración formal y con
 palabras en papel; incluso si no sale ninguno, servirán para comprender el tema.
-Entre los &lt;a href=&quot;/awesome/&quot;&gt;recursos&lt;/a&gt; de esta página tienes libros y apuntes con sus correspondientes
+Entre los &lt;a href=&quot;/dgiim/awesome/&quot;&gt;recursos&lt;/a&gt; de esta página tienes libros y apuntes con sus correspondientes
 ejercicios.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -2467,7 +1606,7 @@ varios es una de las habilidades con las que deberías salir de la carrera.&lt;/
 &lt;p&gt;Tendrás muchas oportunidades para trabajar en proyectos conjuntos con tus
 compañeros. En cualquier caso, en un intento por construir comunidad en torno
 a la carrera y ampliarla a todos los que quieran aprender sobre matemáticas e
-informática, empezamos este mismo &lt;a href=&quot;//libreim.github.io/blog/&quot;&gt;blog&lt;/a&gt; que estás leyendo, un &lt;a href=&quot;//libreim.github.io/overflow/&quot;&gt;foro&lt;/a&gt; donde
+informática, empezamos este mismo &lt;a href=&quot;http://tux.ugr.es/dgiim/blog/&quot;&gt;blog&lt;/a&gt; que estás leyendo, un &lt;a href=&quot;http://tux.ugr.es/dgiim/overflow/&quot;&gt;foro&lt;/a&gt; donde
 compartir dudas y una &lt;a href=&quot;https://github.com/libreim&quot;&gt;organización de GitHub&lt;/a&gt; con repositorios para proyectos
 comunes. El funcionamiento de todo esto depende de la colaboración.&lt;/p&gt;
 
@@ -2870,8 +2009,8 @@ on, another faster way to enumerate the Fibonacci sequence will be shown.&lt;/p&
   &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;libreim&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;libreim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;first&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dgiim&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Blog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;dgiim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;first&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Mean inequalities&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -3125,6 +2264,620 @@ give them a try, be creative and find new ways to use them.&lt;/p&gt;
             <pubDate>Mon, 24 Aug 2015 00:00:00 +0000</pubDate>
             <link>http://libreim.github.io/blog/2015/08/24/ruby-enumerators/</link>
             <guid isPermaLink="true">http://libreim.github.io/blog/2015/08/24/ruby-enumerators/</guid>
+        </item>
+        
+        <item>
+            <title>Segment trees y Range minimum query</title>
+            <description>&lt;p&gt;En los cursos de estructuras de datos y algoritmos el número de estructuras de datos que se suelen estudiar es bastante reducido. Generalmente se introducen heaps, árboles binarios de búsqueda balanceados (AVL), tablas Hash y algunos algoritmos sobre grafos. Sin embargo, el mundo de las estructuras de datos es mucho más amplio  &lt;sup id=&quot;fnref:list&quot;&gt;&lt;a href=&quot;#fn:list&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; y probablemente requeriría una asignatura de estructuras de datos avanzadas como sucede en algunas universidades. El MIT, por ejemplo, proporciona &lt;a href=&quot;http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-851-advanced-data-structures-spring-2012/lecture-videos/&quot;&gt;vídeos&lt;/a&gt; con el contenido de esta asignatura. Por ello, intentaré escribir entradas en el blog que profundicen en esta temática.&lt;/p&gt;
+
+&lt;p&gt;En este caso trataremos los &lt;strong&gt;segment trees&lt;/strong&gt; o árboles de segmentos. Introduciremos en primer lugar un problema importante de la teoría de algoritmos, &lt;strong&gt;range minimum query problem&lt;/strong&gt;, que servirá como motivación para los segment trees. Posteriormente se explicará el funcionamiento de estos, proporcionando para cada operación su correspondiente código en Python. Por último, se proponen como ejercicio algunos problemas resolubles mediante segment trees.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;range-minimum-query-problem&quot;&gt;Range Minimum Query Problem&lt;/h2&gt;
+
+&lt;p&gt;Consideremos un vector con objetos de un tipo &lt;script type=&quot;math/tex&quot;&gt;T&lt;/script&gt; sobre el que se ha definido una relación de orden total. Por claridad, ejemplificaremos el problema sobre números enteros. Sea &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; la longitud del vector, se define &lt;script type=&quot;math/tex&quot;&gt;RMQ(i,j)&lt;/script&gt; como el mínimo del subvector formado por las componentes entre &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt; (inclusive) para &lt;script type=&quot;math/tex&quot;&gt;i, j&lt;/script&gt; en &lt;script type=&quot;math/tex&quot;&gt;\{0,\ldots,n-1\}&lt;/script&gt; con &lt;script type=&quot;math/tex&quot;&gt;i \le j&lt;/script&gt;.  El problema consiste en proporcionar el valor de &lt;script type=&quot;math/tex&quot;&gt;RMQ(i,j)&lt;/script&gt; para cualquier número posible de consultas.&lt;/p&gt;
+
+&lt;p&gt;Normalmente se denomina &lt;em&gt;subintervalo del vector&lt;/em&gt; a un subvector formado por componentes consecutivas, como los que se estudian en este caso. Una posible traducción al castellano de &lt;em&gt;range minimum query problem&lt;/em&gt; sería &lt;em&gt;problema de las consultas del mínimo de cualquier subintervalo&lt;/em&gt; (pero mantendremos el nombre en inglés por ser el estándar).&lt;/p&gt;
+
+&lt;p&gt;La solución trivial para el problema consiste en calcular para cada consulta el mínimo del subintervalo correspondiente de forma lineal. Esto proporciona una eficiencia media de &lt;script type=&quot;math/tex&quot;&gt;\theta(n)&lt;/script&gt; para las consultas. Se pretende reducir esta eficiencia significativamente para poder atender el mayor número de consultas posible.&lt;/p&gt;
+
+&lt;p&gt;La forma habitual de abordar el problema consiste en preprocesar los datos. Un primer preprocesamiento puede ser calcular directamente el mínimo para cada subintervalo del vector, lo que puede conseguirse sin mucha dificultad en &lt;script type=&quot;math/tex&quot;&gt;\theta(n^2)&lt;/script&gt;. Posteriormente, las consultas pueden ser realizadas en tiempo constante. Esta solución tiene dos grandes problemas:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Un preprocesamiento de eficiencia &lt;script type=&quot;math/tex&quot;&gt;\theta(n^2)&lt;/script&gt; es excesivo cuando se trate con vectores de tamaño mayor o igual que &lt;script type=&quot;math/tex&quot;&gt;10^4&lt;/script&gt;. Esto nos hace distinguir dos eficiencias a la hora de resolver el problema, la eficiencia del preprocesamiento y la eficiencia de la consulta. La solución trivial minimizaba el preprocesamiento mientras que la nueva solución minimiza el tiempo de consulta, no siendo ninguna de las dos óptimas.&lt;/li&gt;
+  &lt;li&gt;El problema suele complicarse permitiendo actualizar el valor de una componente del vector entre consultas, lo que no consigue de forma eficiente el segundo algoritmo, que requiere un tiempo &lt;script type=&quot;math/tex&quot;&gt;\theta(n)&lt;/script&gt; para actualizar también la matriz &lt;script type=&quot;math/tex&quot;&gt;RMQ&lt;/script&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Los segment trees o árboles de segmentos surgieron para resolver este problema. Se pueden formular de forma incluso más general, teniendo aplicaciones en problemas relacionados con los subintervalos de un vector. Como veremos a continuación, los segment trees abordarán el range minimum query problem utilizando un preprocesamiento con eficiencia lineal tras el cual podremos realizar consultas y actualizar elementos del vector en tiempo logarítmico. Esto supone una gran mejora con respecto a las soluciones anteriores.&lt;/p&gt;
+
+&lt;h2 id=&quot;segment-trees&quot;&gt;Segment Trees&lt;/h2&gt;
+
+&lt;p&gt;Un segment tree es una estructura de datos que permite, a partir de un vector &lt;script type=&quot;math/tex&quot;&gt;V&lt;/script&gt;, dos operaciones:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Consultar determinada información para cualquiera de los subintervalos del vector.&lt;/li&gt;
+  &lt;li&gt;Actualizar una componente del vector.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Como caso particular esta información puede ser el mínimo del subintervalo, en cuyo caso ambas operaciones pueden llevarse a cabo en tiempo logarítmico.&lt;/p&gt;
+
+&lt;p&gt;Supongamos por el momento que el vector tiene longitud &lt;script type=&quot;math/tex&quot;&gt;n = 2^m&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;La idea subyacente consiste en preprocesar la información correspondiente a las particiones del vector formadas por subintervalos de igual longitud siendo esta una potencia de &lt;script type=&quot;math/tex&quot;&gt;2&lt;/script&gt;. Formalmente, estos intervalos se corresponden con &lt;script type=&quot;math/tex&quot;&gt;V[k2^l, (k+1)2^l-1]&lt;/script&gt; para &lt;script type=&quot;math/tex&quot;&gt;l \in \{0, 1, \ldots, m\}&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;k \in \{0, 1, \ldots, \frac{n}{2^l}-1\}&lt;/script&gt;. Los intervalos preprocesados pueden verse como los nodos de un árbol binario construido de la siguiente forma:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;V[0,n-1]&lt;/script&gt; es la raíz.&lt;/li&gt;
+  &lt;li&gt;Todo nodo que se corresponda a &lt;script type=&quot;math/tex&quot;&gt;V[i,j]&lt;/script&gt; con &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+i &lt; j %]]&gt;&lt;/script&gt; tiene dos hijos, izquierda y derecha, que se obtienen a dividir el subintervalo correspondiente en las mitades izquerda y derecha.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;La Imagen 1 muestra el árbol binario a generar si se tuviese &lt;script type=&quot;math/tex&quot;&gt;n = 8&lt;/script&gt;. Nótese que las hojas del árbol son los subintervalos con una sola componente.&lt;/p&gt;
+
+&lt;p class=&quot;fig&quot;&gt;&lt;img src=&quot;/blog/images/segment_trees/segment_trees_visualizacion.png&quot; alt=&quot;&quot; /&gt;
+&lt;strong&gt;Imagen 1.&lt;/strong&gt; Segment tree asociado a un vector &lt;script type=&quot;math/tex&quot;&gt;V&lt;/script&gt; de longitud 8 representado como un árbol binario.&lt;/p&gt;
+
+&lt;p&gt;Tras generar el árbol binario podemos expresar un subintervalo &lt;script type=&quot;math/tex&quot;&gt;V[i, j]&lt;/script&gt; como la unión del menor número de subintervalos como los preprocesados previamente. Tiene sentido hablar de esta unión pues siempre existe (basta expresar &lt;script type=&quot;math/tex&quot;&gt;V[i, j]&lt;/script&gt; como unión de sus componentes).  Por ejemplo, para &lt;script type=&quot;math/tex&quot;&gt;n=8&lt;/script&gt; se tiene:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;V[2,7] = V[2,2] +\mkern-5mu+ V[3,4] +\mkern-5mu+ V[5,6] +\mkern-5mu+ V[7,7]&lt;/script&gt;
+
+&lt;p&gt;Si la información que deseamos consultar puede obtenerse a partir de la información de una partición de subintervalos entonces habremos resuelto el problema. Este es el caso del range minimum query. El mínimo del subintervalo &lt;script type=&quot;math/tex&quot;&gt;V[i, j]&lt;/script&gt; es el mínimo de los mínimos obtenidos para los subintervalos preprocesados que formen una partición de &lt;script type=&quot;math/tex&quot;&gt;V[i, j]&lt;/script&gt;. Por ejemplo, si &lt;script type=&quot;math/tex&quot;&gt;V = [3,2,8,5,6,1,7,4]&lt;/script&gt;:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\min(V[2,7]) = \min\{\min(V[2,2]), \min(V[3,4]), \min(V[5,6]), \min(V[7,7])\} = \min\{2, 5, 1, 7\} = 1&lt;/script&gt;
+
+&lt;p&gt;En lo que sigue estudiaremos cómo construir el segment tree (librándonos de la suposición &lt;script type=&quot;math/tex&quot;&gt;n= 2^m&lt;/script&gt;) y probaremos que es posible realizar una consulta y actualizar el vector de forma eficiente. Sin embargo, antes debemos saber qué operaciones tienen que realizar los nodos del segment tree para que esto sea posible.&lt;/p&gt;
+
+&lt;h3 id=&quot;nodos-del-segment-tree&quot;&gt;Nodos del segment tree&lt;/h3&gt;
+
+&lt;p&gt;La información relativa a los subintervalos del tipo &lt;script type=&quot;math/tex&quot;&gt;V[k2^l, (k+1)2^l-1]&lt;/script&gt; debe almacenarse en un nodo. Los subintervalos &lt;script type=&quot;math/tex&quot;&gt;V[i,i]&lt;/script&gt; son los casos base y sus nodos formarán las hojas del segment tree. Los nodos deben mantener 3 operaciones:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Asignar la información correspondiente al nodo en el caso de que este sea una hoja del árbol.&lt;/li&gt;
+  &lt;li&gt;Generar la información del nodo a partir de dos nodos cuyos subintervalos sean una partición del subintervalo actual. Esta operación se denomina &lt;code class=&quot;highlighter-rouge&quot;&gt;merge&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Devolver la información del subintervalo que el nodo representa.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Una plantilla para un nodo del segment tree sería la siguiente:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Template for a Segment Tree Node.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# A node contains the information related with a vector subinterval.&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SegmentTreeNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;# Init the node.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# info = Subinterval information&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;# Given the value of an array element,&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# build the information for this leaf.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;assignLeaf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Insert the code to build the leaf information&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;# Merge the information of left and right&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# children to form the parent node information.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;merge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Insert the merge code&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;# Return the information contained in this node.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;En el caso del range minimum query asignar la información a una hoja es asignarle el valor de la componente y realizar un &lt;code class=&quot;highlighter-rouge&quot;&gt;merge&lt;/code&gt; es tomar el mínimo de la información de los nodos &lt;code class=&quot;highlighter-rouge&quot;&gt;left&lt;/code&gt; y &lt;code class=&quot;highlighter-rouge&quot;&gt;right&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;assignLeaf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;merge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Veremos que para que la eficiencia de las dos operaciones soportadas por el segment tree sea logarítmica las operaciones anteriores deben ser realizadas en tiempo constante, como sucede para este problema.&lt;/p&gt;
+
+&lt;h3 id=&quot;construcción-del-segment-tree&quot;&gt;Construcción del segment tree&lt;/h3&gt;
+
+&lt;p&gt;La construcción del segment tree consiste en crear un árbol binario como el de la Imagen 1. Sin embargo, se puede conseguir una implementación más eficiente al darse cuenta de que el árbol binario es completo. Por tanto, podemos almacenarlo en memoria mediante un heap &lt;sup id=&quot;fnref:heap&quot;&gt;&lt;a href=&quot;#fn:heap&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;. Esto es, embebemos el árbol en un vector mediante un recorrido por niveles como sucede en la Imagen 2. A cada nodo le corresponde un índice del vector y para estos índices se verifica:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;IndiceHijoIzquierda(nodo) =&lt;/script&gt; &lt;script type=&quot;math/tex&quot;&gt;2nodo&lt;/script&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;IndiceHijoDerecha(nodo) =&lt;/script&gt; &lt;script type=&quot;math/tex&quot;&gt;2nodo+1&lt;/script&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Estas relaciones nos permiten acceder a los hijos de forma constante. Además, la longitud del vector que representa al segment tree es &lt;script type=&quot;math/tex&quot;&gt;2n-1&lt;/script&gt; donde &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; es la longitud de &lt;script type=&quot;math/tex&quot;&gt;V&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p class=&quot;fig&quot;&gt;&lt;img src=&quot;/blog/images/segment_trees/segment_trees_heap.png&quot; alt=&quot;&quot; /&gt;
+&lt;strong&gt;Imagen 2.&lt;/strong&gt; Segment tree asociado a un vector &lt;script type=&quot;math/tex&quot;&gt;V&lt;/script&gt; de longitud 8 representado como un heap.&lt;/p&gt;
+
+&lt;p&gt;Nótese que el subintervalo correspondiente a cada nodo se deduce de su índice, por lo que no es necesario almacenar esta información. Se puede construir el árbol recursivamente. Si el nodo actual es una hoja se obtiene su información mediante el método &lt;code class=&quot;highlighter-rouge&quot;&gt;assignLeaf&lt;/code&gt;. Si no se da este caso, se construyen recursivamente los dos hijos y se obtiene la información para el nodo actual aplicando el método &lt;code class=&quot;highlighter-rouge&quot;&gt;merge&lt;/code&gt; a ambos hijos.&lt;/p&gt;
+
+&lt;p&gt;Con el proceso de construcción anterior obtendremos sin problemas el árbol aunque el vector no tenga como tamaño una potencia de dos. En tal caso el árbol resultante puede no ser completo. Por tanto, habrá componentes del heap en memoria sin usar. Esto nos es irrelevante puesto que el tamaño del heap será a lo sumo &lt;script type=&quot;math/tex&quot;&gt;2m-1&lt;/script&gt; donde &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; es la menor potencia de 2 mayor que &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; (si extendemos el vector con elementos nulos hasta que tenga longitud &lt;script type=&quot;math/tex&quot;&gt;m&lt;/script&gt; y construimos este heap necesitaremos un vector de longitud &lt;script type=&quot;math/tex&quot;&gt;2m-1&lt;/script&gt;). Por tanto, la memoria utilizada será &lt;script type=&quot;math/tex&quot;&gt;\theta(n)&lt;/script&gt; en cualquier caso.&lt;/p&gt;
+
+&lt;p&gt;El siguiente código proporciona un constructor para la clase &lt;code class=&quot;highlighter-rouge&quot;&gt;SegmentTree&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SegmentTree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;# Build a segment tree from the given array.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# array: Array from which the segment tree is built.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# st_index: current segment tree node index.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# lo and hi : Range of input array subinterval that this node is responsible of.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_buildTree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;# The node is a leaf responsible of V[lo,lo]&lt;/span&gt;
+            &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assignLeaf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;# The node is not a leaf.&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;# Both children are built and merged afterwards for this node.&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+            &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_buildTree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_buildTree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;merge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;# Get the segment tree size for a input of size N.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# It compute the smallest 2 to the power of m greater than N.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_getSegmentTreeSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;N&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;# Initializes a Segment Tree.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# array : Array from which the segment tree is built.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# Node : Class that will be used as a segment tree node.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;#   It obtains the desired information from the array.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SegmentTreeNode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;Node&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# Segment tree size (number of nodes)&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SegmentTree&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_getSegmentTreeSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# Heap with the nodes&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SegmentTreeNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# The tree is built&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_buildTree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Como se construyen menos de &lt;script type=&quot;math/tex&quot;&gt;4n-1&lt;/script&gt; nodos, el proceso anterior es &lt;script type=&quot;math/tex&quot;&gt;\theta(n \max(a(n), m(n)))&lt;/script&gt; donde &lt;script type=&quot;math/tex&quot;&gt;a(n)&lt;/script&gt; es la eficiencia del método &lt;code class=&quot;highlighter-rouge&quot;&gt;assignLeaf&lt;/code&gt; y &lt;script type=&quot;math/tex&quot;&gt;m(n)&lt;/script&gt; es la eficiencia del método &lt;code class=&quot;highlighter-rouge&quot;&gt;merge&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;En el caso del range minimum query la eficiencia obtenida es lineal como se había pronosticado.&lt;/p&gt;
+
+&lt;h3 id=&quot;operación-1-consultas&quot;&gt;Operación 1: Consultas&lt;/h3&gt;
+
+&lt;p&gt;Para realizar una consulta debemos encontrar la descomposición de &lt;script type=&quot;math/tex&quot;&gt;V[i,j]&lt;/script&gt; en el menor número posible de nodos del árbol. Esto se puede consequir de forma recursiva. Partimos del nodo raíz. Se distinguen los siguientes casos:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Si &lt;script type=&quot;math/tex&quot;&gt;V[i,j]&lt;/script&gt; es el subintervalo que corresponde al nodo actual se devuelve la información contenida en el nodo.&lt;/li&gt;
+  &lt;li&gt;Si &lt;script type=&quot;math/tex&quot;&gt;V[i,j]&lt;/script&gt; es un subintervalo del subintervalo del hijo izquierda se devuelve el resultado de la búsqueda obtenida para el hijo izquierda.&lt;/li&gt;
+  &lt;li&gt;Si &lt;script type=&quot;math/tex&quot;&gt;V[i,j]&lt;/script&gt; es un subintervalo del subintervalo del hijo derecha se devuelve el resultado de la búsqueda obtenida para el hijo derecha.&lt;/li&gt;
+  &lt;li&gt;Si &lt;script type=&quot;math/tex&quot;&gt;V[i,j]&lt;/script&gt; tiene elementos en ambos hijos se obtiene el valor de la consulta haciendo un &lt;code class=&quot;highlighter-rouge&quot;&gt;merge&lt;/code&gt; de la información obtenida para el sector relativo al hijo izquierda y el sector relativo al hijo derecha.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;El siguiente código realiza la operación descrita:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;c&quot;&gt;# Get recursively a SegmentTreeNode with the information associated with the range [lo, hi].&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# st_index : Current Segment Tree Node. It is responsible of [left, right] range.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_getInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# Check if the range is the current node in the tree.&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# In that case return it.&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+        &lt;span class=&quot;c&quot;&gt;# Look for the range in the children of the current node&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# if it could be just there.&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_getInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_getInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;c&quot;&gt;# If we keep executing the method then the range is divided between&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# the left child and the right child of the current node. Let's get&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# each part of the range and merge it.&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;left_result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_getInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;right_result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_getInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SegmentTreeNode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;merge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left_result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right_result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;# Get the value associated with the range [lo, hi]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_getInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Es claro que si el subintervalo es precisamente uno de los que se tienen almacenados en el árbol entonces el tiempo de la consulta es &lt;script type=&quot;math/tex&quot;&gt;O(\log n)&lt;/script&gt;. ¿Qué sucede en cualquier otro caso?&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Proposición&lt;/dt&gt;
+  &lt;dd&gt;El tiempo de consulta para cualquier subintervalo es &lt;script type=&quot;math/tex&quot;&gt;O(m(n)\log n)&lt;/script&gt;, donde &lt;script type=&quot;math/tex&quot;&gt;m(n)&lt;/script&gt; es la eficiencia del método &lt;code class=&quot;highlighter-rouge&quot;&gt;merge&lt;/code&gt;.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;&lt;strong&gt;Demostración&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;La implementación previa consiste en una búsqueda en profundidad pues es más cómoda de programar. Sin embargo, en la prueba es más útil ver el algoritmo como una búsqueda en anchura. Puesto que ambas búsquedas visitarían los mismos nodos, podemos situarnos en esta última. Definimos una iteración del algoritmo como procesar todos los nodos de un nivel &lt;script type=&quot;math/tex&quot;&gt;t&lt;/script&gt; del árbol. Tras una iteración los nodos que quedan activos pertenecen al siguiente nivel del árbol.&lt;/p&gt;
+
+&lt;p&gt;Buscamos la información del subintervalo &lt;script type=&quot;math/tex&quot;&gt;V[i,j]&lt;/script&gt;. Podemos observar que de una iteración a otra se mantiene la búsqueda sobre a lo sumo dos nuevos nodos. Además, estos nodos son precisamente aquellos cuyos subinvervalos contienen a las componentes i-ésima y j-ésima respectivamente.&lt;/p&gt;
+
+&lt;p&gt;En efecto, esto se prueba por inducción sobre el nivel del árbol en el que nos encontremos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Para la raíz (nivel 1) esto es evidente pues el algoritmo, en el peor de los casos, prosigue con los dos hijos.&lt;/li&gt;
+  &lt;li&gt;Supongamos cierta la afirmación para el nivel &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+t &lt; \log_2 n %]]&gt;&lt;/script&gt; y veamos que se cumple para &lt;script type=&quot;math/tex&quot;&gt;t+1&lt;/script&gt;. Por la hipótesis de inducción, la búsqueda se mantiene a lo sumo en dos nodos. Si no hubiese nodos activos hemos terminado. Si por el contrario solo hubiese un nodo activo el resultado también es evidente (el nodo activo se divide como mucho en dos). Por último, si hay dos nodos activos verificando la hipótesis de inducción se tiene que &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+i &lt; j %]]&gt;&lt;/script&gt; (los nodos tienen subintervalos disjuntos). Cada uno de los nodos activos puede dividir la búsqueda como mucho sobre sus dos hijos. Para el nodo izquierda (el que contiene la componente &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt;) se tienen las siguientes opciones:
+    &lt;ul&gt;
+      &lt;li&gt;El subintervalo del nodo está contenido en &lt;script type=&quot;math/tex&quot;&gt;V[i,j]&lt;/script&gt; en cuyo caso se para la búsqueda en esa rama.&lt;/li&gt;
+      &lt;li&gt;El subintervalo que buscamos está contenido en el hijo derecha (tiene intersección vacía con el hijo izquierda). En tal caso se añade ese nodo a la búsqueda.&lt;/li&gt;
+      &lt;li&gt;El subintervalo que buscamos tiene intersección no vacía con el hijo izquierda. Entonces, este hijo se añade a la búsqueda. El subintervalo del hijo derecha está contenido en &lt;script type=&quot;math/tex&quot;&gt;V[i,j]&lt;/script&gt; (está acotado por &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt; y por &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt;). Por tanto, no hay que continuar la búsqueda con el hijo derecha. Cuando finalice la búsqueda en el hijo izquierda se realizará un &lt;code class=&quot;highlighter-rouge&quot;&gt;merge&lt;/code&gt; entre la información de ambos hijos.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;En cualquier caso, se añade a lo sumo un hijo a la búsqueda. Lo mismo sucede con el nodo que contiene a &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt;, verificándose, por tanto, la afirmación.&lt;/p&gt;
+
+&lt;p&gt;Como consecuencia, el número de nodos que se visitan está acotado por &lt;script type=&quot;math/tex&quot;&gt;4 \log n&lt;/script&gt; . A cada nodo visitado le corresponde como mucho una operación de &lt;code class=&quot;highlighter-rouge&quot;&gt;merge&lt;/code&gt;. Por tanto, la consulta es &lt;script type=&quot;math/tex&quot;&gt;O(m(n)\log n)&lt;/script&gt;.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\tag*{$\blacksquare$}&lt;/script&gt;
+
+&lt;p&gt;Nótese que para &lt;script type=&quot;math/tex&quot;&gt;V[1,n-2]&lt;/script&gt; con &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt; potencia de &lt;script type=&quot;math/tex&quot;&gt;2&lt;/script&gt; se realizan precisamente &lt;script type=&quot;math/tex&quot;&gt;\Omega(m(n)\log n)&lt;/script&gt; operaciones, luego la cota dada para la eficiencia del algoritmo es la mejor posible. Como pronosticábamos, si el &lt;code class=&quot;highlighter-rouge&quot;&gt;merge&lt;/code&gt; es constante entonces la consulta es logarítmica.&lt;/p&gt;
+
+&lt;h3 id=&quot;operación-2-actualización-de-una-componente-del-vector&quot;&gt;Operación 2: Actualización de una componente del vector&lt;/h3&gt;
+
+&lt;p&gt;Con la operación anterior ya habríamos resuelto la versión básica del range minimum query. Veamos que también podemos actualizar componentes del vector eficientemente y de forma sencilla.&lt;/p&gt;
+
+&lt;p&gt;En primer lugar, habría que actualizar la hoja correspondiente a la componente del vector. Después hay que arreglar los desperfectos que esto haya podido causar a sus antecesores. Para ello habrá que recorrer el camino que une la hoja con la raíz.&lt;/p&gt;
+
+&lt;p&gt;La implementación más sencilla de este proceso es recursiva. Realizamos una búsqueda en profundidad desde la raíz hasta la hoja correspondiente que actualizaremos mediante la operación &lt;code class=&quot;highlighter-rouge&quot;&gt;assignLeaf&lt;/code&gt;. Posteriormente, se irán actualizando los antecesores en orden mediante operaciones &lt;code class=&quot;highlighter-rouge&quot;&gt;merge&lt;/code&gt; de sus hijos, que ya están actualizados.&lt;/p&gt;
+
+&lt;p&gt;El siguiente código realiza la operación descrita:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;c&quot;&gt;# Update the segment tree.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# The given value is assigned to the array's component at index place.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# The segment tree is updated accordingly in a recursive way.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# st_index : Current segment tree node index.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# lo and hi : The current range is [lo, hi]&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# index : Array's component to be updated.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# value : New value for the array's component to update.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;_update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# If current node is a leaf we have ended the search.&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# The value information is assigned to the leaf.&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assignLeaf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;c&quot;&gt;# If the current node is not a leaf, the search continues recursively&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# and the current node information is updated afterwards.&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;# Continue the search by the correct path&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;# Update current node information&lt;/span&gt;
+            &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;merge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;right&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+
+    &lt;span class=&quot;c&quot;&gt;# Update the segment tree.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# The given value is assigned to the array's&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# component at index place. The segment tree is updated accordingly.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# index : Array's component to be updated.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# value : New value for the array's component to update.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;La eficiencia es claramente &lt;script type=&quot;math/tex&quot;&gt;\theta(m(n) \log n + a(n))&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;Una mejor implementación es una versión iterativa del proceso. Comenzamos en la hoja y recorremos el camino desde esta a la raíz usando el siguiente hecho:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;IndicePadre(nodo) = \frac{nodo}{2}&lt;/script&gt;
+
+&lt;p&gt;Si en determinado momento la información de un nodo a actualizar no cambia con el &lt;code class=&quot;highlighter-rouge&quot;&gt;merge&lt;/code&gt; se finaliza algoritmo. Sin embargo, aunque podamos terminar la ejecución antes, la eficiencia en el peor caso sigue siendo &lt;script type=&quot;math/tex&quot;&gt;\theta(m(n) \log n + a(n))&lt;/script&gt;. Se necesitaría, además, un nuevo método &lt;code class=&quot;highlighter-rouge&quot;&gt;isSameInfo&lt;/code&gt; que nos indique si la información que se le pasa como argumento es la misma que la contenida por el nodo. Este método debe ser &lt;script type=&quot;math/tex&quot;&gt;O(m(n))&lt;/script&gt; para que la implementación sea rentable. El siguiente código contiene esta nueva versión del algoritmo:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;c&quot;&gt;# Update the segment tree.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# The given value is assigned to the array's&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# component at index place. The segment tree is updated accordingly.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# index : Array's component to be updated.&lt;/span&gt;
+    &lt;span class=&quot;c&quot;&gt;# value : New value for the array's component to update.&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;update2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# Leaf index&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# Update leaf and array&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;
+        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;assignLeaf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;c&quot;&gt;# Update leaf ancestors&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;# Get current info and update it with a merge from the children&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;current_info&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+            &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;merge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;# If the info has not changed then the algorithm ends&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isSameInfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_info&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
+            &lt;span class=&quot;c&quot;&gt;# Go to node's parent&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;st_index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;problemas&quot;&gt;Problemas&lt;/h2&gt;
+
+&lt;p&gt;Los siguientes problemas son útiles para practicar con los segment trees.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Dado un vector &lt;script type=&quot;math/tex&quot;&gt;V&lt;/script&gt; con &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; elementos, se pide realizar &lt;script type=&quot;math/tex&quot;&gt;Q&lt;/script&gt; consultas. Cada consulta consiste en obtener la media del subintervalo &lt;script type=&quot;math/tex&quot;&gt;V[i,j]&lt;/script&gt;. Desarrollar un algoritmo para este cometido.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Dado un vector &lt;script type=&quot;math/tex&quot;&gt;V&lt;/script&gt; con &lt;script type=&quot;math/tex&quot;&gt;N&lt;/script&gt; elementos, se pide realizar &lt;script type=&quot;math/tex&quot;&gt;Q&lt;/script&gt; consultas. Cada consulta consiste en obtener la suma de los elementos del subintervalo &lt;script type=&quot;math/tex&quot;&gt;V[i,j]&lt;/script&gt;. Encontrar una estructura de datos con preprocesamiento lineal y tiempo de consulta constante (diferente al segment tree) que resuelva el problema. ¿Es válida la solución si en lugar de la suma se utilizase la operación OR lógica de los números en binario? ¿Por qué? Extender el algoritmo a este último caso, estudiar las nuevas eficiencias obtenidas y compararlas con las de una solución basada en segment trees.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.hackerrank.com/contests/hindley-milner-feb14/challenges/range-minimum-query&quot;&gt;Hackerrank - Functional Programming Contest - Range Minimum Query&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.hackerrank.com/contests/indeed-prime-challenge/challenges/minimum-product-sub-interval&quot;&gt;Hackerrank - Minimum Product Subinterval&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ahmed-aly.com/Category.jsp?ID=25&quot;&gt;90 Segment Trees Problems&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;código&quot;&gt;Código&lt;/h2&gt;
+
+&lt;p&gt;Todo el código proporcionado se encuentra en un único &lt;a href=&quot;https://github.com/andreshp/Algorithms/tree/master/DataStructures/SegmentTree&quot;&gt;archivo en Python&lt;/a&gt;. Una implementación similar se puede encontrar en C++ &lt;sup id=&quot;fnref:segment-c&quot;&gt;&lt;a href=&quot;#fn:segment-c&quot; class=&quot;footnote&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;para-profundizar&quot;&gt;Para profundizar&lt;/h2&gt;
+
+&lt;p&gt;Los siguientes enlaces profundizan en la temática. Incluyen desde operaciones más avanzadas, como el uso de lazy propagation, hasta la relación del range minimum query con otros problemas, como el lowest common ancestor. Espero tratar estos temas en un futuro próximo.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://kartikkukreja.wordpress.com/2015/01/10/a-simple-approach-to-segment-trees-part-2/&quot;&gt;A simple approach to segment trees, part 2 - Kartik Kukreja&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://community.topcoder.com/tc?module=Static&amp;amp;d1=tutorials&amp;amp;d2=lowestCommonAncestor#Segment_Trees&quot;&gt;Range Minimum Query and Lowest Common Ancestor - danielp - TopCoder&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;referencias&quot;&gt;Referencias&lt;/h2&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:list&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_data_structures&quot;&gt;List of Data Structures&lt;/a&gt;&amp;nbsp;&lt;a href=&quot;#fnref:list&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:heap&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=B7hVxCmfPtM&quot;&gt;Heaps and Heapsort, MIT 6.006 Introduction to Algorithms, Fall 2011&lt;/a&gt;&amp;nbsp;&lt;a href=&quot;#fnref:heap&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:segment-c&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://kartikkukreja.wordpress.com/2014/11/09/a-simple-approach-to-segment-trees/&quot;&gt;A simple approach to segment trees - Kartik Kukreja&lt;/a&gt;&amp;nbsp;&lt;a href=&quot;#fnref:segment-c&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+            <pubDate>Fri, 17 Jul 2015 00:00:00 +0000</pubDate>
+            <link>http://libreim.github.io/blog/2015/07/17/segment-tree/</link>
+            <guid isPermaLink="true">http://libreim.github.io/blog/2015/07/17/segment-tree/</guid>
+        </item>
+        
+        <item>
+            <title>Teorema de Dini</title>
+            <description>&lt;h2 id=&quot;convergencia-puntual-y-convergencia-uniforme&quot;&gt;Convergencia Puntual y Convergencia Uniforme&lt;/h2&gt;
+
+&lt;p&gt;En el Análisis Matemático es frecuente que la función solución a determinado problema sea desconocida o no la podamos expresar en términos de las funciones elementales que conocemos. Incluso en las funciones más simples, como la exponencial o el logaritmo, nos encontramos esta situación. Conocemos su existencia y propiedades características pero tenemos ciertas dificultades a la hora de evaluarlas en un punto. Es frecuente para ello utilizar los famosos polinomios de Taylor, en cuyo caso estamos aproximando la función por polinomios.&lt;/p&gt;
+
+&lt;p&gt;En más situaciones es habitual disponer de funciones que se aproximan cada vez más a la solucion del problema. Para formalizar este hecho surge el concepto de convergencia para sucesiones de funciones. Podemos distinguir dos tipos de convergencia: convergencia puntual y convergencia uniforme.&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Definición 1&lt;/dt&gt;
+  &lt;dd&gt;Sea &lt;script type=&quot;math/tex&quot;&gt;A \subseteq \mathbb{R}&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;\{f_n\}&lt;/script&gt; una sucesión de funciones con &lt;script type=&quot;math/tex&quot;&gt;\ f_n : A \rightarrow \mathbb{R}&lt;/script&gt;. Se dice que &lt;script type=&quot;math/tex&quot;&gt;\{f_n\}&lt;/script&gt; &lt;strong&gt;converge puntualmente&lt;/strong&gt; en &lt;script type=&quot;math/tex&quot;&gt;x \in A&lt;/script&gt; si la sucesión &lt;script type=&quot;math/tex&quot;&gt;\{f_n(x)\}&lt;/script&gt; converge. Podemos considerar el conjunto &lt;script type=&quot;math/tex&quot;&gt;C&lt;/script&gt; de los elementos &lt;script type=&quot;math/tex&quot;&gt;x \in A&lt;/script&gt; en los que hay convergencia puntual y definir la &lt;strong&gt;función límite&lt;/strong&gt;:&lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;f : C \rightarrow \mathbb{R}, \ f(x) = \lim f_n(x) \ \forall x \in C&lt;/script&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Nótese que la definición es puramente topológica para espacios con unicidad del límite (como los espacios de Hausdorff). Sin embargo, para que todo lector pueda seguir el texto sin un curso inicial de topología trabajaremos solamente con conjuntos de números reales.&lt;/p&gt;
+
+&lt;p&gt;Podemos exigirle más a la convergencia puntual y obtener la convergencia uniforme:&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Definición 2&lt;/dt&gt;
+  &lt;dd&gt;Sea &lt;script type=&quot;math/tex&quot;&gt;A \subseteq \mathbb{R}&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;\{f_n\}&lt;/script&gt; una sucesión de funciones con &lt;script type=&quot;math/tex&quot;&gt;\ f_n : A \rightarrow \mathbb{R}&lt;/script&gt;. Se dice que &lt;script type=&quot;math/tex&quot;&gt;\{f_n\}&lt;/script&gt; &lt;strong&gt;converge uniformemente&lt;/strong&gt; en &lt;script type=&quot;math/tex&quot;&gt;B \subseteq A&lt;/script&gt; si para cada &lt;script type=&quot;math/tex&quot;&gt;\varepsilon &gt; 0&lt;/script&gt; existe &lt;script type=&quot;math/tex&quot;&gt;n_o \in \mathbb{N}&lt;/script&gt; tal que:&lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\forall n \ge n_o : \left| f_n(x) - f(x) \right| &lt; \varepsilon \ \forall x \in B %]]&gt;&lt;/script&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;La convergencia uniforme implica la convergencia puntual, pero el recíproco no es cierto. Un ejemplo de este caso es el siguiente, que se deja como ejercicio para el lector.&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Ejemplo 1&lt;/dt&gt;
+  &lt;dd&gt;Probar que la siguiente sucesión de funciones converge puntualmente pero no converge uniformemente en &lt;script type=&quot;math/tex&quot;&gt;[0,1]&lt;/script&gt;:&lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;f_n : [0,1] \rightarrow \mathbb{R}, \ f_n(x) = x^n \ \forall x \in [0,1]&lt;/script&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;Cabe preguntarse para qué sirve la convergencia uniforme. Intuitivamente, nos dice que la sucesión de funciones converge con igual rapidez en todo &lt;script type=&quot;math/tex&quot;&gt;B&lt;/script&gt;. Analíticamente podemos sacarle provecho al relacionarla con conceptos como la continuidad, la derivabilidad y la integral. Por ejemplo, en todo curso de análisis en el que se trate este tema se demuestra que si la convergencia es uniforme y las funciones que conforman la sucesión son continuas, entonces la función límite es continua. En definitiva, la convergencia uniforme nos permite obtener información analítica de la función límite exigiendo ciertas propiedades a las funciones que conforman la sucesión.&lt;/p&gt;
+
+&lt;p&gt;Sin embargo, muchos de los ejercicios a realizar en el correspondiente curso simplemente piden estudiar la convergencia uniforme de una sucesión de funciones. A veces esto se vuelve tedioso como es el caso del siguiente ejercicio &lt;sup id=&quot;fnref:ejercicios&quot;&gt;&lt;a href=&quot;#fn:ejercicios&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Ejemplo 2&lt;/dt&gt;
+  &lt;dd&gt;Estudia la convergencia puntual y uniforme de la sucesión de funciones &lt;script type=&quot;math/tex&quot;&gt;\{f_n\}&lt;/script&gt; donde &lt;script type=&quot;math/tex&quot;&gt;\ f_n : \mathbb{R} \rightarrow \mathbb{R}&lt;/script&gt; está definida por:&lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;f_n(x) = \left(1+\frac{x^2}{n}\right)^n \ \forall x \in \mathbb{R}&lt;/script&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;&lt;strong&gt;Solución.&lt;/strong&gt; Usando que&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\lim_{x \rightarrow \infty}\left(1+\frac{1}{x}\right)^x = e&lt;/script&gt;
+
+&lt;p&gt;Se obtiene&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\lim_{n \rightarrow \infty}\left(1+\frac{x^2}{n}\right)^n = \exp\left(x^2\right)&lt;/script&gt;
+
+&lt;p&gt;Luego la función límite es &lt;script type=&quot;math/tex&quot;&gt;\ f(x) = \exp\left(x^2\right)&lt;/script&gt; en todo &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;No hay convergencia uniforme en ninguna semirrecta de &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}&lt;/script&gt; pues para &lt;script type=&quot;math/tex&quot;&gt;x_n = \sqrt n&lt;/script&gt; se tiene que&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\lim_{n \rightarrow \infty} f_n(x_n) - f(x_n) = \lim_{n \rightarrow \infty}\left(1+\frac{n}{n}\right)^n - e^n = \lim_{n \rightarrow \infty} 2^n - e^n = -\infty&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\lim_{n \rightarrow \infty} f_n(-x_n) - f(-x_n) = \lim_{n \rightarrow \infty} f_n(x_n) - f(x_n) = -\infty&lt;/script&gt;
+
+&lt;p&gt;y de haber convergencia uniforme para cualquier sucesión de números reales &lt;script type=&quot;math/tex&quot;&gt;\{x_n\}&lt;/script&gt; se verificaría que la sucesión &lt;script type=&quot;math/tex&quot;&gt;\{f_n(x_n) - f(x_n)\}&lt;/script&gt; converge a 0.&lt;/p&gt;
+
+&lt;p&gt;Sin embargo, sí hay convergencia uniforme en los intervalos del tipo &lt;script type=&quot;math/tex&quot;&gt;[-\alpha, \alpha]&lt;/script&gt; para &lt;script type=&quot;math/tex&quot;&gt;\alpha &gt; 0&lt;/script&gt; como probaremos a continuación. Puede el lector saltarse este tedioso desarrollo ya que conseguiremos el mismo resultado aplicando el teorema de Dini.&lt;/p&gt;
+
+&lt;p&gt;Sea &lt;script type=&quot;math/tex&quot;&gt;\alpha &gt; 0&lt;/script&gt;. Definimos la siguiente función, que resulta ser continua:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\phi(t) = \frac{\log(1+t)}{t}, \ \forall -1 &lt; t \neq 0, \phi(0) = 1 %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Tenemos que&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\left| \left(1+\frac{x^2}{n}\right)^n - \exp\left(x^2\right) \right| =
+\exp\left(x^2\right) \left| \left(\frac{\left(1+\frac{x^2}{n}\right)^\frac{n}{x^2}}{e}\right)^{x^2} - 1 \right| =&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\exp\left(x^2\right) \left| \exp\left( x^2\left(\phi\left(\frac{x^2}{n}\right) - 1\right)\right) -1 \right| \le
+\exp\left(\alpha^2  \right) \left| \exp\left( x^2\left(\phi \left(\frac{x^2}{n}\right) - 1\right)\right) -1 \right|&lt;/script&gt;
+
+&lt;p&gt;Sea &lt;script type=&quot;math/tex&quot;&gt;\varepsilon &gt; 0&lt;/script&gt;, utilizaremos la continuidad de &lt;script type=&quot;math/tex&quot;&gt;\phi&lt;/script&gt; junto con la continuidad de la función exponencial para obtener el resultado deseado.&lt;/p&gt;
+
+&lt;p&gt;Por la continuidad de la exponencial en 0, existe &lt;script type=&quot;math/tex&quot;&gt;\delta_1 &gt; 0&lt;/script&gt; tal que si &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+\vert u \vert &lt; \delta_1 %]]&gt;&lt;/script&gt; entonces &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+\ \vert e^u -1 \vert &lt; \frac{\varepsilon}{\exp\left(\alpha^2\right)} %]]&gt;&lt;/script&gt;. Aplicamos ahora la continuidad de &lt;script type=&quot;math/tex&quot;&gt;\phi&lt;/script&gt; en 0 para obtener &lt;script type=&quot;math/tex&quot;&gt;\delta_2 &gt; 0&lt;/script&gt; tal que si &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+\ \vert t\vert &lt; \delta_2 %]]&gt;&lt;/script&gt; entonces &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+\ \vert \phi(t) -1\vert &lt; \frac{\delta_1}{\alpha^2} %]]&gt;&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;Tomemos &lt;script type=&quot;math/tex&quot;&gt;n_0 \in \mathbb{N}&lt;/script&gt; tal que &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+\frac{\alpha^2}{n_0} &lt; \delta_2 %]]&gt;&lt;/script&gt;. Entonces, para todo &lt;script type=&quot;math/tex&quot;&gt;x \in [-\alpha, \alpha]&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;n \ge n_0&lt;/script&gt; se tiene que:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\frac{x^2}{n} &lt; \delta_2 \Rightarrow
+\left| \phi \left(\frac{x^2}{n}\right) -1\right| &lt; \frac{\delta_1}{\alpha^2} \Rightarrow
+\left| x^2 \left( \phi \left(\frac{x^2}{n}\right) -1 \right) \right| &lt; \delta_1 \Rightarrow %]]&gt;&lt;/script&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\left| \exp\left(x^2\left(\phi \left(\frac{x^2}{n}\right) - 1\right)\right) - 1\right| &lt; \frac{\varepsilon}{\exp(\alpha^2)} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;De donde se deduce que&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\left| \left(1+\frac{x^2}{n}\right)^n - \exp\left(x^2\right) \right| \le \exp\left(\alpha^2\right) \left| \exp\left( x\left(\phi \left(\frac{x^2}{n}\right) - 1\right)\right) -1\right| &lt; \varepsilon %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Se ha obtenido la definición de convergencia uniforme en &lt;script type=&quot;math/tex&quot;&gt;[-\alpha, \alpha]&lt;/script&gt;. Nótese que esto implica que hay convergencia uniforme en cualquier intervalo cerrado y acotado.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\tag*{$\blacksquare$}&lt;/script&gt;
+
+&lt;h2 id=&quot;teorema-de-dini&quot;&gt;Teorema de Dini&lt;/h2&gt;
+
+&lt;p&gt;El teorema de Dini es uno de los pocos resultados que transforman la convergencia puntual en convergencia uniforme. Podremos aplicarlo en intervalos del tipo &lt;script type=&quot;math/tex&quot;&gt;[a, b]&lt;/script&gt; si se verifican ciertas condiciones, como veremos que sucede en el ejemplo anterior.&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Enunciado&lt;/dt&gt;
+  &lt;dd&gt;Sean &lt;script type=&quot;math/tex&quot;&gt;a,b \in \mathbb{R}&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;\ f_n : [a,b] \rightarrow \mathbb{R}&lt;/script&gt; continua para todo &lt;script type=&quot;math/tex&quot;&gt;n \in \mathbb{N}&lt;/script&gt;. Se considera la sucesión de funciones &lt;script type=&quot;math/tex&quot;&gt;\{f_n\}&lt;/script&gt;. Si la sucesión es monótona y converge puntualmente a &lt;script type=&quot;math/tex&quot;&gt;\ f&lt;/script&gt; continua, entonces la convergencia es uniforme.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;&lt;strong&gt;Demostración&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;El gran salto de la convergencia puntual a la convergencia uniforme se va a producir gracias a la continuidad de todas las funciones, la monotonía de la sucesión y la compacidad del dominio.&lt;/p&gt;
+
+&lt;p&gt;En la prueba se utilizará el concepto de entorno de un punto para simplificar la redacción al aplicar la continuidad. Un entorno de &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; es un conjunto que contiene a un abierto del espacio que a su vez contiene a &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;. En nuestro caso, los abiertos son los intervalos abiertos intersecados con &lt;script type=&quot;math/tex&quot;&gt;[a, b]&lt;/script&gt;.&lt;/p&gt;
+
+&lt;p&gt;Supongamos en primer lugar que &lt;script type=&quot;math/tex&quot;&gt;\{f_n\}&lt;/script&gt; es creciente. Nótese que en tal caso &lt;script type=&quot;math/tex&quot;&gt;\ f(x) \ge f_n(x)&lt;/script&gt; para todo &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;. Sea &lt;script type=&quot;math/tex&quot;&gt;\varepsilon &gt; 0&lt;/script&gt;:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;De la convergencia puntual se tiene que para todo &lt;script type=&quot;math/tex&quot;&gt;x \in [a,b]&lt;/script&gt; existe un natural &lt;script type=&quot;math/tex&quot;&gt;n_x&lt;/script&gt; tal que&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\forall n \ge n_x : \left| f_n(x) - f(x) \right| &lt; \frac{\varepsilon}{3} %]]&gt;&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;De la continuidad de &lt;script type=&quot;math/tex&quot;&gt;\ f&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;\ f_n&lt;/script&gt; se tiene que para todo &lt;script type=&quot;math/tex&quot;&gt;x \in [a,b]&lt;/script&gt; existe un entorno &lt;script type=&quot;math/tex&quot;&gt;V_x&lt;/script&gt; de &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; tal que para todo elemento &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; del entorno se verifica:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\left| f_n(y) - f_n(x) \right| &lt; \frac{\varepsilon}{3} %]]&gt;&lt;/script&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\left| f(y) - f(x) \right| &lt; \frac{\varepsilon}{3} %]]&gt;&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Utilizando la desigualdad triangular se obtiene que para todo &lt;script type=&quot;math/tex&quot;&gt;y \in V_x&lt;/script&gt; se cumple:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\left| f(y) - f_{n_x}(y) \right| \le \left| f(y) - f(x) \right| + \left| f(x) - f_{n_x}(x) \right| + \left| f_{n_x}(x) - f_{n_x}(y) \right| &lt; \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} &lt; \varepsilon %]]&gt;&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Como &lt;script type=&quot;math/tex&quot;&gt;[a,b] = \cup_{x \in [a,b]} V_x&lt;/script&gt;, usando la caracterización topológica de la compacidad, existen &lt;script type=&quot;math/tex&quot;&gt;x_1, \ldots, x_m \in [a,b]&lt;/script&gt; tales que:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;[a,b] = \bigcup_{i = 1}^m V_{x_i}&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Tomamos &lt;script type=&quot;math/tex&quot;&gt;n_0 = \max\{n_{x_i}: i = 1, \ldots, m\}&lt;/script&gt;. Veamos que efectivamente se da la convergencia uniforme. Sean &lt;script type=&quot;math/tex&quot;&gt;n \ge n_0, y \in [a,b]&lt;/script&gt;. Aplicando la igualdad obtenida en &lt;strong&gt;(4)&lt;/strong&gt;, debe existir &lt;script type=&quot;math/tex&quot;&gt;i \in \{1, \ldots, m\}&lt;/script&gt; tal que &lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; pertenece a &lt;script type=&quot;math/tex&quot;&gt;V_{x_i}&lt;/script&gt;. Juntando este hecho con &lt;strong&gt;(3)&lt;/strong&gt; y la monotonía:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\left| f(y) - f_n(y) \right| = f(y) - f_n(y) \le f(y) - f_{n_0}(y) \le f(y) - f_{n_{x_i}}(y) &lt; \varepsilon %]]&gt;&lt;/script&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Por otro lado, si &lt;script type=&quot;math/tex&quot;&gt;\{f_n\}&lt;/script&gt; es decreciente, basta aplicar lo anterior a  &lt;script type=&quot;math/tex&quot;&gt;\{-f_n\}&lt;/script&gt;, que es creciente y converge a &lt;script type=&quot;math/tex&quot;&gt;\ -f&lt;/script&gt;. Fácilmente se extrapola su convergencia uniforrme a la de &lt;script type=&quot;math/tex&quot;&gt;\{f_n\}&lt;/script&gt;.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\tag*{$\blacksquare$}&lt;/script&gt;
+
+&lt;p&gt;Nótese que análogamente se podría haber probado este resultado:&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Teorema de Dini (en espacios topológicos)&lt;/dt&gt;
+  &lt;dd&gt;Sean &lt;script type=&quot;math/tex&quot;&gt;(X, \mathcal{T})&lt;/script&gt; un espacio topológico compacto y sea &lt;script type=&quot;math/tex&quot;&gt;\ f_n : X \rightarrow \mathbb{R}&lt;/script&gt; continua para todo &lt;script type=&quot;math/tex&quot;&gt;n \in \mathbb{N}&lt;/script&gt;. Se considera la sucesión de funciones &lt;script type=&quot;math/tex&quot;&gt;\{f_n\}&lt;/script&gt;. Si la sucesión es monótona y converge puntualmente a &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; continua, entonces la convergencia es uniforme.&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;La exigencia de continuidad a la función límite no supone una condición extra para poder aplicar el teorema. Recordemos que en caso de que haya convergencia uniforme se tiene automáticamente la continuidad de la función límite ya que las funciones &lt;script type=&quot;math/tex&quot;&gt;\ f_n&lt;/script&gt; son continuas.&lt;/p&gt;
+
+&lt;p&gt;Volvemos al Ejemplo 2 cuya resolución será una mera consecuencia del teorema de Dini.&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Ejemplo 2&lt;/dt&gt;
+  &lt;dd&gt;Estudia la convergencia puntual y uniforme de la sucesión de funciones &lt;script type=&quot;math/tex&quot;&gt;\{f_n\}&lt;/script&gt; donde &lt;script type=&quot;math/tex&quot;&gt;f_n : [0,1] \rightarrow \mathbb{R}&lt;/script&gt; está definida por:&lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;f_n(x) = \left(1+\frac{x^2}{n}\right)^n \ \forall x \in \mathbb{R}&lt;/script&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;&lt;strong&gt;Solución.&lt;/strong&gt; Se había obtenido que la sucesión convergía puntualmente a &lt;script type=&quot;math/tex&quot;&gt;\exp\left(x^2\right)&lt;/script&gt;. Además, no había convergencia uniforme en ninguna semirrecta. Veamos que sí hay convergencia uniforme en los intervalos cerrados y acotados.&lt;/p&gt;
+
+&lt;p&gt;Sean &lt;script type=&quot;math/tex&quot;&gt;a, b \in \mathbb{R}&lt;/script&gt; con &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+a &lt; b %]]&gt;&lt;/script&gt;. En &lt;script type=&quot;math/tex&quot;&gt;[a, b]&lt;/script&gt; la sucesión verifica las condiciones del teorema de Dini:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Las funciones &lt;script type=&quot;math/tex&quot;&gt;\ f_n&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;\ f&lt;/script&gt; son continuas.&lt;/li&gt;
+  &lt;li&gt;Las sucesiones &lt;script type=&quot;math/tex&quot;&gt;\ f_n&lt;/script&gt; son crecientes. En efecto, aplicando la desigualdad de las medias &lt;sup id=&quot;fnref:medias&quot;&gt;&lt;a href=&quot;#fn:medias&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt; para &lt;script type=&quot;math/tex&quot;&gt;x_1 = 1, x_i = 1+\frac{x^2}{n} \ \forall i = 2, \ldots, n+1&lt;/script&gt;:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+\sqrt[n+1]{\left(1+\frac{x^2}{n}\right)^n} &lt; \frac{1 + n \left(1+\frac{x^2}{n}\right)}{n+1} = 1 + \frac{x^2}{n+1} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;Por tanto, hay convergencia uniforme en &lt;script type=&quot;math/tex&quot;&gt;[a, b]&lt;/script&gt;.&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\tag*{$\blacksquare$}&lt;/script&gt;
+
+&lt;h2 id=&quot;referencias&quot;&gt;Referencias&lt;/h2&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:ejercicios&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;http://www.ugr.es/~fjperez/textos/sucesiones_series_funciones.pdf&quot;&gt;Ejercicios de sucesiones y series de funciones. Javier Pérez&lt;/a&gt;&amp;nbsp;&lt;a href=&quot;#fnref:ejercicios&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:medias&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;http://tux.ugr.es/dgiim/blog/2014/04/12/desigualdad-medias/&quot;&gt;La desigualdad de las medias. Mario Román&lt;/a&gt;&amp;nbsp;&lt;a href=&quot;#fnref:medias&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</description>
+            <pubDate>Mon, 20 Apr 2015 00:00:00 +0000</pubDate>
+            <link>http://libreim.github.io/blog/2015/04/20/teorema-dini/</link>
+            <guid isPermaLink="true">http://libreim.github.io/blog/2015/04/20/teorema-dini/</guid>
         </item>
         
     </channel>
