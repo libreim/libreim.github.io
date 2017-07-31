@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+      <!--link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/menus-min.css" /-->
+      <link rel="stylesheet" type="text/css" href="/assets/css/default.css" />
+      <link rel="stylesheet" type="text/css" href="/assets/css/pygments-friendly.css" />
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="/assets/feed.xml" />
+
+      <!-- Favicon -->
+      <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="160x160" href="/assets/images/favicon-160.png">
+    	<meta name="msapplication-TileColor" content="#FFFFFF">
+    	<meta name="msapplication-TileImage" content="/assets/images/favicon-160.png">
+      <meta name="theme-color" content="#6789ab">
+
+      <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+      <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      <script type="text/javascript">
+         WebFont.load({
+            google: {
+               families: ["Lato:400,300,700,400italic:latin", "Source+Code+Pro:400,700:latin"]
+            }
+         });
+      </script>
+      <script type="text/javascript">
+            MathJax.Hub.Config({
+               tex2jax: {
+                  inlineMath: [],
+                  displayMath: [],
+               }
+            });
+      </script>
+      <title>Segment trees y Range minimum query - LibreIM</title>
+   </head>
+   <body>
+      <header>
+  <div class="pure-menu pure-menu-horizontal pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+      <input type="checkbox" id="show-menu">
+      <label class="hamburger" for="show-menu"></label>
+      <div class="sites">
+        <a href="/" class="pure-menu-link" title="Inicio">Inicio</a>
+        <a href="/blog/" class="pure-menu-link" title="Inicio">Blog</a>
+        <a href="/recursos/" class="pure-menu-link" title="Awesome">Recursos</a>
+        <a href="/contributing/" class="pure-menu-link" title="Participa">Participa</a>
+      </div>
+      <a href="/" class="site-title pure-menu-heading">&nbsp;</a>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+  </div>
+</header>
+
+      
+
+
+<article lang="es">
+  <div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-2-5">
+      <div class="category">
+        Estructuras de Datos
+      </div>
+
+      <h1>
+        <a href="/blog/2015/07/17/segment-tree/">
+            Segment trees y Range minimum query
+        </a>
+      </h1>
+
+      <div class="post-data">
+        
+        
+          
+            
+             
+            <a class="author" href="http://github.com/andreshp">
+              Andrés Herrera Poyatos
+            </a>
+          
+        
+
+        <a class="date" href="/blog/2015/07/17/segment-tree/">
+          17-07-2015
+        </a>
+        <a class="dsq-comment-count comments" href="/blog/2015/07/17/segment-tree/#disqus_thread" data-disqus-identifier="/2015/07/17/segment-tree">
+
+        </a>
+        <!--
+        
+          <a class="edit" href="https://github.com/libreim/blog/blob/site/_posts/2015-7-17-segment-tree.md">
+            Ver y editar en GitHub
+          </a>
+        
+        -->
+      </div>
+
+    <div class="post-content">
+
+        <p>En los cursos de estructuras de datos y algoritmos el número de estructuras de datos que se suelen estudiar es bastante reducido. Generalmente se introducen heaps, árboles binarios de búsqueda balanceados (AVL), tablas Hash y algunos algoritmos sobre grafos. Sin embargo, el mundo de las estructuras de datos es mucho más amplio  <sup id="fnref:list"><a href="#fn:list" class="footnote">1</a></sup> y probablemente requeriría una asignatura de estructuras de datos avanzadas como sucede en algunas universidades. El MIT, por ejemplo, proporciona <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-851-advanced-data-structures-spring-2012/lecture-videos/">vídeos</a> con el contenido de esta asignatura. Por ello, intentaré escribir entradas en el blog que profundicen en esta temática.</p>
+
+<p>En este caso trataremos los <strong>segment trees</strong> o árboles de segmentos. Introduciremos en primer lugar un problema importante de la teoría de algoritmos, <strong>range minimum query problem</strong>, que servirá como motivación para los segment trees. Posteriormente se explicará el funcionamiento de estos, proporcionando para cada operación su correspondiente código en Python. Por último, se proponen como ejercicio algunos problemas resolubles mediante segment trees.</p>
+
+<!--more-->
+
+<h2 id="range-minimum-query-problem">Range Minimum Query Problem</h2>
+
+<p>Consideremos un vector con objetos de un tipo <script type="math/tex">T</script> sobre el que se ha definido una relación de orden total. Por claridad, ejemplificaremos el problema sobre números enteros. Sea <script type="math/tex">n</script> la longitud del vector, se define <script type="math/tex">RMQ(i,j)</script> como el mínimo del subvector formado por las componentes entre <script type="math/tex">i</script> y <script type="math/tex">j</script> (inclusive) para <script type="math/tex">i, j</script> en <script type="math/tex">\{0,\ldots,n-1\}</script> con <script type="math/tex">i \le j</script>.  El problema consiste en proporcionar el valor de <script type="math/tex">RMQ(i,j)</script> para cualquier número posible de consultas.</p>
+
+<p>Normalmente se denomina <em>subintervalo del vector</em> a un subvector formado por componentes consecutivas, como los que se estudian en este caso. Una posible traducción al castellano de <em>range minimum query problem</em> sería <em>problema de las consultas del mínimo de cualquier subintervalo</em> (pero mantendremos el nombre en inglés por ser el estándar).</p>
+
+<p>La solución trivial para el problema consiste en calcular para cada consulta el mínimo del subintervalo correspondiente de forma lineal. Esto proporciona una eficiencia media de <script type="math/tex">\theta(n)</script> para las consultas. Se pretende reducir esta eficiencia significativamente para poder atender el mayor número de consultas posible.</p>
+
+<p>La forma habitual de abordar el problema consiste en preprocesar los datos. Un primer preprocesamiento puede ser calcular directamente el mínimo para cada subintervalo del vector, lo que puede conseguirse sin mucha dificultad en <script type="math/tex">\theta(n^2)</script>. Posteriormente, las consultas pueden ser realizadas en tiempo constante. Esta solución tiene dos grandes problemas:</p>
+
+<ol>
+  <li>Un preprocesamiento de eficiencia <script type="math/tex">\theta(n^2)</script> es excesivo cuando se trate con vectores de tamaño mayor o igual que <script type="math/tex">10^4</script>. Esto nos hace distinguir dos eficiencias a la hora de resolver el problema, la eficiencia del preprocesamiento y la eficiencia de la consulta. La solución trivial minimizaba el preprocesamiento mientras que la nueva solución minimiza el tiempo de consulta, no siendo ninguna de las dos óptimas.</li>
+  <li>El problema suele complicarse permitiendo actualizar el valor de una componente del vector entre consultas, lo que no consigue de forma eficiente el segundo algoritmo, que requiere un tiempo <script type="math/tex">\theta(n)</script> para actualizar también la matriz <script type="math/tex">RMQ</script>.</li>
+</ol>
+
+<p>Los segment trees o árboles de segmentos surgieron para resolver este problema. Se pueden formular de forma incluso más general, teniendo aplicaciones en problemas relacionados con los subintervalos de un vector. Como veremos a continuación, los segment trees abordarán el range minimum query problem utilizando un preprocesamiento con eficiencia lineal tras el cual podremos realizar consultas y actualizar elementos del vector en tiempo logarítmico. Esto supone una gran mejora con respecto a las soluciones anteriores.</p>
+
+<h2 id="segment-trees">Segment Trees</h2>
+
+<p>Un segment tree es una estructura de datos que permite, a partir de un vector <script type="math/tex">V</script>, dos operaciones:</p>
+
+<ol>
+  <li>Consultar determinada información para cualquiera de los subintervalos del vector.</li>
+  <li>Actualizar una componente del vector.</li>
+</ol>
+
+<p>Como caso particular esta información puede ser el mínimo del subintervalo, en cuyo caso ambas operaciones pueden llevarse a cabo en tiempo logarítmico.</p>
+
+<p>Supongamos por el momento que el vector tiene longitud <script type="math/tex">n = 2^m</script>.</p>
+
+<p>La idea subyacente consiste en preprocesar la información correspondiente a las particiones del vector formadas por subintervalos de igual longitud siendo esta una potencia de <script type="math/tex">2</script>. Formalmente, estos intervalos se corresponden con <script type="math/tex">V[k2^l, (k+1)2^l-1]</script> para <script type="math/tex">l \in \{0, 1, \ldots, m\}</script> y <script type="math/tex">k \in \{0, 1, \ldots, \frac{n}{2^l}-1\}</script>. Los intervalos preprocesados pueden verse como los nodos de un árbol binario construido de la siguiente forma:</p>
+
+<ol>
+  <li><script type="math/tex">V[0,n-1]</script> es la raíz.</li>
+  <li>Todo nodo que se corresponda a <script type="math/tex">V[i,j]</script> con <script type="math/tex">% <![CDATA[
+i < j %]]></script> tiene dos hijos, izquierda y derecha, que se obtienen a dividir el subintervalo correspondiente en las mitades izquerda y derecha.</li>
+</ol>
+
+<p>La Imagen 1 muestra el árbol binario a generar si se tuviese <script type="math/tex">n = 8</script>. Nótese que las hojas del árbol son los subintervalos con una sola componente.</p>
+
+<p class="fig"><img src="/blog/images/segment_trees/segment_trees_visualizacion.png" alt="" />
+<strong>Imagen 1.</strong> Segment tree asociado a un vector <script type="math/tex">V</script> de longitud 8 representado como un árbol binario.</p>
+
+<p>Tras generar el árbol binario podemos expresar un subintervalo <script type="math/tex">V[i, j]</script> como la unión del menor número de subintervalos como los preprocesados previamente. Tiene sentido hablar de esta unión pues siempre existe (basta expresar <script type="math/tex">V[i, j]</script> como unión de sus componentes).  Por ejemplo, para <script type="math/tex">n=8</script> se tiene:</p>
+
+<script type="math/tex; mode=display">V[2,7] = V[2,2] +\mkern-5mu+ V[3,4] +\mkern-5mu+ V[5,6] +\mkern-5mu+ V[7,7]</script>
+
+<p>Si la información que deseamos consultar puede obtenerse a partir de la información de una partición de subintervalos entonces habremos resuelto el problema. Este es el caso del range minimum query. El mínimo del subintervalo <script type="math/tex">V[i, j]</script> es el mínimo de los mínimos obtenidos para los subintervalos preprocesados que formen una partición de <script type="math/tex">V[i, j]</script>. Por ejemplo, si <script type="math/tex">V = [3,2,8,5,6,1,7,4]</script>:</p>
+
+<script type="math/tex; mode=display">\min(V[2,7]) = \min\{\min(V[2,2]), \min(V[3,4]), \min(V[5,6]), \min(V[7,7])\} = \min\{2, 5, 1, 7\} = 1</script>
+
+<p>En lo que sigue estudiaremos cómo construir el segment tree (librándonos de la suposición <script type="math/tex">n= 2^m</script>) y probaremos que es posible realizar una consulta y actualizar el vector de forma eficiente. Sin embargo, antes debemos saber qué operaciones tienen que realizar los nodos del segment tree para que esto sea posible.</p>
+
+<h3 id="nodos-del-segment-tree">Nodos del segment tree</h3>
+
+<p>La información relativa a los subintervalos del tipo <script type="math/tex">V[k2^l, (k+1)2^l-1]</script> debe almacenarse en un nodo. Los subintervalos <script type="math/tex">V[i,i]</script> son los casos base y sus nodos formarán las hojas del segment tree. Los nodos deben mantener 3 operaciones:</p>
+
+<ol>
+  <li>Asignar la información correspondiente al nodo en el caso de que este sea una hoja del árbol.</li>
+  <li>Generar la información del nodo a partir de dos nodos cuyos subintervalos sean una partición del subintervalo actual. Esta operación se denomina <code class="highlighter-rouge">merge</code>.</li>
+  <li>Devolver la información del subintervalo que el nodo representa.</li>
+</ol>
+
+<p>Una plantilla para un nodo del segment tree sería la siguiente:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Template for a Segment Tree Node.</span>
+<span class="c"># A node contains the information related with a vector subinterval.</span>
+<span class="k">class</span> <span class="nc">SegmentTreeNode</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="c"># Init the node.</span>
+    <span class="c"># info = Subinterval information</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="c"># Given the value of an array element,</span>
+    <span class="c"># build the information for this leaf.</span>
+    <span class="k">def</span> <span class="nf">assignLeaf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">pass</span> <span class="c"># Insert the code to build the leaf information</span>
+
+    <span class="c"># Merge the information of left and right</span>
+    <span class="c"># children to form the parent node information.</span>
+    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+        <span class="k">pass</span> <span class="c"># Insert the merge code</span>
+
+    <span class="c"># Return the information contained in this node.</span>
+    <span class="k">def</span> <span class="nf">getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span>
+</code></pre>
+</div>
+
+<p>En el caso del range minimum query asignar la información a una hoja es asignarle el valor de la componente y realizar un <code class="highlighter-rouge">merge</code> es tomar el mínimo de la información de los nodos <code class="highlighter-rouge">left</code> y <code class="highlighter-rouge">right</code>.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">assignLeaf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">left</span><span class="o">.</span><span class="n">getInfo</span><span class="p">(),</span> <span class="n">right</span><span class="o">.</span><span class="n">getInfo</span><span class="p">())</span>
+</code></pre>
+</div>
+
+<p>Veremos que para que la eficiencia de las dos operaciones soportadas por el segment tree sea logarítmica las operaciones anteriores deben ser realizadas en tiempo constante, como sucede para este problema.</p>
+
+<h3 id="construcción-del-segment-tree">Construcción del segment tree</h3>
+
+<p>La construcción del segment tree consiste en crear un árbol binario como el de la Imagen 1. Sin embargo, se puede conseguir una implementación más eficiente al darse cuenta de que el árbol binario es completo. Por tanto, podemos almacenarlo en memoria mediante un heap <sup id="fnref:heap"><a href="#fn:heap" class="footnote">2</a></sup>. Esto es, embebemos el árbol en un vector mediante un recorrido por niveles como sucede en la Imagen 2. A cada nodo le corresponde un índice del vector y para estos índices se verifica:</p>
+
+<ol>
+  <li><script type="math/tex">IndiceHijoIzquierda(nodo) =</script> <script type="math/tex">2nodo</script></li>
+  <li><script type="math/tex">IndiceHijoDerecha(nodo) =</script> <script type="math/tex">2nodo+1</script></li>
+</ol>
+
+<p>Estas relaciones nos permiten acceder a los hijos de forma constante. Además, la longitud del vector que representa al segment tree es <script type="math/tex">2n-1</script> donde <script type="math/tex">n</script> es la longitud de <script type="math/tex">V</script>.</p>
+
+<p class="fig"><img src="/blog/images/segment_trees/segment_trees_heap.png" alt="" />
+<strong>Imagen 2.</strong> Segment tree asociado a un vector <script type="math/tex">V</script> de longitud 8 representado como un heap.</p>
+
+<p>Nótese que el subintervalo correspondiente a cada nodo se deduce de su índice, por lo que no es necesario almacenar esta información. Se puede construir el árbol recursivamente. Si el nodo actual es una hoja se obtiene su información mediante el método <code class="highlighter-rouge">assignLeaf</code>. Si no se da este caso, se construyen recursivamente los dos hijos y se obtiene la información para el nodo actual aplicando el método <code class="highlighter-rouge">merge</code> a ambos hijos.</p>
+
+<p>Con el proceso de construcción anterior obtendremos sin problemas el árbol aunque el vector no tenga como tamaño una potencia de dos. En tal caso el árbol resultante puede no ser completo. Por tanto, habrá componentes del heap en memoria sin usar. Esto nos es irrelevante puesto que el tamaño del heap será a lo sumo <script type="math/tex">2m-1</script> donde <script type="math/tex">m</script> es la menor potencia de 2 mayor que <script type="math/tex">n</script> (si extendemos el vector con elementos nulos hasta que tenga longitud <script type="math/tex">m</script> y construimos este heap necesitaremos un vector de longitud <script type="math/tex">2m-1</script>). Por tanto, la memoria utilizada será <script type="math/tex">\theta(n)</script> en cualquier caso.</p>
+
+<p>El siguiente código proporciona un constructor para la clase <code class="highlighter-rouge">SegmentTree</code>.</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SegmentTree</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="c"># Build a segment tree from the given array.</span>
+    <span class="c"># array: Array from which the segment tree is built.</span>
+    <span class="c"># st_index: current segment tree node index.</span>
+    <span class="c"># lo and hi : Range of input array subinterval that this node is responsible of.</span>
+    <span class="k">def</span> <span class="nf">_buildTree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">st_index</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">lo</span> <span class="o">==</span> <span class="n">hi</span><span class="p">:</span>
+            <span class="c"># The node is a leaf responsible of V[lo,lo]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span><span class="o">.</span><span class="n">assignLeaf</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">lo</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c"># The node is not a leaf.</span>
+            <span class="c"># Both children are built and merged afterwards for this node.</span>
+            <span class="n">left</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">st_index</span>
+            <span class="n">right</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_buildTree</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">mid</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_buildTree</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">left</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">right</span><span class="p">])</span>
+
+    <span class="c"># Get the segment tree size for a input of size N.</span>
+    <span class="c"># It compute the smallest 2 to the power of m greater than N.</span>
+    <span class="k">def</span> <span class="nf">_getSegmentTreeSize</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">size</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">:</span>
+            <span class="n">size</span> <span class="o">&lt;&lt;=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">size</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span>
+
+    <span class="c"># Initializes a Segment Tree.</span>
+    <span class="c"># array : Array from which the segment tree is built.</span>
+    <span class="c"># Node : Class that will be used as a segment tree node.</span>
+    <span class="c">#   It obtains the desired information from the array.</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">Node</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SegmentTreeNode</span> <span class="o">=</span>  <span class="n">Node</span>
+        <span class="c"># Segment tree size (number of nodes)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">SegmentTree</span><span class="o">.</span><span class="n">_getSegmentTreeSize</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">))</span>
+        <span class="c"># Heap with the nodes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">SegmentTreeNode</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="n">array</span>
+        <span class="c"># The tree is built</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_buildTree</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Como se construyen menos de <script type="math/tex">4n-1</script> nodos, el proceso anterior es <script type="math/tex">\theta(n \max(a(n), m(n)))</script> donde <script type="math/tex">a(n)</script> es la eficiencia del método <code class="highlighter-rouge">assignLeaf</code> y <script type="math/tex">m(n)</script> es la eficiencia del método <code class="highlighter-rouge">merge</code>.</p>
+
+<p>En el caso del range minimum query la eficiencia obtenida es lineal como se había pronosticado.</p>
+
+<h3 id="operación-1-consultas">Operación 1: Consultas</h3>
+
+<p>Para realizar una consulta debemos encontrar la descomposición de <script type="math/tex">V[i,j]</script> en el menor número posible de nodos del árbol. Esto se puede consequir de forma recursiva. Partimos del nodo raíz. Se distinguen los siguientes casos:</p>
+
+<ol>
+  <li>Si <script type="math/tex">V[i,j]</script> es el subintervalo que corresponde al nodo actual se devuelve la información contenida en el nodo.</li>
+  <li>Si <script type="math/tex">V[i,j]</script> es un subintervalo del subintervalo del hijo izquierda se devuelve el resultado de la búsqueda obtenida para el hijo izquierda.</li>
+  <li>Si <script type="math/tex">V[i,j]</script> es un subintervalo del subintervalo del hijo derecha se devuelve el resultado de la búsqueda obtenida para el hijo derecha.</li>
+  <li>Si <script type="math/tex">V[i,j]</script> tiene elementos en ambos hijos se obtiene el valor de la consulta haciendo un <code class="highlighter-rouge">merge</code> de la información obtenida para el sector relativo al hijo izquierda y el sector relativo al hijo derecha.</li>
+</ol>
+
+<p>El siguiente código realiza la operación descrita:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code>    <span class="c"># Get recursively a SegmentTreeNode with the information associated with the range [lo, hi].</span>
+    <span class="c"># st_index : Current Segment Tree Node. It is responsible of [left, right] range.</span>
+    <span class="k">def</span> <span class="nf">_getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">st_index</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">):</span>
+        <span class="c"># Check if the range is the current node in the tree.</span>
+        <span class="c"># In that case return it.</span>
+        <span class="k">if</span> <span class="n">left</span> <span class="o">==</span> <span class="n">lo</span> <span class="ow">and</span> <span class="n">right</span> <span class="o">==</span> <span class="n">hi</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span>
+
+        <span class="c"># Look for the range in the children of the current node</span>
+        <span class="c"># if it could be just there.</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">lo</span> <span class="o">&gt;</span> <span class="n">mid</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getInfo</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">st_index</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">hi</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getInfo</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">st_index</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
+
+        <span class="c"># If we keep executing the method then the range is divided between</span>
+        <span class="c"># the left child and the right child of the current node. Let's get</span>
+        <span class="c"># each part of the range and merge it.</span>
+        <span class="n">left_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getInfo</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">st_index</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">mid</span><span class="p">)</span>
+        <span class="n">right_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getInfo</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">st_index</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">SegmentTreeNode</span><span class="p">()</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left_result</span><span class="p">,</span> <span class="n">right_result</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="c"># Get the value associated with the range [lo, hi]</span>
+    <span class="k">def</span> <span class="nf">getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">):</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getInfo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<p>Es claro que si el subintervalo es precisamente uno de los que se tienen almacenados en el árbol entonces el tiempo de la consulta es <script type="math/tex">O(\log n)</script>. ¿Qué sucede en cualquier otro caso?</p>
+
+<dl>
+  <dt>Proposición</dt>
+  <dd>El tiempo de consulta para cualquier subintervalo es <script type="math/tex">O(m(n)\log n)</script>, donde <script type="math/tex">m(n)</script> es la eficiencia del método <code class="highlighter-rouge">merge</code>.</dd>
+</dl>
+
+<p><strong>Demostración</strong></p>
+
+<p>La implementación previa consiste en una búsqueda en profundidad pues es más cómoda de programar. Sin embargo, en la prueba es más útil ver el algoritmo como una búsqueda en anchura. Puesto que ambas búsquedas visitarían los mismos nodos, podemos situarnos en esta última. Definimos una iteración del algoritmo como procesar todos los nodos de un nivel <script type="math/tex">t</script> del árbol. Tras una iteración los nodos que quedan activos pertenecen al siguiente nivel del árbol.</p>
+
+<p>Buscamos la información del subintervalo <script type="math/tex">V[i,j]</script>. Podemos observar que de una iteración a otra se mantiene la búsqueda sobre a lo sumo dos nuevos nodos. Además, estos nodos son precisamente aquellos cuyos subinvervalos contienen a las componentes i-ésima y j-ésima respectivamente.</p>
+
+<p>En efecto, esto se prueba por inducción sobre el nivel del árbol en el que nos encontremos:</p>
+
+<ul>
+  <li>Para la raíz (nivel 1) esto es evidente pues el algoritmo, en el peor de los casos, prosigue con los dos hijos.</li>
+  <li>Supongamos cierta la afirmación para el nivel <script type="math/tex">% <![CDATA[
+t < \log_2 n %]]></script> y veamos que se cumple para <script type="math/tex">t+1</script>. Por la hipótesis de inducción, la búsqueda se mantiene a lo sumo en dos nodos. Si no hubiese nodos activos hemos terminado. Si por el contrario solo hubiese un nodo activo el resultado también es evidente (el nodo activo se divide como mucho en dos). Por último, si hay dos nodos activos verificando la hipótesis de inducción se tiene que <script type="math/tex">% <![CDATA[
+i < j %]]></script> (los nodos tienen subintervalos disjuntos). Cada uno de los nodos activos puede dividir la búsqueda como mucho sobre sus dos hijos. Para el nodo izquierda (el que contiene la componente <script type="math/tex">i</script>) se tienen las siguientes opciones:
+    <ul>
+      <li>El subintervalo del nodo está contenido en <script type="math/tex">V[i,j]</script> en cuyo caso se para la búsqueda en esa rama.</li>
+      <li>El subintervalo que buscamos está contenido en el hijo derecha (tiene intersección vacía con el hijo izquierda). En tal caso se añade ese nodo a la búsqueda.</li>
+      <li>El subintervalo que buscamos tiene intersección no vacía con el hijo izquierda. Entonces, este hijo se añade a la búsqueda. El subintervalo del hijo derecha está contenido en <script type="math/tex">V[i,j]</script> (está acotado por <script type="math/tex">i</script> y por <script type="math/tex">j</script>). Por tanto, no hay que continuar la búsqueda con el hijo derecha. Cuando finalice la búsqueda en el hijo izquierda se realizará un <code class="highlighter-rouge">merge</code> entre la información de ambos hijos.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>En cualquier caso, se añade a lo sumo un hijo a la búsqueda. Lo mismo sucede con el nodo que contiene a <script type="math/tex">j</script>, verificándose, por tanto, la afirmación.</p>
+
+<p>Como consecuencia, el número de nodos que se visitan está acotado por <script type="math/tex">4 \log n</script> . A cada nodo visitado le corresponde como mucho una operación de <code class="highlighter-rouge">merge</code>. Por tanto, la consulta es <script type="math/tex">O(m(n)\log n)</script>.</p>
+
+<script type="math/tex; mode=display">\tag*{$\blacksquare$}</script>
+
+<p>Nótese que para <script type="math/tex">V[1,n-2]</script> con <script type="math/tex">n</script> potencia de <script type="math/tex">2</script> se realizan precisamente <script type="math/tex">\Omega(m(n)\log n)</script> operaciones, luego la cota dada para la eficiencia del algoritmo es la mejor posible. Como pronosticábamos, si el <code class="highlighter-rouge">merge</code> es constante entonces la consulta es logarítmica.</p>
+
+<h3 id="operación-2-actualización-de-una-componente-del-vector">Operación 2: Actualización de una componente del vector</h3>
+
+<p>Con la operación anterior ya habríamos resuelto la versión básica del range minimum query. Veamos que también podemos actualizar componentes del vector eficientemente y de forma sencilla.</p>
+
+<p>En primer lugar, habría que actualizar la hoja correspondiente a la componente del vector. Después hay que arreglar los desperfectos que esto haya podido causar a sus antecesores. Para ello habrá que recorrer el camino que une la hoja con la raíz.</p>
+
+<p>La implementación más sencilla de este proceso es recursiva. Realizamos una búsqueda en profundidad desde la raíz hasta la hoja correspondiente que actualizaremos mediante la operación <code class="highlighter-rouge">assignLeaf</code>. Posteriormente, se irán actualizando los antecesores en orden mediante operaciones <code class="highlighter-rouge">merge</code> de sus hijos, que ya están actualizados.</p>
+
+<p>El siguiente código realiza la operación descrita:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code>    <span class="c"># Update the segment tree.</span>
+    <span class="c"># The given value is assigned to the array's component at index place.</span>
+    <span class="c"># The segment tree is updated accordingly in a recursive way.</span>
+    <span class="c"># st_index : Current segment tree node index.</span>
+    <span class="c"># lo and hi : The current range is [lo, hi]</span>
+    <span class="c"># index : Array's component to be updated.</span>
+    <span class="c"># value : New value for the array's component to update.</span>
+    <span class="k">def</span> <span class="nf">_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">st_index</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="c"># If current node is a leaf we have ended the search.</span>
+        <span class="c"># The value information is assigned to the leaf.</span>
+        <span class="k">if</span> <span class="n">lo</span> <span class="o">==</span> <span class="n">hi</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span><span class="o">.</span><span class="n">assignLeaf</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+
+        <span class="c"># If the current node is not a leaf, the search continues recursively</span>
+        <span class="c"># and the current node information is updated afterwards.</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">left</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">st_index</span>
+            <span class="n">right</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="c"># Continue the search by the correct path</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">hi</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+            <span class="c"># Update current node information</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">left</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">right</span><span class="p">])</span>
+
+    <span class="c"># Update the segment tree.</span>
+    <span class="c"># The given value is assigned to the array's</span>
+    <span class="c"># component at index place. The segment tree is updated accordingly.</span>
+    <span class="c"># index : Array's component to be updated.</span>
+    <span class="c"># value : New value for the array's component to update.</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</code></pre>
+</div>
+
+<p>La eficiencia es claramente <script type="math/tex">\theta(m(n) \log n + a(n))</script>.</p>
+
+<p>Una mejor implementación es una versión iterativa del proceso. Comenzamos en la hoja y recorremos el camino desde esta a la raíz usando el siguiente hecho:</p>
+
+<script type="math/tex; mode=display">IndicePadre(nodo) = \frac{nodo}{2}</script>
+
+<p>Si en determinado momento la información de un nodo a actualizar no cambia con el <code class="highlighter-rouge">merge</code> se finaliza algoritmo. Sin embargo, aunque podamos terminar la ejecución antes, la eficiencia en el peor caso sigue siendo <script type="math/tex">\theta(m(n) \log n + a(n))</script>. Se necesitaría, además, un nuevo método <code class="highlighter-rouge">isSameInfo</code> que nos indique si la información que se le pasa como argumento es la misma que la contenida por el nodo. Este método debe ser <script type="math/tex">O(m(n))</script> para que la implementación sea rentable. El siguiente código contiene esta nueva versión del algoritmo:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code>    <span class="c"># Update the segment tree.</span>
+    <span class="c"># The given value is assigned to the array's</span>
+    <span class="c"># component at index place. The segment tree is updated accordingly.</span>
+    <span class="c"># index : Array's component to be updated.</span>
+    <span class="c"># value : New value for the array's component to update.</span>
+    <span class="k">def</span> <span class="nf">update2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">st_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">index</span> <span class="c"># Leaf index</span>
+        <span class="c"># Update leaf and array</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span><span class="o">.</span><span class="n">assignLeaf</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="c"># Update leaf ancestors</span>
+        <span class="n">st_index</span> <span class="o">=</span> <span class="n">st_index</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">while</span> <span class="n">st_index</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c"># Get current info and update it with a merge from the children</span>
+            <span class="n">current_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">st_index</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">st_index</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+            <span class="c"># If the info has not changed then the algorithm ends</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span><span class="o">.</span><span class="n">isSameInfo</span><span class="p">(</span><span class="n">current_info</span><span class="p">):</span>
+                <span class="k">break</span>
+            <span class="c"># Go to node's parent</span>
+            <span class="n">st_index</span> <span class="o">=</span> <span class="n">st_index</span> <span class="o">//</span> <span class="mi">2</span>
+</code></pre>
+</div>
+
+<h2 id="problemas">Problemas</h2>
+
+<p>Los siguientes problemas son útiles para practicar con los segment trees.</p>
+
+<ul>
+  <li>
+    <p>Dado un vector <script type="math/tex">V</script> con <script type="math/tex">N</script> elementos, se pide realizar <script type="math/tex">Q</script> consultas. Cada consulta consiste en obtener la media del subintervalo <script type="math/tex">V[i,j]</script>. Desarrollar un algoritmo para este cometido.</p>
+  </li>
+  <li>
+    <p>Dado un vector <script type="math/tex">V</script> con <script type="math/tex">N</script> elementos, se pide realizar <script type="math/tex">Q</script> consultas. Cada consulta consiste en obtener la suma de los elementos del subintervalo <script type="math/tex">V[i,j]</script>. Encontrar una estructura de datos con preprocesamiento lineal y tiempo de consulta constante (diferente al segment tree) que resuelva el problema. ¿Es válida la solución si en lugar de la suma se utilizase la operación OR lógica de los números en binario? ¿Por qué? Extender el algoritmo a este último caso, estudiar las nuevas eficiencias obtenidas y compararlas con las de una solución basada en segment trees.</p>
+  </li>
+  <li><a href="https://www.hackerrank.com/contests/hindley-milner-feb14/challenges/range-minimum-query">Hackerrank - Functional Programming Contest - Range Minimum Query</a></li>
+  <li>
+    <p><a href="https://www.hackerrank.com/contests/indeed-prime-challenge/challenges/minimum-product-sub-interval">Hackerrank - Minimum Product Subinterval</a></p>
+  </li>
+  <li><a href="http://www.ahmed-aly.com/Category.jsp?ID=25">90 Segment Trees Problems</a></li>
+</ul>
+
+<h2 id="código">Código</h2>
+
+<p>Todo el código proporcionado se encuentra en un único <a href="https://github.com/andreshp/Algorithms/tree/master/DataStructures/SegmentTree">archivo en Python</a>. Una implementación similar se puede encontrar en C++ <sup id="fnref:segment-c"><a href="#fn:segment-c" class="footnote">3</a></sup>.</p>
+
+<h2 id="para-profundizar">Para profundizar</h2>
+
+<p>Los siguientes enlaces profundizan en la temática. Incluyen desde operaciones más avanzadas, como el uso de lazy propagation, hasta la relación del range minimum query con otros problemas, como el lowest common ancestor. Espero tratar estos temas en un futuro próximo.</p>
+
+<ul>
+  <li><a href="https://kartikkukreja.wordpress.com/2015/01/10/a-simple-approach-to-segment-trees-part-2/">A simple approach to segment trees, part 2 - Kartik Kukreja</a></li>
+  <li><a href="https://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=lowestCommonAncestor#Segment_Trees">Range Minimum Query and Lowest Common Ancestor - danielp - TopCoder</a></li>
+</ul>
+
+<h2 id="referencias">Referencias</h2>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:list">
+      <p><a href="https://en.wikipedia.org/wiki/List_of_data_structures">List of Data Structures</a>&nbsp;<a href="#fnref:list" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:heap">
+      <p><a href="https://www.youtube.com/watch?v=B7hVxCmfPtM">Heaps and Heapsort, MIT 6.006 Introduction to Algorithms, Fall 2011</a>&nbsp;<a href="#fnref:heap" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:segment-c">
+      <p><a href="https://kartikkukreja.wordpress.com/2014/11/09/a-simple-approach-to-segment-trees/">A simple approach to segment trees - Kartik Kukreja</a>&nbsp;<a href="#fnref:segment-c" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+        
+
+      
+
+        <!--<div class="share">
+          <a class="dsq-comment-count" href="/blog/2015/07/17/segment-tree/#disqus_thread" data-disqus-identifier="/2015/07/17/segment-tree"></a>
+          <a href="https://twitter.com/intent/tweet?url=http://libreim.github.io/blog/2015/07/17/segment-tree/&text=Segment trees y Range minimum query" class="share-twt" target="_blank"><img alt="Twitter" title="Compartir en Twitter" src="/blog/assets/sq_twitter.png" /></a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://libreim.github.io/blog/2015/07/17/segment-tree/" class="share-fb" target="_blank"><img alt="Facebook" title="Compartir en Facebook" src="/blog/assets/sq_facebook.png" /></a>
+          <a href="http://sharetodiaspora.github.io/?url=http://libreim.github.io/blog/2015/07/17/segment-tree/&title=Segment trees y Range minimum query" class="share-di" target="_blank"><img alt="Diaspora" title="Compartir en Diaspora*" src="/blog/assets/sq_diaspora.png" /></a>
+          <a href="http://www.feedly.com/home#subscription/feed/http://libreim.github.io/blogfeed.xml" class="share-fd" target="_blank"><img alt="Feedly" title="Suscribirse con Feedly" src="/blog/assets/sq_feedly.png" /></a>
+        </div>-->
+
+        
+          <div id="disqus_thread"></div>
+          <script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+     */
+
+    var disqus_config = function () {
+        this.page.url = "http://libreim.github.io/blog/2015/07/17/segment-tree/";
+        this.page.identifier = "/2015/07/17/segment-tree";
+    };
+
+    (function() {  // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+
+        s.src = '//dgiim.disqus.com/embed.js';
+
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+          <noscript>Es necesario activar JavaScript para visualizar los <a href="https://disqus.com/?ref_noscript" rel="nofollow">comentarios de Disqus.</a></noscript>
+        
+      </div>
+    </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-2-5"></div>
+  </div>
+</article>
+
+
+      <footer class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+      <div class="pure-g">
+		<div class="pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
+			<h3>Colaboradores</h3>
+	        <ul>
+				
+					
+					<li><a href="http://github.com/">David Charte</a></li>
+				
+					
+					<li><a href="http://github.com/M42">Mario Román</a></li>
+				
+					
+					<li><a href="http://github.com/mx-psi">Pablo Baeyens</a></li>
+				
+					
+					<li><a href="http://github.com/NCordon">Ignacio Cordón</a></li>
+				
+					
+					<li><a href="http://github.com/andreshp">Andrés Herrera Poyatos</a></li>
+				
+					
+					<li><a href="http://github.com/oxcar103">Óscar Bermúdez</a></li>
+				
+					
+					<li><a href="http://github.com/JJ">Juan Julián Merelo</a></li>
+				
+					
+					<li><a href="http://github.com/makixun">Miguel Anguita</a></li>
+				
+					
+					<li><a href="http://github.com/JCEntrena">José Carlos Entrena</a></li>
+				
+					
+					<li><a href="http://github.com/martaandres">Marta Andrés</a></li>
+				
+					
+					<li><a href="http://github.com/robertohueso">Roberto Hueso</a></li>
+				
+					
+					<li><a href="http://github.com/fjsaezm">Javier Sáez</a></li>
+				
+					
+					<li><a href="http://github.com/jmml97">José María Martín</a></li>
+				
+					
+					<li><a href="http://github.com/danipozodg">Daniel Pozo</a></li>
+				
+					
+					<li><a href="http://github.com/antcc">Antonio Coín</a></li>
+				
+					
+					<li><a href="http://github.com/ludvins">Luis Ortega</a></li>
+				
+					
+					<li><a href="http://github.com/pedrobn23">Pedro Bonilla</a></li>
+				
+					
+					<li><a href="http://github.com/guillegalor">Guillermo Galindo</a></li>
+				
+					
+					<li><a href="http://github.com/rjraya">Rodrigo Raya</a></li>
+				
+					
+					<li><a href="http://github.com/DiegoAsterio">Diego Asterio</a></li>
+				
+	        </ul>
+		</div>
+        <div class="pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
+			<h3>Categorías</h3>
+	        <ul>
+		    	
+		            <li><a href="/blog/categories/#Utilidades">Utilidades</a></li>
+		    	
+		            <li><a href="/blog/categories/#Análisis">Análisis</a></li>
+		    	
+		            <li><a href="/blog/categories/#Programación">Programación</a></li>
+		    	
+		            <li><a href="/blog/categories/#Álgebra">Álgebra</a></li>
+		    	
+		            <li><a href="/blog/categories/#Ciencia de datos">Ciencia de datos</a></li>
+		    	
+		            <li><a href="/blog/categories/#Heurísticas">Heurísticas</a></li>
+		    	
+		            <li><a href="/blog/categories/#Problemas">Problemas</a></li>
+		    	
+		            <li><a href="/blog/categories/#Lógica">Lógica</a></li>
+		    	
+		            <li><a href="/blog/categories/#Linux">Linux</a></li>
+		    	
+		            <li><a href="/blog/categories/#Estructuras de Datos">Estructuras de datos</a></li>
+		    	
+		            <li><a href="/blog/categories/#General">General</a></li>
+		    	
+	        </ul>
+		</div>
+        <div class="pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
+        <br></br>
+             <a href="http://osl.ugr.es"><img src="http://osl.ugr.es/logo-osl.png" alt="Logo Oficina de Software Libre de la Universidad de Granada" style="width:200px" /></a>
+             <br></br>
+             Puedes ver este sitio gracias a la ayuda de la OSL-UGR
+         <br></br>
+			<h3>Licencia</h3>
+			<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/80x15.png" /></a><br />
+			El contenido de este blog, salvo que se explicite lo contrario, está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</a>.
+		</div>
+      </div>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+</footer>
+
+
+      <script id="dsq-count-scr" src="//dgiim.disqus.com/count.js" async></script>
+   </body>
+</html>
