@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+      <!--link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/menus-min.css" /-->
+      <link rel="stylesheet" type="text/css" href="/assets/fonts/css/iconim.css" />
+      <link rel="stylesheet" type="text/css" href="/assets/css/default.css" />
+      <link rel="stylesheet" type="text/css" href="/assets/css/pygments-friendly.css" />
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="/assets/feed.xml" />
+
+      <!-- Favicon -->
+      <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="160x160" href="/assets/images/favicon-160.png">
+    	<meta name="msapplication-TileColor" content="#FFFFFF">
+    	<meta name="msapplication-TileImage" content="/assets/images/favicon-160.png">
+      <meta name="theme-color" content="#6789ab">
+
+      <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+      <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      <script type="text/javascript">
+         WebFont.load({
+            google: {
+               families: ["Lato:400,300,700,400italic:latin", "Source+Code+Pro:400,700:latin"]
+            }
+         });
+      </script>
+      <script type="text/javascript">
+            MathJax.Hub.Config({
+               tex2jax: {
+                  inlineMath: [],
+                  displayMath: [],
+               }
+            });
+      </script>
+      <title>Guía de estilo - libreim</title>
+   </head>
+   <body class="">
+      <header>
+  <div class="pure-menu pure-menu-horizontal pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+      <input type="checkbox" id="show-menu">
+      <label class="hamburger" for="show-menu"></label>
+      <div class="sites">
+        <a href="/" class="pure-menu-link" title="Inicio">Inicio</a>
+        <a href="/blog/" class="pure-menu-link" title="Inicio">Blog</a>
+        <a href="/recursos/" class="pure-menu-link" title="Awesome">Recursos</a>
+        <a href="/contributing/" class="pure-menu-link" title="Participa">Participa</a>
+      </div>
+      <a href="/" class="site-title pure-menu-heading">&nbsp;</a>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+  </div>
+</header>
+
+      <div class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+  <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-3-5">
+    <article class="container" lang="es">
+      
+<div class="category">
+  meta
+</div>
+
+
+
+
+
+<h1>
+  
+  <a href="/styleguide/">
+    Guía de estilo
+  </a>
+  
+</h1>
+
+
+
+
+
+<div class="post-data">
+  
+  
+  
+   
+  <span class="author">fdavidcl</span>
+  
+  
+
+  
+  
+  <a class="date" href="/styleguide/">
+    
+  </a>
+  <a class="dsq-comment-count comments" href="/styleguide/#disqus_thread" data-disqus-identifier="">
+
+  </a>
+</div>
+
+<div class="post-content">
+
+  <p>Esta guía recoge algunos consejos sobre el estilo a seguir
+a la hora de escribir un post, y además podrá servir de <a href="https://raw.githubusercontent.com/libreim/blog/site/guia-de-estilo.md">plantilla</a>.</p>
+
+<h2 id="datos-del-post">Datos del post</h2>
+<p>Los datos del post forman la cajita que debe aparecer al principio
+de cada publicación. No serán interpretados por el procesador
+Markdown sino por Jekyll, para poder incrustar el post en la página
+web correcta y añadir los datos necesarios:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>---
+layout: post
+title: Guía de estilo
+authors:
+ - fdavidcl
+category: meta
+---
+</code></pre>
+</div>
+
+<p>Algunas aclaraciones:</p>
+
+<ul>
+  <li>El <code class="highlighter-rouge">layout</code> debe ser siempre <code class="highlighter-rouge">post</code>. Existen otros layouts
+ para otras páginas, pero no para los posts.</li>
+  <li>El título debe ser conciso y son preferibles los sustantivos a
+ los verbos (por ejemplo, mejor “<em>Introducción a Javascript</em>” que
+  “<em>Cómo programar en Javascript</em>” y que “<em>Una introducción a la
+  programación en el lenguaje Javascript</em>”). No debe acabar en
+  punto, aunque si tiene varias frases se pueden separar por
+  puntos. Por ejemplo, “<em>Introducción a Javascript. Programación
+  con prototipos</em>”.</li>
+  <li>El autor es el identificador que hayáis añadido a
+ <a href="https://github.com/libreim/blog/blob/site/_config.yml"><code class="highlighter-rouge">_config.yml</code></a>.
+ Si aún no tenéis un identificador, añadidlo.</li>
+  <li>En <code class="highlighter-rouge">category</code> solo puede haber una categoría. Debe ser más genérica
+ que el tema que trate el post, pero no tanto como <em>informática</em>. Se
+ pueden (y se deben) poner acentos.</li>
+</ul>
+
+<p>También es un dato del post el nombre del archivo, que será del tipo
+<code class="highlighter-rouge">2014-5-17-guia-de-estilo.md</code>. De él se extraerá la fecha y el enlace
+permanente del post, así que no lo hagais largo (en general debe
+    contener las palabras más importantes del título) y separad por
+    guiones y no por mayúsculas. No introduzcáis símbolos ni acentos
+    (números sí son válidos).</p>
+
+<dl>
+  <dt>Nota</dt>
+  <dd>Es importante que la codificación del archivo sea <em>UTF-8
+sin BOM</em>. Si escribís en Linux la codificación <em>UTF-8</em> bastará.</dd>
+</dl>
+
+<h2 id="contenido-del-post">Contenido del post</h2>
+
+<h3 id="introducción-al-tema">Introducción al tema</h3>
+<p>Si el post va a ser muy largo, queremos que aparezca sólo el comienzo en la página principal, para que no se haga demasiado larga. En ese caso, después de una breve introducción al post, se escribe <code class="highlighter-rouge">&lt;!--more--&gt;</code> para que se corte el post en ese lugar en la página principal.</p>
+
+<h3 id="texto-y-formato">Texto y formato</h3>
+<p>No hace falta decir que cuidéis la ortografía y
+la gramática :). Si usáis un editor con vista previa de Markdown
+(como <a href="http://www.webupd8.org/2014/05/install-atom-text-editor-in-ubuntu-via-ppa.html">Atom</a>,
+o <a href="https://stackedit.io/">StackEdit</a>) mejor que mejor, así no hay
+problemas de formato tampoco. Pero no os paséis con el formato. Reservad
+la negrita para cosas muy importantes, nunca destaquéis párrafos enteros.</p>
+
+<dl>
+  <dt>Nota</dt>
+  <dd>Hay algunas diferencias entre el intérprete de Markdown del
+blog y el de Atom/Github. En general, el del blog es más estricto con las
+líneas en blanco. Añadid siempre líneas en blanco para separar elementos
+y párrafos de cualquier otra cosa (listas, código, etc.).</dd>
+</dl>
+
+<h4 id="teoremas-definiciones">Teoremas, definiciones</h4>
+<p>Usad la siguiente notación para denotar teoremas, lemas, definiciones y
+todo lo que tenga un “enunciado”:</p>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>
+Teorema
+: No existen números naturales mayores que 7.
+</code></pre>
+</div>
+
+<dl>
+  <dt>Teorema</dt>
+  <dd>No existen números naturales mayores que 7.</dd>
+</dl>
+
+<h4 id="referencias">Referencias</h4>
+<p>Para añadir referencias lo podemos hacer mediante notas a pie de página.
+Kramdown incluye una sintaxis específica para esta tarea<sup id="fnref:kram"><a href="#fn:kram" class="footnote">1</a></sup>:</p>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>Kramdown incluye una sintaxis específica para esta tarea<span class="p">[</span><span class="nv">^kram</span><span class="p">]</span>
+
+<span class="p">[</span><span class="ss">^kram</span><span class="p">]:</span> <span class="sx">[Kramdown</span> Syntax - Footnotes](http://kramdown.gettalong.org/syntax.html#footnotes)
+</code></pre>
+</div>
+
+<dl>
+  <dt>Nota</dt>
+  <dd>¡Usad un identificador suficientemente descriptivo para la referencia!
+Jekyll no distingue entre referencias de posts distintos por lo que
+si dos referencias tienen el mismo identificador se generarán enlaces que
+llevarán a una de ellas nada más.</dd>
+</dl>
+
+<p>En general trataremos de seguir el siguiente formato para las referencias
+de libros:</p>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>Libro, Autor - Sección (página NN)
+</code></pre>
+</div>
+
+<p>y este para las referencias a sitios web:</p>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="nv">Página web</span><span class="p">](</span><span class="sx">http://example.org</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Si no tenéis un sitio concreto para ubicar la marca de referencia, añadid
+una frase al final al estilo de:</p>
+
+<p>Más información <sup id="fnref:camino"><a href="#fn:camino" class="footnote">2</a></sup>, <sup id="fnref:mathandp"><a href="#fn:mathandp" class="footnote">3</a></sup></p>
+
+<h3 id="títulos-y-secciones">Títulos y secciones</h3>
+<p>Tenéis disponibles los títulos desde el nivel 2 (<code class="highlighter-rouge">##</code>) hasta nivel 6
+(<code class="highlighter-rouge">######</code>), aunque no os recomendaría usar tantos niveles. El nivel 1
+se utiliza automáticamente para el título del
+post. De nuevo, no escribáis un punto al final de un título. Evitad
+utilizar cualquier otro tipo de separación entre apartados, no uséis
+líneas horizontales (<code class="highlighter-rouge">* * *</code>) ni otro tipo de marcas. Si véis que la
+estructura de los posts no es suficientemente visible, mandadme un
+mensaje y mejoro el estilo de los títulos de sección.</p>
+
+<dl>
+  <dt>Nota</dt>
+  <dd>El procesador de Markdown del blog requiere una línea en
+blanco antes de cada título.</dd>
+</dl>
+
+<p>Ejemplos:</p>
+
+<h2 id="título-2">Título 2</h2>
+
+<h3 id="título-3">Título 3</h3>
+
+<h4 id="título-4">Título 4</h4>
+
+<h5 id="título-5">Título 5</h5>
+
+<h6 id="título-6">Título 6</h6>
+
+<h3 id="el-código">El código</h3>
+<p>Para escribir código tenemos dos sintaxis. o bien dejar 4 espacios de
+margen, como el siguiente ejemplo</p>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>    def codigo_en_ruby
+      "Una prueba"
+    end
+</code></pre>
+</div>
+<p>que genera</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>def codigo_en_ruby
+  "Una prueba"
+end
+</code></pre>
+</div>
+
+<p>o bien utilizar las marcas <code class="highlighter-rouge">~~~</code>, y además podemos especificar el
+lenguaje mediante una clase:</p>
+
+<div class="markdown highlighter-rouge"><pre class="highlight"><code>~~~
+def codigo_en_ruby
+  "Una prueba"
+end
+~~~
+{: .ruby}
+</code></pre>
+</div>
+
+<p>que genera</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">codigo_en_ruby</span>
+  <span class="s2">"Una prueba"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<h3 id="las-matemáticas">Las matemáticas</h3>
+<p>Para incrustar ecuaciones en <script type="math/tex">\LaTeX</script>, hay que hacerlo entre dobles dólares
+tanto para las ecuaciones en línea como centradas (se diferencian según vayan
+en un párrafo de texto o no). Ejemplos:</p>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>...genera $$E = mc^2$$, ...
+</code></pre>
+</div>
+
+<p>genera <script type="math/tex">E = mc^2</script>, y</p>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>
+$$ <span class="se">\s</span>qrt<span class="p">[</span><span class="nv">n</span><span class="p">]</span>{x_1x_2 <span class="se">\d</span>ots x_n} <span class="se">\l</span>eq <span class="se">\f</span>rac{x_1+x_2+<span class="se">\d</span>ots+x_n}{n} $$
+
+</code></pre>
+</div>
+
+<script type="math/tex; mode=display">\sqrt[n]{x_1x_2 \dots x_n} \leq \frac{x_1+x_2+\dots+x_n}{n}</script>
+
+<dl>
+  <dt>Nota</dt>
+  <dd>Es importante que haya una línea en blanco encima y debajo de las ecuaciones
+centradas, de forma que se construya un párrafo nuevo único para la ecuación.
+
+    <p>Además, al parecer kramdown tiene problemas con el carácter <code class="highlighter-rouge">|</code> y debemos
+sustituirlo por <code class="highlighter-rouge">\vert</code>.</p>
+  </dd>
+</dl>
+
+<h3 id="figuras">Figuras</h3>
+
+<p>Para incluir imágenes o figuras en el post, se pueden subir imágenes en la
+carpeta <a href="https://github.com/libreim/blog/tree/site/images">images</a>, y crear
+una figura en el post con la siguiente sintaxis:</p>
+
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>{: .fig}
+!<span class="err">[</span>]({{ site.baseurl }}/images/camino_a_la_imagen.png)  
+<span class="gs">**Figura 1.**</span> Pie de la figura
+</code></pre>
+</div>
+
+<p>El ancho de la figura se puede ajustar sustituyendo <code class="highlighter-rouge">.fig</code> por <code class="highlighter-rouge">.med.fig</code> para
+una figura mediana o <code class="highlighter-rouge">.small.fig</code> para una figura pequeña.</p>
+
+<p class="fig med"><img src="https://placekitten.com/g/600/600" alt="" />
+<strong>Figura 1.</strong> Figura de ejemplo</p>
+
+<dl>
+  <dt>Nota</dt>
+  <dd>Es recomendable insertar dos espacios después de la imagen (<code class="highlighter-rouge">![](...)  </code>) para
+asegurar que el pie aparezca en la línea de debajo de la imagen.</dd>
+</dl>
+
+<h3 id="emoticonos-y-menciones">Emoticonos y menciones</h3>
+<p>Jekyll permite incluir <a href="https://help.github.com/articles/using-jekyll-plugins-with-github-pages/">algunos</a>
+plugins. En el blog, tenemos habilitados dos de ellos:</p>
+
+<ul>
+  <li>
+    <p><a href="https://help.github.com/articles/emoji-on-github-pages/"><strong>Jemoji</strong></a>: Permite incluir emoticonos:exclamation::exclamation:. Puedes ver
+la lista completa de emoticonos junto con sus códigos <a href="http://www.emoji-cheat-sheet.com/">aquí</a>.</p>
+  </li>
+  <li>
+    <p><a href="https://help.github.com/articles/mentions-on-github-pages/"><strong>Menciones</strong></a> Puedes mencionar a
+otros usuarios de Github añadiendo una @ al principio del <em>username</em>: @pbaeyens. Esto añadirá un enlace
+a su página de Github.</p>
+  </li>
+</ul>
+<div class="footnotes">
+  <ol>
+    <li id="fn:kram">
+      <p><a href="http://kramdown.gettalong.org/syntax.html#footnotes">Kramdown Syntax</a>&nbsp;<a href="#fnref:kram" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:camino">
+      <p>Constant Mean Curvature Surfaces with Boundary, Rafael López Camino -  The Dirichlet Problem in Hyperbolic Space&nbsp;<a href="#fnref:camino" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:mathandp">
+      <p><a href="http://jeremykun.com/">Math and Programming</a>&nbsp;<a href="#fnref:mathandp" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+
+  
+
+  
+  <p class="post-editors">
+    
+    Ha colaborado en este artículo: pbaeyens
+  </p>
+  
+
+  <div class="post-data">
+    <p class="tag-list">
+      <i class="icon icon-tags"></i>
+      
+      
+      
+      <span class="em">(sin etiquetas)</span>
+      
+    </p>
+  </div>
+
+</div>
+
+
+
+    </article>
+  </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-1-5"></div>
+</div>
+
+      <footer class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+  <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+    <div class="pure-g">
+      <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2 align-right">
+	<h3>Licencia</h3>
+	<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/80x15.png" /></a><br />
+	  El contenido de este sitio, salvo que se explicite lo contrario, está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</a>.</p>
+
+        <p>Cada recurso aquí enlazado puede tener copyright con o sin una licencia libre asociada. Por favor respeta la autoría del material y no distribuyas los contenidos salvo que la licencia lo autorice.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+</footer>
+
+
+      <!--script id="dsq-count-scr" src="//dgiim.disqus.com/count.js" async></script-->
+   </body>
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+      <!--link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/menus-min.css" /-->
+      <link rel="stylesheet" type="text/css" href="/assets/fonts/css/iconim.css" />
+      <link rel="stylesheet" type="text/css" href="/assets/css/default.css" />
+      <link rel="stylesheet" type="text/css" href="/assets/css/pygments-friendly.css" />
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="/assets/feed.xml" />
+
+      <!-- Favicon -->
+      <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="160x160" href="/assets/images/favicon-160.png">
+    	<meta name="msapplication-TileColor" content="#FFFFFF">
+    	<meta name="msapplication-TileImage" content="/assets/images/favicon-160.png">
+      <meta name="theme-color" content="#6789ab">
+
+      <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+      <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      <script type="text/javascript">
+         WebFont.load({
+            google: {
+               families: ["Lato:400,300,700,400italic:latin", "Source+Code+Pro:400,700:latin"]
+            }
+         });
+      </script>
+      <script type="text/javascript">
+            MathJax.Hub.Config({
+               tex2jax: {
+                  inlineMath: [],
+                  displayMath: [],
+               }
+            });
+      </script>
+      <title>Blog - libreim</title>
+   </head>
+   <body class="">
+      <header>
+  <div class="pure-menu pure-menu-horizontal pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+      <input type="checkbox" id="show-menu">
+      <label class="hamburger" for="show-menu"></label>
+      <div class="sites">
+        <a href="/" class="pure-menu-link" title="Inicio">Inicio</a>
+        <a href="/blog/" class="pure-menu-link" title="Inicio">Blog</a>
+        <a href="/recursos/" class="pure-menu-link" title="Awesome">Recursos</a>
+        <a href="/contributing/" class="pure-menu-link" title="Participa">Participa</a>
+      </div>
+      <a href="/" class="site-title pure-menu-heading">&nbsp;</a>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+  </div>
+</header>
+
+      <div class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+  <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-3-5">
+    <article class="container" lang="es">
+      <div class="pure-g">
+  <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-2-3">
+
+    
+
+    
+    
+
+    <article class="post">
+      
+      <div class="category">
+        
+        Programación
+        
+      </div>
+      
+      <h1>
+        <a href="/blog/2016-09-19-aprendiendo-emacs/">
+          Aprendiendo Emacs
+        </a>
+      </h1>
+      
+      <span class="post-data">
+        
+         
+        <span class="author">M42</span>
+        
+
+        
+        
+        <a class="date" href='/blog/2016-09-19-aprendiendo-emacs/'><time datetime='2016-09-19'>19/09/2016</time></a>
+      </span>
+      <h2 id="emacs">Emacs</h2>
+
+<p><a href="https://www.gnu.org/software/emacs/"><strong>Emacs</strong></a> es un editor de texto
+construido sobre un intérprete del lenguaje
+<a href="https://es.wikipedia.org/wiki/Emacs_Lisp"><strong>Elisp</strong></a> para hacerlo extensible. Cada acción
+del editor constituye un comando sobre el intérprete, por lo que podemos reescribir sus
+comandos o crear nuevos comandos simplemente programando sobre el intérprete.</p>
+
+<figure class="fig med">
+  <a href="/assets/images/blog/emacs.png" title="Ver imagen completa">
+    <img src="/assets/images/blog/emacs.png" />
+  </a>
+  Emacs editando este mismo artículo
+</figure>
+
+<p>Emacs sirve como IDE para la mayoría de lenguajes de programación, como
+editor para programación literaria y ciencia reproducible; se integra con git y
+con el sistema de archivos, y tiene extensiones disponibles para usarse como
+aplicación para organizar listas de tareas, leer el correo o servir como hoja
+de cálculo.</p>
+
+<blockquote>
+  <p>I use Emacs, which might be thought of as a thermonuclear word processor.</p>
+
+  <p>– <strong>Neal Stephenson</strong>, <em>In the Beginning… was the command line.</em></p>
+</blockquote>
+
+<p>En este artículo haré una referencia breve a todo lo que me ha ido sirviendo
+para aprender Emacs mientras enlazo a fuentes que tratan cada uno de los temas
+más extensamente. Como recursos generales para aprender Emacs, puedo recomendar:</p>
+
+<ul>
+  <li><a href="https://www.youtube.com/playlist?list=PLxj9UAX4Em-IiOfvF2Qs742LxEK4owSkr"><strong>.Emacs Tutorials</strong></a>
+de <em>jekor</em>, explican todo lo necesario para aprender
+Emacs en 10 videotutoriales que pueden seguirse progresivamente.</li>
+  <li><a href="https://www.youtube.com/playlist?list=PL8tzorAO7s0he-pp7Y_JDl7-Kz2Qlr_Pj"><strong>Emacs Meetups</strong></a>
+de Thoughtbot, que profundizan sobre temas concretos de uso
+de Emacs.</li>
+  <li><a href="http://emacsrocks.com/"><strong>Emacs Rocks</strong></a>, vídeos breves sobre casos concretos de uso de Emacs.</li>
+  <li><a href="https://www.emacswiki.org/emacs/SiteMap"><strong>Emacs wiki</strong></a>, una wiki que documenta
+todo lo relacionado con Emacs.</li>
+  <li><a href="http://sachachua.com/blog/category/geek/emacs/"><strong>sachachua.com</strong></a>,
+donde se hace referencia periódicamente a noticias
+de Emacs, y tiene escritas hojas de referencia de atajos de teclado de Emacs.</li>
+  <li><a href="http://cestlaz.github.io/stories/emacs/"><strong>C’est la z</strong></a>, otro blog en el que se tratan temas relacionados con Emacs.</li>
+  <li><a href="https://www.gnu.org/software/emacs/manual/"><strong>GNU Emacs</strong></a>, la documentación oficial de Emacs.</li>
+  <li><a href="https://elbauldelprogramador.com/chuleta-atajos-teclado-emacs/"><strong>El baúl del programador</strong></a> ha empeazado
+una recopilación colaborativa de los comandos y paquetes más útiles para Emacs.</li>
+</ul>
+
+<p><a href="/blog/2016-09-19-aprendiendo-emacs/">Seguir leyendo...</a></p>
+    </article>
+    
+
+    
+    
+
+    <article class="post">
+      
+      <div class="category">
+        
+        Análisis
+        
+      </div>
+      
+      <h1>
+        <a href="/blog/2016-07-22-apuntes-de-introduccion-al-calculo/">
+          Apuntes de introducción al cálculo
+        </a>
+      </h1>
+      
+      <span class="post-data">
+        
+         
+        <span class="author">ncordon</span>
+        
+
+        
+        
+        <a class="date" href='/blog/2016-07-22-apuntes-de-introduccion-al-calculo/'><time datetime='2016-07-22'>22/07/2016</time></a>
+      </span>
+      <p>Presentamos el código fuente de un libro completo de Cálculo escrito por D. Francisco Javier Pérez González, profesor
+del departamento de Análisis Matemático de la Universidad de Granada, que sirve como una maravillosa
+introducción al Análisis y al razonamiento matemático. Los apuntes están escritos en Latex y licenciados en
+Creative Commons BY-NC-SA.</p>
+
+<p>Queremos agradecérselos a D. Javier Pérez,
+que nos proporcionó el código de sus apuntes para que pudiésemos publicarlo, y que ha ayudado a hacer del
+conocimiento algo libre y accesible a sus alumnos. En su <a href="http://www.ugr.es/~fjperez/">página web</a>
+se puede encontrar mucho más material dedicado al análisis matemático, como series de
+Fourier, variable compleja o análisis en <script type="math/tex">\mathbb{R}^n</script>.</p>
+
+<p>Está disponible <a href="https://github.com/libreim/calculo/releases/download/apuntes/calculo.pdf">el libro completo en formato PDF</a> y el código fuente lo alojamos en <a href="https://github.com/libreim/calculo">este repositorio en GitHub</a>.</p>
+
+    </article>
+    
+
+    
+    
+
+    <article class="post">
+      
+      <div class="category">
+        
+        Álgebra
+        
+      </div>
+      
+      <h1>
+        <a href="/blog/2016-01-08-teoria-de-tipos/">
+          Teoría de tipos
+        </a>
+      </h1>
+      
+      <span class="post-data">
+        
+         
+        <span class="author">M42</span>
+        
+
+        
+        
+        <a class="date" href='/blog/2016-01-08-teoria-de-tipos/'><time datetime='2016-01-08'>08/01/2016</time></a>
+      </span>
+      <p>Los sistemas de tipos tienen su utilidad en las matemáticas. Sirven para modelar
+una fundamentación de las matemáticas distinta de la usual fundamentación
+conjuntista; y tienen varias aplicaciones interesantes en lenguajes funcionales
+y asistentes de demostración. En particular, sobre los tipos se puede definir un
+álgebra y se pueden representar sistemas lógicos. Vamos a tratar esas
+aplicaciones referenciando en cada caso artículos donde se exponen en profundidad.</p>
+
+<h2 id="inducción-estructural">Inducción estructural</h2>
+
+<p>La inducción estructural es una generalización de la inducción usual sobre los
+naturales que la extiende a otras estructuras representables como tipos de un
+lenguaje funcional. Sobre la inducción estructural hemos escrito previamente en el blog una
+introducción:</p>
+
+<ul>
+  <li><a href="//libreim.github.io/blog/2015/03/14/induccion-estructural/">Inducción Estructural - Blog LibreIM</a></li>
+</ul>
+
+<p>En ese post se escriben ejemplos sobre los naturales y los
+árboles. El artículo sobre el que se basa es:</p>
+
+<ul>
+  <li><a href="http://math.blogoverflow.com/2015/03/10/when-can-we-do-induction/">When can we do induction? - math.blogoverflow</a></li>
+</ul>
+
+<p>Ejemplos y más detalles sobre inducción estructural y sus usos pueden
+encontrarse en:</p>
+
+<ul>
+  <li><a href="http://www.cs.cmu.edu/~me/212/handouts/structural.pdf">Some notes on Structural Induction - Michael Erdmann</a></li>
+  <li><a href="http://arxiv.org/pdf/1312.2696.pdf">Structural Induction Principles for Functional Programmers - James Caldwell</a></li>
+</ul>
+
+<p>Y varias demostraciones por inducción estructural implementadas en Coq en este
+repositorio sobre <a href="https://github.com/M42/recorridosArboles"><strong>recorridos en árboles</strong></a>.
+<p><a href="/blog/2016-01-08-teoria-de-tipos/">Seguir leyendo...</a></p>
+    </article>
+    
+
+    
+    
+
+    <article class="post">
+      
+      <div class="category">
+        
+        General
+        
+      </div>
+      
+      <h1>
+        <a href="/blog/2015-09-10-primero/">
+          Guía para primero
+        </a>
+      </h1>
+      
+      <span class="post-data">
+        
+         
+        <span class="author">M42</span>
+        
+         y 
+        <span class="author">fdavidcl</span>
+        
+
+        
+        
+        <a class="date" href='/blog/2015-09-10-primero/'><time datetime='2015-09-10'>10/09/2015</time></a>
+      </span>
+      <p><em>Actualizada a 30 de julio de 2016.</em></p>
+
+<p>Esta es una guía orientada al nuevo estudiante del doble grado, escrita con la intención
+de ahorrarle el largo camino que el resto de alumnos hemos seguido hasta asentar
+una manera de trabajar y estudiar eficiente. La escribimos pensando en el
+artículo que nos hubiera gustado leer al empezar la carrera y la publicamos a
+principios de septiembre, justo con ese propósito en mente.</p>
+
+<h2 id="pero-no-me-basta-con-lo-que-me-enseñen-en-la-universidad">Pero, ¿no me basta con lo que me enseñen en la universidad?</h2>
+
+<p>Sí, el temario de las asignaturas que vas a cursar es el necesario para
+aprobarlas. Puedes pasar todo este texto por alto y seguir sacando buena nota.
+Todo lo que te vamos a contar a continuación va dirigido a que
+puedas organizar mejor tu trabajo, ahorrar mucho tiempo y evitarte pequeños
+desastres. Probablemente, llegarías tú mismo a estas conclusiones después de un tiempo
+en la carrera; sólo vamos a acelerar ese proceso. Además, la mayoría de las
+herramientas que destacamos seguro que acabarás teniendo que usarlas en algún
+momento, como estudiante o en tu carrera
+profesional, así que mejor que cojas algo de práctica antes.</p>
+
+<p>Esto probablemente no sea suficiente. Durante la carrera habrá
+momentos en los que tendrás que buscarte la vida y encontrar más formas de
+conseguir información, realizar alguna tarea, etc. Tendrás también que aprender a buscar
+bibliografía y otras herramientas por tu propia cuenta.</p>
+
+<p><a href="/blog/2015-09-10-primero/">Seguir leyendo...</a></p>
+    </article>
+    
+
+    
+    
+
+    <article class="post">
+      
+      <div class="category">
+        
+        Programación
+        
+      </div>
+      
+      <h1>
+        <a href="/blog/2015-08-24-ruby-enumerators/">
+          Iterating in Ruby: Enumerable and Enumerators
+        </a>
+      </h1>
+      
+      <span class="post-data">
+        
+         
+        <span class="author">fdavidcl</span>
+        
+
+        
+        
+        <a class="date" href='/blog/2015-08-24-ruby-enumerators/'><time datetime='2015-08-24'>24/08/2015</time></a>
+      </span>
+      <p>The syntax of a programming language is one of the key points when it comes to
+the difficulty in its learning process. Here we examine the traditional syntaxes
+for iterating through a collection of any type, and place them face to face with a
+newer, more semantic one based on objects called Enumerators.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Let’s imagine we’ve got a collection of items, such as an array, a hash or a
+set. We may want to be able to iterate through all its elements, either with
+a determinate order or without it. To achieve this task in most programming
+languages we usually resort to loop structures, for example a <em>for</em> loop.
+In this case, we will need to use a special syntax in order to
+describe the conditions in which the iterations will be made. For example, in
+a C-like language:</p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr_size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Code goes here
+</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p><a href="/blog/2015-08-24-ruby-enumerators/">Seguir leyendo...</a></p>
+    </article>
+    
+
+    <nav class="pagination pure-g">
+<!--  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+
+  <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-2-5">
+    <div class="pure-g">-->
+      <div class="paginator pure-u-1-3 pure-u-md-1-3 pure-u-lg-2-5">
+        
+          
+            <a href="/blog" class="arrow">&larr;</a>
+          
+        
+      </div>
+      <div class="paginator pure-u-1-3 pure-u-md-1-3 pure-u-lg-1-5">
+        <span class="page-number">Página 2 de 6</span>
+        
+        <span class="archive-link"><a href="/archive">Todos los posts</a></span>
+        
+      </div>
+      <div class="paginator pure-u-1-3 pure-u-md-1-3 pure-u-lg-2-5">
+        
+          <a href="/blog/page/3/" class="next arrow">&rarr;</a>
+        
+      </div>
+    <!--</div>
+  </div>
+
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-2-5"></div>-->
+</nav>
+
+
+  </div>
+  <div class="pure-u-1 pure-u-md-1-24 pure-u-lg-1-24"></div>
+  <div class="pure-u-1 pure-u-md-7-24 pure-u-lg-7-24">
+<!--
+    <h3>Categorías</h3>
+    <ul class="tag-tree level-1">
+
+      
+      
+      <li>
+        <a href="/t/Análisis">Análisis</a>
+      </li>
+      
+      <li>
+        <a href="/t/Ciencia de datos">Ciencia de datos</a>
+      </li>
+      
+      <li>
+        <a href="/t/Estructuras de Datos">Estructuras de Datos</a>
+      </li>
+      
+      <li>
+        <a href="/t/General">General</a>
+      </li>
+      
+      <li>
+        <a href="/t/Heurísticas">Heurísticas</a>
+      </li>
+      
+      <li>
+        <a href="/t/Linux">Linux</a>
+      </li>
+      
+      <li>
+        <a href="/t/Lógica">Lógica</a>
+      </li>
+      
+      <li>
+        <a href="/t/Problemas">Problemas</a>
+      </li>
+      
+      <li>
+        <a href="/t/Programación">Programación</a>
+      </li>
+      
+      <li>
+        <a href="/t/Utilidades">Utilidades</a>
+      </li>
+      
+      <li>
+        <a href="/t/Álgebra">Álgebra</a>
+      </li>
+      
+    </ul>
+-->
+  </div>
+</div>
+
+    </article>
+  </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-1-5"></div>
+</div>
+
+      <footer class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+  <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+    <div class="pure-g">
+      <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2 align-right">
+	<h3>Licencia</h3>
+	<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/80x15.png" /></a><br />
+	  El contenido de este sitio, salvo que se explicite lo contrario, está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</a>.</p>
+
+        <p>Cada recurso aquí enlazado puede tener copyright con o sin una licencia libre asociada. Por favor respeta la autoría del material y no distribuyas los contenidos salvo que la licencia lo autorice.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+</footer>
+
+
+      <!--script id="dsq-count-scr" src="//dgiim.disqus.com/count.js" async></script-->
+   </body>
+</html>

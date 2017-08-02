@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+      <!--link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/menus-min.css" /-->
+      <link rel="stylesheet" type="text/css" href="/assets/fonts/css/iconim.css" />
+      <link rel="stylesheet" type="text/css" href="/assets/css/default.css" />
+      <link rel="stylesheet" type="text/css" href="/assets/css/pygments-friendly.css" />
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="/assets/feed.xml" />
+
+      <!-- Favicon -->
+      <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="160x160" href="/assets/images/favicon-160.png">
+    	<meta name="msapplication-TileColor" content="#FFFFFF">
+    	<meta name="msapplication-TileImage" content="/assets/images/favicon-160.png">
+      <meta name="theme-color" content="#6789ab">
+
+      <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+      <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      <script type="text/javascript">
+         WebFont.load({
+            google: {
+               families: ["Lato:400,300,700,400italic:latin", "Source+Code+Pro:400,700:latin"]
+            }
+         });
+      </script>
+      <script type="text/javascript">
+            MathJax.Hub.Config({
+               tex2jax: {
+                  inlineMath: [],
+                  displayMath: [],
+               }
+            });
+      </script>
+      <title>Blog - libreim</title>
+   </head>
+   <body class="">
+      <header>
+  <div class="pure-menu pure-menu-horizontal pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+      <input type="checkbox" id="show-menu">
+      <label class="hamburger" for="show-menu"></label>
+      <div class="sites">
+        <a href="/" class="pure-menu-link" title="Inicio">Inicio</a>
+        <a href="/blog/" class="pure-menu-link" title="Inicio">Blog</a>
+        <a href="/recursos/" class="pure-menu-link" title="Awesome">Recursos</a>
+        <a href="/contributing/" class="pure-menu-link" title="Participa">Participa</a>
+      </div>
+      <a href="/" class="site-title pure-menu-heading">&nbsp;</a>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+  </div>
+</header>
+
+      <div class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+  <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-3-5">
+    <article class="container" lang="es">
+      <div class="pure-g">
+  <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-2-3">
+
+    
+
+    
+    
+
+    <article class="post">
+      
+      <div class="category">
+        
+        Análisis
+        
+      </div>
+      
+      <h1>
+        <a href="/blog/2014-4-12-desigualdad-medias/">
+          La desigualdad de las medias
+        </a>
+      </h1>
+      
+      <span class="post-data">
+        
+         
+        <span class="author">M42</span>
+        
+
+        
+        
+        <a class="date" href='/blog/2014-4-12-desigualdad-medias/'><time datetime='2014-04-12'>12/04/2014</time></a>
+      </span>
+      <p>En varios problemas de optimización se pide
+estudiar el mínimo o máximo de una función de varias variables
+de las que se conoce su suma o su producto. Un procedimiento habitual es calcular la
+derivada de una función sobre la que se ha aplicado ya la restricción que impone
+la suma o el producto y buscar extremos absolutos entre los puntos críticos.
+Otro procedimiento común es usar los <a href="http://es.wikipedia.org/wiki/Multiplicadores_de_Lagrange">multiplicadores de Lagrange</a>.</p>
+
+<p>Pero en ocasiones, es más simple usar desigualdades. La función puede
+quedar acotada superior o inferiormente por alguna constante conocida,
+como la suma de variables o el producto.
+Entonces, si existe un caso de igualdad con la acotación, este debe ser el extremo
+absoluto.</p>
+
+<p>En este artículo se expone una de las desigualdades más útiles para acotación
+de funciones de varias variables: la desigualdad de las medias.</p>
+
+<p><a href="/blog/2014-4-12-desigualdad-medias/">Seguir leyendo...</a></p>
+    </article>
+    
+
+    
+    
+
+    <article class="post">
+      
+      <div class="category">
+        
+        Utilidades
+        
+      </div>
+      
+      <h1>
+        <a href="/blog/2014-2-23-manualgit/">
+          Manual rápido de Github/Git
+        </a>
+      </h1>
+      
+      <span class="post-data">
+        
+         
+        <span class="author">fdavidcl</span>
+        
+
+        
+        
+        <a class="date" href='/blog/2014-2-23-manualgit/'><time datetime='2014-02-23'>23/02/2014</time></a>
+      </span>
+      <h2 id="tldr">TL;DR</h2>
+<p>Instala git. Crea un repositorio desde la página de Github. Descárgalo con <code class="highlighter-rouge">git clone</code>. Actualiza tu versión local con <code class="highlighter-rouge">git pull</code>. Empaqueta cambios con <code class="highlighter-rouge">git commit -a</code>. Envía cambios con <code class="highlighter-rouge">git pull &amp;&amp; git push</code>.</p>
+
+<p><a href="/blog/2014-2-23-manualgit/">Seguir leyendo...</a></p>
+    </article>
+    
+
+    <nav class="pagination pure-g">
+<!--  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+
+  <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-2-5">
+    <div class="pure-g">-->
+      <div class="paginator pure-u-1-3 pure-u-md-1-3 pure-u-lg-2-5">
+        
+          
+            <a href="/blog/page/5/" class="next arrow" >&larr;</a>
+          
+        
+      </div>
+      <div class="paginator pure-u-1-3 pure-u-md-1-3 pure-u-lg-1-5">
+        <span class="page-number">Página 6 de 6</span>
+        
+        <span class="archive-link"><a href="/archive">Todos los posts</a></span>
+        
+      </div>
+      <div class="paginator pure-u-1-3 pure-u-md-1-3 pure-u-lg-2-5">
+        
+          <span class="disabled-link arrow">&rarr;</span>
+        
+      </div>
+    <!--</div>
+  </div>
+
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-2-5"></div>-->
+</nav>
+
+
+  </div>
+  <div class="pure-u-1 pure-u-md-1-24 pure-u-lg-1-24"></div>
+  <div class="pure-u-1 pure-u-md-7-24 pure-u-lg-7-24">
+<!--
+    <h3>Categorías</h3>
+    <ul class="tag-tree level-1">
+
+      
+      
+      <li>
+        <a href="/t/Análisis">Análisis</a>
+      </li>
+      
+      <li>
+        <a href="/t/Ciencia de datos">Ciencia de datos</a>
+      </li>
+      
+      <li>
+        <a href="/t/Estructuras de Datos">Estructuras de Datos</a>
+      </li>
+      
+      <li>
+        <a href="/t/General">General</a>
+      </li>
+      
+      <li>
+        <a href="/t/Heurísticas">Heurísticas</a>
+      </li>
+      
+      <li>
+        <a href="/t/Linux">Linux</a>
+      </li>
+      
+      <li>
+        <a href="/t/Lógica">Lógica</a>
+      </li>
+      
+      <li>
+        <a href="/t/Problemas">Problemas</a>
+      </li>
+      
+      <li>
+        <a href="/t/Programación">Programación</a>
+      </li>
+      
+      <li>
+        <a href="/t/Utilidades">Utilidades</a>
+      </li>
+      
+      <li>
+        <a href="/t/Álgebra">Álgebra</a>
+      </li>
+      
+    </ul>
+-->
+  </div>
+</div>
+
+    </article>
+  </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-1-5"></div>
+</div>
+
+      <footer class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+  <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+    <div class="pure-g">
+      <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2 align-right">
+	<h3>Licencia</h3>
+	<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/80x15.png" /></a><br />
+	  El contenido de este sitio, salvo que se explicite lo contrario, está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</a>.</p>
+
+        <p>Cada recurso aquí enlazado puede tener copyright con o sin una licencia libre asociada. Por favor respeta la autoría del material y no distribuyas los contenidos salvo que la licencia lo autorice.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+</footer>
+
+
+      <!--script id="dsq-count-scr" src="//dgiim.disqus.com/count.js" async></script-->
+   </body>
+</html>
