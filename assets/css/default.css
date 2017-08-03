@@ -4,8 +4,7 @@ body, .pure-g [class*="pure-u"] {
   font-size: 16px; }
 
 body {
-  background: #ffffff;
-  line-height: 1.6em; }
+  background: #ffffff; }
 
 /*** Generic styles ***/
 h1, h1 .pure-g [class*="pure-u"] {
@@ -316,6 +315,8 @@ nav.side {
     background-size: cover; }
     .home-site .introduction a {
       text-decoration: underline; }
+    .home-site .introduction p {
+      line-height: 1.6em; }
     .home-site .introduction.left h1, .home-site .introduction.left p {
       text-align: right;
       padding-right: 1rem; }
