@@ -4,7 +4,8 @@ body, .pure-g [class*="pure-u"] {
   font-size: 16px; }
 
 body {
-  background: #ffffff; }
+  background: #ffffff;
+  line-height: 1.6em; }
 
 /*** Generic styles ***/
 h1, h1 .pure-g [class*="pure-u"] {
@@ -23,7 +24,8 @@ a {
 header {
   background: #eaeaea;
   box-shadow: 0 2px 2px -1px #d0d0d0;
-  font-size: 0.9em; }
+  font-size: 0.9em;
+  line-height: normal; }
   header .pure-menu-link {
     padding-top: 1.1em;
     padding-bottom: 1.1em;
@@ -307,10 +309,13 @@ nav.side {
       font-weight: 200; }
   .home-site .introduction {
     color: white;
+    display: block;
     padding: 3rem 0 5rem;
     text-shadow: 0 2px rgba(0, 0, 0, 0.4);
     background: no-repeat center center #848484;
     background-size: cover; }
+    .home-site .introduction a {
+      text-decoration: underline; }
     .home-site .introduction.left h1, .home-site .introduction.left p {
       text-align: right;
       padding-right: 1rem; }
@@ -328,6 +333,29 @@ nav.side {
     .home-site .introduction.community {
       background-image: url(/assets/images/home/community.jpg);
       background-position: 20% center; }
+    .home-site .introduction.amat {
+      background: #555555; }
+    .home-site .introduction.gtg {
+      background: #e180db; }
+    .home-site .introduction.intf {
+      background: #659f36; }
+    .home-site .introduction.pyg {
+      background: #3c79d6; }
+    .home-site .introduction.osl {
+      background: #8a9cb4; }
+    .home-site .introduction.odd {
+      background: #eeeeee;
+      color: #505050;
+      text-shadow: 0 2px rgba(255, 255, 255, 0.4); }
+    .home-site .introduction.even {
+      background: #dbe9f4;
+      color: #505050;
+      text-shadow: 0 2px rgba(255, 255, 255, 0.4); }
+  .home-site a.introduction {
+    transition: box-shadow .2s ease; }
+    .home-site a.introduction:hover {
+      text-decoration: none;
+      box-shadow: inset 0 0 2rem rgba(0, 0, 0, 0.4); }
   .home-site .projects {
     padding: 0 0 3rem; }
     .home-site .projects .projects-inner {
