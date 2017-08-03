@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
+      <!--link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/menus-min.css" /-->
+      <link rel="stylesheet" type="text/css" href="/assets/fonts/css/iconim.css" />
+      <link rel="stylesheet" type="text/css" href="/assets/css/default.css" />
+      <link rel="stylesheet" type="text/css" href="/assets/css/pygments-friendly.css" />
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="/assets/feed.xml" />
+
+      <!-- Favicon -->
+      <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" />
+      <link rel="apple-touch-icon" sizes="160x160" href="/assets/images/favicon-160.png">
+    	<meta name="msapplication-TileColor" content="#FFFFFF">
+    	<meta name="msapplication-TileImage" content="/assets/images/favicon-160.png">
+      <meta name="theme-color" content="#6789ab">
+
+      <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+      <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      <script type="text/javascript">
+         WebFont.load({
+            google: {
+               families: ["Lato:400,300,700,400italic:latin", "Source+Code+Pro:400,700:latin"]
+            }
+         });
+      </script>
+      <script type="text/javascript">
+            MathJax.Hub.Config({
+               tex2jax: {
+                  inlineMath: [],
+                  displayMath: [],
+               }
+            });
+      </script>
+      <title>El Isomorfismo de Curry-Howard - libreim</title>
+   </head>
+   <body class="">
+      <header>
+  <div class="pure-menu pure-menu-horizontal pure-g">
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+    <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+      <input type="checkbox" id="show-menu">
+      <label class="hamburger" for="show-menu"></label>
+      <div class="sites">
+        <a href="/" class="pure-menu-link" title="Inicio">Inicio</a>
+        <a href="/blog/" class="pure-menu-link" title="Inicio">Blog</a>
+        <a href="/recursos/" class="pure-menu-link" title="Awesome">Recursos</a>
+        <a href="/contributing/" class="pure-menu-link" title="Participa">Participa</a>
+      </div>
+      <a href="/" class="site-title pure-menu-heading">&nbsp;</a>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+  </div>
+</header>
+
+      <div class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+  <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5 pure-u-xl-3-5">
+    <article class="container" lang="es">
+      
+<div class="category">
+  Programación
+</div>
+
+
+
+
+
+<h1>
+  
+  <a href="/blog/2014/12/04/curry-howard/">
+    El Isomorfismo de Curry-Howard
+  </a>
+  
+</h1>
+
+
+
+
+<div class="pure-g">
+  <div class="pure-u-1 pure-u-md-2-3 pure-u-lg-2-3">
+    
+
+<div class="post-data">
+  
+  
+  
+   
+  <span class="author">Mario Román</span>
+  
+  
+
+  
+  
+  <a class="date" href="/blog/2014/12/04/curry-howard/">
+    04-12-2014
+  </a>
+  <a class="dsq-comment-count comments" href="/blog/2014/12/04/curry-howard/#disqus_thread" data-disqus-identifier="/blog/2014/12/04/curry-howard">
+
+  </a>
+</div>
+
+<div class="post-content">
+
+  <p>El isomorfismo de Curry-Howard<sup id="fnref:curryhowardwiki"><a href="#fn:curryhowardwiki" class="footnote">1</a></sup> relaciona los sistemas de tipos con la lógica
+proposicional. Los tipos son teoremas, y las instancias de un tipo son
+demostraciones del teorema que representa.</p>
+
+<p>A los repositorios del doble grado hemos subido unos apuntes que explican
+el isomorfismo con su código fuente bajo licencia CC BY-SA 3.0:
+<a href="https://github.com/libreim/curryHoward">Isomorfismo de Curry Howard</a></p>
+
+<p>Los apuntes constan de una presentación general, unos apuntes más detallados,
+con ejemplos en Haskell y una introducción al asistente de demostraciones Coq.
+Sobre él, se explican los tipos básicos, demostraciones por inducción y demostraciones
+explícitas, donde puede verse en acción la correspondencia entre tipos y proposiciones.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:curryhowardwiki">
+      <p><a href="http://en.wikipedia.org/wiki/Curry%E2%80%93Howard_correspondence">Curry-Howard correspondence - Wikipedia, the free encyclopedia</a>&nbsp;<a href="#fnref:curryhowardwiki" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+
+
+  
+
+  
+
+  <div class="post-data">
+    <p class="tag-list">
+      <i class="icon icon-tags"></i>
+      
+      
+      
+      <span class="em">(sin etiquetas)</span>
+      
+    </p>
+  </div>
+
+</div>
+        
+  </div>
+  <div class="pure-u-1 pure-u-md-1-24 pure-u-lg-1-24"></div>
+  <div class="pure-u-1 pure-u-md-7-24 pure-u-lg-7-24">
+    
+  </div>
+</div>
+
+
+
+    </article>
+  </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5 pure-u-xl-1-5"></div>
+</div>
+
+      <footer class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+  <div class="pure-u-22-24 pure-u-md-22-24 pure-u-lg-3-5">
+    <div class="pure-g">
+      <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2 align-right">
+	<h3>Licencia</h3>
+	<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia de Creative Commons" style="border-width:0" src="https://licensebuttons.net/l/by-sa/4.0/80x15.png" /></a><br />
+	  El contenido de este sitio, salvo que se explicite lo contrario, está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licencia de Creative Commons Reconocimiento-CompartirIgual 4.0 Internacional</a>.</p>
+
+        <p>Cada recurso aquí enlazado puede tener copyright con o sin una licencia libre asociada. Por favor respeta la autoría del material y no distribuyas los contenidos salvo que la licencia lo autorice.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
+</footer>
+
+
+      <!--script id="dsq-count-scr" src="//dgiim.disqus.com/count.js" async></script-->
+   </body>
+</html>
