@@ -2010,7 +2010,7 @@ al &lt;em&gt;cálculo lambda tipado&lt;/em&gt; y al &lt;em&gt;Sistema &lt;script
         
         <item>
             <title>Guía para primero</title>
-            <description>&lt;p&gt;&lt;em&gt;Actualizada a 30 de julio de 2016.&lt;/em&gt;&lt;/p&gt;
+            <description>&lt;p&gt;&lt;em&gt;Actualizada a 1 de septiembre de 2017.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Esta es una guía orientada al nuevo estudiante del doble grado, escrita con la intención
 de ahorrarle el largo camino que el resto de alumnos hemos seguido hasta asentar
@@ -2067,8 +2067,10 @@ código funcionaba. Esta herramienta es un sistema de &lt;strong&gt;control de v
 &lt;a href=&quot;https://es.wikipedia.org/wiki/Linus_Torvalds&quot;&gt;Linus Torvalds&lt;/a&gt;.
 Permite ramificar el desarrollo de un proyecto en ramas y distribuirlo entre
 varios desarrolladores, facilitando luego mezclar todos los cambios en una única
-rama. Y &lt;a href=&quot;https://github.com/&quot;&gt;&lt;strong&gt;GitHub&lt;/strong&gt;&lt;/a&gt; es un servicio de almacenamiento de código que usa el control de
-versiones Git. Te servirá en los trabajos en grupo para tener un servidor central
+rama. Y &lt;a href=&quot;https://github.com/&quot;&gt;&lt;strong&gt;GitHub&lt;/strong&gt;&lt;/a&gt;, &lt;a href=&quot;https://about.gitlab.com/&quot;&gt;&lt;strong&gt;GitLab&lt;/strong&gt;&lt;/a&gt; o 
+&lt;a href=&quot;https://bitbucket.org/&quot;&gt;&lt;strong&gt;Bitbucket&lt;/strong&gt;&lt;/a&gt; son servicios de 
+almacenamiento de código que usan el control de versiones Git. Te servirán en los 
+trabajos en grupo para tener un servidor central
 con el que varias personas puedan trabajar directamente y para publicar el código.&lt;/p&gt;
 
 &lt;p&gt;Para empezar tienes:&lt;/p&gt;
@@ -2078,9 +2080,6 @@ con el que varias personas puedan trabajar directamente y para publicar el códi
   &lt;li&gt;Un &lt;a href=&quot;https://github.com/oslugr/curso-git&quot;&gt;curso completo de Git&lt;/a&gt;, con &lt;a href=&quot;https://github.com/oslugr/curso-git&quot;&gt;eBook descargable&lt;/a&gt; que también puedes adquirir en Amazon.&lt;/li&gt;
   &lt;li&gt;La propia &lt;a href=&quot;https://git-scm.com/documentation&quot;&gt;documentación de Git&lt;/a&gt;, desde su página oficial.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;Cuando tengas un perfil en GitHub, recuerda indicar en tu perfil que estás en Granada para
-aparecer en los &lt;a href=&quot;https://github.com/JJ/top-github-users-data/blob/master/formatted/top-Granada.md&quot;&gt;ránkings locales&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;cómo-escribo-los-trabajos-de-matemáticas&quot;&gt;¿Cómo escribo los trabajos de matemáticas?&lt;/h2&gt;
 
@@ -2265,20 +2264,20 @@ y elegir la que más te guste. Algunas de las más comunes son
 Vienen bien equipadas, y casi cualquier otro programa que necesites estará al
 alcance de un comando de terminal, gracias a los &lt;strong&gt;gestores de paquetes&lt;/strong&gt;, como
 APT (Ubuntu) y Pacman (Arch). Además, puedes personalizar la interfaz gráfica;
-un ejemplo es la &lt;a href=&quot;http://blog.David Charte.me/post/105862529162/mi-escritorio-minimalista&quot;&gt;configuración de David
-Charte&lt;/a&gt; para Ubuntu GNOME.&lt;/p&gt;
+o probar distintos &lt;a href=&quot;https://en.wikipedia.org/wiki/Window_manager&quot;&gt;gestores de ventanas&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;la-terminal-sirve-más-allá-de-para-presumir&quot;&gt;La terminal ¿sirve (más allá de para presumir)?&lt;/h2&gt;
 
 &lt;p&gt;El aprendizaje de la línea de comandos es esencial para esta
-carrera. Descárgate e imprime
-&lt;a href=&quot;http://www.disi.unige.it/person/MoggiE/PG1-13/bash.quickref.pdf&quot;&gt;esta guía rápida&lt;/a&gt;, ponla en tu mochila e intenta
-usarla siempre que puedas, incluso si no es el camino más fácil ni más agradable.
-La mayoría de las veces, existirá una interfaz gráfica que simplificará y
-facilitará cualquier trabajo que queráis hacer, pero esto te limitará a
-usar la interfaz gráfica, a usar un programa como alguien ya pensó que debía ser
-usado. Aprender a usarla requiere mucho tiempo, pero te liberará para escribir más allá
-de lo que otros han hecho.&lt;/p&gt;
+carrera. Existen
+&lt;a href=&quot;http://www.disi.unige.it/person/MoggiE/PG1-13/bash.quickref.pdf&quot;&gt;guías rápidas&lt;/a&gt;,
+que puedes intentar tener cerca y usarlas siempre que puedas; incluso
+si no es el camino más fácil ni más agradable.  La mayoría de las
+veces, existirá una interfaz gráfica que simplificará y facilitará el
+uso de cualquier programa, pero esto te limitará a usar un programa
+como alguien ya pensó que debía ser usado. Aprender a usarla requiere
+mucho tiempo, pero te liberará para escribir más allá de lo que otros
+han hecho.&lt;/p&gt;
 
 &lt;h2 id=&quot;hay-trillocientos-lenguajes-de-programación-cuántos-me-tengo-que-aprender&quot;&gt;Hay trillocientos lenguajes de programación. ¿Cuántos me tengo que aprender?&lt;/h2&gt;
 
@@ -2290,7 +2289,7 @@ no suele proporcionar mucho valor. Dos lenguajes se diferencian realmente, y apo
 formas distintas de pensar acerca de la programación, si implementan
 distintos &lt;strong&gt;paradigmas de programación&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Lo que sí podemos es listarte los varios lenguajes que, salvo cambios en los planes de
+&lt;p&gt;Lo que sí podemos es listar los varios lenguajes que, salvo cambios en los planes de
 estudio, son los que verás en la carrera:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -2435,8 +2434,7 @@ siempre en StackExchange:&lt;/p&gt;
   &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/143760/what-books-should-i-read-to-have-an-undergraduate-education-in-computer-science&quot;&gt;StackOverflow. What books should I read to have an undergraduate education in computer science?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Y si quieres algo más concreto, pregunta en &lt;a href=&quot;https://t.me/libreimseminarios&quot;&gt;nuestro grupo de Telegram&lt;/a&gt;. Entre todos llevamos la cuenta
-de qué libros son útiles para cada asignatura.&lt;/p&gt;
+&lt;p&gt;Si quieres algo más concreto, pregunta en &lt;a href=&quot;https://t.me/libreimseminarios&quot;&gt;nuestro grupo de Telegram&lt;/a&gt;. Entre todos llevamos la cuenta de qué libros son útiles para cada asignatura.&lt;/p&gt;
 
 &lt;p&gt;Otra opción para obtener bibliografía son los cursos online que ofrecen plataformas como
 &lt;a href=&quot;https://www.coursera.org/&quot;&gt;Coursera&lt;/a&gt;, &lt;a href=&quot;https://www.udacity.com/&quot;&gt;Udacity&lt;/a&gt; y
@@ -2502,19 +2500,19 @@ instalar usando &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get&lt;/code
 cálculo, por ejemplo, e intenta resolver los primeros ejercicios demostrando formalmente desde los axiomas.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Instala TexLive&lt;/strong&gt;. Y empieza a probar LaTeX con los tutoriales que hemos enlazado antes.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Prueba algún lenguaje&lt;/strong&gt;. Compila un “hola mundo” en C++, o escríbelo en Python.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Instala Git&lt;/strong&gt;. Y abre una cuenta en GitHub. Puedes solicitar repositorios
+  &lt;li&gt;&lt;strong&gt;Instala Git&lt;/strong&gt;. Y abre una cuenta en GitHub (o similar). Puedes solicitar repositorios
 privados gratuitos en &lt;a href=&quot;https://education.github.com/&quot;&gt;GitHub Education&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;pero-esto-es-vuestra-opinión-sesgada-seguramente&quot;&gt;Pero esto es vuestra opinión, sesgada seguramente.&lt;/h2&gt;
+&lt;h2 id=&quot;pero-esto-es-vuestra-opinión-sesgada-seguramente&quot;&gt;Pero esto es vuestra opinión, sesgada seguramente&lt;/h2&gt;
 
 &lt;p&gt;Sí. Respondemos aquí a preguntas sobre las que entendemos que hay suficiente
 consenso, pero eso tampoco es una definición concreta. Hay mil maneras de
 resolver cada uno de los problemas que hemos
 planteado, y es buena idea que consideres las alternativas. Lo que te ofrecemos
 es lo que ha sido más útil para nosotros en los primeros años de carrera. Además,
-las herramientas más útiles cambian con el tiempo. Quizá en un futuro tengamos que
-reescribir por completo este artículo.&lt;/p&gt;
+las herramientas más útiles cambian con el tiempo. Ya hemos editado varias veces
+este artículo y seguramente tengamos que seguir cambiándolo conforme pase el tiempo.&lt;/p&gt;
 
 &lt;h2 id=&quot;referencias-y-otras-opiniones&quot;&gt;Referencias y otras opiniones&lt;/h2&gt;
 
