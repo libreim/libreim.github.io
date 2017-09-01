@@ -3,39 +3,42 @@
    <head>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta charset="utf-8">
+
+      <!-- Layout -->
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css" />
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css" />
-      <!--link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/menus-min.css" /-->
+
+      <!-- Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Lato:400,300,700,400italic:latin|Source+Code+Pro:400,700:latin" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="/assets/fonts/css/iconim.css" />
+
+      <!-- Style -->
       <link rel="stylesheet" type="text/css" href="/assets/css/default.css" />
       <link rel="stylesheet" type="text/css" href="/assets/css/pygments-friendly.css" />
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="/assets/feed.xml" />
+
+      <!-- RSS Feed -->
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="/blog/feed.xml" />
 
       <!-- Favicon -->
       <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.ico" />
       <link rel="apple-touch-icon" sizes="160x160" href="/assets/images/favicon-160.png">
-    	<meta name="msapplication-TileColor" content="#FFFFFF">
-    	<meta name="msapplication-TileImage" content="/assets/images/favicon-160.png">
+      <meta name="msapplication-TileColor" content="#FFFFFF">
+      <meta name="msapplication-TileImage" content="/assets/images/favicon-160.png">
       <meta name="theme-color" content="#6789ab">
 
-      <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
-      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" defer></script>
-
+      <!-- Mathjax: load asynchronously -->
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
       <script type="text/javascript">
-         WebFont.load({
-            google: {
-               families: ["Lato:400,300,700,400italic:latin", "Source+Code+Pro:400,700:latin"]
+        window.addEventListener("load", function() {
+          MathJax.Hub.Config({
+            tex2jax: {
+              inlineMath: [],
+              displayMath: [],
             }
-         });
+          });
+        });
       </script>
-      <script type="text/javascript" defer>
-            MathJax.Hub.Config({
-               tex2jax: {
-                  inlineMath: [],
-                  displayMath: [],
-               }
-            });
-      </script>
+      
       <title>La desigualdad de las medias - libreim</title>
    </head>
    <body class="">
@@ -403,7 +406,5 @@ La acotaremos usando desigualdad entre las medias geométrica y armónica:</p>
   <div class="pure-u-1-24 pure-u-md-1-24 pure-u-lg-1-5"></div>
 </footer>
 
-
-      <!--script id="dsq-count-scr" src="//dgiim.disqus.com/count.js" async></script-->
    </body>
 </html>
