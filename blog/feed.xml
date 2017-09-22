@@ -2186,7 +2186,7 @@ encontrado con los mismos problemas.&lt;/p&gt;
 cómo funciona, bajo qué comandos y cómo debe usarse. Búscala
 cuando te encuentres con algún problema o no sepas cómo usar una herramienta.&lt;/p&gt;
 
-&lt;h2 id=&quot;qué-es-el-software-libre-y-por-qué-me-importa&quot;&gt;¿Qué es el software libre? ¿y por qué me importa?&lt;/h2&gt;
+&lt;h2 id=&quot;qué-es-el-software-libre-y-por-qué-me-importa&quot;&gt;¿Qué es el software libre? ¿Y por qué me importa?&lt;/h2&gt;
 
 &lt;p&gt;En el ámbito académico tendrás que utilizar distintos programas de todo tipo
 para aprender, componer trabajos y realizar prácticas. Lo habitual será que
@@ -2203,7 +2203,7 @@ modificación, entre otras. Es decir, serán aplicaciones libres.&lt;/p&gt;
 que definió la &lt;a href=&quot;http://www.fsf.org/&quot;&gt;&lt;strong&gt;Free Software Foundation&lt;/strong&gt;&lt;/a&gt;:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Usar el programa.&lt;/li&gt;
+  &lt;li&gt;Usar el programa sin restricciones.&lt;/li&gt;
   &lt;li&gt;Estudiar cómo funciona un programa y adaptarlo.&lt;/li&gt;
   &lt;li&gt;Distribuir copias del programa.&lt;/li&gt;
   &lt;li&gt;Mejorar el programa, modificarlo y publicar esas modificaciones.&lt;/li&gt;
@@ -2219,7 +2219,9 @@ en el software que utilices y para escogerlas para tus propios proyectos:&lt;/p&
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0.en.html&quot;&gt;&lt;strong&gt;&lt;abbr title=&quot;General Public License&quot;&gt;GPL&lt;/abbr&gt;&lt;/strong&gt;&lt;/a&gt;. Asegura las libertades
 de la FSF. Además, si otro programa usa fragmentos de código en &lt;abbr title=&quot;General Public License&quot;&gt;GPL&lt;/abbr&gt;, debe
-licenciarse completamente en &lt;abbr title=&quot;General Public License&quot;&gt;GPL&lt;/abbr&gt; (esta condición se llama &lt;em&gt;copyleft&lt;/em&gt;).&lt;/li&gt;
+licenciarse completamente en &lt;abbr title=&quot;General Public License&quot;&gt;GPL&lt;/abbr&gt; (esta condición se llama &lt;em&gt;copyleft&lt;/em&gt;
+y por esto se le denomina a la licencia &lt;em&gt;viral&lt;/em&gt;). Es una licencia
+con protección fuerte para los autores.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;Permisivas&lt;/strong&gt; (&lt;a href=&quot;http://mit-license.org/&quot;&gt;MIT&lt;/a&gt;,
 &lt;a href=&quot;https://www.apache.org/licenses/&quot;&gt;Apache&lt;/a&gt;…). Ofrecen las libertades básicas
 pero no tienen &lt;em&gt;copyleft&lt;/em&gt;, lo que permite que un proyecto derivado tenga una
@@ -2234,10 +2236,11 @@ licencia.&lt;/li&gt;
 &lt;p&gt;La Universidad de Granada cuenta con una &lt;a href=&quot;http://osl.ugr.es&quot;&gt;&lt;strong&gt;Oficina de Software Libre&lt;/strong&gt;&lt;/a&gt;
 situada en el número 36-38 de la C/ Real de Cartuja, compartiendo edificio con
 el &lt;abbr title=&quot;Centro de Enseñanzas Virtuales de la Universidad de Granada&quot;&gt;CEVUG&lt;/abbr&gt;. Se encarga de difundir el uso, desarrollo y docencia del
-software libre. Si necesitas ayuda con la instalación de Linux en tu
-portátil, dirígete allí para que te echen una mano. Puedes también
+software libre. Puedes también
 seguirlos en &lt;a href=&quot;http://twitter.com/oslugr&quot;&gt;@oslugr&lt;/a&gt; y
-&lt;a href=&quot;https://www.facebook.com/SoftwareLibreUGR&quot;&gt;Facebook&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&quot;https://www.facebook.com/SoftwareLibreUGR&quot;&gt;Facebook&lt;/a&gt;. Si necesitas ayuda con la 
+instalación de Linux en tu portátil, también puedes contactar con
+el &lt;a href=&quot;http://twitter.com/grhacklab&quot;&gt;Hacklab Granada&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Si necesitas más razones para evitar el software privativo en tu aprendizaje,
 mejor que nosotros lo explica JJ Merelo en su artículo
