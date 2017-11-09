@@ -30,7 +30,7 @@ entre modelos de computación y sistemas lógicos.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Peter Selinger, &lt;a href=&quot;http://www.mathstat.dal.ca/~selinger/papers/lambdanotes.pdf&quot;&gt;Lecture notes on the lambda calculus&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;Raúl Rojas, &lt;a href=&quot;https://www.utdallas.edu/%7Egupta/courses/apl/lambda.pdf&quot;&gt;A Tutorial Introduction to the Lambda Calculus&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;H.P. Barendregt, The Lambda Calculus, its sintax and semantics.&lt;/li&gt;
+  &lt;li&gt;H.P. Barendregt, The Lambda Calculus, its syntax and semantics.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;!--more--&gt;
@@ -38,23 +38,11 @@ entre modelos de computación y sistemas lógicos.&lt;/p&gt;
 &lt;p&gt;En particular, hemos publicado &lt;a href=&quot;https://github.com/M42/lambda.notes&quot;&gt;tres capítulos sobre cálculo lambda&lt;/a&gt;
 como parte de una serie de notas sobre categorías y computación. Tratan&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;ol&gt;
-      &lt;li&gt;cálculo lambda no tipado,&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;ol&gt;
-      &lt;li&gt;cálculo lambda simplemente tipado, y&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;ol&gt;
-      &lt;li&gt;el isomorfismo de Curry-Howard.&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;ol&gt;
+  &lt;li&gt;cálculo lambda no tipado,&lt;/li&gt;
+  &lt;li&gt;cálculo lambda simplemente tipado, y&lt;/li&gt;
+  &lt;li&gt;el isomorfismo de Curry-Howard.&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;La mayoría de las demostraciones allí expuestas usan &lt;a href=&quot;/blog/2015/03/14/induccion-estructural/&quot;&gt;inducción estructural&lt;/a&gt;.&lt;/p&gt;
 
