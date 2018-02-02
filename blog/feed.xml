@@ -870,10 +870,10 @@ tipos&lt;/a&gt; o la
 &lt;a href=&quot;https://ncatlab.org/nlab/show/ETCC&quot;&gt;teoría de categorías&lt;/a&gt;. La
 equivalencia entre estas tres teorías fundacionales se expone en
 &lt;strong&gt;&lt;a href=&quot;https://www.andrew.cmu.edu/user/awodey/preprints/stcsFinal.pdf&quot;&gt;From Sets to Types to Categories to
-Sets&lt;/a&gt;&lt;/strong&gt;&amp;nbsp;&lt;a href=&quot;#fnref:zfc-alternativas&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+Sets&lt;/a&gt;&lt;/strong&gt; &lt;a href=&quot;#fnref:zfc-alternativas&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:zfc-cuervos&quot;&gt;
-      &lt;p&gt;Un &lt;a href=&quot;https://en.wikipedia.org/wiki/Raven_paradox&quot;&gt;ejemplo clásico de paradoja&lt;/a&gt; en la filosofía de la ciencia.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-cuervos&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;Un &lt;a href=&quot;https://en.wikipedia.org/wiki/Raven_paradox&quot;&gt;ejemplo clásico de paradoja&lt;/a&gt; en la filosofía de la ciencia. &lt;a href=&quot;#fnref:zfc-cuervos&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:zfc-dominio&quot;&gt;
       &lt;p&gt;Uno puede preguntarse a qué se refieren las &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; en &lt;script type=&quot;math/tex&quot;&gt;\forall x&lt;/script&gt;.
@@ -889,11 +889,11 @@ plural&lt;/a&gt;
 SE&lt;/a&gt;). Nótese que (si
 expresamos ZFC en lógica de primer orden) &lt;a href=&quot;https://en.wikipedia.org/wiki/L%25C3%25B6wenheim%25E2%2580%2593Skolem_theorem&quot;&gt;sí existen modelos de
 ZFC&lt;/a&gt;
-    que pueden expresarse en ZFC, pero estos no son el modelo estándar.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-dominio&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    que pueden expresarse en ZFC, pero estos no son el modelo estándar. &lt;a href=&quot;#fnref:zfc-dominio&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:zfc-casi&quot;&gt;
       &lt;p&gt;Bueno, &lt;em&gt;casi&lt;/em&gt; exclusivamente, también necesitamos clases y
-conglomerados como veremos a continuación.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-casi&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+conglomerados como veremos a continuación. &lt;a href=&quot;#fnref:zfc-casi&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:zfc-nats&quot;&gt;
       &lt;p&gt;No son la única definición posible: podríamos utilizar
@@ -901,16 +901,16 @@ conglomerados como veremos a continuación.&amp;nbsp;&lt;a href=&quot;#fnref:zfc
 con la definición dada en este post tenemos algunas propiedades
 interesantes: por ejemplo &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
 a &lt; b \iff a \in b %]]&gt;&lt;/script&gt; lo que nos permite un tratamiento
-más sencillo de la teoría de los ordinales. La &lt;a href=&quot;https://ncatlab.org/nlab/show/structural+set+theory&quot;&gt;teoría estructural de conjuntos&lt;/a&gt; no distingue entre las distintas posibles construcciones de los números naturales u otros objetos sino que los define según sus propiedades.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-nats&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+más sencillo de la teoría de los ordinales. La &lt;a href=&quot;https://ncatlab.org/nlab/show/structural+set+theory&quot;&gt;teoría estructural de conjuntos&lt;/a&gt; no distingue entre las distintas posibles construcciones de los números naturales u otros objetos sino que los define según sus propiedades. &lt;a href=&quot;#fnref:zfc-nats&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:zfc-funcion&quot;&gt;
-      &lt;p&gt;Nótese que si cualquier gráfica es una función estamos considerando la &lt;a href=&quot;https://en.wikipedia.org/wiki/Empty_function&quot;&gt;función vacía&lt;/a&gt;, que algunos autores excluyen.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-funcion&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;Nótese que si cualquier gráfica es una función estamos considerando la &lt;a href=&quot;https://en.wikipedia.org/wiki/Empty_function&quot;&gt;función vacía&lt;/a&gt;, que algunos autores excluyen. &lt;a href=&quot;#fnref:zfc-funcion&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:zfc-vacio&quot;&gt;
       &lt;p&gt;Incluso no asumiendo un dominio de discurso no vacío el axioma de
 infinito también nos indica que existe un conjunto pero para reducir
 la complejidad de la exposición de ZFC es interesante añadir este
-axioma.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-vacio&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+axioma. &lt;a href=&quot;#fnref:zfc-vacio&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:zfc-segundo&quot;&gt;
       &lt;p&gt;Si expresáramos ZFC en lógica de segundo orden los esquemas de
@@ -919,19 +919,19 @@ añadiendo un cuantificador sobre el predicado correspondiente.
 La demostración de que ZF(C) no es finitamente axiomatizable puede
 encontrarse en &lt;em&gt;Kunen (1980) página 138&lt;/em&gt;. Sin embargo &lt;a href=&quot;https://en.m.wikipedia.org/wiki/Von_Neumann%25E2%2580%2593Bernays%25E2%2580%2593G%25C3%25B6del_set_theory&quot;&gt;NBG&lt;/a&gt;
 &lt;strong&gt;sí&lt;/strong&gt; es finitamente axiomatizable y es una extensión conservativa
-de ZFC (es decir, todo teorema en ZFC es teorema en NBG).&amp;nbsp;&lt;a href=&quot;#fnref:zfc-segundo&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+de ZFC (es decir, todo teorema en ZFC es teorema en NBG). &lt;a href=&quot;#fnref:zfc-segundo&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:zfc-enumerable&quot;&gt;
       &lt;p&gt;Es decir, el lenguaje de los axiomas debe ser &lt;a href=&quot;https://en.wikipedia.org/wiki/Recursively_enumerable_language&quot;&gt;recursivamente
 enumerable&lt;/a&gt;.
 Esto nos permite verificar que una prueba es correcta en una
 cantidad finita de tiempo y nos impide tener como axiomas todos los
-teoremas.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-enumerable&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+teoremas. &lt;a href=&quot;#fnref:zfc-enumerable&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:zfc-sucesor&quot;&gt;
       &lt;p&gt;&lt;script type=&quot;math/tex&quot;&gt;S&lt;/script&gt; no es una función si no la restringimos a algún dominio, sino
 simplemente notación: su dominio y codominio deberían ser el
-conjunto universal que no existe.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-sucesor&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+conjunto universal que no existe. &lt;a href=&quot;#fnref:zfc-sucesor&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:zfc-pst&quot;&gt;
       &lt;p&gt;Algunos autores defienden que no necesitamos conjuntos de
@@ -940,11 +940,11 @@ matemáticas suceden en conjuntos numerables o equipotentes a los
 números reales. La &lt;a href=&quot;https://en.wikipedia.org/wiki/Pocket_set_theory&quot;&gt;&lt;em&gt;teoría de conjuntos de
 bolsillo&lt;/em&gt;&lt;/a&gt; propone
 una alternativa en la que sólo existen conjuntos infinitos de estas
-dos cardinalidades.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-pst&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+dos cardinalidades. &lt;a href=&quot;#fnref:zfc-pst&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:zfc-borel&quot;&gt;
       &lt;p&gt;Además es necesario para demostrar el &lt;a href=&quot;https://en.wikipedia.org/wiki/Borel_determinacy_theorem&quot;&gt;teorema de determinación
-de Borel&lt;/a&gt;.&amp;nbsp;&lt;a href=&quot;#fnref:zfc-borel&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+de Borel&lt;/a&gt;. &lt;a href=&quot;#fnref:zfc-borel&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -1551,19 +1551,19 @@ como en teoría de categorías:&lt;/p&gt;
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:do-notation-harmful&quot;&gt;
-      &lt;p&gt;Peligros de la notación do. &lt;a href=&quot;https://wiki.haskell.org/Do_notation_considered_harmful&quot;&gt;Do notation considered harmful&lt;/a&gt;&amp;nbsp;&lt;a href=&quot;#fnref:do-notation-harmful&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;Peligros de la notación do. &lt;a href=&quot;https://wiki.haskell.org/Do_notation_considered_harmful&quot;&gt;Do notation considered harmful&lt;/a&gt; &lt;a href=&quot;#fnref:do-notation-harmful&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:fpearls-rationals&quot;&gt;
-      &lt;p&gt;Enumerando los racionales. &lt;a href=&quot;http://www.cs.ox.ac.uk/people/jeremy.gibbons/publications/rationals.pdf&quot;&gt;Enumerating the rationals - J. Gibbons, D. Lester, R. Bird&lt;/a&gt;&amp;nbsp;&lt;a href=&quot;#fnref:fpearls-rationals&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;Enumerando los racionales. &lt;a href=&quot;http://www.cs.ox.ac.uk/people/jeremy.gibbons/publications/rationals.pdf&quot;&gt;Enumerating the rationals - J. Gibbons, D. Lester, R. Bird&lt;/a&gt; &lt;a href=&quot;#fnref:fpearls-rationals&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:computational-trinitarianism&quot;&gt;
-      &lt;p&gt;La correspondencia entre tipos, lógica y categorías. &lt;a href=&quot;https://ncatlab.org/nlab/show/computational+trinitarianism&quot;&gt;Computational Trinitarianism - NLab&lt;/a&gt;&amp;nbsp;&lt;a href=&quot;#fnref:computational-trinitarianism&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;La correspondencia entre tipos, lógica y categorías. &lt;a href=&quot;https://ncatlab.org/nlab/show/computational+trinitarianism&quot;&gt;Computational Trinitarianism - NLab&lt;/a&gt; &lt;a href=&quot;#fnref:computational-trinitarianism&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:hask-not-a-category&quot;&gt;
-      &lt;p&gt;Por qué los tipos de Haskell no son una categoría. &lt;a href=&quot;http://math.andrej.com/2016/08/06/hask-is-not-a-category/&quot;&gt;Hask is not a category - Andrej Bauer&lt;/a&gt;&amp;nbsp;&lt;a href=&quot;#fnref:hask-not-a-category&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;Por qué los tipos de Haskell no son una categoría. &lt;a href=&quot;http://math.andrej.com/2016/08/06/hask-is-not-a-category/&quot;&gt;Hask is not a category - Andrej Bauer&lt;/a&gt; &lt;a href=&quot;#fnref:hask-not-a-category&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:hask-matters&quot;&gt;
-      &lt;p&gt;Por qué en ocasiones puede ser útil pensar en ellos como una categoría. &lt;a href=&quot;https://ro-che.info/articles/2016-08-07-hask-category&quot;&gt;Does it matter if Hask is (not) a category?&lt;/a&gt;&amp;nbsp;&lt;a href=&quot;#fnref:hask-matters&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;Por qué en ocasiones puede ser útil pensar en ellos como una categoría. &lt;a href=&quot;https://ro-che.info/articles/2016-08-07-hask-category&quot;&gt;Does it matter if Hask is (not) a category?&lt;/a&gt; &lt;a href=&quot;#fnref:hask-matters&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
@@ -1897,13 +1897,13 @@ básico sobre Elisp es &lt;a href=&quot;http://emacs-doctor.com/learn-emacs-lisp
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
     &lt;li id=&quot;fn:emacs-productivo&quot;&gt;
-      &lt;p&gt;Realmente solo puedo decir que a mí me funciona y que en general los atajos de teclado parecen ser &lt;a href=&quot;http://ux.stackexchange.com/a/30749&quot;&gt;mejores que usar el ratón&lt;/a&gt;.&amp;nbsp;&lt;a href=&quot;#fnref:emacs-productivo&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;Realmente solo puedo decir que a mí me funciona y que en general los atajos de teclado parecen ser &lt;a href=&quot;http://ux.stackexchange.com/a/30749&quot;&gt;mejores que usar el ratón&lt;/a&gt;. &lt;a href=&quot;#fnref:emacs-productivo&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:emacs-kill-buffer&quot;&gt;
-      &lt;p&gt;El &lt;a href=&quot;https://www.gnu.org/software/emacs/manual/html_node/emacs/Killing.html#Killing&quot;&gt;sistema&lt;/a&gt; que Emacs usa para esto es bastante más sofisticado.&amp;nbsp;&lt;a href=&quot;#fnref:emacs-kill-buffer&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;El &lt;a href=&quot;https://www.gnu.org/software/emacs/manual/html_node/emacs/Killing.html#Killing&quot;&gt;sistema&lt;/a&gt; que Emacs usa para esto es bastante más sofisticado. &lt;a href=&quot;#fnref:emacs-kill-buffer&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
     &lt;li id=&quot;fn:magit-select&quot;&gt;
-      &lt;p&gt;De hecho, podemos seleccionar qué párrafos dentro de un fichero queremos añadir al commit.&amp;nbsp;&lt;a href=&quot;#fnref:magit-select&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;De hecho, podemos seleccionar qué párrafos dentro de un fichero queremos añadir al commit. &lt;a href=&quot;#fnref:magit-select&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
