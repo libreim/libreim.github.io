@@ -202,7 +202,9 @@ for the remark!).&lt;/p&gt;
         
         <item>
             <title>Introducción a ZFC</title>
-            <description>&lt;p&gt;A principios del siglo XX las matemáticas sufrieron una crisis
+            <description>&lt;p&gt;&lt;em&gt;Este post fue &lt;a href=&quot;//libreim.github.io/blog/2017/03/25/zfc/&quot;&gt;publicado originalmente&lt;/a&gt; en el blog de libreim el 25 de marzo de 2017.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;A principios del siglo XX las matemáticas sufrieron una crisis
 fundacional: los principios que se consideraban básicos para la
 deducción de las teorías matemáticas daban lugar a paradojas y los
 matemáticos de la época se embarcaron en la creación de un sistema
@@ -393,7 +395,7 @@ existe el conjunto de todos los conjuntos. Podemos ver a estas
 
 &lt;h3 id=&quot;algunas-cosas-que-no-son-conjuntos&quot;&gt;Algunas cosas que no son conjuntos&lt;/h3&gt;
 
-&lt;p&gt;En algunas partes de las matemáticas como la &lt;a href=&quot;/blog/2014/10/04/intro-categorias/&quot;&gt;teoría de
+&lt;p&gt;En algunas partes de las matemáticas como la &lt;a href=&quot;https://libreim.github.io/blog/2014/10/04/intro-categorias/&quot;&gt;teoría de
 categorías&lt;/a&gt;
 resulta útil con frecuencia hablar de todos los conjuntos a la vez (por
 ejemplo cuando queremos hablar de los objetos de la categoría
@@ -434,7 +436,7 @@ cosa&lt;/a&gt;. Por tanto
 necesitamos establecer una teoría que no tenga esas contradicciones.&lt;/p&gt;
 
 &lt;p&gt;La más famosa de las paradojas de la teoría de conjuntos informal es la
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Russell%2527s_paradox&quot;&gt;paradoja de
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Russell's_paradox&quot;&gt;paradoja de
 Russell&lt;/a&gt;: &lt;em&gt;Si un
 barbero afeita a todos los que no se afeitan a sí mismos, ¿se afeita a
 sí mismo?&lt;/em&gt;. En términos de la teoría de conjuntos informal se traduce
@@ -446,7 +448,7 @@ en:&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Otras paradojas que impulsaron la creación de esta teoría son la
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Cantor%2527s_paradox&quot;&gt;paradoja de Cantor&lt;/a&gt;
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Cantor's_paradox&quot;&gt;paradoja de Cantor&lt;/a&gt;
 (no existe el conjunto de todos los cardinales) y la &lt;a href=&quot;https://en.wikipedia.org/wiki/Burali-Forti_paradox&quot;&gt;paradoja de
 Burali-Fort&lt;/a&gt; (no
 existe el conjunto de todos los ordinales).&lt;/p&gt;
@@ -678,9 +680,9 @@ subconjunto&lt;/a&gt;
 &lt;script type=&quot;math/tex&quot;&gt;0 = \varnothing&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;S&lt;/script&gt; la función sucesor.&lt;/p&gt;
 
 &lt;p&gt;En sus orígenes este axioma fue
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Controversy_over_Cantor%2527s_theory&quot;&gt;controvertido&lt;/a&gt;
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Controversy_over_Cantor's_theory&quot;&gt;controvertido&lt;/a&gt;
 ya que no era considerado una verdad evidente. Aceptar los axiomas de
-&lt;a href=&quot;http://cantorsattic.info/Cantor%2527s_Attic&quot;&gt;grandes cardinales&lt;/a&gt; para
+&lt;a href=&quot;http://cantorsattic.info/Cantor's_Attic&quot;&gt;grandes cardinales&lt;/a&gt; para
 nosotros es como aceptar el axioma de infinito para los
 &lt;a href=&quot;https://ncatlab.org/nlab/show/finite%2Bmathematics%20&quot;&gt;finitistas&lt;/a&gt;.&lt;/p&gt;
 
@@ -797,7 +799,7 @@ cartesiano de una familia de conjuntos no vacíos es no vacío.&lt;/p&gt;
 &lt;a href=&quot;https://en.wikipedia.org/wiki/Constructivism_(mathematics)&quot;&gt;constructivistas&lt;/a&gt;
 porque permite demostrar la existencia de ciertos objetos sin dar una
 construcción explícita de los mismos. Además permite demostrar
-resultados chocantes como la &lt;a href=&quot;https://en.wikipedia.org/wiki/Banach%25E2%2580%2593Tarski_paradox&quot;&gt;paradoja de
+resultados chocantes como la &lt;a href=&quot;https://en.wikipedia.org/wiki/Banach%E2%80%93Tarski_paradox&quot;&gt;paradoja de
 Banach-Tarski&lt;/a&gt;.
 No obstante es un axioma esencial para la justificación de muchas
 propiedades matemáticas básicas. &lt;a href=&quot;https://en.wikipedia.org/wiki/Axiom_of_choice#Equivalents&quot;&gt;Son
@@ -851,9 +853,9 @@ Kenneth Kunen&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.math.wisc.edu/~miller/old/m771-10/kunen770.pdf&quot;&gt;Foundations of
 Mathematics&lt;/a&gt; -
 Kenneth Kunen&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Zermelo%25E2%2580%2593Fraenkel_set_theory&quot;&gt;Zermelo-Fraenkel set
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Zermelo%E2%80%93Fraenkel_set_theory&quot;&gt;Zermelo-Fraenkel set
 theory&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Von_Neumann%25E2%2580%2593Bernays%25E2%2580%2593G%25C3%25B6del_set_theory&quot;&gt;Von Neumann–Bernays–Gödel set
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Bernays%E2%80%93G%C3%B6del_set_theory&quot;&gt;Von Neumann–Bernays–Gödel set
 theory&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)&quot;&gt;Naive Set
 Theory&lt;/a&gt; -
@@ -887,7 +889,7 @@ lógica como unas &lt;em&gt;reglas de manipulación de símbolos&lt;/em&gt; o ut
 plural&lt;/a&gt;
 (ver también &lt;a href=&quot;http://math.stackexchange.com/a/1087050/135164&quot;&gt;esta pregunta de
 SE&lt;/a&gt;). Nótese que (si
-expresamos ZFC en lógica de primer orden) &lt;a href=&quot;https://en.wikipedia.org/wiki/L%25C3%25B6wenheim%25E2%2580%2593Skolem_theorem&quot;&gt;sí existen modelos de
+expresamos ZFC en lógica de primer orden) &lt;a href=&quot;https://en.wikipedia.org/wiki/L%C3%B6wenheim%E2%80%93Skolem_theorem&quot;&gt;sí existen modelos de
 ZFC&lt;/a&gt;
     que pueden expresarse en ZFC, pero estos no son el modelo estándar. &lt;a href=&quot;#fnref:zfc-dominio&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
@@ -917,7 +919,7 @@ axioma. &lt;a href=&quot;#fnref:zfc-vacio&quot; class=&quot;reversefootnote&quo
 axioma incluidos podrían simplemente expresarse como axiomas
 añadiendo un cuantificador sobre el predicado correspondiente.
 La demostración de que ZF(C) no es finitamente axiomatizable puede
-encontrarse en &lt;em&gt;Kunen (1980) página 138&lt;/em&gt;. Sin embargo &lt;a href=&quot;https://en.m.wikipedia.org/wiki/Von_Neumann%25E2%2580%2593Bernays%25E2%2580%2593G%25C3%25B6del_set_theory&quot;&gt;NBG&lt;/a&gt;
+encontrarse en &lt;em&gt;Kunen (1980) página 138&lt;/em&gt;. Sin embargo &lt;a href=&quot;https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Bernays%E2%80%93G%C3%B6del_set_theory&quot;&gt;NBG&lt;/a&gt;
 &lt;strong&gt;sí&lt;/strong&gt; es finitamente axiomatizable y es una extensión conservativa
 de ZFC (es decir, todo teorema en ZFC es teorema en NBG). &lt;a href=&quot;#fnref:zfc-segundo&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
@@ -2571,7 +2573,7 @@ comunes. El funcionamiento de todo esto depende de la colaboración.&lt;/p&gt;
 &lt;p&gt;Puedes aportar directamente a los repositorios existentes, y para cualquier duda siempre puedes consultar a sus creadores. También puedes crear tus propios apuntes y &lt;a href=&quot;/recursos/new&quot;&gt;enlazarlos en la página de recursos&lt;/a&gt; para que todo el mundo pueda encontrarlos.&lt;/p&gt;
 
 &lt;p&gt;Para empezar a crear y publicar tus apuntes o cualquier otro material sólo necesitas una cuenta en GitHub, Gitlab o un servicio similar. Si además quieres poder editar repositorios de LibreIM, podemos incluirte en &lt;a href=&quot;https://github.com/libreim&quot;&gt;nuestra organización de GitHub&lt;/a&gt;. Para eso, puedes escribirnos
-a &lt;a href=&quot;libreim.blog@gmail.com&quot;&gt;libreim.blog@gmail.com&lt;/a&gt;, o simplemente rellenar este &lt;a href=&quot;http://goo.gl/forms/k4Yl1TK5XT2ZaDro1&quot;&gt;formulario&lt;/a&gt;.&lt;/p&gt;
+a &lt;a href=&quot;mailto:libreim.blog@gmail.com&quot;&gt;libreim.blog@gmail.com&lt;/a&gt;, o simplemente rellenar este &lt;a href=&quot;http://goo.gl/forms/k4Yl1TK5XT2ZaDro1&quot;&gt;formulario&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Además de LibreIM, existen &lt;a href=&quot;/contributing/#otras_comunidades&quot;&gt;otras comunidades con distintos intereses y enfoques&lt;/a&gt; en las que podrás participar a lo largo de tus estudios.&lt;/p&gt;
 
