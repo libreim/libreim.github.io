@@ -223,14 +223,6 @@ article {
     opacity: 0.5; }
     article .share img {
       width: 1.6rem; }
-    article .share .dsq-comment-count {
-      background: url("/images/sq_comment.png") no-repeat scroll 0% 0%/auto 100% #303030;
-      color: #fff;
-      display: inline-block;
-      height: 1.5rem;
-      padding: 0.1rem 0.35rem 0 1.9rem;
-      text-decoration: none;
-      vertical-align: top; }
     article .share:hover {
       opacity: 1; }
   article abbr {

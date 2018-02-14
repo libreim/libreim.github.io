@@ -156,7 +156,7 @@ i < j %]]></script> tiene dos hijos, izquierda y derecha, que se obtienen a divi
 
 <p>La Imagen 1 muestra el árbol binario a generar si se tuviese <script type="math/tex">n = 8</script>. Nótese que las hojas del árbol son los subintervalos con una sola componente.</p>
 
-<p class="fig"><img src="/images/segment_trees/segment_trees_visualizacion.png" alt="" />
+<p class="fig"><img src="/assets/images/blog/segment_trees/segment_trees_visualizacion.png" alt="" />
 <strong>Imagen 1.</strong> Segment tree asociado a un vector <script type="math/tex">V</script> de longitud 8 representado como un árbol binario.</p>
 
 <p>Tras generar el árbol binario podemos expresar un subintervalo <script type="math/tex">V[i, j]</script> como la unión del menor número de subintervalos como los preprocesados previamente. Tiene sentido hablar de esta unión pues siempre existe (basta expresar <script type="math/tex">V[i, j]</script> como unión de sus componentes).  Por ejemplo, para <script type="math/tex">n=8</script> se tiene:</p>
@@ -228,7 +228,7 @@ i < j %]]></script> tiene dos hijos, izquierda y derecha, que se obtienen a divi
 
 <p>Estas relaciones nos permiten acceder a los hijos de forma constante. Además, la longitud del vector que representa al segment tree es <script type="math/tex">2n-1</script> donde <script type="math/tex">n</script> es la longitud de <script type="math/tex">V</script>.</p>
 
-<p class="fig"><img src="/images/segment_trees/segment_trees_heap.png" alt="" />
+<p class="fig"><img src="/assets/images/blog/segment_trees/segment_trees_heap.png" alt="" />
 <strong>Imagen 2.</strong> Segment tree asociado a un vector <script type="math/tex">V</script> de longitud 8 representado como un heap.</p>
 
 <p>Nótese que el subintervalo correspondiente a cada nodo se deduce de su índice, por lo que no es necesario almacenar esta información. Se puede construir el árbol recursivamente. Si el nodo actual es una hoja se obtiene su información mediante el método <code class="highlighter-rouge">assignLeaf</code>. Si no se da este caso, se construyen recursivamente los dos hijos y se obtiene la información para el nodo actual aplicando el método <code class="highlighter-rouge">merge</code> a ambos hijos.</p>
