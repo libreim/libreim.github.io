@@ -7,6 +7,257 @@
         <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
         
         <item>
+            <title>Generalizando la desigualdad de las medias</title>
+            <description>&lt;p&gt;La &lt;a href=&quot;https://libreim.github.io/blog/2014/04/12/desigualdad-medias/&quot;&gt;desigualdad de las medias&lt;/a&gt; es una herramienta muy útil para resolver problemas de mínimos o máximos. En este post generalizamos los conceptos de media aritmética y geométrica y esta desigualdad en espacios de medida arbitrarios, obteniendo la desigualdad clásica como caso particular.&lt;/p&gt;
+
+&lt;h2 id=&quot;espacios-de-medida&quot;&gt;Espacios de medida&lt;/h2&gt;
+
+&lt;p&gt;Los espacios de medida son espacios en los que asignamos un valor numérico a cada subconjunto (que interpretamos como una generalización del concepto de volumen o área). Para este post nos restringimos a medidas que asignan valores no negativos (o infinito) a los subconjuntos, pero el concepto &lt;a href=&quot;https://ncatlab.org/nlab/show/measure+space#generalizations&quot;&gt;puede generalizarse más&lt;/a&gt;. La propiedad básica de una medida es que es aditiva cuando los conjuntos son disjuntos (esto es, si dividimos un conjunto en dos partes disjuntas y sumamos los volúmenes individuales debemos obtener el volumen total).&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Definición 1&lt;/dt&gt;
+  &lt;dd&gt;Una &lt;strong&gt;medida&lt;/strong&gt; sobre una clase de conjuntos &lt;script type=&quot;math/tex&quot;&gt;\mathcal{A}&lt;/script&gt; es una función &lt;script type=&quot;math/tex&quot;&gt;\mu:\mathcal{A} \to [0,+\infty]&lt;/script&gt; que cumple:&lt;/dd&gt;
+  &lt;dd&gt;&lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Conjunto vacío nulo&lt;/strong&gt;: &lt;script type=&quot;math/tex&quot;&gt;\mu(\varnothing) = 0&lt;/script&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Aditividad numerable&lt;/strong&gt;: Dada una colección numerable &lt;script type=&quot;math/tex&quot;&gt;\{E_n\}_{n \in \mathbb{N}} \subseteq \mathcal{A}&lt;/script&gt; de&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/dd&gt;
+  &lt;dd&gt;subconjuntos disjuntos dos a dos se tiene que:&lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\mu\left(\bigcup_{n \in \mathbb{N}} E_n\right) = \sum_{n\in\mathbb{N}} \mu(E_n)&lt;/script&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;Por razones técnicas es posible que no podamos asignar un valor a todos los subconjuntos del espacio total (pueden existir &lt;a href=&quot;https://en.wikipedia.org/wiki/Non-measurable_set&quot;&gt;conjuntos no medibles&lt;/a&gt;) por lo que debemos restringirnos por tanto a una subclase de conjuntos con una mínima estructura.&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Definición 2&lt;/dt&gt;
+  &lt;dd&gt;Un &lt;strong&gt;espacio de medida&lt;/strong&gt; es una tripleta &lt;script type=&quot;math/tex&quot;&gt;(X, \mathcal{A}, \mu)&lt;/script&gt; donde:&lt;/dd&gt;
+  &lt;dd&gt;&lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathcal{A} \subseteq \mathcal{P}(X)&lt;/script&gt; es un &lt;a href=&quot;https://en.wikipedia.org/wiki/Sigma-algebra&quot;&gt;&lt;em&gt;&lt;script type=&quot;math/tex&quot;&gt;\sigma&lt;/script&gt;-álgebra&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;\mu:\mathcal{A} \to [0,+\infty]&lt;/script&gt; es una &lt;em&gt;medida&lt;/em&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;Dado que no es el objetivo del post no desarrollamos más aquí estos conceptos o sus propiedades básicas. Para una introducción completa puede leerse &lt;a href=&quot;https://terrytao.wordpress.com/books/an-introduction-to-measure-theory/&quot;&gt;&lt;em&gt;An introduction to measure theory&lt;/em&gt;&lt;/a&gt; de Terence Tao.&lt;/p&gt;
+
+&lt;h3 id=&quot;ejemplos&quot;&gt;Ejemplos&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;El ejemplo más sencillo de medida es la &lt;em&gt;cardinalidad&lt;/em&gt;. Dado un conjunto &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; podemos medir cualquier subconjunto 
+suyo (&lt;script type=&quot;math/tex&quot;&gt;\mathcal{A} = \mathcal{P}(X)&lt;/script&gt;) contando su número de elementos. Esto es:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\mu(Y) = |Y|&lt;/script&gt;
+
+    &lt;p&gt;Si el número de elementos de &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt; es infinito entonces asignamos &lt;script type=&quot;math/tex&quot;&gt;\mu(Y) = \infty&lt;/script&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Los &lt;a href=&quot;https://en.wikipedia.org/wiki/Probability_space&quot;&gt;&lt;em&gt;espacios de probabilidad&lt;/em&gt;&lt;/a&gt; son espacios de medida donde &lt;script type=&quot;math/tex&quot;&gt;\mu(X) = 1&lt;/script&gt;. En este caso la medida suele notarse 
+con &lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt; y es la probabilidad que conocemos.&lt;/li&gt;
+  &lt;li&gt;La &lt;a href=&quot;https://en.wikipedia.org/wiki/Lebesgue_measure&quot;&gt;&lt;em&gt;medida de Lebesgue&lt;/em&gt;&lt;/a&gt; da una medida para &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^n&lt;/script&gt; que coincide con el concepto de longitud, área, volumen…&lt;/li&gt;
+  &lt;li&gt;Dado &lt;script type=&quot;math/tex&quot;&gt;x \in X&lt;/script&gt; la &lt;a href=&quot;https://en.wikipedia.org/wiki/Dirac_measure&quot;&gt;&lt;em&gt;medida de Dirac&lt;/em&gt;&lt;/a&gt; &lt;script type=&quot;math/tex&quot;&gt;\delta_x&lt;/script&gt; indica si &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; pertenece al conjunto medido: &lt;script type=&quot;math/tex&quot;&gt;\delta_x(A) = 1&lt;/script&gt; si &lt;script type=&quot;math/tex&quot;&gt;x \in A&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;\delta_x(A) = 0&lt;/script&gt; en otro caso. Este es un caso particular de medida de probabilidad.&lt;/li&gt;
+  &lt;li&gt;Cualquier múltiplo de una medida es una medida&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;integral-e-integral-geométrica&quot;&gt;Integral e integral geométrica&lt;/h2&gt;
+
+&lt;p&gt;Dado un espacio de medida &lt;script type=&quot;math/tex&quot;&gt;(M, \mathcal{A}, \mu)&lt;/script&gt; podemos definir un concepto de integral para cualquier &lt;a href=&quot;https://en.wikipedia.org/wiki/Measurable_function&quot;&gt;función medible&lt;/a&gt;. El proceso de construcción consta de los siguientes pasos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;La integral de una función indicadora es la medida del conjunto que indica:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_M 1_A \, \mathrm{d}\mu = \mu(A)&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;La integral es lineal por tanto la integral de una combinación lineal finita de funciones indicadoras (&lt;a href=&quot;https://en.wikipedia.org/wiki/Simple_function&quot;&gt;función simple&lt;/a&gt;) puede calcularse:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_M \sum_n a_n1_{A_n}\, \mathrm{d}\mu = \sum_n a_n\mu(A_n)&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Si &lt;script type=&quot;math/tex&quot;&gt;S&lt;/script&gt; es el conjunto de las funciones simples, la integral de una función medible no negativa es:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_M f  \, \mathrm{d}\mu = \sup \left\{\int_M s \, \mathrm{d}\mu \; : \; 0 \leq s \leq f, \, s \in S\right\}&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;En el caso de funciones complejas dividimos la función en su parte real e imaginaria y cada una de estas en su 
+parte positiva y negativa y calculamos las integrales por separado. En el caso de que obtengamos valores finitos y 
+no haya indeterminaciones (esto es, la función sea integrable) hemos definido la integral&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;La integral así definida es lineal y creciente y además verifica la siguiente propiedad: dado un subconjunto numerable &lt;script type=&quot;math/tex&quot;&gt;\{E_n\}_{n \in \mathbb{N}} \subseteq \mathcal{A}&lt;/script&gt; de subconjuntos disjuntos dos a dos se tiene que&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_{\bigcup_{n} E_n} f \, \mathrm{d}\mu = \sum_{n} \int_{E_n} f\, \mathrm{d}\mu&lt;/script&gt;
+
+&lt;p&gt;Este concepto de integral puede interpretarse informalmente como una “suma” de los valores que alcanza la función. Si tenemos una función positiva podemos hacer el mismo proceso haciendo el “producto” de los valores, dando lugar a la &lt;a href=&quot;https://en.wikipedia.org/wiki/Product_integral#Type_II&quot;&gt;integral geométrica&lt;/a&gt;:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\prod_M f(x)^{\mathrm{d}\mu} = \exp\left(\int_M \log f(x) \, \mathrm{d}\mu\right)&lt;/script&gt;
+
+&lt;h3 id=&quot;ejemplos-1&quot;&gt;Ejemplos&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Las integrales respecto de la &lt;em&gt;cardinalidad&lt;/em&gt; sobre un conjunto finito corresponden con la suma y el producto de 
+los valores de la función. Esto es, si &lt;script type=&quot;math/tex&quot;&gt;I=\{1,\dots,n\}&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;f: I \to \mathbb{R}^+&lt;/script&gt; sus integrales son:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_I f \, \mathrm{d}\mu = \sum_{i=1}^{n} f(i)&lt;/script&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\prod_I f^{\mathrm{d}\mu} = \prod_{i=1}^{n} f(i)&lt;/script&gt;
+
+    &lt;p&gt;Si el número de elementos es infinito entonces la integral se corresponde con el supremo de las sumas o productos 
+parciales.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;En un espacio de probabilidad &lt;script type=&quot;math/tex&quot;&gt;(\Omega, \mathcal{E}, P)&lt;/script&gt; dada una variable aleatoria integrable se tiene que:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_\Omega X \,\mathrm{d}P = \mathbb{E}[X]&lt;/script&gt;
+
+    &lt;p&gt;El caso geométrico se llama integral geométrica y cumple propiedades análogas a la esperanza. Por ejemplo, existe 
+una versión de la ley de los grandes números geométrica: si &lt;script type=&quot;math/tex&quot;&gt;X_i&lt;/script&gt; es una sucesión de variables i.i.d. se tiene que:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\sqrt[n]{X_1\cdots X_n} \overset{P}{\to} \prod_\Omega X^{\mathrm{d}P}&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;La integral dada por la medida de Lebesgue es la integral usual en &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^n&lt;/script&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;La integral y la integral geométrica de la medida de Dirac coinciden. Si &lt;script type=&quot;math/tex&quot;&gt;x \in A&lt;/script&gt; y tenemos una función 
+&lt;script type=&quot;math/tex&quot;&gt;f:A \to \mathbb{R}^+&lt;/script&gt; tenemos que:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_I f \, \mathrm{d}\delta_x = \prod_I f^{\mathrm{d}\delta_x} = f(x)&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Dada una medida &lt;script type=&quot;math/tex&quot;&gt;\mu&lt;/script&gt; y un múltiplo suyo &lt;script type=&quot;math/tex&quot;&gt;\lambda\mu&lt;/script&gt; tenemos que:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_M f \,\mathrm{d}\lambda\mu = \lambda\int_M f \,\mathrm{d}\mu&lt;/script&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\prod_M f^{\mathrm{d}\lambda\mu} = \left(\prod_M f^{\mathrm{d}\mu}\right)^\lambda&lt;/script&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;medias-de-una-función&quot;&gt;Medias de una función&lt;/h2&gt;
+
+&lt;p&gt;A partir del concepto de integral podemos definir la &lt;a href=&quot;https://en.wikipedia.org/wiki/Mean_of_a_function&quot;&gt;media aritmética&lt;/a&gt; y geométrica de una función integrable, que generalizan las medias ya conocidas en el caso discreto. Aunque no las tratamos aquí la media armónica y la media cuadrática también pueden generalizarse.&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Definición 3&lt;/dt&gt;
+  &lt;dd&gt;Dada un espacio de medida &lt;script type=&quot;math/tex&quot;&gt;M&lt;/script&gt; con medida total finita y una función integrable &lt;script type=&quot;math/tex&quot;&gt;f:M \to \mathbb{C}&lt;/script&gt;, la &lt;strong&gt;media aritmética&lt;/strong&gt; de &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; es:&lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;A(f) = \frac{1}{\mu(M)}\int_M f(x)\;\mathrm{d}\mu&lt;/script&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;Análogamente podemos hacerlo para el caso geométrico:&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Definición 4&lt;/dt&gt;
+  &lt;dd&gt;En la situación anterior, si &lt;script type=&quot;math/tex&quot;&gt;f(M) \subseteq \mathbb{R}^+&lt;/script&gt; la &lt;strong&gt;media geométrica&lt;/strong&gt; de &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; es:&lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;G(f) = \left(\prod_M f(x)^{\mathrm{d}\mu}\right)^{\frac{1}{\mu(M)}}&lt;/script&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;indicamos la medida como subíndice en caso de que sea necesario.&lt;/p&gt;
+
+&lt;h3 id=&quot;algunas-propiedades&quot;&gt;Algunas propiedades&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Es fácil ver que la media aritmética de una variable aleatoria coincide con su esperanza. Este hecho tiene una 
+versión recíproca. Si &lt;script type=&quot;math/tex&quot;&gt;(M,\mathcal{A},\mu)&lt;/script&gt; es una medida tal que &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+\mu(M) &lt; \infty %]]&gt;&lt;/script&gt; podemos construir un espacio de probabilidad con la probabilidad&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;P_\mu(A) = \frac{\mu(A)}{\mu(M)}&lt;/script&gt;
+
+    &lt;p&gt;En este caso tenemos que si tomamos &lt;script type=&quot;math/tex&quot;&gt;f: M \to \mathbb{C}&lt;/script&gt; se tiene que&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;A(f) = \mathbb{E}_{P_\mu}[X]&lt;/script&gt;
+
+    &lt;p&gt;Esto nos da una interpretación probabilística de la media aritmética de una función; por ejemplo si 
+&lt;script type=&quot;math/tex&quot;&gt;f:[a,b] \to \mathbb{C}&lt;/script&gt; es una función integrable tenemos que:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;A(f) = \frac{1}{b-a} \int_a^b f(x)\,\mathrm{d}x = \mathbb{E}[f(X)]&lt;/script&gt;
+
+    &lt;p&gt;donde &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; sigue una distribución uniforme sobre &lt;script type=&quot;math/tex&quot;&gt;[a,b]&lt;/script&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;En el caso de funciones continuas reales de variable real podemos hallar una consecuencia sencilla del 
+teorema del valor medio. Dada &lt;script type=&quot;math/tex&quot;&gt;f: [a,b] \to \mathbb{R}&lt;/script&gt; continua existe un punto &lt;script type=&quot;math/tex&quot;&gt;\xi \in [a,b]&lt;/script&gt; tal que &lt;script type=&quot;math/tex&quot;&gt;A(f) = f(\xi)&lt;/script&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;La media aritmética de una función está acotada por las cotas de la función. Por ejemplo, si tenemos un compacto 
+&lt;script type=&quot;math/tex&quot;&gt;M&lt;/script&gt; y una función continua &lt;script type=&quot;math/tex&quot;&gt;f:M \to \mathbb{R}&lt;/script&gt; se cumple que:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\min_{x \in M} f(x) \leq A(f) \leq \max_{x \in M} f(x)&lt;/script&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;la-desigualdad-de-las-medias&quot;&gt;La desigualdad de las medias&lt;/h2&gt;
+
+&lt;p&gt;Sean &lt;script type=&quot;math/tex&quot;&gt;x_1, \dots, x_n&lt;/script&gt; valores positivos. La &lt;a href=&quot;https://en.wikipedia.org/wiki/Inequality_of_arithmetic_and_geometric_means&quot;&gt;desigualdad de las medias aritmética-geométrica&lt;/a&gt; nos indica que se verifica:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac1n\sum_i x_i \geq \left(\prod_i x_i\right)^\frac1n&lt;/script&gt;
+
+&lt;p&gt;En el caso de que &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; tome valores reales positivos podemos generalizar esta desigualdad al caso general, esto es:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;A(f) \geq G(f)&lt;/script&gt;
+
+&lt;p&gt;para cualquier &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; integrable en un espacio de medida. Esta desigualdad es una consecuencia de la &lt;a href=&quot;https://en.wikipedia.org/wiki/Jensen's_inequality#Measure-theoretic_and_probabilistic_form&quot;&gt;desigualdad de Jensen&lt;/a&gt;, que nos indica:&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Desigualdad de Jensen&lt;/dt&gt;
+  &lt;dd&gt;Sea &lt;script type=&quot;math/tex&quot;&gt;(M, \mathcal{A}, \mu)&lt;/script&gt; un espacio de medida, &lt;script type=&quot;math/tex&quot;&gt;f:M \to \mathbb{R}&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;\varphi: \mathbb{R} \to \mathbb{R}&lt;/script&gt; una&lt;/dd&gt;
+  &lt;dd&gt;función convexa. Entonces:&lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\varphi\left(\frac{1}{\mu(M)} \int_M f \, \mathrm{d}\mu \right) \leq \frac{1}{\mu(M)} \int_M \varphi \circ f \,\mathrm{d}\mu&lt;/script&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;Dada &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; basta aplicar la desigualdad con &lt;script type=&quot;math/tex&quot;&gt;\varphi&lt;/script&gt; la función exponencial sobre la media aritmética de &lt;script type=&quot;math/tex&quot;&gt;\log f&lt;/script&gt; para obtener el resultado. En el caso de la medida de Lebesgue la desigualdad queda:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{1}{\mu(M)} \int_M f(x) \, \mathrm{d}x \geq \left(\prod_M f(x)^{\mathrm{d}x}\right)^{\frac{1}{\mu(M)}}&lt;/script&gt;
+
+&lt;h3 id=&quot;medias-ponderadas&quot;&gt;Medias ponderadas&lt;/h3&gt;
+
+&lt;p&gt;Dado un espacio de medida &lt;script type=&quot;math/tex&quot;&gt;(\Omega, \mathcal{A}, \mu)&lt;/script&gt; podemos utilizar una función integrable &lt;script type=&quot;math/tex&quot;&gt;g&lt;/script&gt; para construir otra medida &lt;script type=&quot;math/tex&quot;&gt;\mu_g&lt;/script&gt; sobre el mismo espacio, que podemos interpretar como una medida ponderada por &lt;script type=&quot;math/tex&quot;&gt;g&lt;/script&gt;:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mu_g(A) = \int_A g \, \mathrm{d}\mu&lt;/script&gt;
+
+&lt;p&gt;En este caso la integral de una función &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; puede calcularse como:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_M f \,\mathrm{d}\mu_g = \int_M fg \,\mathrm{d}\mu&lt;/script&gt;
+
+&lt;p&gt;Utilizando esta medida podemos construir y generalizar medias ponderadas. El caso más común es el uso de una función masa de probabilidad o una función de densidad con las que &lt;a href=&quot;https://en.wikipedia.org/wiki/Radon–Nikodym_theorem&quot;&gt;expresar una distribución&lt;/a&gt; de probabilidad.&lt;/p&gt;
+
+&lt;p&gt;Además podemos obtener otros casos particulares de la desigualdad de las medias. Por ejemplo, en el caso discreto si tomamos una función de pesos &lt;script type=&quot;math/tex&quot;&gt;\omega: I \to \mathbb{R}&lt;/script&gt; tal que &lt;script type=&quot;math/tex&quot;&gt;\sum_{i} \omega(i) = 1&lt;/script&gt; tenemos la desigualdad ponderada de las medias:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{i=1}^n \omega_ix_i =  A_{\omega}(x) \geq G_{\omega}(x) = \prod_{i=1}^n x_i^{\omega_i}&lt;/script&gt;
+
+&lt;p&gt;En el caso de la medida de Lebesgue (con una función que integra 1) la desigualdad queda:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_M \omega(x)f(x) \,\mathrm{d}x \geq \prod_M f(x)^{\omega(x)\,\mathrm{d}x}&lt;/script&gt;
+
+</description>
+            <pubDate>Thu, 01 Mar 2018 00:00:00 +0000</pubDate>
+            <link>/blog/2018/03/01/medias/</link>
+            <guid isPermaLink="true">/blog/2018/03/01/medias/</guid>
+        </item>
+        
+        <item>
             <title>Recursos sobre cálculo lambda</title>
             <description>&lt;blockquote&gt;
   &lt;p&gt;1936 - Alonzo Church also invents every language that will ever be
@@ -2089,549 +2340,6 @@ al &lt;em&gt;cálculo lambda tipado&lt;/em&gt; y al &lt;em&gt;Sistema &lt;script
             <pubDate>Fri, 08 Jan 2016 00:00:00 +0000</pubDate>
             <link>/blog/2016/01/08/teoria-de-tipos/</link>
             <guid isPermaLink="true">/blog/2016/01/08/teoria-de-tipos/</guid>
-        </item>
-        
-        <item>
-            <title>Guía para primero</title>
-            <description>&lt;p class=&quot;note&quot;&gt;&lt;em&gt;Actualizada a 22 de septiembre de 2017&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Esta es una guía orientada al nuevo estudiante del doble grado, escrita con la intención
-de ahorrarle el largo camino que el resto de alumnos hemos seguido hasta asentar
-una manera de trabajar y estudiar eficiente. La escribimos pensando en el
-artículo que nos hubiera gustado leer al empezar la carrera y la publicamos a
-principios de septiembre, justo con ese propósito en mente.&lt;/p&gt;
-
-&lt;h2 id=&quot;pero-no-me-basta-con-lo-que-me-enseñen-en-la-universidad&quot;&gt;Pero, ¿no me basta con lo que me enseñen en la universidad?&lt;/h2&gt;
-
-&lt;p&gt;Sí, el temario de las asignaturas que vas a cursar es el necesario para
-aprobarlas. Puedes pasar todo este texto por alto y seguir sacando buena nota.
-Todo lo que te vamos a contar a continuación va dirigido a que
-puedas organizar mejor tu trabajo, ahorrar mucho tiempo y evitarte pequeños
-desastres. Probablemente, llegarías tú mismo a estas conclusiones después de un tiempo
-en la carrera; sólo vamos a acelerar ese proceso. Además, la mayoría de las
-herramientas que destacamos seguro que acabarás teniendo que usarlas en algún
-momento, como estudiante o en tu carrera
-profesional, así que mejor que cojas algo de práctica antes.&lt;/p&gt;
-
-&lt;p&gt;Esto probablemente no sea suficiente. Durante la carrera habrá
-momentos en los que tendrás que buscarte la vida y encontrar más formas de
-conseguir información, realizar alguna tarea, etc. Tendrás también que aprender a buscar
-bibliografía y otras herramientas por tu propia cuenta.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;h2 id=&quot;cómo-controlo-mis-proyectos-de-código&quot;&gt;¿Cómo controlo mis proyectos de código?&lt;/h2&gt;
-
-&lt;p&gt;Lo que queremos evitar es que las carpetas de tu proyecto acaben pareciéndose a
-esto:&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./proyecto.zip
-./proyecto2.zip
-./proyecto3.zip
-./proyecto&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;nofunciona&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.zip
-./asdfasdf.zip
-./proyectofinal.zip
-./proyectofinal2.zip
-./proyectofinal&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;entregar&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.zip
-./proyectofinal&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;entregar&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;FINAL&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;de verdad&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.zip
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Esto tiene puntos extra si además debes trabajar con otro compañero y comunicarle
-cada cambio que hayáis escrito en un &lt;code class=&quot;highlighter-rouge&quot;&gt;.zip&lt;/code&gt;. Ambos vais a estar trabajando
-sobre el mismo código y vuestros cambios pueden solaparse o contradecirse.
-Mantener únicamente Dropbox o soluciones similares tiende a la larga a hacerse
-complejo y poco práctico.&lt;/p&gt;
-
-&lt;p&gt;Y para evitar eso, necesitas alguna herramienta que te permita manejar el proyecto,
-unir los cambios de varias personas y volver atrás, al tiempo en el que el
-código funcionaba. Esta herramienta es un sistema de &lt;strong&gt;control de versiones&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://git-scm.com/&quot;&gt;&lt;strong&gt;Git&lt;/strong&gt;&lt;/a&gt; es un sistema de control de versiones escrito por
-&lt;a href=&quot;https://es.wikipedia.org/wiki/Linus_Torvalds&quot;&gt;Linus Torvalds&lt;/a&gt;.
-Permite ramificar el desarrollo de un proyecto en ramas y distribuirlo entre
-varios desarrolladores, facilitando luego mezclar todos los cambios en una única
-rama. Y &lt;a href=&quot;https://github.com/&quot;&gt;&lt;strong&gt;GitHub&lt;/strong&gt;&lt;/a&gt;, &lt;a href=&quot;https://about.gitlab.com/&quot;&gt;&lt;strong&gt;GitLab&lt;/strong&gt;&lt;/a&gt; o 
-&lt;a href=&quot;https://bitbucket.org/&quot;&gt;&lt;strong&gt;Bitbucket&lt;/strong&gt;&lt;/a&gt; son servicios de 
-almacenamiento de código que usan el control de versiones Git. Te servirán en los 
-trabajos en grupo para tener un servidor central
-con el que varias personas puedan trabajar directamente y para publicar el código.&lt;/p&gt;
-
-&lt;p&gt;Para empezar tienes:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Un &lt;a href=&quot;/blog/2014/02/23/manualgit/&quot;&gt;manual rápido de Git/GitHub&lt;/a&gt;, escrito por David Charte en este mismo blog.&lt;/li&gt;
-  &lt;li&gt;Un &lt;a href=&quot;https://github.com/oslugr/curso-git&quot;&gt;curso completo de Git&lt;/a&gt;, con &lt;a href=&quot;https://github.com/oslugr/curso-git&quot;&gt;eBook descargable&lt;/a&gt; que también puedes adquirir en Amazon.&lt;/li&gt;
-  &lt;li&gt;La propia &lt;a href=&quot;https://git-scm.com/documentation&quot;&gt;documentación de Git&lt;/a&gt;, desde su página oficial.&lt;/li&gt;
-  &lt;li&gt;Algunas &lt;a href=&quot;https://git-scm.com/download/gui/linux&quot;&gt;interfaces gráficas para Git&lt;/a&gt; para utilizarlo si aún no conoces los comandos.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;cómo-escribo-los-trabajos-de-matemáticas&quot;&gt;¿Cómo escribo los trabajos de matemáticas?&lt;/h2&gt;
-
-&lt;p&gt;Las matemáticas tienen el problema de que necesitan de más símbolos de los que
-provee cualquier editor de textos normal. Hay formas de editar ecuaciones con
-&lt;em&gt;LibreOffice&lt;/em&gt; o &lt;em&gt;MSOffice&lt;/em&gt;, pero es más práctico utilizar un sistema diseñado al
-efecto. Tienes que afrontar además que tu &lt;em&gt;versión 6.2.8 de Word 2013&lt;/em&gt; no es
-un estándar en ningún sitio. Probablemente sólo siga funcionando en dos años,
-con la &lt;em&gt;versión 7.4.2 de Word 2015&lt;/em&gt; si sacrificas los saltos de línea, la mitad de las
-ecuaciones y un gatito. Seguramente deje de funcionar en 6 años.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;LaTeX&lt;/strong&gt; es un lenguaje de marcado, como HTML, con el que están escritos la
-mayoría de documentos matemáticos. Es un estándar de facto para publicaciones
-científicas: vuestro trabajo final de carrera deberá usarlo y si alguna vez
-quieres publicar en una revista, te enviarán una plantilla de LaTeX.&lt;/p&gt;
-
-&lt;p&gt;Por otro lado, también vas a
-necesitar escribir diapositivas para presentar trabajos de
-matemáticas. PowerPoint &lt;strong&gt;no&lt;/strong&gt; es una opción.
-&lt;strong&gt;Beamer&lt;/strong&gt; es una clase específica de LaTeX para escribir
-presentaciones, pero también se usa con asiduidad
-&lt;a href=&quot;http://lab.hakim.se/reveal-js/#/&quot;&gt;reveal.js&lt;/a&gt; con el que puedes crear
-presentaciones desde la web en &lt;a href=&quot;http://slides.com&quot;&gt;slides.com&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Para empezar a aprender tienes dos artículos en este blog, escritos por
-Pablo Baeyens:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/2015/03/14/latex/&quot;&gt;¿Cómo aprender LaTeX?&lt;/a&gt;, un compendio de recursos.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/2015/03/14/intro-beamer/&quot;&gt;Introducción a Beamer&lt;/a&gt;, una guía de beamer escrita en beamer.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Aprender LaTeX no es un proceso fácil, pero te acabará siendo rentable. Si
-quieres escribir ciencia, los procesadores usuales de texto no son lo más útil.
-Hay artículos del 1999 explicando por qué:
-&lt;a href=&quot;http://ricardo.ecn.wfu.edu/~cottrell/wp.html&quot;&gt;Word Processors: Stupid and Inefficient&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;puffff-latex-es-complicadísimo&quot;&gt;Puffff, LaTeX es complicadísimo.&lt;/h2&gt;
-
-&lt;p&gt;Tenemos una alternativa. &lt;a href=&quot;http://daringfireball.net/projects/markdown/syntax&quot;&gt;&lt;strong&gt;Markdown&lt;/strong&gt;&lt;/a&gt; es otro lenguaje de marcado, diseñado por
-&lt;em&gt;John Gruber&lt;/em&gt; y &lt;em&gt;Aaron Swartz&lt;/em&gt;, mucho más sencillo. Con &lt;a href=&quot;http://pandoc.org/&quot;&gt;&lt;strong&gt;pandoc&lt;/strong&gt;&lt;/a&gt; podrás
-transformar a PDF documentos escritos en Markdown con fórmulas de LaTeX en su
-interior.&lt;/p&gt;
-
-&lt;p&gt;De hecho, este mismo post que estás leyendo está escrito en Markdown. Puedes
-verlo &lt;a href=&quot;https://raw.githubusercontent.com/libreim/blog/site/_posts/2015-09-10-primero.md&quot;&gt;aquí&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Sin embargo, aun existiendo Markdown, las publicaciones grandes requerirán de un
-poder expresivo que Markdown no tiene. Aprende LaTeX siendo consciente de que
-para pequeños trabajos tienes esta alternativa. Precisamente, cuanto más difícil
-te parezca, más valor tiene que lo aprendas.&lt;/p&gt;
-
-&lt;h2 id=&quot;está-todo-en-inglés&quot;&gt;¿Está todo en inglés?&lt;/h2&gt;
-
-&lt;p&gt;Prácticamente, sí. Es un esfuerzo enorme reescribir cada pieza de documentación
-de software o cada artículo científico en varios idiomas. El estándar de facto
-en la ciencia y la programación es el inglés. Seguramente no te descubrimos nada
-nuevo.&lt;/p&gt;
-
-&lt;p&gt;Para obtener el título necesitarás acreditar un nivel mínimo B1 (CEFR) o equivalente en alguna lengua
-extranjera. Tienes a tu favor (o en tu contra) que todos los días trabajarás con
-artículos, programas y documentación en inglés; así que tendrás tiempo
-suficiente para estudiarlo a bastante más nivel del que te exigen.&lt;/p&gt;
-
-&lt;h2 id=&quot;si-tengo-una-duda-cómo-la-resuelvo&quot;&gt;Si tengo una duda, ¿cómo la resuelvo?&lt;/h2&gt;
-
-&lt;p&gt;A lo largo de la carrera vas a tener miles de pequeñas dudas, destinadas
-principalmente a quitarte el tiempo que dedicarás a intentar solucionarlas.
-Formará parte del aprendizaje lidiar con ellas y saber buscarles solución.&lt;/p&gt;
-
-&lt;p&gt;No subestimes los buscadores de internet, como &lt;strong&gt;Google&lt;/strong&gt; o &lt;strong&gt;DuckDuckGo&lt;/strong&gt;. La mayoría
-de problemas de quien no estudia informática se resuelven con una búsqueda en internet. Si no
-deben ser un problema para nosotros es simplemente porque buscamos antes de
-considerarlos siquiera un problema. Además de los tradicionales, existe
-&lt;a href=&quot;http://www.wolframalpha.com/&quot;&gt;&lt;strong&gt;Wolfram Alpha&lt;/strong&gt;&lt;/a&gt;, motor de respuestas
-centrado en matemáticas y sitio al que acudir cuando no sale una integral.&lt;/p&gt;
-
-&lt;p&gt;Si tu duda es sobre programación, probablemente haya surgido antes y tenga respuesta en
-&lt;a href=&quot;http://stackoverflow.com/&quot;&gt;&lt;strong&gt;StackOverflow&lt;/strong&gt;&lt;/a&gt;. Para un programador, StackOverflow cumple el papel de
-oráculo al que consultarle todas las preguntas que surjan.
-Busca previamente si tu duda ha sido ya formulada y resuelta, y si no, ¡pregunta!
-Para ello aprovecha sus consejos sobre &lt;a href=&quot;https://meta.stackexchange.com/questions/10811/how-do-i-ask-and-answer-homework-questions&quot;&gt;cómo preguntar sobre trabajos&lt;/a&gt;
-y otras &lt;a href=&quot;https://meta.stackexchange.com/questions/7931/faq-for-stack-exchange-sites&quot;&gt;preguntas frecuentes&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;StackOverflow forma parte de &lt;a href=&quot;http://stackexchange.com/&quot;&gt;&lt;strong&gt;StackExchange&lt;/strong&gt;&lt;/a&gt;, una red proporcionando otros
-foros similares. Entre los útiles para nosotros están:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://math.stackexchange.com/&quot;&gt;&lt;strong&gt;MathStackExchange&lt;/strong&gt;&lt;/a&gt;, para preguntas de cualquier nivel sobre matemáticas.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://mathoverflow.net/&quot;&gt;&lt;strong&gt;MathOverflow&lt;/strong&gt;&lt;/a&gt;, para preguntas sobre investigación en matemáticas.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://tex.stackexchange.com/&quot;&gt;&lt;strong&gt;TexStackExchange&lt;/strong&gt;&lt;/a&gt;, sobre LaTeX.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p class=&quot;fig&quot;&gt;&lt;img src=&quot;//imgs.xkcd.com/comics/wisdom_of_the_ancients.png&quot; alt=&quot;&quot; longdesc=&quot;/assets/images/blog/guia-primero/wisdom_of_the_ancients.html&quot; /&gt;
-Imagen de &lt;a href=&quot;https://xkcd.com/979/&quot;&gt;xkcd: Wisdom of the Ancients&lt;/a&gt; (&lt;abbr title=&quot;Creative Commons&quot;&gt;CC&lt;/abbr&gt; BY-NC)&lt;/p&gt;
-
-&lt;p&gt;Si la duda es más específica a nuestra carrera, prueba a preguntarnos
-en &lt;a href=&quot;//t.me/libreimseminarios&quot;&gt;nuestro grupo de Telegram&lt;/a&gt;.
-Hemos pasado por el mismo camino que tú y probablemente nos hayamos
-encontrado con los mismos problemas.&lt;/p&gt;
-
-&lt;p&gt;Además, cada pieza de software suele llevar una &lt;strong&gt;documentación&lt;/strong&gt; asociada, que detalla
-cómo funciona, bajo qué comandos y cómo debe usarse. Búscala
-cuando te encuentres con algún problema o no sepas cómo usar una herramienta.&lt;/p&gt;
-
-&lt;h2 id=&quot;qué-es-el-software-libre-y-por-qué-me-importa&quot;&gt;¿Qué es el software libre? ¿Y por qué me importa?&lt;/h2&gt;
-
-&lt;p&gt;En el ámbito académico tendrás que utilizar distintos programas de todo tipo
-para aprender, componer trabajos y realizar prácticas. Lo habitual será que
-uses aplicaciones gratuitas, y en algún caso raro puede que se aproveche algún
-programa de pago para el que la universidad tenga licencia.&lt;/p&gt;
-
-&lt;p&gt;Sin embargo, para tu estudio propio será muy conveniente utilizar aplicaciones
-de &lt;strong&gt;código abierto&lt;/strong&gt;, que permiten que explores sus archivos de código y así, si
-te hace falta podrás entender su funcionamiento. Además, algunas de estas
-vendrán bajo una licencia que te otorgará libertades de distribución y
-modificación, entre otras. Es decir, serán aplicaciones libres.&lt;/p&gt;
-
-&lt;p&gt;El &lt;strong&gt;software libre&lt;/strong&gt; se define como aquel que permite las siguientes libertades
-que definió la &lt;a href=&quot;http://www.fsf.org/&quot;&gt;&lt;strong&gt;Free Software Foundation&lt;/strong&gt;&lt;/a&gt;:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Usar el programa sin restricciones.&lt;/li&gt;
-  &lt;li&gt;Estudiar cómo funciona un programa y adaptarlo.&lt;/li&gt;
-  &lt;li&gt;Distribuir copias del programa.&lt;/li&gt;
-  &lt;li&gt;Mejorar el programa, modificarlo y publicar esas modificaciones.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;El movimiento del software libre surgió como alternativa a las restricciones
-impuestas por empresas de software en los años ochenta, y para tratar de
-recuperar el lado más instructivo y colaborativo del desarrollo de software.
-Para asegurar que se protegieran las libertades de los usuarios se crearon
-licencias libres. Te vendrá bien conocer las más importantes, para reconocerlas
-en el software que utilices y para escogerlas para tus propios proyectos:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.gnu.org/licenses/gpl-3.0.en.html&quot;&gt;&lt;strong&gt;&lt;abbr title=&quot;General Public License&quot;&gt;GPL&lt;/abbr&gt;&lt;/strong&gt;&lt;/a&gt;. Asegura las libertades
-de la FSF. Además, si otro programa usa fragmentos de código en &lt;abbr title=&quot;General Public License&quot;&gt;GPL&lt;/abbr&gt;, debe
-licenciarse completamente en &lt;abbr title=&quot;General Public License&quot;&gt;GPL&lt;/abbr&gt; (esta condición se llama &lt;em&gt;copyleft&lt;/em&gt;
-y por esto se le denomina a la licencia &lt;em&gt;viral&lt;/em&gt;). Es una licencia
-con protección fuerte para los autores.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Permisivas&lt;/strong&gt; (&lt;a href=&quot;http://mit-license.org/&quot;&gt;MIT&lt;/a&gt;,
-&lt;a href=&quot;https://www.apache.org/licenses/&quot;&gt;Apache&lt;/a&gt;…). Ofrecen las libertades básicas
-pero no tienen &lt;em&gt;copyleft&lt;/em&gt;, lo que permite que un proyecto derivado tenga una
-licencia distinta (incluso privativa).&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://es.creativecommons.org/blog/licencias/&quot;&gt;&lt;strong&gt;Creative Commons&lt;/strong&gt;&lt;/a&gt;. No
-son específicas para el código. Los posts de este blog están por lo general
-licenciados en Creative Commons 4.0 BY-SA. Lo que quiere decir que puedes
-reusarlos para obras derivadas si acreditas autoría y mantienes la misma
-licencia.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;La Universidad de Granada cuenta con una &lt;a href=&quot;http://osl.ugr.es&quot;&gt;&lt;strong&gt;Oficina de Software Libre&lt;/strong&gt;&lt;/a&gt;
-situada en el número 36-38 de la C/ Real de Cartuja, compartiendo edificio con
-el &lt;abbr title=&quot;Centro de Enseñanzas Virtuales de la Universidad de Granada&quot;&gt;CEVUG&lt;/abbr&gt;. Se encarga de difundir el uso, desarrollo y docencia del
-software libre. Puedes también
-seguirlos en &lt;a href=&quot;http://twitter.com/oslugr&quot;&gt;@oslugr&lt;/a&gt; y
-&lt;a href=&quot;https://www.facebook.com/SoftwareLibreUGR&quot;&gt;Facebook&lt;/a&gt;. Si necesitas ayuda con la 
-instalación de Linux en tu portátil, también puedes contactar con
-el &lt;a href=&quot;http://twitter.com/grhacklab&quot;&gt;Hacklab Granada&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Si necesitas más razones para evitar el software privativo en tu aprendizaje,
-mejor que nosotros lo explica JJ Merelo en su artículo
-&lt;a href=&quot;https://medium.com/espanol/7-razones-para-que-no-obligues-a-tus-alumnos-a-usar-una-aplicacion-determinada-en-tus-asignaturas-a845545295e&quot;&gt;7 razones para que no obligues a tus alumnos a usar una aplicación determinada&lt;/a&gt;.
-En general, nadie os obligará a usar una aplicación privativa determinada. Nadie
-debería hacerlo. Pero en el caso de que ocurriera, podéis dirigiros a
-la OSL usando alguno de los canales anteriores.&lt;/p&gt;
-
-&lt;h2 id=&quot;tengo-que-instalar-linux&quot;&gt;¿Tengo que instalar Linux?&lt;/h2&gt;
-
-&lt;p&gt;La respuesta rápida es que sí. Es seguro que antes o después deberás usar un
-sistema operativo libre para aprender, y GNU/Linux es el más común. Una opción
-es usar una máquina virtual para instalarlo sobre tu sistema operativo actual
-pero, a la larga, va a volverse incómodo, y el hecho de que no utilices GNU/Linux
-para el día a día retrasará mucho el aprendizaje. Como primer paso, es buena idea
-hacer otra partición en tu disco duro e instalarlo junto al sistema operativo que ahora uses;
-el paso opcional, es prescindir de cualquier otro sistema operativo e instalar
-directamente GNU/Linux. Durante la carrera no necesitarás ningún sistema operativo
-privativo.&lt;/p&gt;
-
-&lt;p&gt;GNU/Linux viene en muchas formas, llamadas distribuciones. Puedes consultarlas
-y elegir la que más te guste. Algunas de las más comunes son
-&lt;a href=&quot;http://www.ubuntu.com/desktop&quot;&gt;Ubuntu&lt;/a&gt; (y sus derivadas Mint, Elementary…) y
-&lt;a href=&quot;http://archlinux.org/&quot;&gt;Arch Linux&lt;/a&gt; (con variantes como Antergos o Manjaro).
-Vienen bien equipadas, y casi cualquier otro programa que necesites estará al
-alcance de un comando de terminal, gracias a los &lt;strong&gt;gestores de paquetes&lt;/strong&gt;, como
-APT (Ubuntu) y Pacman (Arch). Además, puedes personalizar la interfaz gráfica;
-o probar distintos &lt;a href=&quot;https://en.wikipedia.org/wiki/Window_manager&quot;&gt;gestores de ventanas&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;la-terminal-sirve-más-allá-de-para-presumir&quot;&gt;La terminal ¿sirve (más allá de para presumir)?&lt;/h2&gt;
-
-&lt;p&gt;El aprendizaje de la línea de comandos es esencial para esta
-carrera. Existen
-&lt;a href=&quot;http://www.disi.unige.it/person/MoggiE/PG1-13/bash.quickref.pdf&quot;&gt;guías rápidas&lt;/a&gt;,
-que puedes intentar tener cerca y usarlas siempre que puedas; incluso
-si no es el camino más fácil ni más agradable.  La mayoría de las
-veces, existirá una interfaz gráfica que simplificará y facilitará el
-uso de cualquier programa, pero esto te limitará a usar un programa
-como alguien ya pensó que debía ser usado. Aprender a usarla requiere
-mucho tiempo, pero te liberará para escribir más allá de lo que otros
-han hecho.&lt;/p&gt;
-
-&lt;h2 id=&quot;hay-trillocientos-lenguajes-de-programación-cuántos-me-tengo-que-aprender&quot;&gt;Hay trillocientos lenguajes de programación. ¿Cuántos me tengo que aprender?&lt;/h2&gt;
-
-&lt;p&gt;La respuesta de cuántos es bastante debatible, y tampoco es que &lt;em&gt;aprender un
-lenguaje&lt;/em&gt; sea un concepto bien definido. ¿Cuándo has aprendido C++?
-¿cuando escribes un proyecto grande? ¿cuando te aprendes la documentación entera?
-Además, aprender varios lenguajes que sólo se diferencian en detalles sintácticos
-no suele proporcionar mucho valor. Dos lenguajes se diferencian realmente, y aportan
-formas distintas de pensar acerca de la programación, si implementan
-distintos &lt;strong&gt;paradigmas de programación&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Lo que sí podemos es listar los varios lenguajes que, salvo cambios en los planes de
-estudio, son los que verás en la carrera:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.cplusplus.com/doc/tutorial/&quot;&gt;&lt;strong&gt;C++&lt;/strong&gt;&lt;/a&gt;. Los algoritmos y las estructuras de datos suelen explicarse a los
-alumnos que se inician en programación en C++. Similares a C++ son &lt;a href=&quot;https://docs.oracle.com/javase/tutorial/&quot;&gt;&lt;strong&gt;Java&lt;/strong&gt;&lt;/a&gt; y &lt;a href=&quot;http://www.gnu.org/software/gnu-c-manual/gnu-c-manual.html&quot;&gt;&lt;strong&gt;C&lt;/strong&gt;&lt;/a&gt;.
-Si aprendes cualquiera de ellos, te será
-fácil estudiar los otros. Justo
-estos tres lenguajes son los más usados.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.ruby-lang.org/en/&quot;&gt;&lt;strong&gt;Ruby&lt;/strong&gt;&lt;/a&gt;. Necesitarás un lenguaje de scripting. Aunque Ruby es el que se suele
-enseñar en Programación Orientada a Objetos, existen &lt;a href=&quot;https://www.python.org/&quot;&gt;&lt;strong&gt;Python&lt;/strong&gt;&lt;/a&gt;, &lt;a href=&quot;https://www.perl.org/&quot;&gt;&lt;strong&gt;Perl&lt;/strong&gt;&lt;/a&gt; y muchos más.
-Aquí tienes un
-&lt;a href=&quot;http://ruby-doc.com/docs/ProgrammingRuby/&quot;&gt;tutorial y referencia del lenguaje&lt;/a&gt;
-y una &lt;a href=&quot;http://jj.github.io/ruby-para-impacientes/&quot;&gt;guía rápida para impacientes&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.r-project.org/&quot;&gt;&lt;strong&gt;R&lt;/strong&gt;&lt;/a&gt;. Para el tratamiento de datos y la estadística. &lt;a href=&quot;https://github.com/fcharte/CursoUNIA14/blob/master/ExploraVisualizaConR-FCharte.pdf?raw=true&quot;&gt;Explora y visualiza con R&lt;/a&gt;
-es una introducción escrita por Francisco Charte.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.gnu.org/software/bash/manual/bash.html&quot;&gt;&lt;strong&gt;Bash&lt;/strong&gt;&lt;/a&gt;. Que será probablemente el intérprete de terminal que acabes usando.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Aparte de los lenguajes que aprendas en la carrera, te será muy útil explorar
-otros lenguajes, ver para qué sirven y a qué paradigmas responden. Además, eso te
-ayudará a saber elegir el lenguaje correcto cuando se te presente un problema a
-resolver. Lo que al final será recomendable es que dominéis al menos tres lenguajes, uno
-de bajo nivel, uno de scripting y uno raro, como aconseja Víctor Terrón en su
-charla &lt;a href=&quot;http://www.iaa.es/~vterron/sed-hackers.pdf&quot;&gt;Sed Hackers&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;genial-pero-cómo-escribo-los-programas&quot;&gt;Genial, pero ¿cómo escribo los programas?&lt;/h2&gt;
-
-&lt;p&gt;Lo que necesitas para escribir un programa es redactar su código fuente.
-Generalmente compilarás este código fuente para generar un ejecutable o usarás
-un intérprete para ejecutarlo. Así que la pregunta aquí es ¿cómo escribo código?&lt;/p&gt;
-
-&lt;p&gt;Realmente no necesitas gran cosa. Cualquier &lt;strong&gt;editor de texto&lt;/strong&gt; sirve justo
-para eso, para editar texto, y el código no es ningún tipo especial de texto.
-Aunque existen &lt;strong&gt;entornos integrados de desarrollo&lt;/strong&gt; (IDEs), que incorporan
-multitud de herramientas para programar, pueden ser lentas y engorrosas a la
-hora de trabajar. Por simplicidad y versatilidad, nos parece preferible un
-editor. Si aprendes a programar con él podrás programar después donde haga falta.&lt;/p&gt;
-
-&lt;p&gt;Tienes muchos para elegir, por ejemplo en las distribuciones Linux encontrarás
-incluidos algunos bastante sencillos, como &lt;a href=&quot;https://help.ubuntu.com/community/gedit&quot;&gt;&lt;strong&gt;GEdit&lt;/strong&gt;&lt;/a&gt;
-o &lt;a href=&quot;http://kate-editor.org/&quot;&gt;&lt;strong&gt;Kate&lt;/strong&gt;&lt;/a&gt;, similares a &lt;a href=&quot;https://notepad-plus-plus.org/&quot;&gt;&lt;strong&gt;Notepad++&lt;/strong&gt;&lt;/a&gt;
-para Windows. Los editores más clásicos, potentes y extensibles son
-&lt;a href=&quot;https://www.gnu.org/software/emacs/&quot;&gt;&lt;strong&gt;Emacs&lt;/strong&gt;&lt;/a&gt; y &lt;a href=&quot;http://www.vim.org/&quot;&gt;&lt;strong&gt;Vim&lt;/strong&gt;&lt;/a&gt;.
-Si prefieres editores más modernos con mucha funcionalidad te podemos sugerir
-&lt;a href=&quot;https://atom.io/&quot;&gt;&lt;strong&gt;Atom&lt;/strong&gt;&lt;/a&gt; y &lt;a href=&quot;http://brackets.io/&quot;&gt;&lt;strong&gt;Brackets&lt;/strong&gt;&lt;/a&gt; (¿estabas
-pensando en Sublime Text? Estos últimos son alternativas libres, pruébalos).
-Algunos editores se pueden utilizar desde la propia terminal, uno de los más
-sencillos en este ámbito es Nano.&lt;/p&gt;
-
-&lt;p class=&quot;fig&quot;&gt;&lt;img src=&quot;//imgs.xkcd.com/comics/real_programmers.png&quot; alt=&quot;&quot; longdesc=&quot;/assets/images/blog/guia-primero/real_programmers.html&quot; /&gt;
-Imagen de &lt;a href=&quot;https://xkcd.com/378/&quot;&gt;xkcd: Real Programmers&lt;/a&gt; (&lt;abbr title=&quot;Creative Commons&quot;&gt;CC&lt;/abbr&gt; BY-NC)&lt;/p&gt;
-
-&lt;h2 id=&quot;estas-matemáticas-no-se-parecen-a-las-del-instituto-cómo-demuestro-las-cosas&quot;&gt;Estas matemáticas no se parecen a las del instituto, ¿cómo demuestro las cosas?&lt;/h2&gt;
-
-&lt;p&gt;Esta pregunta la responde por nosotros el &lt;a href=&quot;http://www.ugr.es/~fjperez/textos/calculo_diferencial_integral_func_una_var.pdf&quot;&gt;&lt;strong&gt;Cálculo diferencial e integral
-de funciones de una variable&lt;/strong&gt;&lt;/a&gt;,
-de Francisco Javier Pérez, profesor del departamento de Análisis.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Supongo que hace ya tanto tiempo que conoces estas propiedades de
- los números que has olvidado cuándo las aprendiste. ¡Y ahora te
- pido que las &lt;em&gt;demuestres&lt;/em&gt;! Puedo imaginar tu reacción
- &lt;em&gt;¿que demuestre que &lt;script type=&quot;math/tex&quot;&gt;0x=0&lt;/script&gt;?, ¡pero si eso es evidente!
- ¡siempre me han dicho que es así! ¿cómo se puede demostrar tal
- cosa?&lt;/em&gt;.&lt;/p&gt;
-
-  &lt;p&gt;Pienso que muchas veces la dificultad de un ejercicio está en
- que no sabes qué es exactamente lo que se te pide que hagas;
- no te dan un marco claro de referencia. En estas situaciones lo
- más frecuente es &lt;em&gt;quedarse colgado&lt;/em&gt; con la
- &lt;em&gt;mente en blanco&lt;/em&gt; sin saber qué hacer.&lt;/p&gt;
-
-  &lt;p&gt;Para evitar ese peligro,
- en este curso vamos a dar un marco de referencia muy claro que va
- a consistir en unas propiedades de los números – &lt;em&gt;axiomas&lt;/em&gt;, si
- quieres llamarlas así – que vamos a aceptar como punto de
- partida para nuestro estudio. Esas propiedades, junto con las
- &lt;em&gt;reglas de inferencia lógica&lt;/em&gt; usuales y con &lt;em&gt;definiciones&lt;/em&gt;
- apropiadas nos permitirán &lt;em&gt;demostrar&lt;/em&gt; resultados (&lt;em&gt;teoremas&lt;/em&gt;) que
- podremos usar para seguir avanzando.&lt;/p&gt;
-
-  &lt;p&gt;[…]&lt;/p&gt;
-
-  &lt;p&gt;Los &lt;strong&gt;axiomas&lt;/strong&gt; de una teoría matemática proporcionan el marco de referencia más general de dicha teoría.
- Son, por tanto, muy importantes. Al principio, cuando la teoría empieza a caminar y se demuestran los
- primeros resultados más básicos, es frecuente recurrir de forma explícita a los axiomas. Más adelante,
- cuando la teoría va avanzando, los axiomas no suelen citarse con tanta frecuencia porque nos apoyamos
- en resultados más elaborados previamente demostrados.  Pero los axiomas siempre están presentes aunque
- sea de forma discreta y no ostensible.&lt;/p&gt;
-
-  &lt;p&gt;Entre las particularidades que distinguen a las Matemáticas de las demás ciencias hay una muy especial:
- las Matemáticas avanzan dando &lt;strong&gt;definiciones&lt;/strong&gt;. Las definiciones no son nuevos axiomas. Una definición lo
- que hace es introducir un término nuevo y establece cómo dicho término se expresa en función de los
- axiomas de la teoría. Por ejemplo, la definición de continuidad se expresa mediante desigualdades y
- las desigualdades se reducen a los axiomas de orden de &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}&lt;/script&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;El texto completo puede encontrarse en el primer capítulo del libro, que se publicó
-con una licencia Creative Commons (BY-NC-SA). Gracias a eso, podemos enlazarlo y puedes
-leerlo, copiarlo y distribuirlo libremente, siempre respetando la autoría y la licencia.
-El texto completo te será muy útil para la asignatura de &lt;strong&gt;Cálculo I&lt;/strong&gt;. Como bonus,
-el libro en sí se escribió completamente &lt;a href=&quot;https://github.com/libreim/calculo&quot;&gt;en LaTeX&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Acostúmbrate a pensar como un matemático. Es una de las habilidades más
-importantes que aprenderás en la carrera. El blog Gaussianos reseña en este
-artículo &lt;a href=&quot;http://gaussianos.com/diez-formas-de-pensar-como-un-matematico/&quot;&gt;&lt;strong&gt;10 formas de pensar como un matemático&lt;/strong&gt;&lt;/a&gt;,
-consejos de un manual de &lt;strong&gt;Kevin Houston&lt;/strong&gt;, profesor de la Universidad
-de Leeds. En un plano más práctico, &lt;strong&gt;Jeremy Kun&lt;/strong&gt;, doctorando en la Universidad de Illinois,
-escribe sobre cómo afrontar un examen de cálculo (y por extensión, un examen de
-matemáticas puras) en este artículo: &lt;a href=&quot;http://jeremykun.com/2011/10/20/how-to-take-a-calculus-test/&quot;&gt;&lt;strong&gt;How to take a calculus test&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;cómo-puedo-empezar-a-estudiar-análisisálgebraprobabilidadgeometría&quot;&gt;¿Cómo puedo empezar a estudiar análisis/álgebra/probabilidad/geometría?&lt;/h2&gt;
-
-&lt;p&gt;Escribe y entiende los axiomas y definiciones básicos de la teoría y, sólo después,
-lee detenidamente cómo se demuestra cada teorema a partir de ellos. Busca ejemplos
-y contraejemplos de cada teorema y al final, resuelve los ejercicios usando las
-definiciones y teoremas que has estudiado previamente.&lt;/p&gt;
-
-&lt;p&gt;Sólo en algunas asignaturas la teoría aparece como tal en el examen.
-Pero te recomendamos de todas formas seguir el proceso anterior;
-no tiene mucho sentido hacer ejercicios sin saber en qué se fundamentan. Además,
-muchos problemas son una mera consecuencia de las demostraciones vistas en
-la teoría y otros son sólo una aplicación práctica de los resultados teóricos. En cualquier
-caso, los ejercicios te servirán en muchos casos para motivar la teoría y comprobar
-si la has entendido, mantener un ojo en ellos siempre será muy útil.&lt;/p&gt;
-
-&lt;h2 id=&quot;qué-libros-me-compro-para-la-carrera&quot;&gt;¿Qué libros me compro para la carrera?&lt;/h2&gt;
-
-&lt;p&gt;Generalmente, no es imprescindible tener ningún libro en casa para aprobar una
-asignatura. Y ten en cuenta que la biblioteca te los puede proporcionar cuando
-sean necesarios.&lt;/p&gt;
-
-&lt;p&gt;Por otro lado, es posible que tengas una beca de libros o te guste tener un
-libro de cada área para consultar dudas y ejercicios. En tal caso lo recomendable
-es que busques libros generales que cubran materias
-enteras de las matemáticas o la informática. En nuestra &lt;a href=&quot;/recursos/&quot;&gt;página de recursos&lt;/a&gt; hay varias
-recomendaciones. Si quieres algo general, como ya te advertimos, la respuesta está
-siempre en StackExchange:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://mathoverflow.net/questions/761/undergraduate-level-math-books&quot;&gt;MathOverflow. Undergraduate level math books.&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/143760/what-books-should-i-read-to-have-an-undergraduate-education-in-computer-science&quot;&gt;StackOverflow. What books should I read to have an undergraduate education in computer science?&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Si quieres algo más concreto, pregunta en &lt;a href=&quot;https://t.me/libreimseminarios&quot;&gt;nuestro grupo de Telegram&lt;/a&gt;. Entre todos llevamos la cuenta de qué libros son útiles para cada asignatura.&lt;/p&gt;
-
-&lt;p&gt;Otra opción para obtener bibliografía son los cursos online que ofrecen plataformas como
-&lt;a href=&quot;https://www.coursera.org/&quot;&gt;Coursera&lt;/a&gt;, &lt;a href=&quot;https://www.udacity.com/&quot;&gt;Udacity&lt;/a&gt; y
-&lt;a href=&quot;https://www.edx.org/&quot;&gt;edX&lt;/a&gt;. En ellas encontrarás cursos gratuitos sobre algoritmos,
-estructuras de datos, lenguajes de programación, ánalisis de datos, criptografía u otras áreas.&lt;/p&gt;
-
-&lt;h2 id=&quot;quiero-problemas&quot;&gt;Quiero problemas.&lt;/h2&gt;
-
-&lt;p&gt;Por suerte, hay miles de sitios donde practicar tus habilidades programando y
-resolviendo problemas de matemáticas. Tu habilidad para resolver problemas va a
-ser crucial para que el resto sea fácil, pero no te agobies, no es necesario
-dominar ninguno de los recursos que te planteamos aquí.&lt;/p&gt;
-
-&lt;p&gt;Antes que empezar con
-ninguno de ellos, es más importante que domines los ejercicios de las asignaturas.
-Especialmente en
-matemáticas, los libros suelen traer consigo una lista de ejercicios.
-Intenta resolverlos por ti mismo, escribiendo una demostración formal y con
-palabras en papel; incluso si no sale ninguno, servirán para comprender el tema.
-Entre los &lt;a href=&quot;/recursos&quot;&gt;recursos&lt;/a&gt; de esta página tienes libros y apuntes con sus correspondientes
-ejercicios.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.hackerrank.com/&quot;&gt;&lt;strong&gt;Hackerrank&lt;/strong&gt;&lt;/a&gt; ofrece problemas de programación y un juez online para evaluar
-que el código que has escrito sea correcto y eficiente. Puedes practicar el uso
-de los algoritmos y estructuras de datos más comunes y enfrentarte a problemas
-realmente difíciles con los que aprender a pensar algorítmicamente y
-matemáticamente.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.kaggle.com/&quot;&gt;&lt;strong&gt;Kaggle&lt;/strong&gt;&lt;/a&gt; se orienta a problemas de &lt;em&gt;Data Science&lt;/em&gt;, la
-extracción de conocimiento desde grandes conjuntos de datos.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.artofproblemsolving.com/community&quot;&gt;&lt;strong&gt;Art of Problem Solving&lt;/strong&gt;&lt;/a&gt; contiene
-problemas de matemáticas de varios niveles.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;puedo-colaborar&quot;&gt;¿Puedo colaborar?&lt;/h2&gt;
-
-&lt;p&gt;La colaboración es parte fundamental del desarrollo científico e informático.
-Ser capaz de trabajar en equipo y gestionar el trabajo y la comunicación entre
-varios es una de las habilidades con las que deberías salir de la carrera.&lt;/p&gt;
-
-&lt;p&gt;Tendrás muchas oportunidades para trabajar en proyectos conjuntos con tus
-compañeros. En cualquier caso, en un intento por construir comunidad en torno
-a la carrera y ampliarla a todos los que quieran aprender sobre matemáticas e
-informática, empezamos este mismo &lt;a href=&quot;/blog/&quot;&gt;blog&lt;/a&gt; que estás leyendo, un sitio donde añadir &lt;a href=&quot;/recursos/&quot;&gt;recursos&lt;/a&gt; y una &lt;a href=&quot;https://github.com/libreim&quot;&gt;organización de GitHub&lt;/a&gt; con repositorios para proyectos
-comunes. El funcionamiento de todo esto depende de la colaboración.&lt;/p&gt;
-
-&lt;p&gt;Durante tu carrera habrá una larga serie de asignaturas que te presentará muchos retos. Te podrás encontrar con falta de material, explicaciones confusas y otras circunstancias que dificulten tu aprendizaje. La colaboración entre estudiantes es esencial para superar estos obstáculos, y de ella han surgido varios &lt;a href=&quot;/t/apuntes&quot;&gt;repositorios de apuntes&lt;/a&gt; que podrás utilizar para complementar tu estudio. En concreto, el &lt;a href=&quot;https://github.com/apuntesDGIIM&quot;&gt;proyecto colaborativo apuntesDGIIM&lt;/a&gt; posee apuntes y ejercicios para buena parte de las asignaturas, y te anima a que ayudes a completarlo.&lt;/p&gt;
-
-&lt;p&gt;Puedes aportar directamente a los repositorios existentes, y para cualquier duda siempre puedes consultar a sus creadores. También puedes crear tus propios apuntes y &lt;a href=&quot;/recursos/new&quot;&gt;enlazarlos en la página de recursos&lt;/a&gt; para que todo el mundo pueda encontrarlos.&lt;/p&gt;
-
-&lt;p&gt;Para empezar a crear y publicar tus apuntes o cualquier otro material sólo necesitas una cuenta en GitHub, Gitlab o un servicio similar. Si además quieres poder editar repositorios de LibreIM, podemos incluirte en &lt;a href=&quot;https://github.com/libreim&quot;&gt;nuestra organización de GitHub&lt;/a&gt;. Para eso, puedes escribirnos
-a &lt;a href=&quot;mailto:libreim.blog@gmail.com&quot;&gt;libreim.blog@gmail.com&lt;/a&gt;, o simplemente rellenar este &lt;a href=&quot;http://goo.gl/forms/k4Yl1TK5XT2ZaDro1&quot;&gt;formulario&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Además de LibreIM, existen &lt;a href=&quot;/contributing/#otras_comunidades&quot;&gt;otras comunidades con distintos intereses y enfoques&lt;/a&gt; en las que podrás participar a lo largo de tus estudios.&lt;/p&gt;
-
-&lt;h2 id=&quot;qué-hago-hasta-que-empecemos&quot;&gt;¿Qué hago hasta que empecemos?&lt;/h2&gt;
-
-&lt;p&gt;Repasando el artículo completo, vamos a darle un orden. Aunque quizá ya hayas cumplido
-algunos puntos, suponemos que vienes sin formación previa:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Instala Linux.&lt;/strong&gt; Elige una distribución y prepárate para el proceso completo.
-Ten especial cuidado si quieres crear particiones en el disco. Si necesitas
-ayuda, puedes pedírnosla a nosotros o a la OSL.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Prueba la terminal.&lt;/strong&gt; Y el gestor de paquetes. En Ubuntu, por ejemplo, puedes
-instalar usando &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Léete los apuntes de matemáticas.&lt;/strong&gt; Échale un vistazo a los primeros apuntes de
-cálculo, por ejemplo, e intenta resolver los primeros ejercicios demostrando formalmente desde los axiomas.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Instala TexLive&lt;/strong&gt;. Y empieza a probar LaTeX con los tutoriales que hemos enlazado antes.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Prueba algún lenguaje&lt;/strong&gt;. Compila un “hola mundo” en C++, o escríbelo en Python.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Instala Git&lt;/strong&gt;. Y abre una cuenta en GitHub (o similar). Puedes solicitar repositorios
-privados gratuitos en &lt;a href=&quot;https://education.github.com/&quot;&gt;GitHub Education&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;qué-ayudasbecas-puedo-solicitar&quot;&gt;¿Qué ayudas/becas puedo solicitar?&lt;/h2&gt;
-&lt;p&gt;Principalmente, puedes solicitar las siguientes ayudas:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;Becas generales para estudios universitarios del MECD&lt;/strong&gt;. Es la beca fundamental para poder estudiar. Su concesión, por curso, depende de factores como la renta familiar, el número de asignaturas aprobadas en el curso anterior y su nota (o la nota de acceso a la universidad en el caso del primer año), tipo de matrícula (parcial o completa). Para disfrutar de la misma un año en el doble grado matemáticas e ingeniería informática, deben haberse aprobado el 85% de los créditos matriculados en el curso anterior, o alternativamente, haber aprobado el 65% con al menos 6 puntos de nota media. Dispone de varios módulos: beca de matrícula, cuantía fija, residencia y cuantía variable. Para más información consultar la &lt;a href=&quot;http://www.mecd.gob.es/servicios-al-ciudadano-mecd/catalogo/educacion/estudiantes/becas-ayudas/para-estudiar/universidad/grado/becas-generales-universitarias.html&quot;&gt;convocatoria oficial&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Becas generales propias de la UGR&lt;/strong&gt;. Por lo general son incompatibles con la beca general del MECD. Además, tienen dotación inferior a esta última, pero pueden ser una buena opción en caso de imposibilidad de solicitud de la beca MECD. Puede consultarse más información online en la &lt;a href=&quot;https://ve.ugr.es/pages/becas/propias/plan-propio&quot;&gt;página oficial&lt;/a&gt; o en persona en el &lt;a href=&quot;https://ve.ugr.es/pages/menu_titulo/edificio_comedores&quot;&gt;Servicio de Becas&lt;/a&gt; del edificio de Comedores, en el Campus de Fuentenueva.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Becas de colaboración&lt;/strong&gt;. Se solicitan de cara al último año de estudios (el primer requisito es matricularse de todos los créditos que restan para terminar el grado) e implican una dotación económica. Se adscriben a un departamento de la universidad, tutorizadas por un profesor. El término colaboración puede tener una definición muy abierta dependiendo del docente (tareas relacionadas con el trabajo de fin de grado, labores de ayuda al departamento como mantenimiento de servidores o apoyo a la investigación, etc. Por eso conviene informarse de lo que implicaría pedirla en algún departamento al finalizar el penúltimo curso, normalmente contactando con el profesor que querrías que te tutorizase. Más información disponible en la web del &lt;a href=&quot;https://ve.ugr.es/pages/becas/ministerio/colaboracion&quot;&gt;Vicerrectorado de Estudiantes&lt;/a&gt; y en la &lt;a href=&quot;http://www.mecd.gob.es/servicios-al-ciudadano-mecd/catalogo/educacion/estudiantes/becas-ayudas/para-estudiar/universidad/grado/becas-colaboracion.html&quot;&gt;web del MECD&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Beca de iniciación a la investigación de la UGR&lt;/strong&gt;. Adscrita a un proyecto introductorio de investigación bajo tutelaje de un docente (ej. una review de un tema que se quiere abordar en un proyecto de fin de grado), también implica una dotación económica, aunque inferior a las becas de colaboración. Requisito indispensable para disfrutarla es haber cursado y aprobado al menos el 50% de los créditos del grado. Puede complementar a la beca de colaboración, por ejemplo solicitándola para el penúltimo año y disfrutando de la colaboración el último año. Más información en la &lt;a href=&quot;http://investigacion.ugr.es/pages/planpropio&quot;&gt;página del plan propio de investigación&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Gratuidad de matrícula en prueba de B1/B2&lt;/strong&gt;. El Centro de Lenguas Modernas de la UGR ofrece exámenes de nivel de B1/B2 de muchos idiomas, entre ellos el inglés. De dicho idioma, se efectúan 3 convocatorias al año. La UGR ofrece la primera matriculación gratuita, y puede realizarse el examen en cualquier curso durante el transcurso de la carrera. Más información sobre convocatorias y procedimiento de solicitud de gratuidad en la &lt;a href=&quot;https://www.clm-granada.com&quot;&gt;web del CLM&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;pero-esto-es-vuestra-opinión-sesgada-seguramente&quot;&gt;Pero esto es vuestra opinión, sesgada seguramente&lt;/h2&gt;
-
-&lt;p&gt;Sí. Respondemos aquí a preguntas sobre las que entendemos que hay suficiente
-consenso, pero eso tampoco es una definición concreta. Hay mil maneras de
-resolver cada uno de los problemas que hemos
-planteado, y es buena idea que consideres las alternativas. Lo que te ofrecemos
-es lo que ha sido más útil para nosotros en los primeros años de carrera. Además,
-las herramientas más útiles cambian con el tiempo. Ya hemos editado varias veces
-este artículo y seguramente tengamos que seguir cambiándolo conforme pase el tiempo.&lt;/p&gt;
-
-&lt;h2 id=&quot;referencias-y-otras-opiniones&quot;&gt;Referencias y otras opiniones&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;J.J. Merelo&lt;/strong&gt;, profesor de la UGR y director de la OSL, escribe sobre las
-&lt;a href=&quot;https://medium.com/espanol/7-habilidades-que-deberian-estar-en-un-curriculum-informatico-pero-no-estan-40bd0d7da879&quot;&gt;10 habilidades que deberían estar en un currículum informático&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Víctor Terrón&lt;/strong&gt;, del Instituto de Astrofísica de Andalucía, escribió esta charla
-para los alumnos de primer año de ingeniería informática: &lt;a href=&quot;http://www.iaa.es/~vterron/sed-hackers.pdf&quot;&gt;Sed Hackers&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Francisco Charte&lt;/strong&gt;, investigador en la Universidad de Jaén, escribió una
-introducción a la investigación para el doble grado: &lt;a href=&quot;https://github.com/libreim/quiero-investigar/raw/master/QuieroInvestigar-FCharte.pdf&quot;&gt;Quiero investigar, ¿por dónde empiezo?&lt;/a&gt;&lt;/p&gt;
-
-</description>
-            <pubDate>Thu, 10 Sep 2015 00:00:00 +0000</pubDate>
-            <link>/blog/2015/09/10/primero/</link>
-            <guid isPermaLink="true">/blog/2015/09/10/primero/</guid>
         </item>
         
     </channel>

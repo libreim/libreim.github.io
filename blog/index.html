@@ -76,6 +76,280 @@
       
       <div class="category">
         
+        Análisis
+        
+      </div>
+      
+      <h1>
+        <a href="/blog/2018/03/01/medias/">
+          Generalizando la desigualdad de las medias
+        </a>
+      </h1>
+      
+      <span class="post-data">
+        
+         
+        <span class="author">Pablo Baeyens</span>
+        
+
+        
+        
+        <a class="date" href='/blog/2018/03/01/medias/'><time datetime='2018-03-01'>01/03/2018</time></a>
+      </span>
+      <p>La <a href="https://libreim.github.io/blog/2014/04/12/desigualdad-medias/">desigualdad de las medias</a> es una herramienta muy útil para resolver problemas de mínimos o máximos. En este post generalizamos los conceptos de media aritmética y geométrica y esta desigualdad en espacios de medida arbitrarios, obteniendo la desigualdad clásica como caso particular.</p>
+
+<h2 id="espacios-de-medida">Espacios de medida</h2>
+
+<p>Los espacios de medida son espacios en los que asignamos un valor numérico a cada subconjunto (que interpretamos como una generalización del concepto de volumen o área). Para este post nos restringimos a medidas que asignan valores no negativos (o infinito) a los subconjuntos, pero el concepto <a href="https://ncatlab.org/nlab/show/measure+space#generalizations">puede generalizarse más</a>. La propiedad básica de una medida es que es aditiva cuando los conjuntos son disjuntos (esto es, si dividimos un conjunto en dos partes disjuntas y sumamos los volúmenes individuales debemos obtener el volumen total).</p>
+
+<dl>
+  <dt>Definición 1</dt>
+  <dd>Una <strong>medida</strong> sobre una clase de conjuntos <script type="math/tex">\mathcal{A}</script> es una función <script type="math/tex">\mu:\mathcal{A} \to [0,+\infty]</script> que cumple:</dd>
+  <dd></dd>
+  <dd>
+    <ul>
+      <li><strong>Conjunto vacío nulo</strong>: <script type="math/tex">\mu(\varnothing) = 0</script></li>
+    </ul>
+  </dd>
+  <dd>
+    <ul>
+      <li><strong>Aditividad numerable</strong>: Dada una colección numerable <script type="math/tex">\{E_n\}_{n \in \mathbb{N}} \subseteq \mathcal{A}</script> de</li>
+    </ul>
+  </dd>
+  <dd>subconjuntos disjuntos dos a dos se tiene que:</dd>
+  <dd>
+    <script type="math/tex; mode=display">\mu\left(\bigcup_{n \in \mathbb{N}} E_n\right) = \sum_{n\in\mathbb{N}} \mu(E_n)</script>
+  </dd>
+</dl>
+
+<p>Por razones técnicas es posible que no podamos asignar un valor a todos los subconjuntos del espacio total (pueden existir <a href="https://en.wikipedia.org/wiki/Non-measurable_set">conjuntos no medibles</a>) por lo que debemos restringirnos por tanto a una subclase de conjuntos con una mínima estructura.</p>
+
+<dl>
+  <dt>Definición 2</dt>
+  <dd>Un <strong>espacio de medida</strong> es una tripleta <script type="math/tex">(X, \mathcal{A}, \mu)</script> donde:</dd>
+  <dd></dd>
+  <dd>
+    <ul>
+      <li><script type="math/tex">\mathcal{A} \subseteq \mathcal{P}(X)</script> es un <a href="https://en.wikipedia.org/wiki/Sigma-algebra"><em><script type="math/tex">\sigma</script>-álgebra</em></a></li>
+    </ul>
+  </dd>
+  <dd>
+    <ul>
+      <li><script type="math/tex">\mu:\mathcal{A} \to [0,+\infty]</script> es una <em>medida</em></li>
+    </ul>
+  </dd>
+</dl>
+
+<p>Dado que no es el objetivo del post no desarrollamos más aquí estos conceptos o sus propiedades básicas. Para una introducción completa puede leerse <a href="https://terrytao.wordpress.com/books/an-introduction-to-measure-theory/"><em>An introduction to measure theory</em></a> de Terence Tao.</p>
+
+<h3 id="ejemplos">Ejemplos</h3>
+
+<ol>
+  <li>
+    <p>El ejemplo más sencillo de medida es la <em>cardinalidad</em>. Dado un conjunto <script type="math/tex">X</script> podemos medir cualquier subconjunto 
+suyo (<script type="math/tex">\mathcal{A} = \mathcal{P}(X)</script>) contando su número de elementos. Esto es:</p>
+
+    <script type="math/tex; mode=display">\mu(Y) = |Y|</script>
+
+    <p>Si el número de elementos de <script type="math/tex">Y</script> es infinito entonces asignamos <script type="math/tex">\mu(Y) = \infty</script>.</p>
+  </li>
+  <li>Los <a href="https://en.wikipedia.org/wiki/Probability_space"><em>espacios de probabilidad</em></a> son espacios de medida donde <script type="math/tex">\mu(X) = 1</script>. En este caso la medida suele notarse 
+con <script type="math/tex">P</script> y es la probabilidad que conocemos.</li>
+  <li>La <a href="https://en.wikipedia.org/wiki/Lebesgue_measure"><em>medida de Lebesgue</em></a> da una medida para <script type="math/tex">\mathbb{R}^n</script> que coincide con el concepto de longitud, área, volumen…</li>
+  <li>Dado <script type="math/tex">x \in X</script> la <a href="https://en.wikipedia.org/wiki/Dirac_measure"><em>medida de Dirac</em></a> <script type="math/tex">\delta_x</script> indica si <script type="math/tex">x</script> pertenece al conjunto medido: <script type="math/tex">\delta_x(A) = 1</script> si <script type="math/tex">x \in A</script> y <script type="math/tex">\delta_x(A) = 0</script> en otro caso. Este es un caso particular de medida de probabilidad.</li>
+  <li>Cualquier múltiplo de una medida es una medida</li>
+</ol>
+
+<h2 id="integral-e-integral-geométrica">Integral e integral geométrica</h2>
+
+<p>Dado un espacio de medida <script type="math/tex">(M, \mathcal{A}, \mu)</script> podemos definir un concepto de integral para cualquier <a href="https://en.wikipedia.org/wiki/Measurable_function">función medible</a>. El proceso de construcción consta de los siguientes pasos:</p>
+
+<ul>
+  <li>
+    <p>La integral de una función indicadora es la medida del conjunto que indica:</p>
+
+    <script type="math/tex; mode=display">\int_M 1_A \, \mathrm{d}\mu = \mu(A)</script>
+  </li>
+  <li>
+    <p>La integral es lineal por tanto la integral de una combinación lineal finita de funciones indicadoras (<a href="https://en.wikipedia.org/wiki/Simple_function">función simple</a>) puede calcularse:</p>
+
+    <script type="math/tex; mode=display">\int_M \sum_n a_n1_{A_n}\, \mathrm{d}\mu = \sum_n a_n\mu(A_n)</script>
+  </li>
+  <li>
+    <p>Si <script type="math/tex">S</script> es el conjunto de las funciones simples, la integral de una función medible no negativa es:</p>
+
+    <script type="math/tex; mode=display">\int_M f  \, \mathrm{d}\mu = \sup \left\{\int_M s \, \mathrm{d}\mu \; : \; 0 \leq s \leq f, \, s \in S\right\}</script>
+  </li>
+  <li>
+    <p>En el caso de funciones complejas dividimos la función en su parte real e imaginaria y cada una de estas en su 
+parte positiva y negativa y calculamos las integrales por separado. En el caso de que obtengamos valores finitos y 
+no haya indeterminaciones (esto es, la función sea integrable) hemos definido la integral</p>
+  </li>
+</ul>
+
+<p>La integral así definida es lineal y creciente y además verifica la siguiente propiedad: dado un subconjunto numerable <script type="math/tex">\{E_n\}_{n \in \mathbb{N}} \subseteq \mathcal{A}</script> de subconjuntos disjuntos dos a dos se tiene que</p>
+
+<script type="math/tex; mode=display">\int_{\bigcup_{n} E_n} f \, \mathrm{d}\mu = \sum_{n} \int_{E_n} f\, \mathrm{d}\mu</script>
+
+<p>Este concepto de integral puede interpretarse informalmente como una “suma” de los valores que alcanza la función. Si tenemos una función positiva podemos hacer el mismo proceso haciendo el “producto” de los valores, dando lugar a la <a href="https://en.wikipedia.org/wiki/Product_integral#Type_II">integral geométrica</a>:</p>
+
+<script type="math/tex; mode=display">\prod_M f(x)^{\mathrm{d}\mu} = \exp\left(\int_M \log f(x) \, \mathrm{d}\mu\right)</script>
+
+<h3 id="ejemplos-1">Ejemplos</h3>
+
+<ol>
+  <li>
+    <p>Las integrales respecto de la <em>cardinalidad</em> sobre un conjunto finito corresponden con la suma y el producto de 
+los valores de la función. Esto es, si <script type="math/tex">I=\{1,\dots,n\}</script> y <script type="math/tex">f: I \to \mathbb{R}^+</script> sus integrales son:</p>
+
+    <script type="math/tex; mode=display">\int_I f \, \mathrm{d}\mu = \sum_{i=1}^{n} f(i)</script>
+
+    <script type="math/tex; mode=display">\prod_I f^{\mathrm{d}\mu} = \prod_{i=1}^{n} f(i)</script>
+
+    <p>Si el número de elementos es infinito entonces la integral se corresponde con el supremo de las sumas o productos 
+parciales.</p>
+  </li>
+  <li>
+    <p>En un espacio de probabilidad <script type="math/tex">(\Omega, \mathcal{E}, P)</script> dada una variable aleatoria integrable se tiene que:</p>
+
+    <script type="math/tex; mode=display">\int_\Omega X \,\mathrm{d}P = \mathbb{E}[X]</script>
+
+    <p>El caso geométrico se llama integral geométrica y cumple propiedades análogas a la esperanza. Por ejemplo, existe 
+una versión de la ley de los grandes números geométrica: si <script type="math/tex">X_i</script> es una sucesión de variables i.i.d. se tiene que:</p>
+
+    <script type="math/tex; mode=display">\sqrt[n]{X_1\cdots X_n} \overset{P}{\to} \prod_\Omega X^{\mathrm{d}P}</script>
+  </li>
+  <li>
+    <p>La integral dada por la medida de Lebesgue es la integral usual en <script type="math/tex">\mathbb{R}^n</script>.</p>
+  </li>
+  <li>
+    <p>La integral y la integral geométrica de la medida de Dirac coinciden. Si <script type="math/tex">x \in A</script> y tenemos una función 
+<script type="math/tex">f:A \to \mathbb{R}^+</script> tenemos que:</p>
+
+    <script type="math/tex; mode=display">\int_I f \, \mathrm{d}\delta_x = \prod_I f^{\mathrm{d}\delta_x} = f(x)</script>
+  </li>
+  <li>
+    <p>Dada una medida <script type="math/tex">\mu</script> y un múltiplo suyo <script type="math/tex">\lambda\mu</script> tenemos que:</p>
+
+    <script type="math/tex; mode=display">\int_M f \,\mathrm{d}\lambda\mu = \lambda\int_M f \,\mathrm{d}\mu</script>
+
+    <script type="math/tex; mode=display">\prod_M f^{\mathrm{d}\lambda\mu} = \left(\prod_M f^{\mathrm{d}\mu}\right)^\lambda</script>
+  </li>
+</ol>
+
+<h2 id="medias-de-una-función">Medias de una función</h2>
+
+<p>A partir del concepto de integral podemos definir la <a href="https://en.wikipedia.org/wiki/Mean_of_a_function">media aritmética</a> y geométrica de una función integrable, que generalizan las medias ya conocidas en el caso discreto. Aunque no las tratamos aquí la media armónica y la media cuadrática también pueden generalizarse.</p>
+
+<dl>
+  <dt>Definición 3</dt>
+  <dd>Dada un espacio de medida <script type="math/tex">M</script> con medida total finita y una función integrable <script type="math/tex">f:M \to \mathbb{C}</script>, la <strong>media aritmética</strong> de <script type="math/tex">f</script> es:</dd>
+  <dd>
+    <script type="math/tex; mode=display">A(f) = \frac{1}{\mu(M)}\int_M f(x)\;\mathrm{d}\mu</script>
+  </dd>
+</dl>
+
+<p>Análogamente podemos hacerlo para el caso geométrico:</p>
+
+<dl>
+  <dt>Definición 4</dt>
+  <dd>En la situación anterior, si <script type="math/tex">f(M) \subseteq \mathbb{R}^+</script> la <strong>media geométrica</strong> de <script type="math/tex">f</script> es:</dd>
+  <dd>
+    <script type="math/tex; mode=display">G(f) = \left(\prod_M f(x)^{\mathrm{d}\mu}\right)^{\frac{1}{\mu(M)}}</script>
+  </dd>
+</dl>
+
+<p>indicamos la medida como subíndice en caso de que sea necesario.</p>
+
+<h3 id="algunas-propiedades">Algunas propiedades</h3>
+
+<ul>
+  <li>
+    <p>Es fácil ver que la media aritmética de una variable aleatoria coincide con su esperanza. Este hecho tiene una 
+versión recíproca. Si <script type="math/tex">(M,\mathcal{A},\mu)</script> es una medida tal que <script type="math/tex">% <![CDATA[
+\mu(M) < \infty %]]></script> podemos construir un espacio de probabilidad con la probabilidad</p>
+
+    <script type="math/tex; mode=display">P_\mu(A) = \frac{\mu(A)}{\mu(M)}</script>
+
+    <p>En este caso tenemos que si tomamos <script type="math/tex">f: M \to \mathbb{C}</script> se tiene que</p>
+
+    <script type="math/tex; mode=display">A(f) = \mathbb{E}_{P_\mu}[X]</script>
+
+    <p>Esto nos da una interpretación probabilística de la media aritmética de una función; por ejemplo si 
+<script type="math/tex">f:[a,b] \to \mathbb{C}</script> es una función integrable tenemos que:</p>
+
+    <script type="math/tex; mode=display">A(f) = \frac{1}{b-a} \int_a^b f(x)\,\mathrm{d}x = \mathbb{E}[f(X)]</script>
+
+    <p>donde <script type="math/tex">X</script> sigue una distribución uniforme sobre <script type="math/tex">[a,b]</script>.</p>
+  </li>
+  <li>
+    <p>En el caso de funciones continuas reales de variable real podemos hallar una consecuencia sencilla del 
+teorema del valor medio. Dada <script type="math/tex">f: [a,b] \to \mathbb{R}</script> continua existe un punto <script type="math/tex">\xi \in [a,b]</script> tal que <script type="math/tex">A(f) = f(\xi)</script></p>
+  </li>
+  <li>
+    <p>La media aritmética de una función está acotada por las cotas de la función. Por ejemplo, si tenemos un compacto 
+<script type="math/tex">M</script> y una función continua <script type="math/tex">f:M \to \mathbb{R}</script> se cumple que:</p>
+
+    <script type="math/tex; mode=display">\min_{x \in M} f(x) \leq A(f) \leq \max_{x \in M} f(x)</script>
+  </li>
+</ul>
+
+<h2 id="la-desigualdad-de-las-medias">La desigualdad de las medias</h2>
+
+<p>Sean <script type="math/tex">x_1, \dots, x_n</script> valores positivos. La <a href="https://en.wikipedia.org/wiki/Inequality_of_arithmetic_and_geometric_means">desigualdad de las medias aritmética-geométrica</a> nos indica que se verifica:</p>
+
+<script type="math/tex; mode=display">\frac1n\sum_i x_i \geq \left(\prod_i x_i\right)^\frac1n</script>
+
+<p>En el caso de que <script type="math/tex">f</script> tome valores reales positivos podemos generalizar esta desigualdad al caso general, esto es:</p>
+
+<script type="math/tex; mode=display">A(f) \geq G(f)</script>
+
+<p>para cualquier <script type="math/tex">f</script> integrable en un espacio de medida. Esta desigualdad es una consecuencia de la <a href="https://en.wikipedia.org/wiki/Jensen's_inequality#Measure-theoretic_and_probabilistic_form">desigualdad de Jensen</a>, que nos indica:</p>
+
+<dl>
+  <dt>Desigualdad de Jensen</dt>
+  <dd>Sea <script type="math/tex">(M, \mathcal{A}, \mu)</script> un espacio de medida, <script type="math/tex">f:M \to \mathbb{R}</script> y <script type="math/tex">\varphi: \mathbb{R} \to \mathbb{R}</script> una</dd>
+  <dd>función convexa. Entonces:</dd>
+  <dd>
+    <script type="math/tex; mode=display">\varphi\left(\frac{1}{\mu(M)} \int_M f \, \mathrm{d}\mu \right) \leq \frac{1}{\mu(M)} \int_M \varphi \circ f \,\mathrm{d}\mu</script>
+  </dd>
+</dl>
+
+<p>Dada <script type="math/tex">f</script> basta aplicar la desigualdad con <script type="math/tex">\varphi</script> la función exponencial sobre la media aritmética de <script type="math/tex">\log f</script> para obtener el resultado. En el caso de la medida de Lebesgue la desigualdad queda:</p>
+
+<script type="math/tex; mode=display">\frac{1}{\mu(M)} \int_M f(x) \, \mathrm{d}x \geq \left(\prod_M f(x)^{\mathrm{d}x}\right)^{\frac{1}{\mu(M)}}</script>
+
+<h3 id="medias-ponderadas">Medias ponderadas</h3>
+
+<p>Dado un espacio de medida <script type="math/tex">(\Omega, \mathcal{A}, \mu)</script> podemos utilizar una función integrable <script type="math/tex">g</script> para construir otra medida <script type="math/tex">\mu_g</script> sobre el mismo espacio, que podemos interpretar como una medida ponderada por <script type="math/tex">g</script>:</p>
+
+<script type="math/tex; mode=display">\mu_g(A) = \int_A g \, \mathrm{d}\mu</script>
+
+<p>En este caso la integral de una función <script type="math/tex">f</script> puede calcularse como:</p>
+
+<script type="math/tex; mode=display">\int_M f \,\mathrm{d}\mu_g = \int_M fg \,\mathrm{d}\mu</script>
+
+<p>Utilizando esta medida podemos construir y generalizar medias ponderadas. El caso más común es el uso de una función masa de probabilidad o una función de densidad con las que <a href="https://en.wikipedia.org/wiki/Radon–Nikodym_theorem">expresar una distribución</a> de probabilidad.</p>
+
+<p>Además podemos obtener otros casos particulares de la desigualdad de las medias. Por ejemplo, en el caso discreto si tomamos una función de pesos <script type="math/tex">\omega: I \to \mathbb{R}</script> tal que <script type="math/tex">\sum_{i} \omega(i) = 1</script> tenemos la desigualdad ponderada de las medias:</p>
+
+<script type="math/tex; mode=display">\sum_{i=1}^n \omega_ix_i =  A_{\omega}(x) \geq G_{\omega}(x) = \prod_{i=1}^n x_i^{\omega_i}</script>
+
+<p>En el caso de la medida de Lebesgue (con una función que integra 1) la desigualdad queda:</p>
+
+<script type="math/tex; mode=display">\int_M \omega(x)f(x) \,\mathrm{d}x \geq \prod_M f(x)^{\omega(x)\,\mathrm{d}x}</script>
+
+
+    </article>
+    
+
+    
+    
+
+    <article class="post">
+      
+      <div class="category">
+        
         Lógica
         
       </div>
@@ -248,71 +522,6 @@ algunos ejercicios.</p>
 
 <p><a href="https://github.com/libreim/apuntesalgebraii/tree/master/apuntesalgebraii">Enlace al repositorio</a></p>
 
-    </article>
-    
-
-    
-    
-
-    <article class="post">
-      
-      <div class="category">
-        
-        Programación
-        
-      </div>
-      
-      <h1>
-        <a href="/blog/2016/12/21/monadas/">
-          Mónadas
-        </a>
-      </h1>
-      
-      <span class="post-data">
-        
-         
-        <span class="author">Mario Román</span>
-        
-
-        
-        
-        <a class="date" href='/blog/2016/12/21/monadas/'><time datetime='2016-12-21'>21/12/2016</time></a>
-      </span>
-      <blockquote>
-  <p>A monad is just a monoid in the category of endofunctors, what’s the problem?</p>
-
-  <p>– <strong>Philip Walder</strong> (apócrifa) en <em><a href="http://james-iry.blogspot.com.es/2009/05/brief-incomplete-and-mostly-wrong.html">A Brief, Incomplete, and Mostly Wrong History of programming languages</a></em></p>
-</blockquote>
-
-<h2 id="prerrequisitos">Prerrequisitos</h2>
-
-<p>Este artículo requiere un conocimiento previo de Haskell, o al menos,
-de otro lenguaje de programación funcional. Puedes consultar
-nuestra <a href="/blog/2014/10/01/intro-haskell/">introducción a Haskell</a>
-con recursos para iniciarte en el lenguaje.</p>
-
-<p>Por otro lado, para la segunda parte del artículo es recomendable
-conocimiento previo sobre teoría de categorías. Aun así, no es
-necesaria para leer la primera parte del artículo, donde hablamos
-de mónadas sin hacer ninguna referencia explícita a la teoría de
-categorías. Si quieres leer sobre ese tema, puedes consultar nuestros apuntes
-de <a href="/blog/2014/10/04/intro-categorias/">introducción a teoría de categorías</a>.</p>
-
-<h2 id="motivación-para-las-mónadas">Motivación para las mónadas</h2>
-
-<h3 id="mónadas-en-haskell">Mónadas en Haskell</h3>
-
-<p>Imaginemos que necesitamos controlar cuando una función interna
-devuelve un error, o cuando usa un estado que debe ser pasado al resto
-de funciones. Cuando trabajamos con programación funcional pura,
-debemos devolver explícitamente el error (señalar cómo va a tratarlo
-cada función) o pasar el estado como argumento a cada una de las
-funciones; así que una solución sería modificar cada una de las
-funciones que usamos para que tenga en cuenta ese estado o ese caso de
-error, pero esto añadiría mucha complejidad innecesaria a nuestro
-código. La estructura de mónada simplifica esta escritura.</p>
-
-<p><a href="/blog/2016/12/21/monadas/">Seguir leyendo...</a></p>
     </article>
     
 
