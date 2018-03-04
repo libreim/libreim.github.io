@@ -252,6 +252,259 @@ teorema del valor medio. Dada &lt;script type=&quot;math/tex&quot;&gt;f: [a,b] \
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_M \omega(x)f(x) \,\mathrm{d}x \geq \prod_M f(x)^{\omega(x)\,\mathrm{d}x}&lt;/script&gt;
 
 </description>
+            <pubDate>Sat, 03 Mar 2018 00:00:00 +0000</pubDate>
+            <link>/blog/2018/03/03/medias/</link>
+            <guid isPermaLink="true">/blog/2018/03/03/medias/</guid>
+        </item>
+        
+        <item>
+            <title>Generalizando la desigualdad de las medias</title>
+            <description>&lt;p&gt;La &lt;a href=&quot;https://libreim.github.io/blog/2014/04/12/desigualdad-medias/&quot;&gt;desigualdad de las medias&lt;/a&gt; es una herramienta muy útil para resolver problemas de mínimos o máximos. En este post generalizamos los conceptos de media aritmética y geométrica y esta desigualdad en espacios de medida arbitrarios, obteniendo la desigualdad clásica como caso particular.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;espacios-de-medida&quot;&gt;Espacios de medida&lt;/h2&gt;
+
+&lt;p&gt;Los espacios de medida son espacios en los que asignamos un valor numérico a cada subconjunto (que interpretamos como una generalización del concepto de volumen o área). Para este post nos restringimos a medidas que asignan valores no negativos (o infinito) a los subconjuntos, pero el concepto &lt;a href=&quot;https://ncatlab.org/nlab/show/measure+space#generalizations&quot;&gt;puede generalizarse más&lt;/a&gt;. La propiedad básica de una medida es que es aditiva cuando los conjuntos son disjuntos (esto es, si dividimos un conjunto en dos partes disjuntas y sumamos los volúmenes individuales debemos obtener el volumen total).&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Definición 1&lt;/dt&gt;
+  &lt;dd&gt;Una &lt;strong&gt;medida&lt;/strong&gt; sobre una clase de conjuntos &lt;script type=&quot;math/tex&quot;&gt;\mathcal{A}&lt;/script&gt; es una función &lt;script type=&quot;math/tex&quot;&gt;\mu:\mathcal{A} \to [0,+\infty]&lt;/script&gt; que cumple:&lt;/dd&gt;
+  &lt;dd&gt;&lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Conjunto vacío nulo&lt;/strong&gt;: &lt;script type=&quot;math/tex&quot;&gt;\mu(\varnothing) = 0&lt;/script&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Aditividad numerable&lt;/strong&gt;: Dada una colección numerable &lt;script type=&quot;math/tex&quot;&gt;\{E_n\}_{n \in \mathbb{N}} \subseteq \mathcal{A}&lt;/script&gt; de&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/dd&gt;
+  &lt;dd&gt;subconjuntos disjuntos dos a dos se tiene que:&lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\mu\left(\bigcup_{n \in \mathbb{N}} E_n\right) = \sum_{n\in\mathbb{N}} \mu(E_n)&lt;/script&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;Por razones técnicas es posible que no podamos asignar un valor a todos los subconjuntos del espacio total (pueden existir &lt;a href=&quot;https://en.wikipedia.org/wiki/Non-measurable_set&quot;&gt;conjuntos no medibles&lt;/a&gt;) por lo que debemos restringirnos por tanto a una subclase de conjuntos con una mínima estructura.&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Definición 2&lt;/dt&gt;
+  &lt;dd&gt;Un &lt;strong&gt;espacio de medida&lt;/strong&gt; es una tripleta &lt;script type=&quot;math/tex&quot;&gt;(X, \mathcal{A}, \mu)&lt;/script&gt; donde:&lt;/dd&gt;
+  &lt;dd&gt;&lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;\mathcal{A} \subseteq \mathcal{P}(X)&lt;/script&gt; es un &lt;a href=&quot;https://en.wikipedia.org/wiki/Sigma-algebra&quot;&gt;&lt;em&gt;&lt;script type=&quot;math/tex&quot;&gt;\sigma&lt;/script&gt;-álgebra&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;\mu:\mathcal{A} \to [0,+\infty]&lt;/script&gt; es una &lt;em&gt;medida&lt;/em&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;Dado que no es el objetivo del post no desarrollamos más aquí estos conceptos o sus propiedades básicas. Para una introducción completa puede leerse &lt;a href=&quot;https://terrytao.wordpress.com/books/an-introduction-to-measure-theory/&quot;&gt;&lt;em&gt;An introduction to measure theory&lt;/em&gt;&lt;/a&gt; de Terence Tao.&lt;/p&gt;
+
+&lt;h3 id=&quot;ejemplos&quot;&gt;Ejemplos&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;El ejemplo más sencillo de medida es la &lt;em&gt;cardinalidad&lt;/em&gt;. Dado un conjunto &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; podemos medir cualquier subconjunto 
+suyo (&lt;script type=&quot;math/tex&quot;&gt;\mathcal{A} = \mathcal{P}(X)&lt;/script&gt;) contando su número de elementos. Esto es:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\mu(Y) = |Y|&lt;/script&gt;
+
+    &lt;p&gt;Si el número de elementos de &lt;script type=&quot;math/tex&quot;&gt;Y&lt;/script&gt; es infinito entonces asignamos &lt;script type=&quot;math/tex&quot;&gt;\mu(Y) = \infty&lt;/script&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Los &lt;a href=&quot;https://en.wikipedia.org/wiki/Probability_space&quot;&gt;&lt;em&gt;espacios de probabilidad&lt;/em&gt;&lt;/a&gt; son espacios de medida donde &lt;script type=&quot;math/tex&quot;&gt;\mu(X) = 1&lt;/script&gt;. En este caso la medida suele notarse 
+con &lt;script type=&quot;math/tex&quot;&gt;P&lt;/script&gt; y es la probabilidad que conocemos.&lt;/li&gt;
+  &lt;li&gt;La &lt;a href=&quot;https://en.wikipedia.org/wiki/Lebesgue_measure&quot;&gt;&lt;em&gt;medida de Lebesgue&lt;/em&gt;&lt;/a&gt; da una medida para &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^n&lt;/script&gt; que coincide con el concepto de longitud, área, volumen…&lt;/li&gt;
+  &lt;li&gt;Dado &lt;script type=&quot;math/tex&quot;&gt;x \in X&lt;/script&gt; la &lt;a href=&quot;https://en.wikipedia.org/wiki/Dirac_measure&quot;&gt;&lt;em&gt;medida de Dirac&lt;/em&gt;&lt;/a&gt; &lt;script type=&quot;math/tex&quot;&gt;\delta_x&lt;/script&gt; indica si &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt; pertenece al conjunto medido: &lt;script type=&quot;math/tex&quot;&gt;\delta_x(A) = 1&lt;/script&gt; si &lt;script type=&quot;math/tex&quot;&gt;x \in A&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;\delta_x(A) = 0&lt;/script&gt; en otro caso. Este es un caso particular de medida de probabilidad.&lt;/li&gt;
+  &lt;li&gt;Cualquier múltiplo de una medida es una medida&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;integral-e-integral-geométrica&quot;&gt;Integral e integral geométrica&lt;/h2&gt;
+
+&lt;p&gt;Dado un espacio de medida &lt;script type=&quot;math/tex&quot;&gt;(M, \mathcal{A}, \mu)&lt;/script&gt; podemos definir un concepto de integral para cualquier &lt;a href=&quot;https://en.wikipedia.org/wiki/Measurable_function&quot;&gt;función medible&lt;/a&gt;. El proceso de construcción consta de los siguientes pasos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;La integral de una función indicadora es la medida del conjunto que indica:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_M 1_A \, \mathrm{d}\mu = \mu(A)&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;La integral es lineal por tanto la integral de una combinación lineal finita de funciones indicadoras (&lt;a href=&quot;https://en.wikipedia.org/wiki/Simple_function&quot;&gt;función simple&lt;/a&gt;) puede calcularse:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_M \sum_n a_n1_{A_n}\, \mathrm{d}\mu = \sum_n a_n\mu(A_n)&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Si &lt;script type=&quot;math/tex&quot;&gt;S&lt;/script&gt; es el conjunto de las funciones simples, la integral de una función medible no negativa es:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_M f  \, \mathrm{d}\mu = \sup \left\{\int_M s \, \mathrm{d}\mu \; : \; 0 \leq s \leq f, \, s \in S\right\}&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;En el caso de funciones complejas dividimos la función en su parte real e imaginaria y cada una de estas en su 
+parte positiva y negativa y calculamos las integrales por separado. En el caso de que obtengamos valores finitos y 
+no haya indeterminaciones (esto es, la función sea integrable) hemos definido la integral&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;La integral así definida es lineal y creciente y además verifica la siguiente propiedad: dado un subconjunto numerable &lt;script type=&quot;math/tex&quot;&gt;\{E_n\}_{n \in \mathbb{N}} \subseteq \mathcal{A}&lt;/script&gt; de subconjuntos disjuntos dos a dos se tiene que&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_{\bigcup_{n} E_n} f \, \mathrm{d}\mu = \sum_{n} \int_{E_n} f\, \mathrm{d}\mu&lt;/script&gt;
+
+&lt;p&gt;Este concepto de integral puede interpretarse informalmente como una “suma” de los valores que alcanza la función. Si tenemos una función positiva podemos hacer el mismo proceso haciendo el “producto” de los valores, dando lugar a la &lt;a href=&quot;https://en.wikipedia.org/wiki/Product_integral#Type_II&quot;&gt;integral geométrica&lt;/a&gt;:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\prod_M f(x)^{\mathrm{d}\mu} = \exp\left(\int_M \log f(x) \, \mathrm{d}\mu\right)&lt;/script&gt;
+
+&lt;h3 id=&quot;ejemplos-1&quot;&gt;Ejemplos&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Las integrales respecto de la &lt;em&gt;cardinalidad&lt;/em&gt; sobre un conjunto finito corresponden con la suma y el producto de 
+los valores de la función. Esto es, si &lt;script type=&quot;math/tex&quot;&gt;I=\{1,\dots,n\}&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;f: I \to \mathbb{R}^+&lt;/script&gt; sus integrales son:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_I f \, \mathrm{d}\mu = \sum_{i=1}^{n} f(i)&lt;/script&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\prod_I f^{\mathrm{d}\mu} = \prod_{i=1}^{n} f(i)&lt;/script&gt;
+
+    &lt;p&gt;Si el número de elementos es infinito entonces la integral se corresponde con el supremo de las sumas o productos 
+parciales.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;En un espacio de probabilidad &lt;script type=&quot;math/tex&quot;&gt;(\Omega, \mathcal{E}, P)&lt;/script&gt; dada una variable aleatoria integrable se tiene que:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_\Omega X \,\mathrm{d}P = \mathbb{E}[X]&lt;/script&gt;
+
+    &lt;p&gt;El caso geométrico se llama integral geométrica y cumple propiedades análogas a la esperanza. Por ejemplo, existe 
+una versión de la ley de los grandes números geométrica: si &lt;script type=&quot;math/tex&quot;&gt;X_i&lt;/script&gt; es una sucesión de variables i.i.d. se tiene que:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\sqrt[n]{X_1\cdots X_n} \overset{P}{\to} \prod_\Omega X^{\mathrm{d}P}&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;La integral dada por la medida de Lebesgue es la integral usual en &lt;script type=&quot;math/tex&quot;&gt;\mathbb{R}^n&lt;/script&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;La integral y la integral geométrica de la medida de Dirac coinciden. Si &lt;script type=&quot;math/tex&quot;&gt;x \in A&lt;/script&gt; y tenemos una función 
+&lt;script type=&quot;math/tex&quot;&gt;f:A \to \mathbb{R}^+&lt;/script&gt; tenemos que:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_A f \, \mathrm{d}\delta_x = \prod_A f^{\mathrm{d}\delta_x} = f(x)&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Dada una medida &lt;script type=&quot;math/tex&quot;&gt;\mu&lt;/script&gt; y un múltiplo suyo &lt;script type=&quot;math/tex&quot;&gt;\lambda\mu&lt;/script&gt; tenemos que:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_M f \,\mathrm{d}\lambda\mu = \lambda\int_M f \,\mathrm{d}\mu&lt;/script&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\prod_M f^{\mathrm{d}\lambda\mu} = \left(\prod_M f^{\mathrm{d}\mu}\right)^\lambda&lt;/script&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;medias-de-una-función&quot;&gt;Medias de una función&lt;/h2&gt;
+
+&lt;p&gt;A partir del concepto de integral podemos definir la &lt;a href=&quot;https://en.wikipedia.org/wiki/Mean_of_a_function&quot;&gt;media aritmética&lt;/a&gt; y geométrica de una función integrable, que generalizan las medias ya conocidas en el caso discreto. Aunque no las tratamos aquí la media armónica y la media cuadrática también pueden generalizarse.&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Definición 3&lt;/dt&gt;
+  &lt;dd&gt;Dada un espacio de medida &lt;script type=&quot;math/tex&quot;&gt;M&lt;/script&gt; con medida total finita y una función integrable &lt;script type=&quot;math/tex&quot;&gt;f:M \to \mathbb{C}&lt;/script&gt;, la &lt;strong&gt;media aritmética&lt;/strong&gt; de &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; es:&lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;A(f) = \frac{1}{\mu(M)}\int_M f(x)\;\mathrm{d}\mu&lt;/script&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;Análogamente podemos hacerlo para el caso geométrico:&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Definición 4&lt;/dt&gt;
+  &lt;dd&gt;En la situación anterior, si &lt;script type=&quot;math/tex&quot;&gt;f(M) \subseteq \mathbb{R}^+&lt;/script&gt; la &lt;strong&gt;media geométrica&lt;/strong&gt; de &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; es:&lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;G(f) = \left(\prod_M f(x)^{\mathrm{d}\mu}\right)^{\frac{1}{\mu(M)}}&lt;/script&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;indicamos la medida como subíndice en caso de que sea necesario.&lt;/p&gt;
+
+&lt;h3 id=&quot;algunas-propiedades&quot;&gt;Algunas propiedades&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Es fácil ver que la media aritmética de una variable aleatoria coincide con su esperanza. Este hecho tiene una 
+versión recíproca. Si &lt;script type=&quot;math/tex&quot;&gt;(M,\mathcal{A},\mu)&lt;/script&gt; es una medida tal que &lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+\mu(M) &lt; \infty %]]&gt;&lt;/script&gt; podemos construir un espacio de probabilidad con la probabilidad&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;P_\mu(A) = \frac{\mu(A)}{\mu(M)}&lt;/script&gt;
+
+    &lt;p&gt;En este caso tenemos que si tomamos &lt;script type=&quot;math/tex&quot;&gt;f: M \to \mathbb{C}&lt;/script&gt; se tiene que&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;A(f) = \mathbb{E}_{P_\mu}[X]&lt;/script&gt;
+
+    &lt;p&gt;Esto nos da una interpretación probabilística de la media aritmética de una función; por ejemplo si 
+&lt;script type=&quot;math/tex&quot;&gt;f:[a,b] \to \mathbb{C}&lt;/script&gt; es una función integrable tenemos que:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;A(f) = \frac{1}{b-a} \int_a^b f(x)\,\mathrm{d}x = \mathbb{E}[f(X)]&lt;/script&gt;
+
+    &lt;p&gt;donde &lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; sigue una distribución uniforme sobre &lt;script type=&quot;math/tex&quot;&gt;[a,b]&lt;/script&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;En el caso de funciones continuas reales de variable real podemos hallar una consecuencia sencilla del 
+teorema del valor medio. Dada &lt;script type=&quot;math/tex&quot;&gt;f: [a,b] \to \mathbb{R}&lt;/script&gt; continua existe un punto &lt;script type=&quot;math/tex&quot;&gt;\xi \in [a,b]&lt;/script&gt; tal que &lt;script type=&quot;math/tex&quot;&gt;A(f) = f(\xi)&lt;/script&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;La media aritmética de una función está acotada por las cotas de la función. Por ejemplo, si tenemos un compacto 
+&lt;script type=&quot;math/tex&quot;&gt;M&lt;/script&gt; y una función continua &lt;script type=&quot;math/tex&quot;&gt;f:M \to \mathbb{R}&lt;/script&gt; se cumple que:&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\min_{x \in M} f(x) \leq A(f) \leq \max_{x \in M} f(x)&lt;/script&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;la-desigualdad-de-las-medias&quot;&gt;La desigualdad de las medias&lt;/h2&gt;
+
+&lt;p&gt;Sean &lt;script type=&quot;math/tex&quot;&gt;x_1, \dots, x_n&lt;/script&gt; valores positivos. La &lt;a href=&quot;https://en.wikipedia.org/wiki/Inequality_of_arithmetic_and_geometric_means&quot;&gt;desigualdad de las medias aritmética-geométrica&lt;/a&gt; nos indica que se verifica:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac1n\sum_i x_i \geq \left(\prod_i x_i\right)^\frac1n&lt;/script&gt;
+
+&lt;p&gt;En el caso de que &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; tome valores reales positivos podemos generalizar esta desigualdad al caso general, esto es:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;A(f) \geq G(f)&lt;/script&gt;
+
+&lt;p&gt;para cualquier &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; integrable en un espacio de medida. Esta desigualdad es una consecuencia de la &lt;a href=&quot;https://en.wikipedia.org/wiki/Jensen's_inequality#Measure-theoretic_and_probabilistic_form&quot;&gt;desigualdad de Jensen&lt;/a&gt;, que nos indica:&lt;/p&gt;
+
+&lt;dl&gt;
+  &lt;dt&gt;Desigualdad de Jensen&lt;/dt&gt;
+  &lt;dd&gt;Sea &lt;script type=&quot;math/tex&quot;&gt;(M, \mathcal{A}, \mu)&lt;/script&gt; un espacio de medida, &lt;script type=&quot;math/tex&quot;&gt;f:M \to \mathbb{R}&lt;/script&gt; y &lt;script type=&quot;math/tex&quot;&gt;\varphi: \mathbb{R} \to \mathbb{R}&lt;/script&gt; una&lt;/dd&gt;
+  &lt;dd&gt;función convexa. Entonces:&lt;/dd&gt;
+  &lt;dd&gt;
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\varphi\left(\frac{1}{\mu(M)} \int_M f \, \mathrm{d}\mu \right) \leq \frac{1}{\mu(M)} \int_M \varphi \circ f \,\mathrm{d}\mu&lt;/script&gt;
+  &lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;p&gt;Dada &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; basta aplicar la desigualdad con &lt;script type=&quot;math/tex&quot;&gt;\varphi&lt;/script&gt; la función exponencial sobre la media aritmética de &lt;script type=&quot;math/tex&quot;&gt;\log f&lt;/script&gt; para obtener el resultado. En el caso de la medida de Lebesgue la desigualdad queda:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\frac{1}{\mu(M)} \int_M f(x) \, \mathrm{d}x \geq \left(\prod_M f(x)^{\mathrm{d}x}\right)^{\frac{1}{\mu(M)}}&lt;/script&gt;
+
+&lt;h3 id=&quot;medias-ponderadas&quot;&gt;Medias ponderadas&lt;/h3&gt;
+
+&lt;p&gt;Dado un espacio de medida &lt;script type=&quot;math/tex&quot;&gt;(\Omega, \mathcal{A}, \mu)&lt;/script&gt; podemos utilizar una función integrable &lt;script type=&quot;math/tex&quot;&gt;g&lt;/script&gt; para construir otra medida &lt;script type=&quot;math/tex&quot;&gt;\mu_g&lt;/script&gt; sobre el mismo espacio, que podemos interpretar como una medida ponderada por &lt;script type=&quot;math/tex&quot;&gt;g&lt;/script&gt;:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\mu_g(A) = \int_A g \, \mathrm{d}\mu&lt;/script&gt;
+
+&lt;p&gt;En este caso la integral de una función &lt;script type=&quot;math/tex&quot;&gt;f&lt;/script&gt; puede calcularse como:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_M f \,\mathrm{d}\mu_g = \int_M fg \,\mathrm{d}\mu&lt;/script&gt;
+
+&lt;p&gt;Utilizando esta medida podemos construir y generalizar medias ponderadas. El caso más común es el uso de una función masa de probabilidad o una función de densidad con las que &lt;a href=&quot;https://en.wikipedia.org/wiki/Radon–Nikodym_theorem&quot;&gt;expresar una distribución&lt;/a&gt; de probabilidad.&lt;/p&gt;
+
+&lt;p&gt;Además podemos obtener otros casos particulares de la desigualdad de las medias. Por ejemplo, en el caso discreto si tomamos una función de pesos &lt;script type=&quot;math/tex&quot;&gt;\omega: I \to \mathbb{R}&lt;/script&gt; tal que &lt;script type=&quot;math/tex&quot;&gt;\sum_{i} \omega(i) = 1&lt;/script&gt; tenemos la desigualdad ponderada de las medias:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\sum_{i=1}^n \omega_ix_i =  A_{\omega}(x) \geq G_{\omega}(x) = \prod_{i=1}^n x_i^{\omega_i}&lt;/script&gt;
+
+&lt;p&gt;En el caso de la medida de Lebesgue (con una función que integra 1) la desigualdad queda:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\int_M \omega(x)f(x) \,\mathrm{d}x \geq \prod_M f(x)^{\omega(x)\,\mathrm{d}x}&lt;/script&gt;
+
+</description>
             <pubDate>Thu, 01 Mar 2018 00:00:00 +0000</pubDate>
             <link>/blog/2018/03/01/medias/</link>
             <guid isPermaLink="true">/blog/2018/03/01/medias/</guid>
@@ -2184,162 +2437,6 @@ Fourier, variable compleja o análisis en &lt;script type=&quot;math/tex&quot;&g
             <pubDate>Fri, 22 Jul 2016 00:00:00 +0000</pubDate>
             <link>/blog/2016/07/22/apuntes-de-introduccion-al-calculo/</link>
             <guid isPermaLink="true">/blog/2016/07/22/apuntes-de-introduccion-al-calculo/</guid>
-        </item>
-        
-        <item>
-            <title>Teoría de tipos</title>
-            <description>&lt;p&gt;Los sistemas de tipos tienen su utilidad en las matemáticas. Sirven para modelar
-una fundamentación de las matemáticas distinta de la usual fundamentación
-conjuntista; y tienen varias aplicaciones interesantes en lenguajes funcionales
-y asistentes de demostración. En particular, sobre los tipos se puede definir un
-álgebra y se pueden representar sistemas lógicos. Vamos a tratar esas
-aplicaciones referenciando en cada caso artículos donde se exponen en profundidad.&lt;/p&gt;
-
-&lt;h2 id=&quot;inducción-estructural&quot;&gt;Inducción estructural&lt;/h2&gt;
-
-&lt;p&gt;La inducción estructural es una generalización de la inducción usual sobre los
-naturales que la extiende a otras estructuras representables como tipos de un
-lenguaje funcional. Sobre la inducción estructural hemos escrito previamente en el blog una
-introducción:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/2015/03/14/induccion-estructural/&quot;&gt;Inducción Estructural - Blog LibreIM&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;En ese post se escriben ejemplos sobre los naturales y los
-árboles. El artículo sobre el que se basa es:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://math.blogoverflow.com/2015/03/10/when-can-we-do-induction/&quot;&gt;When can we do induction? - math.blogoverflow&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Ejemplos y más detalles sobre inducción estructural y sus usos pueden
-encontrarse en:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.cs.cmu.edu/~me/212/handouts/structural.pdf&quot;&gt;Some notes on Structural Induction - Michael Erdmann&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://arxiv.org/pdf/1312.2696.pdf&quot;&gt;Structural Induction Principles for Functional Programmers - James Caldwell&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Y varias demostraciones por inducción estructural implementadas en Coq en este
-repositorio sobre &lt;a href=&quot;https://github.com/Mario Román/recorridosArboles&quot;&gt;&lt;strong&gt;recorridos en árboles&lt;/strong&gt;&lt;/a&gt;.
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;álgebra-de-tipos&quot;&gt;Álgebra de tipos&lt;/h2&gt;
-
-&lt;p&gt;En un post anterior de este mismo blog hemos tratado el álgebra de tipos. Ese
-post se basó sobre otros tres publicados en el blog de Chris Taylor:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/2015/03/24/algebra-tipos/&quot;&gt;Álgebra de tipos - Blog LibreIM&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://chris-taylor.github.io/blog/2013/02/10/the-algebra-of-algebraic-data-types/&quot;&gt;The algebra of algebraic data types, Part I - Chris Taylor&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://chris-taylor.github.io/blog/2013/02/11/the-algebra-of-algebraic-data-types-part-ii/&quot;&gt;The algebra of algebraic data types, Part II - Chris Taylor&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://chris-taylor.github.io/blog/2013/02/13/the-algebra-of-algebraic-data-types-part-iii/&quot;&gt;The algebra of algebraic data types, Part III - Chris Taylor&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;En el segundo de los artículos se usan funciones generadoras para probar
-resultados sobre los números de Catalan y los árboles binarios. La teoría de
-funciones generadoras necesaria para entender el tratamiento de los árboles
-binarios la explica Mike Spivey en
-&lt;em&gt;&lt;a href=&quot;https://mikespivey.wordpress.com/2013/03/19/the-catalan-numbers-from-their-generating-function/&quot;&gt;The catalan numbers from their generating function&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Además, existe un resultado de &lt;strong&gt;Fiore y Leinster&lt;/strong&gt; que afirma que si demostramos
-una relacion polinómica para números complejos, también será válida para
-cualquier &lt;a href=&quot;https://en.wikipedia.org/wiki/Semiring&quot;&gt;semianillo&lt;/a&gt;. Y por tanto, para los tipos.
-Esto quiere decir que, en la mayoría de las ocasiones, podemos usar
-la resta o la división de tipos como si existieran. La demostración excluye
-algunos casos particulares y se expone aquí:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://arxiv.org/pdf/math/0212377v1.pdf&quot;&gt;Objects of categories as complex numbers - Marcelo Fiore y Tom Leinster&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Sobre el uso de las derivadas en el álgebra de tipos existe un resultado de
-&lt;strong&gt;Conor McBride&lt;/strong&gt; que relaciona las derivadas parciales con los &lt;a href=&quot;http://learnyouahaskell.com/zippers&quot;&gt;&lt;em&gt;zippers&lt;/em&gt;&lt;/a&gt; de Haskell
-usados para representar contextos. Puede leerse aquí:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://strictlypositive.org/diff.pdf&quot;&gt;The derivative of a regular type is its type of one-hole contexts - Conor McBride&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;lógica-con-tipos&quot;&gt;Lógica con tipos&lt;/h2&gt;
-
-&lt;p&gt;La aplicación de los tipos a la lógica y las demostraciones parte del
-isomorfismo de Curry-Howard, que relaciona los sistemas de tipos con sistemas
-lógicos. El sistema más simple donde puede apreciarse el isomorfismo es el
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Typed_lambda_calculus&quot;&gt;&lt;strong&gt;cálculo lambda tipado&lt;/strong&gt;&lt;/a&gt;,
-que es isomorfo a la
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Natural_deduction&quot;&gt;&lt;strong&gt;deducción natural&lt;/strong&gt;&lt;/a&gt;. La
-deducción natural es un ejemplo de lógica intuicionista, lo que en la práctica
-quiere decir que &lt;em&gt;no&lt;/em&gt; (!) se tienen el &lt;em&gt;tercio excluso&lt;/em&gt; y la &lt;em&gt;doble negación&lt;/em&gt; como
-axiomas:&lt;/p&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;A \wedge \neg A&lt;/script&gt;
-
-&lt;script type=&quot;math/tex; mode=display&quot;&gt;\neg \neg A \implies A&lt;/script&gt;
-
-&lt;p&gt;Los apuntes sobre
-&lt;a href=&quot;https://github.com/libreim/curryHoward/blob/master/CurryHoward.pdf&quot;&gt;&lt;strong&gt;Curry-Howard&lt;/strong&gt;&lt;/a&gt;
-de los repositorios del doble grado explican el isomorfismo sobre la deducción
-natural y el cálculo lambda tipado. El
-&lt;a href=&quot;https://github.com/libreim/curryHoward/tree/master/src&quot;&gt;código fuente&lt;/a&gt;
-acompañando los apuntes está escrito en Coq y Haskell.&lt;/p&gt;
-
-&lt;p&gt;La idea de tratar las proposiciones como tipos la expone &lt;strong&gt;Philip Wadler&lt;/strong&gt; en los
-dos siguientes artículos: primero de manera didáctica, con una introducción
-histórica y sobre el sistema de la deducción natural, y luego de forma más
-compleja, exponiendo el isomorfismo sobre el sistema de tipos de Haskell.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://homepages.inf.ed.ac.uk/wadler/papers/propositions-as-types/propositions-as-types.pdf&quot;&gt;Propositions as Types - Philip Wadler&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://homepages.inf.ed.ac.uk/wadler/papers/gr2/gr2.pdf&quot;&gt;The Girard-Reynolds Isomorphism - Philip Wadler&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;parametricidad&quot;&gt;Parametricidad&lt;/h2&gt;
-
-&lt;p&gt;La parametricidad limita las instancias posibles de los tipos de la forma
-&lt;code class=&quot;highlighter-rouge&quot;&gt;forall a. p(a)&lt;/code&gt;, y nos permite obtener teoremas sobre todas las instancias de
-esos tipos. Se explica a nivel intuitivo en el siguiente post de Bartosz
-Milewski y más formalmente en este paper de Philip Wadler:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://bartoszmilewski.com/2014/09/22/parametricity-money-for-nothing-and-theorems-for-free/&quot;&gt;Parametricity: Money for Nothing and Theorems for Free - Bartosz Milewski&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://ttic.uchicago.edu/~dreyer/course/papers/wadler.pdf&quot;&gt;Theorems for free! - Philip Wadler&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;teoría-de-tipos&quot;&gt;Teoría de tipos&lt;/h2&gt;
-
-&lt;p&gt;Los tipos pueden usarse para fundamentar las matemáticas, del mismo modo que lo
-hacen los conjuntos (en sistemas axiomáticos como
-&lt;a href=&quot;https://en.wikipedia.org/wiki/Zermelo%E2%80%93Fraenkel_set_theory&quot;&gt;ZFC&lt;/a&gt;) o las
-categorías (en sistemas como &lt;a href=&quot;https://ncatlab.org/nlab/show/ETCS&quot;&gt;ETCS&lt;/a&gt;). En el
-siguiente artículo se discuten las diferencias de ambos con la &lt;strong&gt;teoría de tipos
-dependientes de Martin-Löf&lt;/strong&gt;, que se expone por completo en las notas de
-Nordström, Petersson y Smith:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://golem.ph.utexas.edu/category/2013/01/from_set_theory_to_type_theory.html&quot;&gt;From Set Theory to Type Theory - The n-Category Café&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.cse.chalmers.se/~bengt/papers/hlcs.pdf&quot;&gt;Martin-Löf Type Theory - B. Nordström, K. Petersson, J.M. Smith&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Esto nos da una fundamentación de las matemáticas con una interpretación
-computacional clara.&lt;/p&gt;
-
-&lt;p&gt;Una refinación de esas teorías para producir una fundamentación también
-constructivista de las matemáticas es el Cálculo de Construcciones (Calculus of
-constructions, COC) desarrollado por &lt;strong&gt;Thierry Coquand&lt;/strong&gt; y &lt;strong&gt;Gérard Huet&lt;/strong&gt;,
-que finalmente dará lugar al asistente de demostraciones &lt;strong&gt;COQ&lt;/strong&gt;, desarrollado por
-el INRIA. El &lt;a href=&quot;https://en.wikipedia.org/wiki/Lambda_cube&quot;&gt;&lt;strong&gt;&lt;script type=&quot;math/tex&quot;&gt;\lambda&lt;/script&gt;-cubo&lt;/strong&gt;&lt;/a&gt; es un diagrama para exponer cómo este sistema amplía
-al &lt;em&gt;cálculo lambda tipado&lt;/em&gt; y al &lt;em&gt;Sistema &lt;script type=&quot;math/tex&quot;&gt;F_\omega&lt;/script&gt;&lt;/em&gt; que usa Haskell.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://ac.els-cdn.com/0890540188900053/1-s2.0-0890540188900053-main.pdf?_tid=3846e956-b301-11e5-8e78-00000aab0f02&amp;amp;acdnat=1451925532_87ac5a8e6a7bd6477746a55c17130f43&quot;&gt;Calculus of Constructions - T. Coquand, G. Huet&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://coq.inria.fr/&quot;&gt;The Coq proof assistant - INRIA&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-            <pubDate>Fri, 08 Jan 2016 00:00:00 +0000</pubDate>
-            <link>/blog/2016/01/08/teoria-de-tipos/</link>
-            <guid isPermaLink="true">/blog/2016/01/08/teoria-de-tipos/</guid>
         </item>
         
     </channel>

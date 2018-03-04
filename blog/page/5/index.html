@@ -81,6 +81,59 @@
       </div>
       
       <h1>
+        <a href="/blog/2015/03/14/aproximacion-a-pi/">
+          Aproximación a Pi
+        </a>
+      </h1>
+      
+      <span class="post-data">
+        
+         
+        <span class="author">Óscar Bermúdez</span>
+        
+
+        
+        
+        <a class="date" href='/blog/2015/03/14/aproximacion-a-pi/'><time datetime='2015-03-14'>14/03/2015</time></a>
+      </span>
+      <p>Hoy es el día de <script type="math/tex">\pi</script> (3/14). En este post vamos a presentar una serie de
+métodos para conseguir aproximaciones numéricas de la constante.</p>
+
+<h2 id="serie-de-leibniz">Serie de Leibniz</h2>
+<p>Uno de los métodos de aproximación a <script type="math/tex">\pi</script> viene dado por la serie de Leibniz:</p>
+
+<script type="math/tex; mode=display">\frac{\pi}{4} = \displaystyle{\sum_{n=0}^\infty \frac{(-1)^n}{2n+1}} =
+\displaystyle{\left(1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \dots \right)}</script>
+
+<p>Se basa en desarrollar la serie de potencias de la arcotangente:</p>
+
+<script type="math/tex; mode=display">\arctan x = \displaystyle{\sum_{n=0}^{\infty} \frac{x^{2n+1}}{2n+1}}=
+\displaystyle{\left(x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \dots \right)}</script>
+
+<p>Y evaluarla en 1.
+Esta fórmula tiene un pequeño inconveniente: es algo lenta para el cálculo de
+<script type="math/tex">\pi</script>.</p>
+
+<p>Para más información sobre el método, visita
+<a href="https://en.wikipedia.org/wiki/Leibniz_formula_for_%CF%80">Wikipedia</a> y
+para su demostración, <a href="https://proofwiki.org/wiki/Leibniz%27s_Formula_for_Pi">Proofwiki</a>.</p>
+
+<p><a href="/blog/2015/03/14/aproximacion-a-pi/">Seguir leyendo...</a></p>
+    </article>
+    
+
+    
+    
+
+    <article class="post">
+      
+      <div class="category">
+        
+        Problemas
+        
+      </div>
+      
+      <h1>
         <a href="/blog/2015/02/14/problema-fibonacci-gcd/">
           Problemas - Fibonacci GCD
         </a>
@@ -245,58 +298,6 @@ correspondiente de la organización del Doble Grado</a>
 en GitHub. En ellos se dan las definiciones pertinentes, se distinguen
 modalidades del problema y se explican técnicas y algoritmos para
 generar clasificadores. Se comparten bajo la licencia <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
-
-    </article>
-    
-
-    
-    
-
-    <article class="post">
-      
-      <div class="category">
-        
-        Álgebra
-        
-      </div>
-      
-      <h1>
-        <a href="/blog/2014/10/04/intro-categorias/">
-          Introducción a la teoría de categorías
-        </a>
-      </h1>
-      
-      <span class="post-data">
-        
-         
-        <span class="author">Mario Román</span>
-        
-
-        
-        
-        <a class="date" href='/blog/2014/10/04/intro-categorias/'><time datetime='2014-10-04'>04/10/2014</time></a>
-      </span>
-      <p>Los primeros desarrollos de la teoría de categorías vinieron impulsados en los
-años 40 para cubrir necesidades del álgebra homológica. La posterior teoría
-general de categorías fue una actualización del álgebra universal, que estudiaba
-las características comunes de diversas estructuras algebraicas. <sup id="fnref:categoriaswikipedia"><a href="#fn:categoriaswikipedia" class="footnote">1</a></sup></p>
-
-<p>En los repositorios del doble grado hay unos apuntes de introducción
-a la Teoría de Categorías con su código fuente bajo licencia CC BY-NC-SA 3.0. En
-ellos se explican tipos de morfismos y propiedades universales. Se
-hace especial hincapié en productos y coproductos y se pasan a explicar
-los functores y las transformaciones naturales. El objetivo no es aportar
-otra explicación formal de la teoría de categorias, sino dar una idea
-general de los conceptos básicos:<br />
-<a href="https://github.com/libreim/introCategorias">Introducción a la Teoría de Categorías</a></p>
-
-<div class="footnotes">
-  <ol>
-    <li id="fn:categoriaswikipedia">
-      <p><a href="http://es.wikipedia.org/wiki/Teor%C3%ADa_de_categor%C3%ADas">Teoría de Categorías - Wikipedia, the free encyclopedia</a> <a href="#fnref:categoriaswikipedia" class="reversefootnote">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
 
     </article>
     
