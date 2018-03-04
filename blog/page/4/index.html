@@ -76,57 +76,6 @@
       
       <div class="category">
         
-        Álgebra
-        
-      </div>
-      
-      <h1>
-        <a href="/blog/2015/03/24/algebra-tipos/">
-          Álgebra de tipos
-        </a>
-      </h1>
-      
-      <span class="post-data">
-        
-         
-        <span class="author">Mario Román</span>
-        
-
-        
-        
-        <a class="date" href='/blog/2015/03/24/algebra-tipos/'><time datetime='2015-03-24'>24/03/2015</time></a>
-      </span>
-      <p>En este post formularemos un álgebra para los tipos de los lenguajes de
-programación. Veremos operaciones que se aplican sobre ellos para obtener nuevos
-tipos y qué leyes siguen estas operaciones. Usaremos como base el sistema de
-tipos de Haskell, pero estos mismos conceptos podrían aplicarse a cualquier
-lenguaje con un sistema algebraico de tipos. Para iniciarse en el sistema de
-tipos de Haskell sugiero leer antes la <a href="/blog/2014/10/01/intro-haskell">Introducción a Haskell</a>.</p>
-
-<h2 id="notando-tipos-en-haskell">Notando tipos en Haskell</h2>
-
-<p>En Haskell, los <strong>tipos</strong> se escriben como un conjunto de constructores, que
-actúan como funciones teniendo como codominio el tipo definido. Por ejemplo,</p>
-
-<pre><code class="language-Haskell">data Colour = RGB Int Int Int
-            | HSV Int Int Int
-</code></pre>
-
-<p>este código define un tipo <code class="highlighter-rouge">Colour</code> con dos formas de construirlo, como <code class="highlighter-rouge">RGB</code> y
-como <code class="highlighter-rouge">HSV</code>. Ambos constructores usan como argumento tres enteros. Con tres
-enteros podremos construir un color de dos formas distintas.</p>
-
-<p><a href="/blog/2015/03/24/algebra-tipos/">Seguir leyendo...</a></p>
-    </article>
-    
-
-    
-    
-
-    <article class="post">
-      
-      <div class="category">
-        
         Linux
         
       </div>
@@ -306,6 +255,59 @@ fundada.</p>
 El caso base es aquí un paso más de la inducción.</p>
 
 <p><a href="/blog/2015/03/14/induccion-estructural/">Seguir leyendo...</a></p>
+    </article>
+    
+
+    
+    
+
+    <article class="post">
+      
+      <div class="category">
+        
+        Problemas
+        
+      </div>
+      
+      <h1>
+        <a href="/blog/2015/03/14/aproximacion-a-pi/">
+          Aproximación a Pi
+        </a>
+      </h1>
+      
+      <span class="post-data">
+        
+         
+        <span class="author">Óscar Bermúdez</span>
+        
+
+        
+        
+        <a class="date" href='/blog/2015/03/14/aproximacion-a-pi/'><time datetime='2015-03-14'>14/03/2015</time></a>
+      </span>
+      <p>Hoy es el día de <script type="math/tex">\pi</script> (3/14). En este post vamos a presentar una serie de
+métodos para conseguir aproximaciones numéricas de la constante.</p>
+
+<h2 id="serie-de-leibniz">Serie de Leibniz</h2>
+<p>Uno de los métodos de aproximación a <script type="math/tex">\pi</script> viene dado por la serie de Leibniz:</p>
+
+<script type="math/tex; mode=display">\frac{\pi}{4} = \displaystyle{\sum_{n=0}^\infty \frac{(-1)^n}{2n+1}} =
+\displaystyle{\left(1 - \frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \dots \right)}</script>
+
+<p>Se basa en desarrollar la serie de potencias de la arcotangente:</p>
+
+<script type="math/tex; mode=display">\arctan x = \displaystyle{\sum_{n=0}^{\infty} \frac{x^{2n+1}}{2n+1}}=
+\displaystyle{\left(x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \dots \right)}</script>
+
+<p>Y evaluarla en 1.
+Esta fórmula tiene un pequeño inconveniente: es algo lenta para el cálculo de
+<script type="math/tex">\pi</script>.</p>
+
+<p>Para más información sobre el método, visita
+<a href="https://en.wikipedia.org/wiki/Leibniz_formula_for_%CF%80">Wikipedia</a> y
+para su demostración, <a href="https://proofwiki.org/wiki/Leibniz%27s_Formula_for_Pi">Proofwiki</a>.</p>
+
+<p><a href="/blog/2015/03/14/aproximacion-a-pi/">Seguir leyendo...</a></p>
     </article>
     
 

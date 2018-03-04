@@ -76,72 +76,6 @@
       
       <div class="category">
         
-        Álgebra
-        
-      </div>
-      
-      <h1>
-        <a href="/blog/2016/01/08/teoria-de-tipos/">
-          Teoría de tipos
-        </a>
-      </h1>
-      
-      <span class="post-data">
-        
-         
-        <span class="author">Mario Román</span>
-        
-
-        
-        
-        <a class="date" href='/blog/2016/01/08/teoria-de-tipos/'><time datetime='2016-01-08'>08/01/2016</time></a>
-      </span>
-      <p>Los sistemas de tipos tienen su utilidad en las matemáticas. Sirven para modelar
-una fundamentación de las matemáticas distinta de la usual fundamentación
-conjuntista; y tienen varias aplicaciones interesantes en lenguajes funcionales
-y asistentes de demostración. En particular, sobre los tipos se puede definir un
-álgebra y se pueden representar sistemas lógicos. Vamos a tratar esas
-aplicaciones referenciando en cada caso artículos donde se exponen en profundidad.</p>
-
-<h2 id="inducción-estructural">Inducción estructural</h2>
-
-<p>La inducción estructural es una generalización de la inducción usual sobre los
-naturales que la extiende a otras estructuras representables como tipos de un
-lenguaje funcional. Sobre la inducción estructural hemos escrito previamente en el blog una
-introducción:</p>
-
-<ul>
-  <li><a href="/blog/2015/03/14/induccion-estructural/">Inducción Estructural - Blog LibreIM</a></li>
-</ul>
-
-<p>En ese post se escriben ejemplos sobre los naturales y los
-árboles. El artículo sobre el que se basa es:</p>
-
-<ul>
-  <li><a href="http://math.blogoverflow.com/2015/03/10/when-can-we-do-induction/">When can we do induction? - math.blogoverflow</a></li>
-</ul>
-
-<p>Ejemplos y más detalles sobre inducción estructural y sus usos pueden
-encontrarse en:</p>
-
-<ul>
-  <li><a href="http://www.cs.cmu.edu/~me/212/handouts/structural.pdf">Some notes on Structural Induction - Michael Erdmann</a></li>
-  <li><a href="http://arxiv.org/pdf/1312.2696.pdf">Structural Induction Principles for Functional Programmers - James Caldwell</a></li>
-</ul>
-
-<p>Y varias demostraciones por inducción estructural implementadas en Coq en este
-repositorio sobre <a href="https://github.com/Mario Román/recorridosArboles"><strong>recorridos en árboles</strong></a>.
-<p><a href="/blog/2016/01/08/teoria-de-tipos/">Seguir leyendo...</a></p>
-    </article>
-    
-
-    
-    
-
-    <article class="post">
-      
-      <div class="category">
-        
         General
         
       </div>
@@ -323,6 +257,57 @@ a C-like language:</p>
 </dl>
 
 <p><a href="/blog/2015/04/20/teorema-dini/">Seguir leyendo...</a></p>
+    </article>
+    
+
+    
+    
+
+    <article class="post">
+      
+      <div class="category">
+        
+        Álgebra
+        
+      </div>
+      
+      <h1>
+        <a href="/blog/2015/03/24/algebra-tipos/">
+          Álgebra de tipos
+        </a>
+      </h1>
+      
+      <span class="post-data">
+        
+         
+        <span class="author">Mario Román</span>
+        
+
+        
+        
+        <a class="date" href='/blog/2015/03/24/algebra-tipos/'><time datetime='2015-03-24'>24/03/2015</time></a>
+      </span>
+      <p>En este post formularemos un álgebra para los tipos de los lenguajes de
+programación. Veremos operaciones que se aplican sobre ellos para obtener nuevos
+tipos y qué leyes siguen estas operaciones. Usaremos como base el sistema de
+tipos de Haskell, pero estos mismos conceptos podrían aplicarse a cualquier
+lenguaje con un sistema algebraico de tipos. Para iniciarse en el sistema de
+tipos de Haskell sugiero leer antes la <a href="/blog/2014/10/01/intro-haskell">Introducción a Haskell</a>.</p>
+
+<h2 id="notando-tipos-en-haskell">Notando tipos en Haskell</h2>
+
+<p>En Haskell, los <strong>tipos</strong> se escriben como un conjunto de constructores, que
+actúan como funciones teniendo como codominio el tipo definido. Por ejemplo,</p>
+
+<pre><code class="language-Haskell">data Colour = RGB Int Int Int
+            | HSV Int Int Int
+</code></pre>
+
+<p>este código define un tipo <code class="highlighter-rouge">Colour</code> con dos formas de construirlo, como <code class="highlighter-rouge">RGB</code> y
+como <code class="highlighter-rouge">HSV</code>. Ambos constructores usan como argumento tres enteros. Con tres
+enteros podremos construir un color de dos formas distintas.</p>
+
+<p><a href="/blog/2015/03/24/algebra-tipos/">Seguir leyendo...</a></p>
     </article>
     
 
