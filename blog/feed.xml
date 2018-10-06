@@ -4,9 +4,7 @@
         <title></title>
         <description></description>
         <link></link>
-        <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
-        
-        <item>
+        <atom:link href="/feed.xml" rel="self" type="application/rss+xml" /><item>
             <title>Generalizando la desigualdad de las medias</title>
             <description>&lt;p&gt;La &lt;a href=&quot;https://libreim.github.io/blog/2014/04/12/desigualdad-medias/&quot;&gt;desigualdad de las medias&lt;/a&gt; es una herramienta muy útil para resolver problemas de mínimos o máximos. En este post generalizamos los conceptos de media aritmética y geométrica y esta desigualdad en espacios de medida arbitrarios, obteniendo la desigualdad clásica como caso particular.&lt;/p&gt;
 
@@ -257,9 +255,7 @@ teorema del valor medio. Dada &lt;script type=&quot;math/tex&quot;&gt;f: [a,b] \
             <pubDate>Thu, 01 Mar 2018 00:00:00 +0000</pubDate>
             <link>/blog/2018/03/01/medias/</link>
             <guid isPermaLink="true">/blog/2018/03/01/medias/</guid>
-        </item>
-        
-        <item>
+        </item><item>
             <title>Recursos sobre cálculo lambda</title>
             <description>&lt;blockquote&gt;
   &lt;p&gt;1936 - Alonzo Church also invents every language that will ever be
@@ -338,9 +334,7 @@ se corresponde con la &lt;em&gt;lógica proposicional intuicionista&lt;/em&gt;.&
             <pubDate>Thu, 09 Nov 2017 00:00:00 +0000</pubDate>
             <link>/blog/2017/11/09/calculolambda/</link>
             <guid isPermaLink="true">/blog/2017/11/09/calculolambda/</guid>
-        </item>
-        
-        <item>
+        </item><item>
             <title>Emacs for lazy people</title>
             <description>&lt;p&gt;Emacs is one of the most powerful, extensible editors out there.
 However, learning to use it is not an easy task, and I’m just really
@@ -408,12 +402,10 @@ a custom command becomes
 
 &lt;h2 id=&quot;which-key&quot;&gt;Which-key&lt;/h2&gt;
 
-&lt;figure class=&quot;fig large&quot;&gt;
+&lt;figure class=&quot;figlarge&quot;&gt;
   &lt;a href=&quot;/assets/images/blog/emacs-which-key.png&quot; title=&quot;Ver imagen completa&quot;&gt;
     &lt;img src=&quot;/assets/images/blog/emacs-which-key.png&quot; /&gt;
-  &lt;/a&gt;
-  Which-key interface
-&lt;/figure&gt;
+  &lt;/a&gt;Which-key interface&lt;/figure&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/justbur/emacs-which-key&quot;&gt;Which-key&lt;/a&gt; displays the key
 bindings following your currently entered incomplete command. That way,
@@ -451,9 +443,7 @@ for the remark!).&lt;/p&gt;
             <pubDate>Fri, 05 May 2017 00:00:00 +0000</pubDate>
             <link>/blog/2017/05/05/emacs-lazy/</link>
             <guid isPermaLink="true">/blog/2017/05/05/emacs-lazy/</guid>
-        </item>
-        
-        <item>
+        </item><item>
             <title>Introducción a ZFC</title>
             <description>&lt;p&gt;&lt;em&gt;Este post fue &lt;a href=&quot;//libreim.github.io/blog/2017/03/25/zfc/&quot;&gt;publicado originalmente&lt;/a&gt; en el blog de libreim el 25 de marzo de 2017.&lt;/em&gt;&lt;/p&gt;
 
@@ -1207,9 +1197,7 @@ de Borel&lt;/a&gt;. &lt;a href=&quot;#fnref:zfc-borel&quot; class=&quot;reverse
             <pubDate>Sat, 25 Mar 2017 00:00:00 +0000</pubDate>
             <link>/blog/2017/03/25/zfc/</link>
             <guid isPermaLink="true">/blog/2017/03/25/zfc/</guid>
-        </item>
-        
-        <item>
+        </item><item>
             <title>Apuntes de Álgebra II</title>
             <description>&lt;p&gt;En los repositorios de LibreIM se han añadido unos &lt;a href=&quot;https://github.com/libreim/apuntesalgebraii/blob/master/apuntesalgebraii/algebra2.pdf&quot;&gt;apuntes que se corresponden con el temario de la asignatura Álgebra II&lt;/a&gt;.&lt;/p&gt;
 
@@ -1220,9 +1208,7 @@ de Borel&lt;/a&gt;. &lt;a href=&quot;#fnref:zfc-borel&quot; class=&quot;reverse
             <pubDate>Tue, 07 Feb 2017 00:00:00 +0000</pubDate>
             <link>/blog/2017/02/07/apuntes-de-lgebra-ii-en/</link>
             <guid isPermaLink="true">/blog/2017/02/07/apuntes-de-lgebra-ii-en/</guid>
-        </item>
-        
-        <item>
+        </item><item>
             <title>Mónadas</title>
             <description>&lt;blockquote&gt;
   &lt;p&gt;A monad is just a monoid in the category of endofunctors, what’s the problem?&lt;/p&gt;
@@ -1826,9 +1812,7 @@ como en teoría de categorías:&lt;/p&gt;
             <pubDate>Wed, 21 Dec 2016 00:00:00 +0000</pubDate>
             <link>/blog/2016/12/21/monadas/</link>
             <guid isPermaLink="true">/blog/2016/12/21/monadas/</guid>
-        </item>
-        
-        <item>
+        </item><item>
             <title>Apuntes para el doble grado</title>
             <description>&lt;h2 id=&quot;repositorio-de-apuntes&quot;&gt;Repositorio de apuntes&lt;/h2&gt;
 
@@ -1846,9 +1830,7 @@ apuntes colectivo sobre las asignaturas del doble grado:&lt;/p&gt;
             <pubDate>Sun, 16 Oct 2016 00:00:00 +0000</pubDate>
             <link>/blog/2016/10/16/apuntes/</link>
             <guid isPermaLink="true">/blog/2016/10/16/apuntes/</guid>
-        </item>
-        
-        <item>
+        </item><item>
             <title>Aprendiendo Emacs</title>
             <description>&lt;h2 id=&quot;emacs&quot;&gt;Emacs&lt;/h2&gt;
 
@@ -1858,12 +1840,10 @@ construido sobre un intérprete del lenguaje
 del editor constituye un comando sobre el intérprete, por lo que podemos reescribir sus
 comandos o crear nuevos comandos simplemente programando sobre el intérprete.&lt;/p&gt;
 
-&lt;figure class=&quot;fig med&quot;&gt;
+&lt;figure class=&quot;figmed&quot;&gt;
   &lt;a href=&quot;/assets/images/blog/emacs.png&quot; title=&quot;Ver imagen completa&quot;&gt;
     &lt;img src=&quot;/assets/images/blog/emacs.png&quot; /&gt;
-  &lt;/a&gt;
-  Emacs editando este mismo artículo
-&lt;/figure&gt;
+  &lt;/a&gt;Emacs editando este mismo artículo&lt;/figure&gt;
 
 &lt;p&gt;Emacs sirve como IDE para la mayoría de lenguajes de programación, como
 editor para programación literaria y ciencia reproducible; se integra con git y
@@ -2107,12 +2087,10 @@ la bibliografía y los enlaces tanto externos como entre archivos.&lt;/p&gt;
 y el poder incluir los paquetes de la &lt;a href=&quot;ftp://ftp.ams.org/pub/tex/doc/amsmath/amsldoc.pdf&quot;&gt;AMS&lt;/a&gt;
 para marcar teoremas o definiciones.&lt;/p&gt;
 
-&lt;figure class=&quot;fig med&quot;&gt;
+&lt;figure class=&quot;figmed&quot;&gt;
   &lt;a href=&quot;/assets/images/blog/org-math.png&quot; title=&quot;Ver imagen completa&quot;&gt;
     &lt;img src=&quot;/assets/images/blog/org-math.png&quot; /&gt;
-  &lt;/a&gt;
-  Apuntes de matemáticas en org-mode
-&lt;/figure&gt;
+  &lt;/a&gt;Apuntes de matemáticas en org-mode&lt;/figure&gt;
 
 &lt;h3 id=&quot;magit&quot;&gt;magit&lt;/h3&gt;
 
@@ -2166,9 +2144,7 @@ básico sobre Elisp es &lt;a href=&quot;http://emacs-doctor.com/learn-emacs-lisp
             <pubDate>Mon, 19 Sep 2016 00:00:00 +0000</pubDate>
             <link>/blog/2016/09/19/aprendiendo-emacs/</link>
             <guid isPermaLink="true">/blog/2016/09/19/aprendiendo-emacs/</guid>
-        </item>
-        
-        <item>
+        </item><item>
             <title>Apuntes de introducción al cálculo</title>
             <description>&lt;p&gt;Presentamos el código fuente de un libro completo de Cálculo escrito por D. Francisco Javier Pérez González, profesor
 del departamento de Análisis Matemático de la Universidad de Granada, que sirve como una maravillosa
@@ -2186,9 +2162,7 @@ Fourier, variable compleja o análisis en &lt;script type=&quot;math/tex&quot;&g
             <pubDate>Fri, 22 Jul 2016 00:00:00 +0000</pubDate>
             <link>/blog/2016/07/22/apuntes-de-introduccion-al-calculo/</link>
             <guid isPermaLink="true">/blog/2016/07/22/apuntes-de-introduccion-al-calculo/</guid>
-        </item>
-        
-        <item>
+        </item><item>
             <title>Teoría de tipos</title>
             <description>&lt;p&gt;Los sistemas de tipos tienen su utilidad en las matemáticas. Sirven para modelar
 una fundamentación de las matemáticas distinta de la usual fundamentación
@@ -2342,7 +2316,5 @@ al &lt;em&gt;cálculo lambda tipado&lt;/em&gt; y al &lt;em&gt;Sistema &lt;script
             <pubDate>Fri, 08 Jan 2016 00:00:00 +0000</pubDate>
             <link>/blog/2016/01/08/teoria-de-tipos/</link>
             <guid isPermaLink="true">/blog/2016/01/08/teoria-de-tipos/</guid>
-        </item>
-        
-    </channel>
+        </item></channel>
 </rss>
