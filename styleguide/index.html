@@ -76,15 +76,14 @@ de cada publicación. No serán interpretados por el procesador
 Markdown sino por Jekyll, para poder incrustar el post en la página
 web correcta y añadir los datos necesarios:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>---
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---
 layout: post
 title: Guía de estilo
 authors:
  - fdavidcl
 category: meta
 ---
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Algunas aclaraciones:</p>
 
@@ -144,11 +143,10 @@ y párrafos de cualquier otra cosa (listas, código, etc.).</dd>
 <p>Usad la siguiente notación para denotar teoremas, lemas, definiciones y
 todo lo que tenga un “enunciado”:</p>
 
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 Teorema
 : No existen números naturales mayores que 7.
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <dl>
   <dt>Teorema</dt>
@@ -159,11 +157,10 @@ Teorema
 <p>Para añadir referencias lo podemos hacer mediante notas a pie de página.
 Kramdown incluye una sintaxis específica para esta tarea<sup id="fnref:kram"><a href="#fn:kram" class="footnote">1</a></sup>:</p>
 
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>Kramdown incluye una sintaxis específica para esta tarea<span class="p">[</span><span class="nv">^kram</span><span class="p">]</span>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Kramdown incluye una sintaxis específica para esta tarea<span class="p">[</span><span class="nv">^kram</span><span class="p">]</span>
 
 <span class="p">[</span><span class="ss">^kram</span><span class="p">]:</span> <span class="sx">[Kramdown</span> Syntax - Footnotes](http://kramdown.gettalong.org/syntax.html#footnotes)
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <dl>
   <dt>Nota</dt>
@@ -176,15 +173,13 @@ llevarán a una de ellas nada más.</dd>
 <p>En general trataremos de seguir el siguiente formato para las referencias
 de libros:</p>
 
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>Libro, Autor - Sección (página NN)
-</code></pre>
-</div>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Libro, Autor - Sección (página NN)
+</code></pre></div></div>
 
 <p>y este para las referencias a sitios web:</p>
 
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="nv">Página web</span><span class="p">](</span><span class="sx">http://example.org</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nv">Página web</span><span class="p">](</span><span class="sx">http://example.org</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>Si no tenéis un sitio concreto para ubicar la marca de referencia, añadid
 una frase al final al estilo de:</p>
@@ -223,55 +218,49 @@ blanco antes de cada título.</dd>
 <p>Para escribir código tenemos dos sintaxis. o bien dejar 4 espacios de
 margen, como el siguiente ejemplo</p>
 
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>    def codigo_en_ruby
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    def codigo_en_ruby
       "Una prueba"
     end
-</code></pre>
-</div>
+</code></pre></div></div>
 <p>que genera</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>def codigo_en_ruby
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def codigo_en_ruby
   "Una prueba"
 end
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>o bien utilizar las marcas <code class="highlighter-rouge">~~~</code>, y además podemos especificar el
 lenguaje mediante una clase:</p>
 
-<div class="markdown highlighter-rouge"><pre class="highlight"><code>~~~
+<div class="markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~~~
 def codigo_en_ruby
   "Una prueba"
 end
 ~~~
 {: .ruby}
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>que genera</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">codigo_en_ruby</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">codigo_en_ruby</span>
   <span class="s2">"Una prueba"</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="las-matemáticas">Las matemáticas</h3>
 <p>Para incrustar ecuaciones en <script type="math/tex">\LaTeX</script>, hay que hacerlo entre dobles dólares
 tanto para las ecuaciones en línea como centradas (se diferencian según vayan
 en un párrafo de texto o no). Ejemplos:</p>
 
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>...genera $$E = mc^2$$, ...
-</code></pre>
-</div>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>...genera $$E = mc^2$$, ...
+</code></pre></div></div>
 
 <p>genera <script type="math/tex">E = mc^2</script>, y</p>
 
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 $$ <span class="se">\s</span>qrt<span class="p">[</span><span class="nv">n</span><span class="p">]</span>{x_1x_2 <span class="se">\d</span>ots x_n} <span class="se">\l</span>eq <span class="se">\f</span>rac{x_1+x_2+<span class="se">\d</span>ots+x_n}{n} $$
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <script type="math/tex; mode=display">\sqrt[n]{x_1x_2 \dots x_n} \leq \frac{x_1+x_2+\dots+x_n}{n}</script>
 
@@ -291,11 +280,10 @@ sustituirlo por <code class="highlighter-rouge">\vert</code>.</p>
 carpeta <a href="https://github.com/libreim/blog/tree/site/images">images</a>, y crear
 una figura en el post con la siguiente sintaxis:</p>
 
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>{: .fig}
-!<span class="err">[</span>]({{- site.baseurl -}}/images/camino_a_la_imagen.png)  
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{: .fig}
+<span class="p">![](</span><span class="sx">{{-</span> site.baseurl -}}/images/camino_a_la_imagen.png)  
 <span class="gs">**Figura 1.**</span> Pie de la figura
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>El ancho de la figura se puede ajustar sustituyendo <code class="highlighter-rouge">.fig</code> por <code class="highlighter-rouge">.med.fig</code> para
 una figura mediana o <code class="highlighter-rouge">.small.fig</code> para una figura pequeña.</p>

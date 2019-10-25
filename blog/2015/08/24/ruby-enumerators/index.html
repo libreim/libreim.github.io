@@ -83,44 +83,39 @@ In this case, we will need to use a special syntax in order to
 describe the conditions in which the iterations will be made. For example, in
 a C-like language:</p>
 
-<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr_size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Code goes here
-</span><span class="p">}</span>
-</code></pre>
-</div>
+<div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr_size</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Code goes here</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <!--more-->
 
 <p>Likewise, in a Pascal-style language we could write something like the
 following:</p>
 
-<div class="language-pascal highlighter-rouge"><pre class="highlight"><code><span class="k">for</span> <span class="k">index</span> <span class="p">:=</span> <span class="m">0</span> <span class="k">to</span> <span class="n">arr_size</span> <span class="k">do</span>
+<div class="language-pascal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="k">index</span> <span class="p">:=</span> <span class="m">0</span> <span class="k">to</span> <span class="n">arr_size</span> <span class="k">do</span>
 <span class="k">begin</span>
     <span class="c1">// Code goes here
 </span><span class="k">end</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Since loops of this kind have a very generic syntax, and they’re frequently
 used for these tasks, some languages provide a <em>for..in</em> loop able to iterate
 through the items of a collection:</p>
 
-<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="c1">// C++11
-</span><span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">item</span> <span class="o">:</span> <span class="n">collection</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
-</code></pre>
-</div>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// C++11</span>
+<span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="n">item</span> <span class="o">:</span> <span class="n">collection</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div></div>
 
-<div class="language-pascal highlighter-rouge"><pre class="highlight"><code><span class="c1">// Pascal
+<div class="language-pascal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Pascal
 </span><span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">collection</span> <span class="k">do</span> <span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>These syntaxes can sometimes become cumbersome, for example, when using the
 <code class="highlighter-rouge">::iterator</code> class of STL containers in C++:</p>
 
-<div class="language-cpp highlighter-rouge"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">collection</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">collection</span><span class="p">.</span><span class="n">end</span><span class="p">;</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
-</code></pre>
-</div>
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">collection</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">collection</span><span class="p">.</span><span class="n">end</span><span class="p">;</span> <span class="o">++</span><span class="n">it</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
+</code></pre></div></div>
 
 <p>This makes the code more difficult to read and makes it less semantic, since
 a programmer who isn’t aware of the use of iterators in C++ wouldn’t find it
@@ -133,11 +128,10 @@ easy to understand.</p>
 <h3 id="each">each</h3>
 <p>Let me introduce you to our first Ruby enumerator, given by the <code class="highlighter-rouge">each</code> method:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">collection</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">collection</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
     <span class="c1"># Do things with 'item'</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Well that was easy. But still, a couple of things are happening here. First, we
 are calling the <code class="highlighter-rouge">each</code> method for <code class="highlighter-rouge">collection</code> (suppose this is an array, for example)
@@ -171,7 +165,7 @@ elements from the collection as specified. Likewise, the <code class="highlighte
 it sounds: if no parameters are passed, it returns the first item. Otherwise,
 it can achieve the same task as <code class="highlighter-rouge">take</code>.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
 
 <span class="n">arr</span><span class="p">.</span><span class="nf">take</span> <span class="mi">3</span>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
@@ -179,20 +173,18 @@ it can achieve the same task as <code class="highlighter-rouge">take</code>.</p>
 <span class="o">=&gt;</span> <span class="mi">6</span>
 <span class="n">arr</span><span class="p">.</span><span class="nf">last</span>
 <span class="o">=&gt;</span> <span class="mi">8</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Other interesting methods that return elements of a collection are <code class="highlighter-rouge">cycle</code> and
 <code class="highlighter-rouge">drop</code>. The first one is able to indefinitely provide with items by cycling
 through the collection, whereas the latter returns the elements left after
 dropping as many as the parameter indicates.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="nf">.</span><span class="mi">2</span><span class="p">).</span><span class="nf">cycle</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nf">to_a</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">2</span><span class="p">).</span><span class="nf">cycle</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nf">to_a</span>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="nf">.</span><span class="mi">5</span><span class="p">).</span><span class="nf">drop</span> <span class="mi">3</span>
+<span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">5</span><span class="p">).</span><span class="nf">drop</span> <span class="mi">3</span>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="detecting-items-with-certain-properties">Detecting items with certain properties</h3>
 
@@ -200,7 +192,7 @@ dropping as many as the parameter indicates.</p>
 elements by user criteria. The simplest and less informative ones just return
 a boolean value; for instance <code class="highlighter-rouge">any?</code>, <code class="highlighter-rouge">all?</code>, <code class="highlighter-rouge">one?</code>, <code class="highlighter-rouge">none?</code>:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
 
 <span class="n">arr</span><span class="p">.</span><span class="nf">any?</span> <span class="o">&amp;</span><span class="ss">:even?</span>
 <span class="o">=&gt;</span> <span class="kp">true</span>
@@ -210,18 +202,16 @@ a boolean value; for instance <code class="highlighter-rouge">any?</code>, <code
 <span class="o">=&gt;</span> <span class="kp">true</span>
 <span class="n">arr</span><span class="p">.</span><span class="nf">none?</span> <span class="o">&amp;</span><span class="ss">:even?</span>
 <span class="o">=&gt;</span> <span class="kp">false</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The syntax used in this example is a shortcut for passing a block, that is, the
 call to <code class="highlighter-rouge">any?</code> above is equivalent to the following:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">arr</span><span class="p">.</span><span class="nf">any?</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arr</span><span class="p">.</span><span class="nf">any?</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
   <span class="n">i</span><span class="p">.</span><span class="nf">even?</span>
 <span class="k">end</span>
 <span class="o">=&gt;</span> <span class="kp">true</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Other methods that return specific elements are <code class="highlighter-rouge">find</code>, <code class="highlighter-rouge">find_index</code>, <code class="highlighter-rouge">max</code>
 and <code class="highlighter-rouge">min</code>. The <code class="highlighter-rouge">find</code> method takes a block, calls it for each element of the
@@ -231,12 +221,12 @@ element, instead of the element itself. Lastly, the <code class="highlighter-rou
 return the minimum and maximum values respectively, accepting a block that
 can serve as a comparison operator.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="mi">10</span><span class="p">.</span><span class="nf">.</span><span class="mi">20</span><span class="p">).</span><span class="nf">find</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">10</span><span class="o">..</span><span class="mi">20</span><span class="p">).</span><span class="nf">find</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
   <span class="n">i</span> <span class="o">%</span> <span class="mi">6</span> <span class="o">==</span> <span class="mi">0</span>
 <span class="k">end</span>
 <span class="o">=&gt;</span> <span class="mi">12</span>
 
-<span class="p">(</span><span class="mi">10</span><span class="p">.</span><span class="nf">.</span><span class="mi">20</span><span class="p">).</span><span class="nf">find_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+<span class="p">(</span><span class="mi">10</span><span class="o">..</span><span class="mi">20</span><span class="p">).</span><span class="nf">find_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
   <span class="n">i</span> <span class="o">%</span> <span class="mi">6</span> <span class="o">==</span> <span class="mi">0</span>
 <span class="k">end</span>
 <span class="o">=&gt;</span> <span class="mi">2</span>
@@ -250,8 +240,7 @@ can serve as a comparison operator.</p>
   <span class="n">a</span><span class="p">.</span><span class="nf">length</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span><span class="p">.</span><span class="nf">length</span>
 <span class="k">end</span>
 <span class="o">=&gt;</span> <span class="s2">"hi"</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <dl>
   <dt>Note</dt>
@@ -268,14 +257,13 @@ elements and obtain a new collection, either by retaining or dropping the ones
 which match a certain criterion. This can be achieved with two methods called
 <code class="highlighter-rouge">select</code> and <code class="highlighter-rouge">reject</code>:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 
 <span class="n">data</span><span class="p">.</span><span class="nf">select</span> <span class="o">&amp;</span><span class="ss">:zero?</span>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="n">data</span><span class="p">.</span><span class="nf">reject</span> <span class="o">&amp;</span><span class="ss">:zero?</span>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <dl>
   <dt>Note</dt>
@@ -284,12 +272,11 @@ identified by <code class="highlighter-rouge">data</code>, but instead they retu
 Their “exclaimed” counterparts, <code class="highlighter-rouge">select!</code> and <code class="highlighter-rouge">reject!</code>, on the contrary, do
 alter the object with the result of the filter.
 
-    <div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">data</span><span class="p">.</span><span class="nf">select!</span> <span class="o">&amp;</span><span class="ss">:zero?</span>
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span><span class="p">.</span><span class="nf">select!</span> <span class="o">&amp;</span><span class="ss">:zero?</span>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="n">data</span>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
 
     <p>The exclamation notation for methods that alter the object
 they’re called on, or have side effects in general,
@@ -305,7 +292,7 @@ different processes to items. The <code class="highlighter-rouge">sort</code> me
 expected, using Quicksort as the underlying algorithm<sup id="fnref:ruby-quicksort"><a href="#fn:ruby-quicksort" class="footnote">3</a></sup>.
 A block can be passed to <code class="highlighter-rouge">sort</code> to be relied on as comparison operator.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">l18n</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Hola mundo!"</span><span class="p">,</span> <span class="s2">"Hello world!"</span><span class="p">,</span> <span class="s2">"Salut le monde!"</span><span class="p">]</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">l18n</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Hola mundo!"</span><span class="p">,</span> <span class="s2">"Hello world!"</span><span class="p">,</span> <span class="s2">"Salut le monde!"</span><span class="p">]</span>
 
 <span class="n">l18n</span><span class="p">.</span><span class="nf">sort</span> <span class="c1"># Lexicographic order</span>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"Hello world!"</span><span class="p">,</span> <span class="s2">"Hola mundo!"</span><span class="p">,</span> <span class="s2">"Salut le monde!"</span><span class="p">]</span>
@@ -314,37 +301,33 @@ A block can be passed to <code class="highlighter-rouge">sort</code> to be relie
   <span class="n">b</span><span class="p">.</span><span class="nf">length</span> <span class="o">&lt;=&gt;</span> <span class="n">a</span><span class="p">.</span><span class="nf">length</span> <span class="c1"># Inverse length order</span>
 <span class="k">end</span>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"Salut le monde!"</span><span class="p">,</span> <span class="s2">"Hello world!"</span><span class="p">,</span> <span class="s2">"Hola mundo!"</span><span class="p">]</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The <code class="highlighter-rouge">zip</code> method allows to create tuples of elements by passing one or
 several collections:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">langs</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:es</span><span class="p">,</span> <span class="ss">:en</span><span class="p">,</span> <span class="ss">:fr</span><span class="p">]</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">langs</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:es</span><span class="p">,</span> <span class="ss">:en</span><span class="p">,</span> <span class="ss">:fr</span><span class="p">]</span>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="ss">:es</span><span class="p">,</span> <span class="ss">:en</span><span class="p">,</span> <span class="ss">:fr</span><span class="p">]</span>
 <span class="n">langs</span><span class="p">.</span><span class="nf">zip</span> <span class="n">l18n</span>
 <span class="o">=&gt;</span> <span class="p">[[</span><span class="ss">:es</span><span class="p">,</span> <span class="s2">"Hola mundo!"</span><span class="p">],</span> <span class="p">[</span><span class="ss">:en</span><span class="p">,</span> <span class="s2">"Hello world!"</span><span class="p">],</span> <span class="p">[</span><span class="ss">:fr</span><span class="p">,</span> <span class="s2">"Salut le monde!"</span><span class="p">]]</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The <code class="highlighter-rouge">group_by</code> method classifies the items of the collection
 according to the different values the block returns and composes a Hash:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="mi">8</span><span class="p">).</span><span class="nf">group_by</span> <span class="o">&amp;</span><span class="ss">:even?</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">8</span><span class="p">).</span><span class="nf">group_by</span> <span class="o">&amp;</span><span class="ss">:even?</span>
 <span class="o">=&gt;</span> <span class="p">{</span><span class="kp">false</span><span class="o">=&gt;</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="kp">true</span><span class="o">=&gt;</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">]}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Finally, a more generic methods that enables the programmer to apply a function
 to every element and put together an array with the results is <code class="highlighter-rouge">map</code>, also
 known as <code class="highlighter-rouge">collect</code>:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="nf">.</span><span class="mi">8</span><span class="p">).</span><span class="nf">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">8</span><span class="p">).</span><span class="nf">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
   <span class="n">i</span> <span class="o">%</span> <span class="mi">5</span>
 <span class="k">end</span>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="other-methods">Other methods</h3>
 
@@ -357,16 +340,15 @@ for manipulation of infinite elements).</p>
 into any kind of result such as a sum or a mean. It can be used jointly with
 the <code class="highlighter-rouge">map</code> method to gather information about the collection:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># Sum the length of all the words in a string</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Sum the length of all the words in a string</span>
 <span class="sx">%w(I can has cheezburger)</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:length</span><span class="p">).</span><span class="nf">reduce</span><span class="p">(</span><span class="o">&amp;</span><span class="p">:</span><span class="o">+</span><span class="p">)</span>
 <span class="o">=&gt;</span> <span class="mi">18</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>For its part, <code class="highlighter-rouge">lazy</code> can take any collection and create a lazy enumerator out
 of it, but it’s most useful when used with infinite sequences:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">nonnegative</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="nf">.</span><span class="no">Float</span><span class="o">::</span><span class="no">INFINITY</span><span class="p">).</span><span class="nf">lazy</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">nonnegative</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="no">Float</span><span class="o">::</span><span class="no">INFINITY</span><span class="p">).</span><span class="nf">lazy</span>
 
 <span class="n">fibonacci</span> <span class="o">=</span> <span class="n">nonnegative</span><span class="p">.</span><span class="nf">map</span> <span class="k">do</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span>
   <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span>
@@ -379,8 +361,7 @@ of it, but it’s most useful when used with infinite sequences:</p>
 
 <span class="n">fibonacci</span><span class="p">.</span><span class="nf">take</span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nf">force</span>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">34</span><span class="p">]</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Note that in this last example the <code class="highlighter-rouge">force</code> method is used to make the interpreter
 calculate the results. Otherwise, it would just return another lazy enumerator
@@ -394,7 +375,7 @@ on, another faster way to enumerate the Fibonacci sequence will be shown.</p>
 <p>Adding all this functionality to a class in Ruby is as easy as implementing an
 <code class="highlighter-rouge">each</code> method and including the Enumerable mixin, like in the following example:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Blog</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Blog</span>
   <span class="kp">include</span> <span class="no">Enumerable</span>
 
   <span class="k">def</span> <span class="nf">initialize</span>
@@ -418,8 +399,7 @@ on, another faster way to enumerate the Fibonacci sequence will be shown.</p>
 <span class="n">libreim</span> <span class="o">=</span> <span class="no">Blog</span><span class="p">.</span><span class="nf">new</span>
 <span class="n">libreim</span><span class="p">.</span><span class="nf">first</span>
 <span class="o">=&gt;</span> <span class="s2">"Mean inequalities"</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="using-blocks">Using blocks</h2>
 
@@ -435,17 +415,16 @@ of class <code class="highlighter-rouge">MyClass</code>, and they implement meth
 <code class="highlighter-rouge">:my_method</code>, and one could use the syntax <code class="highlighter-rouge">&amp;:my_method</code> to compact the following
 block:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
   <span class="n">i</span><span class="p">.</span><span class="nf">my_method</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Any method defined by the programmer can receive and call a block, either via the
 <code class="highlighter-rouge">yield</code> statement or the <code class="highlighter-rouge">call</code> method. In this first example, we use <code class="highlighter-rouge">yield</code> to
 execute a block without parameters:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">call_block</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">call_block</span>
   <span class="nb">puts</span> <span class="s2">"Before calling block"</span>
   <span class="k">yield</span>
   <span class="nb">puts</span> <span class="s2">"After calling block"</span>
@@ -454,21 +433,19 @@ execute a block without parameters:</p>
 <span class="n">call_block</span> <span class="k">do</span>
   <span class="nb">puts</span> <span class="s2">"This is block"</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Output:</p>
 
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code>Before calling block
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Before calling block
 This is block
 After calling block
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The second example shows how to receive a block as a parameter with the ampersand
 syntax, execute it with <code class="highlighter-rouge">call</code> and pass parameters to it:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">call_block</span><span class="p">(</span><span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">call_block</span><span class="p">(</span><span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
   <span class="nb">puts</span> <span class="s2">"Before calling block"</span>
   <span class="n">block</span><span class="p">.</span><span class="nf">call</span> <span class="mi">4</span>
   <span class="nb">puts</span> <span class="s2">"After calling block"</span>
@@ -477,41 +454,37 @@ syntax, execute it with <code class="highlighter-rouge">call</code> and pass par
 <span class="n">call_block</span> <span class="k">do</span> <span class="o">|</span><span class="n">arg</span><span class="o">|</span>
   <span class="nb">puts</span> <span class="s2">"I was passed argument </span><span class="si">#{</span><span class="n">arg</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Output:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Before calling block
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Before calling block
 I was passed argument 4
 After calling block
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Lastly, blocks can be stored as objects of class Proc in variables<sup id="fnref:ruby-blocks"><a href="#fn:ruby-blocks" class="footnote">5</a></sup>.
 In order to do this, we can just pass the block to the constructor:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">square</span> <span class="o">=</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">square</span> <span class="o">=</span> <span class="no">Proc</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span>
   <span class="n">n</span><span class="o">**</span><span class="mi">2</span>
 <span class="k">end</span>
 
 <span class="n">square</span><span class="p">.</span><span class="nf">call</span> <span class="mi">5</span>
 <span class="o">=&gt;</span> <span class="mi">25</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Procs can be passed as blocks by using the same ampersand syntax. Notice that in
 this case the variable itself is used instead of a symbol (<code class="highlighter-rouge">:square</code>), because we
 want to pass the whole object instead of its name.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">apply_proc</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="o">&amp;</span><span class="nb">proc</span><span class="p">)</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">apply_proc</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="o">&amp;</span><span class="nb">proc</span><span class="p">)</span>
   <span class="nb">proc</span><span class="p">.</span><span class="nf">call</span> <span class="n">arg</span>
 <span class="k">end</span>
 
 <span class="n">apply_proc</span> <span class="mi">5</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">square</span>
 <span class="o">=&gt;</span> <span class="mi">25</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="the-enumerator-class">The Enumerator class</h2>
 
@@ -527,24 +500,22 @@ new methods. For example, if we wanted to enumerate an array of items starting f
 the back and grouping them according to their index modulo 3, we would write something
 like the following:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">arr</span> <span class="o">=</span> <span class="sx">%w(a b c d e)</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arr</span> <span class="o">=</span> <span class="sx">%w(a b c d e)</span>
 <span class="n">arr</span><span class="p">.</span><span class="nf">reverse_each</span><span class="p">.</span><span class="nf">group_by</span><span class="p">.</span><span class="nf">each_with_index</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="n">index</span><span class="o">|</span>
   <span class="n">index</span> <span class="o">%</span> <span class="mi">3</span>
 <span class="k">end</span>
 <span class="o">=&gt;</span> <span class="p">{</span><span class="mi">0</span><span class="o">=&gt;</span><span class="p">[</span><span class="s2">"e"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">],</span> <span class="mi">1</span><span class="o">=&gt;</span><span class="p">[</span><span class="s2">"d"</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">],</span> <span class="mi">2</span><span class="o">=&gt;</span><span class="p">[</span><span class="s2">"c"</span><span class="p">]}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Notice how the chaining order changes how elements are returned. Indexes are not
 returned in the example above, but they can be obtained by just swapping <code class="highlighter-rouge">group_by</code>
 and <code class="highlighter-rouge">each_with_index</code>:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">arr</span><span class="p">.</span><span class="nf">reverse_each</span><span class="p">.</span><span class="nf">each_with_index</span><span class="p">.</span><span class="nf">group_by</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="n">index</span><span class="o">|</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">arr</span><span class="p">.</span><span class="nf">reverse_each</span><span class="p">.</span><span class="nf">each_with_index</span><span class="p">.</span><span class="nf">group_by</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="n">index</span><span class="o">|</span>
   <span class="n">index</span> <span class="o">%</span> <span class="mi">3</span>
 <span class="k">end</span>
 <span class="o">=&gt;</span> <span class="p">{</span><span class="mi">0</span><span class="o">=&gt;</span><span class="p">[[</span><span class="s2">"e"</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="s2">"b"</span><span class="p">,</span> <span class="mi">3</span><span class="p">]],</span> <span class="mi">1</span><span class="o">=&gt;</span><span class="p">[[</span><span class="s2">"d"</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s2">"a"</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="mi">2</span><span class="o">=&gt;</span><span class="p">[[</span><span class="s2">"c"</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Enumerators need not be created out of existing collections, method <code class="highlighter-rouge">new</code> of the
 class can be used as well. This method accepts a block with a parameter that will
@@ -553,7 +524,7 @@ the yielder, which will in turn retrieve only the elements needed, pausing the
 generation of elements otherwise. A simple Enumerator can be just a countdown from
 10 to 1:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">countdown</span> <span class="o">=</span> <span class="no">Enumerator</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">yielder</span><span class="o">|</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">countdown</span> <span class="o">=</span> <span class="no">Enumerator</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">yielder</span><span class="o">|</span>
   <span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
 
   <span class="k">until</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span>
@@ -564,14 +535,13 @@ generation of elements otherwise. A simple Enumerator can be just a countdown fr
 
 <span class="n">countdown</span><span class="p">.</span><span class="nf">take</span> <span class="mi">5</span>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>  
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Since the yielder will only use the necessary elements, Enumerators can generate
 infinite sequences. For example, the following Enumerator generates
 prime numbers, and the next one is a fast Fibonacci generator.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># Primes Enumerator</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Primes Enumerator</span>
 <span class="n">primes</span> <span class="o">=</span> <span class="no">Enumerator</span><span class="p">.</span><span class="nf">new</span> <span class="k">do</span> <span class="o">|</span><span class="n">yielder</span><span class="o">|</span>
   <span class="n">n</span> <span class="o">=</span> <span class="mi">2</span>
 
@@ -583,7 +553,7 @@ prime numbers, and the next one is a fast Fibonacci generator.</p>
     <span class="k">until</span> <span class="n">prime</span>
       <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
 
-      <span class="n">prime</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="nf">.</span><span class="no">Math</span><span class="p">.</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">).</span><span class="nf">floor</span><span class="p">).</span><span class="nf">all?</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
+      <span class="n">prime</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">..</span><span class="no">Math</span><span class="p">.</span><span class="nf">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">).</span><span class="nf">floor</span><span class="p">).</span><span class="nf">all?</span> <span class="k">do</span> <span class="o">|</span><span class="n">i</span><span class="o">|</span>
         <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">!=</span> <span class="mi">0</span>
       <span class="k">end</span>
     <span class="k">end</span>
@@ -607,15 +577,14 @@ prime numbers, and the next one is a fast Fibonacci generator.</p>
 <span class="c1"># Calculate 500 elements, retrieve last</span>
 <span class="n">fibonacci</span><span class="p">.</span><span class="nf">take</span><span class="p">(</span><span class="mi">500</span><span class="p">).</span><span class="nf">drop</span><span class="p">(</span><span class="mi">499</span><span class="p">)</span>
 <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">86168291600238450732788312165664788095941068326060883324529903470149056115823592713458328176574447204501</span><span class="p">]</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Have you noticed the <code class="highlighter-rouge">loop</code> word used above to create an infinite loop? It’s actually
 just a function using an Enumerator which generates infinitely many <code class="highlighter-rouge">nil</code> values. It can be seen
 as well how the typical <code class="highlighter-rouge">[]</code> accesor can’t be used on an Enumerator, simply because
 it’s not implemented; but we can do that for ourselves:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Enumerator</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Enumerator</span>
   <span class="k">def</span> <span class="nf">[]</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
     <span class="n">take</span><span class="p">(</span><span class="n">index</span><span class="p">)[</span><span class="n">index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
   <span class="k">end</span>
@@ -623,8 +592,7 @@ it’s not implemented; but we can do that for ourselves:</p>
 
 <span class="n">fibonacci</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span>
 <span class="o">=&gt;</span> <span class="mi">218922995834555169026</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="conclusions">Conclusions</h2>
 

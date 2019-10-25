@@ -202,14 +202,13 @@ isomorfismo. Veamos que</p>
 
 <p>Las siguientes funciones son isomorfismos:</p>
 
-<div class="haskell highlighter-rouge"><pre class="highlight"><code>prdcomm :: (a,b) -&gt; (b,a)
+<div class="haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prdcomm :: (a,b) -&gt; (b,a)
 prdcomm (x,y) = (y,x)
 
 sumcomm :: Either a b -&gt; Either b a
 sumcomm (Left  x) = (Right x)
 sumcomm (Right y) = (Left  y)
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>La <strong>asociatividad</strong>,</p>
 
@@ -219,30 +218,28 @@ sumcomm (Right y) = (Left  y)
 
 <p>se comprueba de igual manera. Son isomorfismos:</p>
 
-<div class="haskell highlighter-rouge"><pre class="highlight"><code>prdasoc :: (a,(b,c)) -&gt; ((a,b),c)
+<div class="haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>prdasoc :: (a,(b,c)) -&gt; ((a,b),c)
 prdasoc (x,(y,z)) = ((x,y),z)
 
 sumasoc :: (Either a (Either b c)) -&gt; (Either (Either a b) c)
 sumasoc (Left x)          = (Left (Left x))
 sumasoc (Right (Left y))  = (Left (Right y))
 sumasoc (Right (Right y)) = (Right y)
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Y la <strong>distributividad</strong> del producto sobre la suma, que se obtiene también por
 isomorfismos. Veamos que</p>
 
 <script type="math/tex; mode=display">(a+b)c \cong ac+bc</script>
 
-<div class="haskell highlighter-rouge"><pre class="highlight"><code>distrib :: ((Either a b),c) -&gt; Either (a,c) (b,c)
+<div class="haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>distrib :: ((Either a b),c) -&gt; Either (a,c) (b,c)
 distrib (Left  x, z) = Left  (x,z)
 distrib (Right y, z) = Right (y,z)
 
 commonf :: Either (a,c) (b,c) -&gt; ((Either a b), c)
 commonf Left  (x,z) = (Left  x, z)
 commonf Right (y,z) = (Right y, z)
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="contando">Contando</h2>
 
@@ -291,10 +288,9 @@ exponencial se distribuye correctamente.</p>
 <p>Porque esta función, que realmente lo que hace es enunciar la propiedad
 universal del producto, es isomorfismo:</p>
 
-<div class="haskell highlighter-rouge"><pre class="highlight"><code>expdist :: (a -&gt; (b,c)) -&gt; (a -&gt; b, a -&gt; c)
+<div class="haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>expdist :: (a -&gt; (b,c)) -&gt; (a -&gt; b, a -&gt; c)
 expdist f = (fst . f, snd . f)
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Esta definición de exponencial conserva el sentido con la suma de tipos:</p>
 
@@ -302,10 +298,9 @@ expdist f = (fst . f, snd . f)
 
 <p>Gracias a que esta función es isomorfismo:</p>
 
-<div class="haskell highlighter-rouge"><pre class="highlight"><code>expsum :: (Either b c -&gt; a) -&gt; ((b -&gt; a),(c -&gt; a))
+<div class="haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>expsum :: (Either b c -&gt; a) -&gt; ((b -&gt; a),(c -&gt; a))
 expsum f = Either (f . Left) (f . Right)
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Y además, los tipos función conservan el homomorfismo anterior:</p>
 
@@ -322,10 +317,9 @@ es, esencialmente, cada constructor de tipos. Las manipularemos con las reglas d
 
 <p>Por ejemplo, el tipo <strong>lista</strong> podemos definirlo como:<sup id="fnref:haskell-list-def"><a href="#fn:haskell-list-def" class="footnote">2</a></sup></p>
 
-<div class="haskell highlighter-rouge"><pre class="highlight"><code>data [a] = []
+<div class="haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data [a] = []
          | a : [a]
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Pero esto nos da una ecuación en <script type="math/tex">a</script> para cualquier tipo. Sabiendo que
 <script type="math/tex">1 \cong []</script>, tenemos:</p>

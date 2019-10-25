@@ -123,9 +123,8 @@ una recopilación colaborativa de los comandos y paquetes más útiles para Emac
 <p>Emacs puede encontrarse en la mayoría de gestores de paquetes, pero puede no
 estar en su versión más actualizada.</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install emacs
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>emacs
+</code></pre></div></div>
 
 <p>Para escribir este artículo estoy usando <code class="highlighter-rouge">GNU Emacs 25.1</code>, pero la última
 versión estable es la <strong>24.5</strong>. La versión estable actual puede descargarse desde
@@ -271,10 +270,9 @@ grandes y actualizados.
 El repositorio de MELPA se añade desde <code class="highlighter-rouge">M-x customize-group RET package</code>. Dentro
 de la pestaña de repositorios puede insertarse la dirección de MELPA:</p>
 
-<div class="language-plaintext highlighter-rouge"><pre class="highlight"><code> Archive name: melpa-stable
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> Archive name: melpa-stable
  URL or directory name: https://stable.melpa.org/packages/
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Para salir de cualquiera de las pantallas de personalización se usa <code class="highlighter-rouge">q</code>.</p>
 
@@ -341,8 +339,8 @@ pull los haremos desde <code class="highlighter-rouge">magit-status</code> con <
 ventana desde la que controlamos el añadir y hacer commit de ficheros. Por ejemplo, podemos
 fijarlo en <code class="highlighter-rouge">f5</code> añadiendo a nuestro archivo de configuración:</p>
 
-<pre><code class="language-lisp">(global-set-key (kbd "&lt;f5&gt;") 'magit-status)
-</code></pre>
+<div class="language-lisp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="nv">global-set-key</span> <span class="p">(</span><span class="nv">kbd</span> <span class="s">"&lt;f5&gt;"</span><span class="p">)</span> <span class="ss">'magit-status</span><span class="p">)</span>
+</code></pre></div></div>
 
 <h2 id="macros-de-teclado">Macros de teclado</h2>
 

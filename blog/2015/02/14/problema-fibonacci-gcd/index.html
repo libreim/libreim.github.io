@@ -273,7 +273,7 @@ A = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} %]]></script>. La exponenciaci√
   <dt><strong>Algoritmo 2</strong></dt>
   <dd>Funci√≥n que devuelve el resultado de elevar la matriz <script type="math/tex">A</script> a <script type="math/tex">n</script>.</dd>
   <dd>
-    <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">Potencia</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">Potencia</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">A</span>
     <span class="k">elif</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -282,8 +282,7 @@ A = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} %]]></script>. La exponenciaci√
     <span class="k">else</span><span class="p">:</span>
         <span class="n">B</span> <span class="o">=</span> <span class="n">Potencia</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">A</span><span class="o">*</span><span class="n">B</span><span class="o">*</span><span class="n">B</span>
-</code></pre>
-    </div>
+</code></pre></div>    </div>
   </dd>
 </dl>
 
@@ -316,7 +315,7 @@ En concreto, si llamamos <script type="math/tex">a=F_{n}, b=F_{n+1}, c=a+b</scri
 
 <p>El c√≥digo queda como sigue:</p>
 
-<div class="language-haskell highlighter-rouge"><pre class="highlight"><code><span class="kr">import</span> <span class="nn">Control.Monad</span>
+<div class="language-haskell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">import</span> <span class="nn">Control.Monad</span>
 
 <span class="c1">-- GCD sobre listas de enteros</span>
 <span class="n">gcdList</span> <span class="o">::</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="kt">Int</span>
@@ -348,8 +347,7 @@ En concreto, si llamamos <script type="math/tex">a=F_{n}, b=F_{n+1}, c=a+b</scri
        <span class="p">(</span><span class="o">.-</span><span class="p">)</span>  <span class="o">=</span> <span class="nf">\</span><span class="n">x</span> <span class="n">y</span> <span class="o">-&gt;</span> <span class="n">mod</span> <span class="p">((</span><span class="o">-</span><span class="p">)</span> <span class="n">x</span> <span class="n">y</span><span class="p">)</span> <span class="n">hkr</span>
        <span class="p">(</span><span class="o">.*</span><span class="p">)</span>  <span class="o">=</span> <span class="nf">\</span><span class="n">x</span> <span class="n">y</span> <span class="o">-&gt;</span> <span class="n">mod</span> <span class="p">((</span><span class="o">*</span><span class="p">)</span> <span class="n">x</span> <span class="n">y</span><span class="p">)</span> <span class="n">hkr</span>
        <span class="n">c</span>     <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>M√°s material sobre el problema puede encontrarse en el <a href="https://github.com/libreim/problemas/tree/master/Seminario14-FibonacciGCD">repositorio correspondiente del doble grado</a>.</p>
 <div class="post-data">

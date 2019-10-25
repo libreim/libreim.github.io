@@ -68,9 +68,8 @@
   </a>
 </div>
 
-<div class="post-content"><div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Hello World!!"</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="post-content"><div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello World!!</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>JavaScript (JS) es el lenguaje de programación desarrollado por Netscape para
 la web<sup id="fnref:jsannouncement"><a href="#fn:jsannouncement" class="footnote">1</a></sup>. Se trata de un lenguaje de script,
@@ -115,8 +114,8 @@ entonces serán globales, lo que es equivalente a  declararlas fuera de
 cualquier función (las variables y funciones globales se convierten en
 atributos del objeto <code class="highlighter-rouge">window</code>).</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">una</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="kr">const</span> <span class="nx">PI</span> <span class="o">=</span> <span class="mf">3.141592</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">una</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">PI</span> <span class="o">=</span> <span class="mf">3.141592</span><span class="p">;</span>
 
 <span class="kd">var</span> <span class="nx">perimetro_circulo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">radio</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Esta variable no estaba declarada antes,</span>
@@ -130,8 +129,7 @@ atributos del objeto <code class="highlighter-rouge">window</code>).</p>
 <span class="kd">function</span> <span class="nx">area_circulo</span><span class="p">(</span><span class="nx">radio</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">PI</span> <span class="o">*</span> <span class="nx">radio</span> <span class="o">*</span> <span class="nx">radio</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <dl>
   <dt>Nota</dt>
@@ -145,16 +143,15 @@ atributos del objeto <code class="highlighter-rouge">window</code>).</p>
 contener objetos de distinta naturaleza, por ejemplo, el siguiente array
 es completamente válido:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">v</span><span class="err">á</span><span class="nx">lido</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="s2">"Hola"</span><span class="p">,</span> <span class="sr">/^</span><span class="se">[</span><span class="sr">a-z</span><span class="se">]</span><span class="sr">/</span><span class="p">];</span>
-</code></pre>
-</div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">v</span><span class="err">á</span><span class="nx">lido</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Hola</span><span class="dl">"</span><span class="p">,</span> <span class="sr">/^</span><span class="se">[</span><span class="sr">a-z</span><span class="se">]</span><span class="sr">/</span><span class="p">];</span>
+</code></pre></div></div>
 
 <p>Los objetos son uno de los pilares de JS. En este lenguaje, los objetos
 existen, no se crean como instancias de una clase, por lo que podemos declarar
 nuevos con la siguiente sintaxis:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">un_objeto</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">dato</span><span class="p">:</span> <span class="s2">"valor"</span><span class="p">,</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">un_objeto</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">dato</span><span class="p">:</span> <span class="dl">"</span><span class="s2">valor</span><span class="dl">"</span><span class="p">,</span>
     <span class="na">otro</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
     <span class="na">una_funcion</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">();</span>
@@ -163,14 +160,13 @@ nuevos con la siguiente sintaxis:</p>
 
 <span class="c1">// Acceso a datos:</span>
 <span class="nx">un_objeto</span><span class="p">.</span><span class="nx">otro</span><span class="p">;</span>     <span class="c1">// --&gt; 3</span>
-<span class="nx">un_objeto</span><span class="p">[</span><span class="s2">"dato"</span><span class="p">];</span>  <span class="c1">// --&gt; "valor"</span>
+<span class="nx">un_objeto</span><span class="p">[</span><span class="dl">"</span><span class="s2">dato</span><span class="dl">"</span><span class="p">];</span>  <span class="c1">// --&gt; "valor"</span>
 <span class="nx">un_objeto</span><span class="p">.</span><span class="nx">una_funcion</span><span class="p">();</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>La forma en que se define el objeto es conocida como <em>JavaScript Object
 Notation</em> (JSON). Un objeto puede funcionar como un
-diccionario, de la forma <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">clave:</span><span class="w"> </span><span class="nt">"valor"</span><span class="err">,</span><span class="w"> </span><span class="err">clave2</span><span class="p">:</span><span class="w"> </span><span class="s2">"otro"</span><span class="w"> </span><span class="p">}</span></code>. Solemos llamar
+diccionario, de la forma <code class="highlighter-rouge">{ clave: "valor", clave2: "otro" }</code>. Solemos llamar
 <em>propiedad</em> a cada una de las parejas <em>clave-valor</em> de un objeto.</p>
 
 <h3 id="tipos">Tipos</h3>
@@ -179,24 +175,22 @@ El resto de objetos (los de <code class="highlighter-rouge">Date</code>, <code c
 <code class="highlighter-rouge">Object</code>, y las funciones y constructores son de tipo <code class="highlighter-rouge">Function</code>.
 Se puede comprobar el tipo de un objeto mediante <code class="highlighter-rouge">typeof</code>:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="k">typeof</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// --&gt; Number</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">typeof</span> <span class="mi">5</span><span class="p">;</span> <span class="c1">// --&gt; Number</span>
 <span class="k">typeof</span> <span class="p">[];</span> <span class="c1">// --&gt; Object</span>
 <span class="k">typeof</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">;</span> <span class="c1">// --&gt; Function</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Además, se utilizan algunas palabras para identificar variables nulas y
 no inicializadas: <code class="highlighter-rouge">null</code> y <code class="highlighter-rouge">undefined</code>, respectivamente. Para indicar
 resultados de operaciones matemáticas no válidas se usa <code class="highlighter-rouge">NaN</code> (o <code class="highlighter-rouge">Infinity</code>,
 en caso de divisiones por 0 o números demasiado grandes):</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">sin_inicializar</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">sin_inicializar</span><span class="p">;</span>
 <span class="nx">sin_inicializar</span><span class="p">;</span> <span class="c1">// --&gt; undefined</span>
 
 <span class="nb">Math</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// --&gt; NaN</span>
 <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10000</span><span class="p">);</span> <span class="c1">// --&gt; Infinity</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="control-de-flujo">Control de flujo</h3>
 <p>Disponemos de las mismas estructuras que en el resto de lenguajes similares:</p>
@@ -213,56 +207,53 @@ en caso de divisiones por 0 o números demasiado grandes):</p>
 <p>La estructura <em>for-in</em> es algo diferente de sus equivalentes en C++ y Java,
 y además de arrays nos permite recorrer las propiedades de cualquier objeto:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">recetas</span> <span class="o">=</span> <span class="p">[</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">recetas</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span>
-        <span class="na">nombre</span><span class="p">:</span> <span class="s2">"Paella"</span><span class="p">,</span>
-        <span class="na">ingrediente_principal</span><span class="p">:</span> <span class="s2">"arroz"</span>
+        <span class="na">nombre</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Paella</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">ingrediente_principal</span><span class="p">:</span> <span class="dl">"</span><span class="s2">arroz</span><span class="dl">"</span>
     <span class="p">},</span>
     <span class="p">{</span>
-        <span class="na">nombre</span><span class="p">:</span> <span class="s2">"Tortilla"</span><span class="p">,</span>
-        <span class="na">ingrediente_principal</span><span class="p">:</span> <span class="s2">"huevo"</span>
+        <span class="na">nombre</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Tortilla</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">ingrediente_principal</span><span class="p">:</span> <span class="dl">"</span><span class="s2">huevo</span><span class="dl">"</span>
     <span class="p">},</span>
     <span class="p">{</span>
-        <span class="na">nombre</span><span class="p">:</span> <span class="s2">"Bocata"</span><span class="p">,</span>
-        <span class="na">ingrediente_principal</span><span class="p">:</span> <span class="s2">"pan"</span>
+        <span class="na">nombre</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Bocata</span><span class="dl">"</span><span class="p">,</span>
+        <span class="na">ingrediente_principal</span><span class="p">:</span> <span class="dl">"</span><span class="s2">pan</span><span class="dl">"</span>
     <span class="p">}</span>
 <span class="p">];</span>
 
 <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">recetas</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// i referencia al índice!</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Receta nº "</span> <span class="o">+</span> <span class="nx">i</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Receta nº </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">i</span><span class="p">);</span>
 
     <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">dato</span> <span class="k">in</span> <span class="nx">recetas</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="p">{</span>
         <span class="c1">// dato referencia la clave</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dato</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="nx">recetas</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">dato</span><span class="p">]);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dato</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">: </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">recetas</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">dato</span><span class="p">]);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Tenemos dos comparaciones de igualdad, una que convierte tipos implícitamente
 para comparar el contenido, y otra que es estricta con los tipos:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kr">const</span> <span class="nx">POLO</span> <span class="o">=</span> <span class="mi">28</span><span class="p">;</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">POLO</span> <span class="o">=</span> <span class="mi">28</span><span class="p">;</span>
 
 <span class="c1">// Comparación de igualdad:</span>
-<span class="nx">POLO</span> <span class="o">==</span> <span class="s2">"28"</span><span class="p">;</span> <span class="c1">// --&gt; true</span>
+<span class="nx">POLO</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">28</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// --&gt; true</span>
 
 <span class="c1">// Comparación de igualdad y tipo:</span>
-<span class="nx">POLO</span> <span class="o">===</span> <span class="s2">"28"</span><span class="p">;</span> <span class="c1">// --&gt; false ("28" es String)</span>
-</code></pre>
-</div>
+<span class="nx">POLO</span> <span class="o">===</span> <span class="dl">"</span><span class="s2">28</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// --&gt; false ("28" es String)</span>
+</code></pre></div></div>
 
 <p>Por último, también podemos usar los operadores lógicos <code class="highlighter-rouge">||</code> y <code class="highlighter-rouge">&amp;&amp;</code> para control
 de flujo, algo muy utilizado para escribir código compatible con todos los
 navegadores:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">nodo</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">"identificador"</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">nodo</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">identificador</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="c1">// Cada navegador aceptará innerText o textContent</span>
 <span class="kd">var</span> <span class="nx">texto</span> <span class="o">=</span> <span class="nx">nodo</span><span class="p">.</span><span class="nx">innerText</span> <span class="o">||</span> <span class="nx">nodo</span><span class="p">.</span><span class="nx">textContent</span><span class="p">;</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="el-document-object-model">El Document Object Model</h2>
 
@@ -310,21 +301,19 @@ queda como objeto hijo de <code class="highlighter-rouge">window</code>.</li>
 funciones a acciones de tipo <em>click</em>, <em>key press</em>, <em>drag</em>, etc. de forma que la página web
 responda ante ellas. Por ejemplo:</p>
 
-<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="c">&lt;!-- Nodo HTML: --&gt;</span>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Nodo HTML: --&gt;</span>
 <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"mi_boton"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">value=</span><span class="s">"Púlsame"</span><span class="nt">&gt;</span>
-</code></pre>
-</div>
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">alerta_click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</code></pre></div></div>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">alerta_click</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// this referencia al nodo que responde al evento</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Has pulsado el botón "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Has pulsado el botón </span><span class="dl">"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">);</span>
 <span class="p">};</span>
 
-<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"#mi_boton"</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="nx">alerta_click</span><span class="p">;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">#mi_boton</span><span class="dl">"</span><span class="p">).</span><span class="nx">onclick</span> <span class="o">=</span> <span class="nx">alerta_click</span><span class="p">;</span>
 
 <span class="c1">// Otra forma:</span>
-<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"#mi_boton"</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"click"</span><span class="p">,</span> <span class="nx">alerta_click</span><span class="p">);</span>
-</code></pre>
-</div>
+<span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">#mi_boton</span><span class="dl">"</span><span class="p">).</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">"</span><span class="s2">click</span><span class="dl">"</span><span class="p">,</span> <span class="nx">alerta_click</span><span class="p">);</span>
+</code></pre></div></div>
 
 <p>Mucho más sobre eventos en <sup id="fnref:quirksevents"><a href="#fn:quirksevents" class="footnote">4</a></sup>.</p>
 
@@ -338,7 +327,7 @@ asociados a funciones constructoras. Estas funciones son idénticas a
 cualquier otra, salvo por que no devuelven un valor, y en su lugar obtenemos un objeto
 al utilizarlas con <code class="highlighter-rouge">new</code>. Veamos un ejemplo:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="c1">// El constructor</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// El constructor</span>
 <span class="kd">var</span> <span class="nx">Cancion</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">nombre</span><span class="p">,</span> <span class="nx">artista</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">nombre</span> <span class="o">=</span> <span class="nx">nombre</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">artista</span> <span class="o">=</span> <span class="nx">artista</span><span class="p">;</span>
@@ -346,14 +335,13 @@ al utilizarlas con <code class="highlighter-rouge">new</code>. Veamos un ejemplo
 
 <span class="c1">// Definimos un método en el prototipo</span>
 <span class="nx">Cancion</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">reproducir</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Reproduciendo "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">nombre</span> <span class="o">+</span> <span class="s2">" de "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">artista</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Reproduciendo </span><span class="dl">"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">nombre</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> de </span><span class="dl">"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">artista</span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="c1">// Creamos un objeto con el constructor</span>
-<span class="kd">var</span> <span class="nx">una_cancion</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cancion</span><span class="p">(</span><span class="s2">"Clocks"</span><span class="p">,</span> <span class="s2">"Coldplay"</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">una_cancion</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cancion</span><span class="p">(</span><span class="dl">"</span><span class="s2">Clocks</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Coldplay</span><span class="dl">"</span><span class="p">);</span>
 <span class="nx">una_cancion</span><span class="p">.</span><span class="nx">reproducir</span><span class="p">();</span> <span class="c1">// --&gt; "Reproduciendo Clocks de Coldplay"</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Mediante la función constructora <code class="highlighter-rouge">Cancion</code> hemos creado un prototipo vacío (en <code class="highlighter-rouge">Cancion.prototype</code>), al que
 después hemos añadido el método <code class="highlighter-rouge">reproducir</code>. Al utilizar el prototipo como plantilla,
@@ -366,22 +354,21 @@ del prototipo con que se haya creado.</p>
 <p>Otra peculiaridad de la orientación a objetos de JS es la falta de encapsulación. Un
 dato miembro de un objeto, declarado con <code class="highlighter-rouge">this.dato</code> es visible en cualquier ámbito:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">inception</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cancion</span><span class="p">(</span><span class="s2">"Time"</span><span class="p">,</span> <span class="s2">"Hans Zimmer"</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">inception</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cancion</span><span class="p">(</span><span class="dl">"</span><span class="s2">Time</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Hans Zimmer</span><span class="dl">"</span><span class="p">);</span>
 
 <span class="c1">// Podemos modificar los datos miembro, e incluso los métodos</span>
-<span class="nx">inception</span><span class="p">.</span><span class="nx">nombre</span> <span class="o">=</span> <span class="s2">"Mombasa"</span><span class="p">;</span>
+<span class="nx">inception</span><span class="p">.</span><span class="nx">nombre</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Mombasa</span><span class="dl">"</span><span class="p">;</span>
 <span class="nx">inception</span><span class="p">.</span><span class="nx">reproducir</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Banda sonora épica"</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Banda sonora épica</span><span class="dl">"</span><span class="p">);</span>
 <span class="p">};</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Una alternativa para ocultar información es utilizar variables en el constructor, de
 forma que solo están visibles en el ámbito de la función constructora. El problema es
 que entonces no estarán visibles para los métodos que declaremos en el prototipo.
 Podemos sin embargo definir <em>getters</em> dentro del constructor, y utilizarlos en los métodos:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Cancion</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">nombre</span><span class="p">,</span> <span class="nx">artista</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Cancion</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">nombre</span><span class="p">,</span> <span class="nx">artista</span><span class="p">)</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">nombre</span><span class="p">;</span>
     <span class="kd">var</span> <span class="nx">artist</span> <span class="o">=</span> <span class="nx">artista</span><span class="p">;</span>
 
@@ -395,10 +382,9 @@ Podemos sin embargo definir <em>getters</em> dentro del constructor, y utilizarl
 <span class="p">};</span>
 
 <span class="nx">Cancion</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">reproducir</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Reproduciendo "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">nombre</span><span class="p">()</span> <span class="o">+</span> <span class="s2">" de "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">artista</span><span class="p">());</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Reproduciendo </span><span class="dl">"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">nombre</span><span class="p">()</span> <span class="o">+</span> <span class="dl">"</span><span class="s2"> de </span><span class="dl">"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">artista</span><span class="p">());</span>
 <span class="p">};</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Ahora las variables <code class="highlighter-rouge">name</code> y <code class="highlighter-rouge">artist</code> no son visibles ni modificables fuera del constructor, pero se pueden
 consultar mediante los métodos <code class="highlighter-rouge">nombre()</code> y <code class="highlighter-rouge">artista()</code> respectivamente. Esto funciona
@@ -420,27 +406,27 @@ una forma directa de hacer que una función “herede” de otra, por lo que no 
 constructores a partir de constructores anteriores. Sin embargo, podemos escribir constructores
 cuyo prototipo asociado sea una instancia de uno ya existente<sup id="fnref:jsinheritance"><a href="#fn:jsinheritance" class="footnote">6</a></sup>:</p>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Parent</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Creando objeto de la clase padre"</span><span class="p">);</span>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">Parent</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Creando objeto de la clase padre</span><span class="dl">"</span><span class="p">);</span>
 <span class="p">};</span>
 <span class="nx">Parent</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">metodo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="s2">"Este método se heredará"</span><span class="p">;</span>
+    <span class="k">return</span> <span class="dl">"</span><span class="s2">Este método se heredará</span><span class="dl">"</span><span class="p">;</span>
 <span class="p">};</span>
 
 
 <span class="c1">// Constructor nuevo</span>
 <span class="kd">var</span> <span class="nx">Child</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Este es el constructor de la clase hija"</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Este es el constructor de la clase hija</span><span class="dl">"</span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="c1">// Usamos el prototipo de la clase padre</span>
 <span class="nx">Child</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Parent</span><span class="p">();</span>
 <span class="c1">// ...pero asociándolo al constructor de la clase hija</span>
-<span class="nx">Child</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">constructor</span> <span class="o">=</span> <span class="nx">Child</span><span class="p">;</span>
+<span class="nx">Child</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">=</span> <span class="nx">Child</span><span class="p">;</span>
 
 <span class="c1">// Podemos añadir métodos</span>
 <span class="nx">Child</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">nuevo_metodo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="s2">"Solo en la clase hija"</span><span class="p">;</span>
+    <span class="k">return</span> <span class="dl">"</span><span class="s2">Solo en la clase hija</span><span class="dl">"</span><span class="p">;</span>
 <span class="p">};</span>
 
 <span class="kd">var</span> <span class="nx">partest</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Parent</span><span class="p">();</span>
@@ -450,8 +436,7 @@ cuyo prototipo asociado sea una instancia de uno ya existente<sup id="fnref:jsin
 <span class="kd">var</span> <span class="nx">chitest</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Child</span><span class="p">();</span>
 <span class="nx">chitest</span> <span class="k">instanceof</span> <span class="nx">Parent</span><span class="p">;</span> <span class="c1">// --&gt; true</span>
 <span class="nx">chitest</span> <span class="k">instanceof</span> <span class="nx">Child</span><span class="p">;</span> <span class="c1">// --&gt; true</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>En este ejemplo hemos creado dos constructores, uno con prototipo
 propio, y otro al que asociamos un objeto creado a partir del primer

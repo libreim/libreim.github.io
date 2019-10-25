@@ -84,9 +84,8 @@
 
 <p>The image of Arch can be copied to an usb and made booteable by running <code class="highlighter-rouge">dd</code> as it follows:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>dd <span class="nv">bs</span><span class="o">=</span>4M <span class="k">if</span><span class="o">=</span>/path/to/archlinux.iso <span class="nv">of</span><span class="o">=</span>/dev/sdx <span class="o">&amp;&amp;</span> sync
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">dd </span><span class="nv">bs</span><span class="o">=</span>4M <span class="k">if</span><span class="o">=</span>/path/to/archlinux.iso <span class="nv">of</span><span class="o">=</span>/dev/sdx <span class="o">&amp;&amp;</span> <span class="nb">sync</span>
+</code></pre></div></div>
 
 <p>It would be sufficient to boot with Secure Boot disabled (<a href="https://david.quotient.space/tag/uefi/">Here</a> you’ve got some useful information about it).</p>
 
@@ -98,9 +97,8 @@
 
 <p>As usual, keyboard layout may not be the desired one, so you’ll have to change it by typing:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>loadkeys layout
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>loadkeys layout
+</code></pre></div></div>
 
 <p>where possibles values for layout can be consulted in the wiki.</p>
 
@@ -110,10 +108,9 @@
 
 <p>I needed to do a triple boot, because I also have Widnows and Ubuntu installed in the same machine, and I wanted to keep Ubuntu’s bootloader, so once I created <code class="highlighter-rouge">/</code> partition, I mounted both this partition and EFI’s one in a folder in <code class="highlighter-rouge">mnt</code>:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>mkdir -p /mnt/boot/efi
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir</span> <span class="nt">-p</span> /mnt/boot/efi
 mount /dev/sdxB /mnt/boot/efi
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>where <code class="highlighter-rouge">-p</code> option creates also parent directories if they don’t exist, and <code class="highlighter-rouge">sdxB</code> was my EFI partition.</p>
 
@@ -121,10 +118,9 @@ mount /dev/sdxB /mnt/boot/efi
 
 <p>Can be made typing:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pacstrap -i /mnt
-pacstrap -i /mnt base base-devel
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacstrap <span class="nt">-i</span> /mnt
+pacstrap <span class="nt">-i</span> /mnt base base-devel
+</code></pre></div></div>
 
 <p>This is the step that needs internet connection.</p>
 
@@ -132,9 +128,8 @@ pacstrap -i /mnt base base-devel
 
 <p>In order to mount the <code class="highlighter-rouge">/</code> and the <code class="highlighter-rouge">/boot/efi</code>, you should either execute:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>genfstab <span class="nt">-U</span> <span class="nt">-p</span> /mnt <span class="o">&gt;&gt;</span> /mnt/etc/fstab
+</code></pre></div></div>
 
 <p>or manually configure <code class="highlighter-rouge">/mnt/etc/fstab</code>.</p>
 
@@ -145,24 +140,22 @@ pacstrap -i /mnt base base-devel
 <p>We have to do a <code class="highlighter-rouge">chroot</code> now to configure the system.
 If we want to do it through the current terminal:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>arch-chroot /mnt /bin/bash
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>arch-chroot /mnt /bin/bash
+</code></pre></div></div>
 
 <p>But in case you need to complete the installation through other operative system (Linux preferred) you can mount the created Arch partition inside that system, and do a <code class="highlighter-rouge">chroot</code> (or equivalent), with <code class="highlighter-rouge">sdxA</code> the partition in which Arch
 is stored:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>mkdir arch
-<span class="nb">cd </span>arch
-sudo mount /dev/sdxA .
-mount -t proc proc proc/
-mount -t sysfs sys sys/
-mount -o <span class="nb">bind</span> /dev dev/
-mount -t devpts pts dev/pts/
-mount --rbind /run run/
-chroot . /bin/bash
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir arch
+cd arch
+sudo </span>mount /dev/sdxA <span class="nb">.</span>
+mount <span class="nt">-t</span> proc proc proc/
+mount <span class="nt">-t</span> sysfs sys sys/
+mount <span class="nt">-o</span> <span class="nb">bind</span> /dev dev/
+mount <span class="nt">-t</span> devpts pts dev/pts/
+mount <span class="nt">--rbind</span> /run run/
+<span class="nb">chroot</span> <span class="nb">.</span> /bin/bash
+</code></pre></div></div>
 
 <p>Once done the chroot:</p>
 
@@ -172,9 +165,8 @@ chroot . /bin/bash
   <dt>Tip!</dt>
   <dd>If you want to have internet connection in the chrooted system:</dd>
   <dd>
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>cp -L /etc/resolv.conf ./arch/etc/resolv.conf
-</code></pre>
-    </div>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp</span> <span class="nt">-L</span> /etc/resolv.conf ./arch/etc/resolv.conf
+</code></pre></div>    </div>
   </dd>
 </dl>
 
@@ -202,39 +194,34 @@ chroot . /bin/bash
 
 <p>It’s highly advised to change <code class="highlighter-rouge">root</code> password:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>passwd
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>passwd
+</code></pre></div></div>
 
 <p>If we desire to create a new admin account we can do it by typing:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>useradd -m -G wheel -s /bin/bash username
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>useradd <span class="nt">-m</span> <span class="nt">-G</span> wheel <span class="nt">-s</span> /bin/bash username
+</code></pre></div></div>
 
 <p>The group <code class="highlighter-rouge">wheel</code> is normally used to give access to <code class="highlighter-rouge">sudo</code> and <code class="highlighter-rouge">su</code>. We gotta add it to the <code class="highlighter-rouge">sudoers</code> file too, uncommenting the line:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>%wheel <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span> ALL
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%wheel <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span> ALL
+</code></pre></div></div>
 
 <h4 id="keymap-and-locale">Keymap and locale</h4>
 
 <p>We have to change the keymap in order not to have problems typing the passwords when we restart the system. This’ll do it:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"KEYMAP=es</span><span class="se">\\</span><span class="s2">nFONT=lat9w-16"</span> &gt;&gt; /etc/vconsole.conf
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"KEYMAP=es</span><span class="se">\\</span><span class="s2">nFONT=lat9w-16"</span> <span class="o">&gt;&gt;</span> /etc/vconsole.conf
+</code></pre></div></div>
 
 <p>To change the locale, we have to uncomment the line corresponding to our locale in <code class="highlighter-rouge">/etc/locale.gen</code>, and we need to compile the locale file selected by typing <code class="highlighter-rouge">locale-gen</code>. The last step concerning to locales is choosing the language: <code class="highlighter-rouge">echo LANG=en_US.UTF-8 &gt; /etc/locale.conf</code> and exporting the variable of that language: <code class="highlighter-rouge">export LANG=en_US.UTF-8</code></p>
 
 <h3 id="time-and-cpu-clock">Time and CPU clock</h3>
 <p>To set the timezone and the clock:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>ln -s /usr/share/zoneinfo/Europe/Madrid /etc/localtime
-hwclock --systohc --utc
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">ln</span> <span class="nt">-s</span> /usr/share/zoneinfo/Europe/Madrid /etc/localtime
+hwclock <span class="nt">--systohc</span> <span class="nt">--utc</span>
+</code></pre></div></div>
 
 <p>Again, there’s a <a href="https://github.com/analca3/Install-Archlinux-Script/blob/master/After-chroot.sh">script</a> made by <a href="https://github.com/analca3">analca3</a> that does some of this process, but I insist in the fact that there’s no point in deciding to install Arch if you don’t realize how things gotta be set up before being able to use the system in a normal way.</p>
 
@@ -242,9 +229,8 @@ hwclock --systohc --utc
 
 <p>To select a hostname name:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">echo </span>myhostname &gt; /etc/hostname
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo </span>myhostname <span class="o">&gt;</span> /etc/hostname
+</code></pre></div></div>
 
 <p>And we modify both lines in <code class="highlighter-rouge">/etc/hosts</code> to change the hostname.</p>
 
@@ -252,15 +238,14 @@ hwclock --systohc --utc
 
 <p>We are gonna install <a href="http://www.x.org/wiki/">Xorg</a>, the usual windows management system in UNIX systems. And a display manager so that we’ll have a running graphical interface in which we could work. In my case I had hybrid graphics with an Intel integrated GPU and a Nvidia discrete GPU:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pacman -S xorg-server xorg-server-utils xorg-init
-pacman -Ss xf86-video-intel nvidia xorg-xrandr
-pacman -S gnome
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman <span class="nt">-S</span> xorg-server xorg-server-utils xorg-init
+pacman <span class="nt">-Ss</span> xf86-video-intel nvidia xorg-xrandr
+pacman <span class="nt">-S</span> gnome
+</code></pre></div></div>
 
 <p>and</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># nano /etc/X11/xorg.conf</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># nano /etc/X11/xorg.conf</span>
 
 Section <span class="s2">"ServerLayout"</span>
     Identifier <span class="s2">"layout"</span>
@@ -291,33 +276,30 @@ Section <span class="s2">"Screen"</span>
     Identifier <span class="s2">"intel"</span>
     Device <span class="s2">"intel"</span>
 EndSection
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>where PCI address determined earlier can be found in the output of <code class="highlighter-rouge">lspci</code> in format <code class="highlighter-rouge">01:00.0</code> which needs to be converted to <code class="highlighter-rouge">1:0:0</code>.</p>
 
 <p>This configuration has to be changed permanently in <code class="highlighter-rouge">/etc/gdm/Init/Default</code> by adding, before the line <code class="highlighter-rouge">exit 0</code>:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>xrandr --setprovideroutputsource modesetting NVIDIA-0
-xrandr --auto
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xrandr <span class="nt">--setprovideroutputsource</span> modesetting NVIDIA-0
+xrandr <span class="nt">--auto</span>
+</code></pre></div></div>
 
 <h3 id="network-manager">Network Manager</h3>
 
 <p>To install classic Gnome Network Manager the steps below are suggested:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo pacman -S networkmanager network-manager-applet gnome-keyring
-sudo systemctl <span class="nb">enable </span>NetworkManager.service
-sudo systemctl disable dhcpcd.service
-sudo systemctl disable dhcpcd@.service
-sudo systemctl stop dhcpcd.service
-sudo systemctl stop dhcpcd@.service
-gpasswd -a USERNAME network
-sudo systemctl start wpa_supplicant.service
-sudo systemctl start NetworkManager.service
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>pacman <span class="nt">-S</span> networkmanager network-manager-applet gnome-keyring
+<span class="nb">sudo </span>systemctl <span class="nb">enable </span>NetworkManager.service
+<span class="nb">sudo </span>systemctl disable dhcpcd.service
+<span class="nb">sudo </span>systemctl disable dhcpcd@.service
+<span class="nb">sudo </span>systemctl stop dhcpcd.service
+<span class="nb">sudo </span>systemctl stop dhcpcd@.service
+gpasswd <span class="nt">-a</span> USERNAME network
+<span class="nb">sudo </span>systemctl start wpa_supplicant.service
+<span class="nb">sudo </span>systemctl start NetworkManager.service
+</code></pre></div></div>
 
 <p>The commands above make Network Manager start on boot, stop and disable starting on boot of dhcpd in order for NetworkManager to be the handler of that function.</p>
 

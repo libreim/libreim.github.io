@@ -139,39 +139,37 @@ i < j %]]></script> tiene dos hijos, izquierda y derecha, que se obtienen a divi
 
 <p>Una plantilla para un nodo del segment tree sería la siguiente:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># Template for a Segment Tree Node.</span>
-<span class="c"># A node contains the information related with a vector subinterval.</span>
-<span class="k">class</span> <span class="nc">SegmentTreeNode</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Template for a Segment Tree Node.
+# A node contains the information related with a vector subinterval.
+</span><span class="k">class</span> <span class="nc">SegmentTreeNode</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="c"># Init the node.</span>
-    <span class="c"># info = Subinterval information</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># Init the node.
+</span>    <span class="c1"># info = Subinterval information
+</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="bp">None</span>
 
-    <span class="c"># Given the value of an array element,</span>
-    <span class="c"># build the information for this leaf.</span>
-    <span class="k">def</span> <span class="nf">assignLeaf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="k">pass</span> <span class="c"># Insert the code to build the leaf information</span>
-
-    <span class="c"># Merge the information of left and right</span>
-    <span class="c"># children to form the parent node information.</span>
-    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
-        <span class="k">pass</span> <span class="c"># Insert the merge code</span>
-
-    <span class="c"># Return the information contained in this node.</span>
-    <span class="k">def</span> <span class="nf">getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># Given the value of an array element,
+</span>    <span class="c1"># build the information for this leaf.
+</span>    <span class="k">def</span> <span class="nf">assignLeaf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">pass</span> <span class="c1"># Insert the code to build the leaf information
+</span>
+    <span class="c1"># Merge the information of left and right
+</span>    <span class="c1"># children to form the parent node information.
+</span>    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
+        <span class="k">pass</span> <span class="c1"># Insert the merge code
+</span>
+    <span class="c1"># Return the information contained in this node.
+</span>    <span class="k">def</span> <span class="nf">getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">info</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>En el caso del range minimum query asignar la información a una hoja es asignarle el valor de la componente y realizar un <code class="highlighter-rouge">merge</code> es tomar el mínimo de la información de los nodos <code class="highlighter-rouge">left</code> y <code class="highlighter-rouge">right</code>.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">assignLeaf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="k">def</span> <span class="nf">assignLeaf</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="n">value</span>
     <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">left</span><span class="o">.</span><span class="n">getInfo</span><span class="p">(),</span> <span class="n">right</span><span class="o">.</span><span class="n">getInfo</span><span class="p">())</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Veremos que para que la eficiencia de las dos operaciones soportadas por el segment tree sea logarítmica las operaciones anteriores deben ser realizadas en tiempo constante, como sucede para este problema.</p>
 
@@ -195,49 +193,48 @@ i < j %]]></script> tiene dos hijos, izquierda y derecha, que se obtienen a divi
 
 <p>El siguiente código proporciona un constructor para la clase <code class="highlighter-rouge">SegmentTree</code>.</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SegmentTree</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SegmentTree</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
-    <span class="c"># Build a segment tree from the given array.</span>
-    <span class="c"># array: Array from which the segment tree is built.</span>
-    <span class="c"># st_index: current segment tree node index.</span>
-    <span class="c"># lo and hi : Range of input array subinterval that this node is responsible of.</span>
-    <span class="k">def</span> <span class="nf">_buildTree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">st_index</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">):</span>
+    <span class="c1"># Build a segment tree from the given array.
+</span>    <span class="c1"># array: Array from which the segment tree is built.
+</span>    <span class="c1"># st_index: current segment tree node index.
+</span>    <span class="c1"># lo and hi : Range of input array subinterval that this node is responsible of.
+</span>    <span class="k">def</span> <span class="nf">_buildTree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">st_index</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">lo</span> <span class="o">==</span> <span class="n">hi</span><span class="p">:</span>
-            <span class="c"># The node is a leaf responsible of V[lo,lo]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span><span class="o">.</span><span class="n">assignLeaf</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">lo</span><span class="p">])</span>
+            <span class="c1"># The node is a leaf responsible of V[lo,lo]
+</span>            <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span><span class="o">.</span><span class="n">assignLeaf</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">lo</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="c"># The node is not a leaf.</span>
-            <span class="c"># Both children are built and merged afterwards for this node.</span>
-            <span class="n">left</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">st_index</span>
+            <span class="c1"># The node is not a leaf.
+</span>            <span class="c1"># Both children are built and merged afterwards for this node.
+</span>            <span class="n">left</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">st_index</span>
             <span class="n">right</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span>
             <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_buildTree</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">mid</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_buildTree</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">left</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">right</span><span class="p">])</span>
 
-    <span class="c"># Get the segment tree size for a input of size N.</span>
-    <span class="c"># It compute the smallest 2 to the power of m greater than N.</span>
-    <span class="k">def</span> <span class="nf">_getSegmentTreeSize</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="c1"># Get the segment tree size for a input of size N.
+</span>    <span class="c1"># It compute the smallest 2 to the power of m greater than N.
+</span>    <span class="k">def</span> <span class="nf">_getSegmentTreeSize</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
         <span class="n">size</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="k">while</span> <span class="n">size</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">:</span>
             <span class="n">size</span> <span class="o">&lt;&lt;=</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="n">size</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span>
 
-    <span class="c"># Initializes a Segment Tree.</span>
-    <span class="c"># array : Array from which the segment tree is built.</span>
-    <span class="c"># Node : Class that will be used as a segment tree node.</span>
-    <span class="c">#   It obtains the desired information from the array.</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">Node</span><span class="p">):</span>
+    <span class="c1"># Initializes a Segment Tree.
+</span>    <span class="c1"># array : Array from which the segment tree is built.
+</span>    <span class="c1"># Node : Class that will be used as a segment tree node.
+</span>    <span class="c1">#   It obtains the desired information from the array.
+</span>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array</span><span class="p">,</span> <span class="n">Node</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">SegmentTreeNode</span> <span class="o">=</span>  <span class="n">Node</span>
-        <span class="c"># Segment tree size (number of nodes)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">SegmentTree</span><span class="o">.</span><span class="n">_getSegmentTreeSize</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">))</span>
-        <span class="c"># Heap with the nodes</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">SegmentTreeNode</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)]</span>
+        <span class="c1"># Segment tree size (number of nodes)
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">SegmentTree</span><span class="o">.</span><span class="n">_getSegmentTreeSize</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">))</span>
+        <span class="c1"># Heap with the nodes
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">SegmentTreeNode</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="n">array</span>
-        <span class="c"># The tree is built</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_buildTree</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</code></pre>
-</div>
+        <span class="c1"># The tree is built
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">_buildTree</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>Como se construyen menos de <script type="math/tex">4n-1</script> nodos, el proceso anterior es <script type="math/tex">\theta(n \max(a(n), m(n)))</script> donde <script type="math/tex">a(n)</script> es la eficiencia del método <code class="highlighter-rouge">assignLeaf</code> y <script type="math/tex">m(n)</script> es la eficiencia del método <code class="highlighter-rouge">merge</code>.</p>
 
@@ -256,37 +253,36 @@ i < j %]]></script> tiene dos hijos, izquierda y derecha, que se obtienen a divi
 
 <p>El siguiente código realiza la operación descrita:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code>    <span class="c"># Get recursively a SegmentTreeNode with the information associated with the range [lo, hi].</span>
-    <span class="c"># st_index : Current Segment Tree Node. It is responsible of [left, right] range.</span>
-    <span class="k">def</span> <span class="nf">_getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">st_index</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">):</span>
-        <span class="c"># Check if the range is the current node in the tree.</span>
-        <span class="c"># In that case return it.</span>
-        <span class="k">if</span> <span class="n">left</span> <span class="o">==</span> <span class="n">lo</span> <span class="ow">and</span> <span class="n">right</span> <span class="o">==</span> <span class="n">hi</span><span class="p">:</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1"># Get recursively a SegmentTreeNode with the information associated with the range [lo, hi].
+</span>    <span class="c1"># st_index : Current Segment Tree Node. It is responsible of [left, right] range.
+</span>    <span class="k">def</span> <span class="nf">_getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">st_index</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">):</span>
+        <span class="c1"># Check if the range is the current node in the tree.
+</span>        <span class="c1"># In that case return it.
+</span>        <span class="k">if</span> <span class="n">left</span> <span class="o">==</span> <span class="n">lo</span> <span class="ow">and</span> <span class="n">right</span> <span class="o">==</span> <span class="n">hi</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span>
 
-        <span class="c"># Look for the range in the children of the current node</span>
-        <span class="c"># if it could be just there.</span>
-        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="c1"># Look for the range in the children of the current node
+</span>        <span class="c1"># if it could be just there.
+</span>        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">left</span> <span class="o">+</span> <span class="n">right</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
         <span class="k">if</span> <span class="n">lo</span> <span class="o">&gt;</span> <span class="n">mid</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getInfo</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">st_index</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">hi</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getInfo</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">st_index</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
 
-        <span class="c"># If we keep executing the method then the range is divided between</span>
-        <span class="c"># the left child and the right child of the current node. Let's get</span>
-        <span class="c"># each part of the range and merge it.</span>
-        <span class="n">left_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getInfo</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">st_index</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">mid</span><span class="p">)</span>
+        <span class="c1"># If we keep executing the method then the range is divided between
+</span>        <span class="c1"># the left child and the right child of the current node. Let's get
+</span>        <span class="c1"># each part of the range and merge it.
+</span>        <span class="n">left_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getInfo</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">st_index</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">mid</span><span class="p">)</span>
         <span class="n">right_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getInfo</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">st_index</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">SegmentTreeNode</span><span class="p">()</span>
         <span class="n">result</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left_result</span><span class="p">,</span> <span class="n">right_result</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span>
 
-    <span class="c"># Get the value associated with the range [lo, hi]</span>
-    <span class="k">def</span> <span class="nf">getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">):</span>
+    <span class="c1"># Get the value associated with the range [lo, hi]
+</span>    <span class="k">def</span> <span class="nf">getInfo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">):</span>
         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getInfo</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">getInfo</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Es claro que si el subintervalo es precisamente uno de los que se tienen almacenados en el árbol entonces el tiempo de la consulta es <script type="math/tex">O(\log n)</script>. ¿Qué sucede en cualquier otro caso?</p>
 
@@ -334,43 +330,42 @@ i < j %]]></script> (los nodos tienen subintervalos disjuntos). Cada uno de los 
 
 <p>El siguiente código realiza la operación descrita:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code>    <span class="c"># Update the segment tree.</span>
-    <span class="c"># The given value is assigned to the array's component at index place.</span>
-    <span class="c"># The segment tree is updated accordingly in a recursive way.</span>
-    <span class="c"># st_index : Current segment tree node index.</span>
-    <span class="c"># lo and hi : The current range is [lo, hi]</span>
-    <span class="c"># index : Array's component to be updated.</span>
-    <span class="c"># value : New value for the array's component to update.</span>
-    <span class="k">def</span> <span class="nf">_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">st_index</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="c"># If current node is a leaf we have ended the search.</span>
-        <span class="c"># The value information is assigned to the leaf.</span>
-        <span class="k">if</span> <span class="n">lo</span> <span class="o">==</span> <span class="n">hi</span><span class="p">:</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1"># Update the segment tree.
+</span>    <span class="c1"># The given value is assigned to the array's component at index place.
+</span>    <span class="c1"># The segment tree is updated accordingly in a recursive way.
+</span>    <span class="c1"># st_index : Current segment tree node index.
+</span>    <span class="c1"># lo and hi : The current range is [lo, hi]
+</span>    <span class="c1"># index : Array's component to be updated.
+</span>    <span class="c1"># value : New value for the array's component to update.
+</span>    <span class="k">def</span> <span class="nf">_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">st_index</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">hi</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="c1"># If current node is a leaf we have ended the search.
+</span>        <span class="c1"># The value information is assigned to the leaf.
+</span>        <span class="k">if</span> <span class="n">lo</span> <span class="o">==</span> <span class="n">hi</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span><span class="o">.</span><span class="n">assignLeaf</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
-        <span class="c"># If the current node is not a leaf, the search continues recursively</span>
-        <span class="c"># and the current node information is updated afterwards.</span>
-        <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># If the current node is not a leaf, the search continues recursively
+</span>        <span class="c1"># and the current node information is updated afterwards.
+</span>        <span class="k">else</span><span class="p">:</span>
             <span class="n">left</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">st_index</span>
             <span class="n">right</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="mi">1</span>
             <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">lo</span> <span class="o">+</span> <span class="n">hi</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-            <span class="c"># Continue the search by the correct path</span>
-            <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="p">:</span>
+            <span class="c1"># Continue the search by the correct path
+</span>            <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;=</span> <span class="n">mid</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">lo</span><span class="p">,</span> <span class="n">mid</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">hi</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-            <span class="c"># Update current node information</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">left</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">right</span><span class="p">])</span>
+            <span class="c1"># Update current node information
+</span>            <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">left</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">right</span><span class="p">])</span>
 
-    <span class="c"># Update the segment tree.</span>
-    <span class="c"># The given value is assigned to the array's</span>
-    <span class="c"># component at index place. The segment tree is updated accordingly.</span>
-    <span class="c"># index : Array's component to be updated.</span>
-    <span class="c"># value : New value for the array's component to update.</span>
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="c1"># Update the segment tree.
+</span>    <span class="c1"># The given value is assigned to the array's
+</span>    <span class="c1"># component at index place. The segment tree is updated accordingly.
+</span>    <span class="c1"># index : Array's component to be updated.
+</span>    <span class="c1"># value : New value for the array's component to update.
+</span>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_update</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>La eficiencia es claramente <script type="math/tex">\theta(m(n) \log n + a(n))</script>.</p>
 
@@ -380,29 +375,28 @@ i < j %]]></script> (los nodos tienen subintervalos disjuntos). Cada uno de los 
 
 <p>Si en determinado momento la información de un nodo a actualizar no cambia con el <code class="highlighter-rouge">merge</code> se finaliza algoritmo. Sin embargo, aunque podamos terminar la ejecución antes, la eficiencia en el peor caso sigue siendo <script type="math/tex">\theta(m(n) \log n + a(n))</script>. Se necesitaría, además, un nuevo método <code class="highlighter-rouge">isSameInfo</code> que nos indique si la información que se le pasa como argumento es la misma que la contenida por el nodo. Este método debe ser <script type="math/tex">O(m(n))</script> para que la implementación sea rentable. El siguiente código contiene esta nueva versión del algoritmo:</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code>    <span class="c"># Update the segment tree.</span>
-    <span class="c"># The given value is assigned to the array's</span>
-    <span class="c"># component at index place. The segment tree is updated accordingly.</span>
-    <span class="c"># index : Array's component to be updated.</span>
-    <span class="c"># value : New value for the array's component to update.</span>
-    <span class="k">def</span> <span class="nf">update2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="n">st_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">index</span> <span class="c"># Leaf index</span>
-        <span class="c"># Update leaf and array</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1"># Update the segment tree.
+</span>    <span class="c1"># The given value is assigned to the array's
+</span>    <span class="c1"># component at index place. The segment tree is updated accordingly.
+</span>    <span class="c1"># index : Array's component to be updated.
+</span>    <span class="c1"># value : New value for the array's component to update.
+</span>    <span class="k">def</span> <span class="nf">update2</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="n">st_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">index</span> <span class="c1"># Leaf index
+</span>        <span class="c1"># Update leaf and array
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span><span class="o">.</span><span class="n">assignLeaf</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-        <span class="c"># Update leaf ancestors</span>
-        <span class="n">st_index</span> <span class="o">=</span> <span class="n">st_index</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="c1"># Update leaf ancestors
+</span>        <span class="n">st_index</span> <span class="o">=</span> <span class="n">st_index</span> <span class="o">//</span> <span class="mi">2</span>
         <span class="k">while</span> <span class="n">st_index</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="c"># Get current info and update it with a merge from the children</span>
-            <span class="n">current_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span>
+            <span class="c1"># Get current info and update it with a merge from the children
+</span>            <span class="n">current_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">st_index</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="mi">2</span><span class="o">*</span><span class="n">st_index</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-            <span class="c"># If the info has not changed then the algorithm ends</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span><span class="o">.</span><span class="n">isSameInfo</span><span class="p">(</span><span class="n">current_info</span><span class="p">):</span>
+            <span class="c1"># If the info has not changed then the algorithm ends
+</span>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">st_index</span><span class="p">]</span><span class="o">.</span><span class="n">isSameInfo</span><span class="p">(</span><span class="n">current_info</span><span class="p">):</span>
                 <span class="k">break</span>
-            <span class="c"># Go to node's parent</span>
-            <span class="n">st_index</span> <span class="o">=</span> <span class="n">st_index</span> <span class="o">//</span> <span class="mi">2</span>
-</code></pre>
-</div>
+            <span class="c1"># Go to node's parent
+</span>            <span class="n">st_index</span> <span class="o">=</span> <span class="n">st_index</span> <span class="o">//</span> <span class="mi">2</span>
+</code></pre></div></div>
 
 <h2 id="problemas">Problemas</h2>
 
